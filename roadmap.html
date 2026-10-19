@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Roadmap — PTP Growth Strategy</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --bg: #f7f5f2; --surface: #ffffff; --surface-2: #f0ede8;
+      --border: #ddd8d0; --text: #1a1a1a; --text-mid: #4a4a4a;
+      --text-dim: #888880; --accent: #c85a1a; --accent-dim: rgba(200,90,26,0.08);
+      --steel: #2d3540;
+      --green: #2d7a4f; --green-dim: rgba(45,122,79,0.08);
+      --blue: #2d5a8a; --blue-dim: rgba(45,90,138,0.08);
+      --sans: 'Inter', system-ui, sans-serif;
+      --mono: 'DM Mono', monospace;
+      --serif: 'Playfair Display', Georgia, serif;
+    }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(247,245,242,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--steel); text-decoration: none; font-weight: 500; }
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--text-dim); padding: 6px 12px; border-radius: 4px; transition: all 0.2s; }
+    .nav-links a:hover { color: var(--text); background: var(--accent-dim); }
+    .nav-links a.active { color: var(--accent); background: var(--accent-dim); font-weight: 500; }
+    .nav-ext { display: flex; gap: 12px; }
+    .nav-ext a { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--text-dim); }
+    .nav-ext a:hover { color: var(--accent); }
+
+    .page-header { max-width: 1100px; margin: 0 auto; padding: 64px 24px 40px; }
+    .page-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .page-header h1 { font-family: var(--serif); font-size: clamp(28px, 4vw, 42px); font-weight: 700; color: var(--steel); max-width: 700px; margin-bottom: 16px; }
+    .page-header p { font-size: 16px; color: var(--text-mid); max-width: 620px; line-height: 1.7; }
+
+    .content { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
+
+    /* Timeline */
+    .timeline { position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 24px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .phase { position: relative; padding-left: 64px; margin-bottom: 56px; }
+    .phase-dot {
+      position: absolute; left: 13px; top: 4px;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--accent); display: flex; align-items: center;
+      justify-content: center; font-family: var(--mono); font-size: 10px;
+      color: #fff; font-weight: 700; z-index: 1;
+    }
+    .phase-header { display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; flex-wrap: wrap; }
+    .phase h2 { font-family: var(--serif); font-size: 22px; font-weight: 600; color: var(--steel); }
+    .phase-window {
+      font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent); padding: 3px 10px;
+      border-radius: 4px; background: var(--accent-dim);
+    }
+    .phase > p { font-size: 14px; color: var(--text-mid); max-width: 680px; line-height: 1.7; margin-bottom: 20px; }
+
+    .task-list { list-style: none; }
+    .task {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+      padding: 20px 24px; margin-bottom: 8px; transition: border-color 0.2s;
+    }
+    .task:hover { border-color: var(--accent); }
+    .task-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .task h3 { font-size: 14px; font-weight: 600; color: var(--steel); }
+    .task-tag {
+      font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 3px 8px; border-radius: 3px;
+    }
+    .tag-website { background: var(--blue-dim); color: var(--blue); }
+    .tag-social { background: rgba(124,58,237,0.08); color: #7c3aed; }
+    .tag-content { background: var(--green-dim); color: var(--green); }
+    .tag-lead { background: var(--accent-dim); color: var(--accent); }
+    .tag-brand { background: rgba(200,90,26,0.08); color: var(--accent); }
+    .task p { font-size: 13px; color: var(--text-mid); line-height: 1.6; margin-top: 8px; }
+
+    /* Ongoing section */
+    .ongoing {
+      background: var(--steel); color: #fff; border-radius: 12px;
+      padding: 40px; margin-top: 48px;
+    }
+    .ongoing h2 { font-family: var(--serif); font-size: 24px; color: #fff; margin-bottom: 16px; }
+    .ongoing p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.8; max-width: 700px; margin-bottom: 20px; }
+    .cadence-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1px; background: rgba(255,255,255,0.1); border-radius: 8px; overflow: hidden; }
+    .cadence-item { background: rgba(255,255,255,0.05); padding: 24px; }
+    .cadence-freq { font-family: var(--mono); font-size: 12px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .cadence-item ul { list-style: none; }
+    .cadence-item li { font-size: 13px; color: rgba(255,255,255,0.7); padding: 4px 0; padding-left: 16px; position: relative; }
+    .cadence-item li::before { content: '—'; position: absolute; left: 0; color: var(--accent); }
+
+    .footer { text-align: center; padding: 48px 24px; border-top: 1px solid var(--border); }
+    .footer-brand { font-family: var(--mono); font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--steel); }
+    .footer-sub { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-top: 4px; }
+
+    @media (max-width: 768px) {
+      .nav-ext { display: none; }
+      .nav-links a { padding: 6px 8px; font-size: 9px; }
+      .phase { padding-left: 48px; }
+      .timeline::before { left: 16px; }
+      .phase-dot { left: 5px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">PTP &middot; Growth Strategy</a>
+    <div class="nav-links">
+      <a href="index.html">Overview</a>
+      <a href="landscape.html">Landscape</a>
+      <a href="presence.html">Presence</a>
+      <a href="roadmap.html" class="active">Roadmap</a>
+    </div>
+    <div class="nav-ext">
+      <a href="https://pacifictoll.com" target="_blank" rel="noopener">pacifictoll.com</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <p class="page-eyebrow">Digital Roadmap</p>
+  <h1>90 days to make PTP&rsquo;s sales operation visible</h1>
+  <p>
+    This isn&rsquo;t a rebrand. PTP&rsquo;s identity is earned and established. This is
+    about making the sales side as findable and credible as the toll side already is &mdash;
+    starting with the lowest-effort, highest-impact moves.
+  </p>
+</div>
+
+<div class="content">
+
+  <div class="timeline">
+
+    <!-- Phase 1 -->
+    <div class="phase">
+      <div class="phase-dot">1</div>
+      <div class="phase-header">
+        <h2>Foundation</h2>
+        <span class="phase-window">Days 1&ndash;30</span>
+      </div>
+      <p>Get the basics right. Everything in this phase is either free or low-cost,
+        and most of it can happen in parallel.</p>
+
+      <ul class="task-list">
+        <li class="task">
+          <div class="task-head">
+            <h3>Rebuild the website</h3>
+            <span class="task-tag tag-website">Website</span>
+          </div>
+          <p>
+            The current site is informational but doesn&rsquo;t sell. Redesign to lead with
+            steel sales capabilities alongside toll processing. Clear product categories,
+            size/weight specs, real facility photography. Mobile-first, fast-loading.
+          </p>
+        </li>
+        <li class="task">
+          <div class="task-head">
+            <h3>Add lead capture</h3>
+            <span class="task-tag tag-lead">Lead Gen</span>
+          </div>
+          <p>
+            Smart contact form or chat prompt that identifies the visitor, captures the inquiry
+            (product type, quantity, timeline), and routes follow-up to the right person.
+            Filters out non-commercial retail requests automatically.
+          </p>
+        </li>
+        <li class="task">
+          <div class="task-head">
+            <h3>Claim free directory listings</h3>
+            <span class="task-tag tag-brand">Presence</span>
+          </div>
+          <p>
+            IQS Directory, Google Business Profile (update), Yelp Business. All free.
+            Add facility photos, equipment specs, service descriptions. Takes a day.
+          </p>
+        </li>
+        <li class="task">
+          <div class="task-head">
+            <h3>Set up LinkedIn company page</h3>
+            <span class="task-tag tag-social">Social</span>
+          </div>
+          <p>
+            Professional company page with facility photos, capability summary, and
+            employee connections. LinkedIn is where B2B buyers research vendors &mdash;
+            PTP needs to exist there.
+          </p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase">
+      <div class="phase-dot">2</div>
+      <div class="phase-header">
+        <h2>Content &amp; Credibility</h2>
+        <span class="phase-window">Days 30&ndash;60</span>
+      </div>
+      <p>Start producing content that shows the scale and capability of the operation.
+        Let the facility speak for itself.</p>
+
+      <ul class="task-list">
+        <li class="task">
+          <div class="task-head">
+            <h3>Facility video production</h3>
+            <span class="task-tag tag-content">Content</span>
+          </div>
+          <p>
+            Drone footage of the 11-acre facility. Walk-through of the Braner lines,
+            indoor rail, bridge cranes. ASMR-style close-ups of steel being processed &mdash;
+            slitting, blanking, coil handling. This content does the selling.
+          </p>
+        </li>
+        <li class="task">
+          <div class="task-head">
+            <h3>Photography library</h3>
+            <span class="task-tag tag-content">Content</span>
+          </div>
+          <p>
+            Professional photos of equipment, product, team, and facility.
+            These feed the website, social media, directory listings, and print ads
+            for the next 12 months.
+          </p>
+        </li>
+        <li class="task">
+          <div class="task-head">
+            <h3>Submit to paid directories</h3>
+            <span class="task-tag tag-brand">Presence</span>
+          </div>
+          <p>
+            SteelOrbis listing, Metal Center News directory and Buyer&rsquo;s Guide submission.
+            These are where purchasing managers actively search for suppliers.
+          </p>
+        </li>
+        <li class="task">
+          <div class="task-head">
+            <h3>Begin social posting cadence</h3>
+            <span class="task-tag tag-social">Social</span>
+          </div>
+          <p>
+            2&ndash;3 posts per week on LinkedIn. Mix of facility footage, product close-ups,
+            team features, and incoming material shots. Show the operation in motion.
+            Extend to Instagram for visual content.
+          </p>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase">
+      <div class="phase-dot">3</div>
+      <div class="phase-header">
+        <h2>Market Entry</h2>
+        <span class="phase-window">Days 60&ndash;90</span>
+      </div>
+      <p>With the digital foundation in place, move into the channels where deals start.</p>
+
+      <ul class="task-list">
+        <li class="task">
+          <div class="task-head">
+            <h3>MSCI membership + event registration</h3>
+            <span class="task-tag tag-brand">Presence</span>
+          </div>
+          <p>
+            Join MSCI, register for the 2027 Steel Conference. Access benchmarking data,
+            forecasting tools, and the member directory. Signal to the industry that PTP
+            is playing at the professional level.
+          </p>
+        </li>
+        <li class="task">
+          <div class="task-head">
+            <h3>Trade publication outreach</h3>
+            <span class="task-tag tag-brand">Presence</span>
+          </div>
+          <p>
+            Contact Metal Center News and Modern Metals about advertising and editorial
+            opportunities. Target the Metal Service Centers quarterly section.
+            Explore feature story angle: solar-powered facility, decades of reputation.
+          </p>
+        </li>
+        <li class="task">
+          <div class="task-head">
+            <h3>Plan the spring open house</h3>
+            <span class="task-tag tag-lead">Lead Gen</span>
+          </div>
+          <p>
+            April 2027 facility open house for existing customers, prospective buyers,
+            and industry contacts. Facility tours, capability demos, catered event.
+            Use the drone and video content to promote it.
+          </p>
+        </li>
+        <li class="task">
+          <div class="task-head">
+            <h3>Launch &ldquo;PTP Steel Sales&rdquo; digital experience</h3>
+            <span class="task-tag tag-website">Website</span>
+          </div>
+          <p>
+            Dedicated section or microsite focused entirely on product availability,
+            specifications, and quoting. Separates the sales identity from the toll
+            processing identity without splitting the brand.
+          </p>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Ongoing -->
+  <div class="ongoing">
+    <h2>After day 90: the steady state</h2>
+    <p>
+      The first 90 days build the infrastructure. After that, it&rsquo;s about consistency &mdash;
+      keeping the content flowing, the listings current, and the relationships growing.
+    </p>
+    <div class="cadence-grid">
+      <div class="cadence-item">
+        <div class="cadence-freq">Weekly</div>
+        <ul>
+          <li>2&ndash;3 social media posts</li>
+          <li>Respond to directory inquiries</li>
+          <li>Review website analytics</li>
+        </ul>
+      </div>
+      <div class="cadence-item">
+        <div class="cadence-freq">Monthly</div>
+        <ul>
+          <li>On-site video/photo session</li>
+          <li>Incoming material documentation</li>
+          <li>Lead pipeline review</li>
+        </ul>
+      </div>
+      <div class="cadence-item">
+        <div class="cadence-freq">Quarterly</div>
+        <ul>
+          <li>Publication ad placement review</li>
+          <li>Directory listing refresh</li>
+          <li>Sales/toll ratio tracking</li>
+          <li>Competitor activity check</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-brand">Pacific Toll Processing</div>
+  <div class="footer-sub">Growth Strategy &middot; Prepared by Jeff Jack</div>
+</div>
+
+</body>
+</html>
