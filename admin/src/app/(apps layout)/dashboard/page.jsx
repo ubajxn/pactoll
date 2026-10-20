@@ -1,8 +1,11 @@
 "use client"
 import Link from 'next/link';
+import Image from 'next/image';
 import { Card, Col, Container, Nav, ProgressBar, Row, Tab, Table, Badge } from 'react-bootstrap';
 import HkBadge from '@/components/@hk-badge/@hk-badge';
 import { Target, Speakerphone, TrendingUp, Calendar, ExternalLink, Ticket, AlertTriangle } from 'tabler-icons-react';
+import { useTheme } from '@/layout/theme-provider/theme-provider';
+import ptpLogo from '@/assets/img/ptp-logo.png';
 import { TARGET_ACCOUNTS, PIPELINE_STAGES, getAccountsByStage } from '@/data/targets/target-data';
 import { TICKETS, TICKET_STATUSES, TICKET_PRIORITIES, TICKET_TYPES, getTeamMember, getOpenTicketCount } from '@/data/tickets/ticket-data';
 
@@ -45,6 +48,7 @@ const PRIORITY_COLORS = { critical: 'danger', high: 'danger', med: 'warning', lo
 const STAGE_COLORS = { awareness: 'primary', engagement: 'info', consideration: 'warning', proposal: 'success', closed: 'danger' };
 
 const Dashboard = () => {
+    const { theme } = useTheme();
     return (
         <Container fluid="xxl">
             <Tab.Container defaultActiveKey="overview">
@@ -52,7 +56,10 @@ const Dashboard = () => {
                     <div className="d-flex">
                         <div className="d-flex flex-wrap justify-content-between flex-1">
                             <div className="mb-lg-0 mb-2 me-8">
-                                <h1 className="pg-title">PTP Operations Suite</h1>
+                                <div className="d-flex align-items-center gap-3 mb-1">
+                                    <Image src={ptpLogo} alt="Pacific Toll Processing" height={40} width={40} style={theme === 'light' ? { filter: 'brightness(0)' } : undefined} />
+                                    <h1 className="pg-title mb-0">Operations Suite</h1>
+                                </div>
                                 <p className="text-muted mb-0">Pacific Toll Processing &middot; Command Center</p>
                             </div>
                         </div>

@@ -16,9 +16,7 @@ import avatar2 from '@/assets/img/avatar2.jpg';
 import avatar3 from '@/assets/img/avatar3.jpg';
 import avatar10 from '@/assets/img/avatar10.jpg';
 import avatar12 from '@/assets/img/avatar12.jpg';
-import BrandSm from '@/assets/img/ptp-icon.svg';
-import ptpBrand from '@/assets/img/ptp-brand.svg';
-import ptpBrandDark from '@/assets/img/ptp-brand-dark.svg';
+import ptpLogo from '@/assets/img/ptp-logo.png';
 
 
 const CompactNav = () => {
@@ -31,9 +29,9 @@ const CompactNav = () => {
                 {/* Start Nav */}
                 <div className="nav-start-wrap flex-fill">
                     {/* Brand */}
-                    <Link href="/" className="navbar-brand d-xl-flex d-none">
-                        <Image className="brand-img img-fluid" src={BrandSm} alt="brand" />
-                        {theme === "light" ? <Image className="brand-img img-fluid logo-light" src={ptpBrand} alt="Pacific Toll Processing" /> : <Image className="brand-img img-fluid logo-dark" src={ptpBrandDark} alt="Pacific Toll Processing" />}
+                    <Link href="/" className="navbar-brand d-xl-flex d-none align-items-center gap-2">
+                        <Image src={ptpLogo} alt="Pacific Toll Processing" height={28} width={28} style={theme === 'light' ? { filter: 'brightness(0)' } : undefined} />
+                        <span className="fw-normal text-muted" style={{ fontSize: 11 }}>Operations</span>
                     </Link>
                     {/* /Brand */}
 
