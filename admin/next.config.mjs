@@ -4,12 +4,11 @@ const nextConfig = {
         return [
             {
                 source: '/',
-                destination: '/site/',
+                destination: '/site/index.html',
                 permanent: false,
             },
         ];
     },
-    trailingSlash: true,
     sassOptions: {
         quietDeps: true, // Suppresses warnings from dependencies
         api: 'modern-compiler',
