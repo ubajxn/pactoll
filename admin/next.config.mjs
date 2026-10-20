@@ -4,8 +4,8 @@ const nextConfig = {
         return [
             {
                 source: '/',
-                destination: '/dashboard',
-                permanent: true, // Set to false if the redirect is temporary
+                destination: '/site/',
+                permanent: false,
             },
         ];
     },
