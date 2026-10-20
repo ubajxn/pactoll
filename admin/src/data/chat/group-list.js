@@ -1,53 +1,46 @@
-//Images
-import avatar1 from '@/assets/img/avatar1.jpg';
-import avatar5 from '@/assets/img/avatar5.jpg';
-import avatar7 from '@/assets/img/avatar7.jpg';
-import avatar8 from '@/assets/img/avatar8.jpg';
-
 const groupList = [
     {
         id: 12,
-        group: "Developers Stage",
-        avatar: { type: "img", src: avatar1 },
-        lastChat: "Code builders & reviewers stage",
-        status: "Active 5min ago",
+        group: "PTP Operations",
+        initAvatar: { type: "init", title: "PTP", variant: "primary" },
+        lastChat: "Full team channel — operations, campaigns, pipeline updates",
+        status: "Active 1min ago",
     },
     {
         id: 13,
-        group: "Designer'ss",
-        avatar: { type: "img", src: avatar8 },
-        lastChat: "Don't know how  I did it? 😍",
-        status: "Active 7min ago",
+        group: "Sales Pipeline",
+        initAvatar: { type: "init", title: "SP", variant: "soft-success" },
+        lastChat: "Target account outreach tracking and deal progress",
+        status: "Active 5min ago",
     },
     {
         id: 14,
-        group: "Pacific Toll",
-        initAvatar: { type: "init", title: "H", variant: "primary" },
-        lastChat: "Hi, welcome to PTP Operations",
+        group: "Marketing Campaigns",
+        initAvatar: { type: "init", title: "MC", variant: "soft-warning" },
+        lastChat: "Campaign deliverables, content review, social scheduling",
         status: "Active 8min ago",
     },
     {
         id: 15,
-        group: "Support Team",
-        avatar: { type: "img", src: avatar5 },
-        lastChat: "rose@pacifictoll.com",
-        status: "Active 5min ago",
+        group: "Website & SEO",
+        initAvatar: { type: "init", title: "WS", variant: "soft-info" },
+        lastChat: "Website redesign progress, SEO updates, analytics reviews",
+        status: "Active 15min ago",
     },
     {
         id: 16,
-        group: "PTP Operations",
-        avatar: { type: "img", src: avatar7 },
-        lastChat: "Working on wonders :)",
-        status: "Active 1min ago",
+        group: "Trade Shows & Events",
+        initAvatar: { type: "init", title: "TE", variant: "soft-danger" },
+        lastChat: "FABTECH, METALCON, regional events coordination",
+        status: "Active 2hr ago",
     },
     {
         id: 17,
-        group: "Management",
-        initAvatar: { type: "init", title: "M", variant: "soft-danger" },
-        lastChat: "No calls, telepathy only",
-        status: "Active 5min ago",
+        group: "Leadership",
+        initAvatar: { type: "init", title: "L", variant: "soft-violet" },
+        lastChat: "Strategic decisions, budget approvals, quarterly reviews",
+        status: "Active 30min ago",
     },
-
 ]
 
 export default groupList

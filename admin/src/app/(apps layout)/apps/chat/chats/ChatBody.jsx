@@ -7,7 +7,6 @@ import SimpleBar from 'simplebar-react';
 import { useGlobalStateContext } from '@/context/GolobalStateProvider';
 
 //Images
-import giphy from '@/assets/img/giphy.gif'
 
 const ChatBody = () => {
     const { states } = useGlobalStateContext();
@@ -38,8 +37,8 @@ const ChatBody = () => {
                     <div className="media-body">
                         <div className="msg-box">
                             <div>
-                                <p>Cool, lets talk about it tomorrow</p>
-                                <span className="chat-time">10:52 PM</span>
+                                <p>The website redesign content audit is done. I mapped out the new IA structure with dedicated steel sales pages and the RFQ form flow.</p>
+                                <span className="chat-time">10:52 AM</span>
                             </div>
                             <div className="msg-action">
                                 <Button className="btn-icon btn-flush-dark btn-rounded flush-soft-hover no-caret">
@@ -66,8 +65,8 @@ const ChatBody = () => {
                         </div>
                         <div className="msg-box">
                             <div>
-                                <p>Images for new marketing pages have been sent</p>
-                                <span className="chat-time">10:53 PM</span>
+                                <p>Also sending over the facility photography schedule. We need shots of the slitting line, leveler, and the new cut-to-length setup.</p>
+                                <span className="chat-time">10:53 AM</span>
                             </div>
                             <div className="msg-action">
                                 <Button className="btn-icon btn-flush-dark btn-rounded flush-soft-hover no-caret">
@@ -111,7 +110,7 @@ const ChatBody = () => {
                                         </span>
                                     </div>
                                     <div className="media-body">
-                                        <p className="file-name">Website_content.xls</p>
+                                        <p className="file-name">PTP_Target_Accounts.xls</p>
                                         <p className="file-size">2,635 KB</p>
                                     </div>
                                 </div>
@@ -135,8 +134,8 @@ const ChatBody = () => {
                                         </span>
                                     </div>
                                     <div className="media-body">
-                                        <p className="file-name">ptp-assets.zip</p>
-                                        <p className="file-size">2.45 GB</p>
+                                        <p className="file-name">PTP_Campaign_Deliverables.zip</p>
+                                        <p className="file-size">148 MB</p>
                                     </div>
                                 </div>
                                 <div className="file-overlay">
@@ -181,77 +180,8 @@ const ChatBody = () => {
                     <div className="media-body">
                         <div className="msg-box">
                             <div>
-                                <p>Anyways, I am working on something that you would like to know. This project is based on angular js and you are the keeda in it. I need you help in it.</p>
-                                <span className="chat-time">11:52 PM</span>
-                            </div>
-                            <div className="msg-action">
-                                <Button className="btn-icon btn-flush-dark btn-rounded flush-soft-hover no-caret">
-                                    <span className="icon">
-                                        <span className="feather-icon">
-                                            <CornerUpRight />
-                                        </span>
-                                    </span>
-                                </Button>
-                                <Dropdown>
-                                    <Dropdown.Toggle variant="flush-dark" className="btn-icon btn-rounded flush-soft-hover dropdown-toggle no-caret">
-                                        <span className="icon">
-                                            <span className="feather-icon">
-                                                <MoreHorizontal />
-                                            </span>
-                                        </span>
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu align="end">
-                                        <Dropdown.Item href="#forward">Forward</Dropdown.Item>
-                                        <Dropdown.Item href="#copy">Copy</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className="media media-attachment received">
-                    <div className="avatar avatar-xs avatar-rounded">
-                        {states.chatState.avatar.type === "img" && <Image src={states.chatState.avatar.src} alt="user" className="avatar-img" />}
-                        {states.chatState.avatar.type === "init" && <div className={`avatar avatar-xs avatar-${states.chatState.avatar.variant} avatar-rounded`}>
-                            <span className="initial-wrap">{states.chatState.avatar.title}</span>
-                        </div>}
-                    </div>
-                    <div className="media-body msg-imgs">
-                        <div className="msg-box">
-                            <div>
-                                <Image className="d-block img-fluid" src={giphy} alt="gif" />
-                            </div>
-                            <div className="msg-action">
-                                <Button className="btn-icon btn-flush-dark btn-rounded flush-soft-hover no-caret">
-                                    <span className="icon">
-                                        <span className="feather-icon">
-                                            <CornerUpRight />
-                                        </span>
-                                    </span>
-                                </Button>
-                                <Dropdown>
-                                    <Dropdown.Toggle variant="flush-dark" className="btn-icon btn-rounded flush-soft-hover dropdown-toggle no-caret">
-                                        <span className="icon">
-                                            <span className="feather-icon">
-                                                <MoreHorizontal />
-                                            </span>
-                                        </span>
-                                    </Dropdown.Toggle>
-                                    <Dropdown.Menu align="end">
-                                        <Dropdown.Item href="#forward">Forward</Dropdown.Item>
-                                        <Dropdown.Item href="#copy">Copy</Dropdown.Item>
-                                    </Dropdown.Menu>
-                                </Dropdown>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li className="media sent">
-                    <div className="media-body">
-                        <div className="msg-box">
-                            <div>
-                                <p>Haha, this joke is hilarious. Is it what your heart feel about the salary? 😍</p>
-                                <span className="chat-time">10:52 PM</span>
+                                <p>Got it. I will set up the LinkedIn campaign targeting the automotive and construction sectors first. We have 36 automotive targets and 57 construction targets ready for outreach.</p>
+                                <span className="chat-time">11:15 AM</span>
                             </div>
                             <div className="msg-action">
                                 <Button className="btn-icon btn-flush-dark btn-rounded flush-soft-hover no-caret">
@@ -288,7 +218,77 @@ const ChatBody = () => {
                     <div className="media-body">
                         <div className="msg-box">
                             <div>
-                                <p>Hey Ben, just a reminder that you are coming for the meeting today in the conference. We are proposing a change in the client briefing.</p>
+                                <p>The directory listings for Thomas Register, MacRAE&apos;s, and SteelOrbis are all submitted. Waiting on verification for Metal Center News.</p>
+                                <span className="chat-time">1:45 PM</span>
+                            </div>
+                            <div className="msg-action">
+                                <Button className="btn-icon btn-flush-dark btn-rounded flush-soft-hover no-caret">
+                                    <span className="icon">
+                                        <span className="feather-icon">
+                                            <CornerUpRight />
+                                        </span>
+                                    </span>
+                                </Button>
+                                <Dropdown>
+                                    <Dropdown.Toggle variant="flush-dark" className="btn-icon btn-rounded flush-soft-hover dropdown-toggle no-caret">
+                                        <span className="icon">
+                                            <span className="feather-icon">
+                                                <MoreHorizontal />
+                                            </span>
+                                        </span>
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu align="end">
+                                        <Dropdown.Item href="#forward">Forward</Dropdown.Item>
+                                        <Dropdown.Item href="#copy">Copy</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li className="media sent">
+                    <div className="media-body">
+                        <div className="msg-box">
+                            <div>
+                                <p>The FABTECH booth layout is confirmed. We have the steel sample display, the ASMR video loop station, and the RFQ tablet kiosk all mapped out.</p>
+                                <span className="chat-time">2:30 PM</span>
+                            </div>
+                            <div className="msg-action">
+                                <Button className="btn-icon btn-flush-dark btn-rounded flush-soft-hover no-caret">
+                                    <span className="icon">
+                                        <span className="feather-icon">
+                                            <CornerUpRight />
+                                        </span>
+                                    </span>
+                                </Button>
+                                <Dropdown>
+                                    <Dropdown.Toggle variant="flush-dark" className="btn-icon btn-rounded flush-soft-hover dropdown-toggle no-caret">
+                                        <span className="icon">
+                                            <span className="feather-icon">
+                                                <MoreHorizontal />
+                                            </span>
+                                        </span>
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu align="end">
+                                        <Dropdown.Item href="#forward">Forward</Dropdown.Item>
+                                        <Dropdown.Item href="#copy">Copy</Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li className="media received">
+                    <div className="avatar avatar-xs avatar-rounded">
+                        {states.chatState.avatar.type === "img" && <Image src={states.chatState.avatar.src} alt="user" className="avatar-img" />}
+                        {states.chatState.avatar.type === "init" && <div className={`avatar avatar-xs avatar-${states.chatState.avatar.variant} avatar-rounded`}>
+                            <span className="initial-wrap">{states.chatState.avatar.title}</span>
+                        </div>}
+                    </div>
+                    <div className="media-body">
+                        <div className="msg-box">
+                            <div>
+                                <p>Quick update on the pipeline. Royal Truck Body and West Coast Metal Stamping both responded to our LinkedIn outreach. Moving them from awareness to engagement stage.</p>
                                 <span className="chat-time">9:20 AM</span>
                             </div>
                             <div className="msg-action">

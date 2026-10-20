@@ -22,7 +22,7 @@ const EmailBody = () => {
             <SimpleBar className="nicescroll-bar">
                 <div className="single-email-subject">
                     <div>
-                        <h4 className="fw-light">Update available for your purchased item.</h4>
+                        <h4 className="fw-light">Website RFQ form fields and campaign launch schedule</h4>
                         <Badge bg="orange" pill className="badge-sm flex-shrink-0 ms-3">updates</Badge>
                     </div>
                     <div className="email-options-wrap">
@@ -68,14 +68,14 @@ const EmailBody = () => {
                                             </div>
                                         </div>
                                         <div className="media-body">
-                                            <div>Morgan Freeman</div>
+                                            <div>Mark Proner</div>
                                             <div className="fs-7">
                                                 <span>to</span>
                                                 <Dropdown bsPrefix="mail-desc-dropdown">
                                                     <Dropdown.Toggle as="a" className="link-dark ms-1" href="#">me</Dropdown.Toggle >
                                                     <Dropdown.Menu>
                                                         <div>
-                                                            <span>from :</span><span>Morgan <span>&lt;rose@pacifictoll.com&gt;</span></span>
+                                                            <span>from :</span><span>Mark <span>&lt;mproner@pacifictoll.com&gt;</span></span>
                                                         </div>
                                                         <div>
                                                             <span>to :</span><span>Pacific Toll <span>&lt;rose@pacifictoll.com&gt;</span></span>
@@ -186,14 +186,14 @@ const EmailBody = () => {
                                             </div>
                                         </div>
                                         <div className="media-body">
-                                            <div>Morgan Freeman</div>
+                                            <div>Mark Proner</div>
                                             <div className="fs-7">
                                                 <span>to</span>
                                                 <Dropdown bsPrefix="mail-desc-dropdown">
                                                     <Dropdown.Toggle as="a" className="link-dark ms-1" href="#">me</Dropdown.Toggle>
                                                     <Dropdown.Menu>
                                                         <div>
-                                                            <span>from :</span><span>Morgan <span>&lt;rose@pacifictoll.com&gt;</span></span>
+                                                            <span>from :</span><span>Mark <span>&lt;mproner@pacifictoll.com&gt;</span></span>
                                                         </div>
                                                         <div>
                                                             <span>to :</span><span>Pacific Toll <span>&lt;rose@pacifictoll.com&gt;</span></span>
@@ -262,13 +262,13 @@ const EmailBody = () => {
                                             <div className="fs-7">
                                                 <span>to</span>
                                                 <Dropdown bsPrefix="mail-desc-dropdown">
-                                                    <Dropdown.Toggle as="a" className="link-dark ms-1" href="#">Morgan</Dropdown.Toggle>
+                                                    <Dropdown.Toggle as="a" className="link-dark ms-1" href="#">Mark</Dropdown.Toggle>
                                                     <Dropdown.Menu>
                                                         <div>
                                                             <span>from :</span><span>Admin <span>&lt;admin@pacifictoll.com&gt;</span></span>
                                                         </div>
                                                         <div>
-                                                            <span>to :</span><span>Morgan <span>&lt;rose@pacifictoll.com&gt;</span></span>
+                                                            <span>to :</span><span>Mark <span>&lt;mproner@pacifictoll.com&gt;</span></span>
                                                         </div>
                                                         <div>
                                                             <span>date :</span><span>Jan 2, 10:21 AM</span>
@@ -349,15 +349,15 @@ const EmailBody = () => {
                                                 <Form.Group>
                                                     <div className="d-flex flex-wrap">
                                                         <HkChips className="mb-2 me-2" variant="primary" src={avatar11} dismissable >
-                                                            Morgan
+                                                            Mark
                                                         </HkChips>
 
                                                         <HkChips className="mb-2 me-2" variant="primary" src={avatar12} dismissable >
-                                                            Charlie
+                                                            Jeff
                                                         </HkChips>
 
                                                         <HkChips className="mb-2 me-2" variant="primary" src={avatar13} dismissable >
-                                                            Winston
+                                                            Sales
                                                         </HkChips>
 
                                                         <Form.Control type="text" className="border-0 p-0 shadow-none flex-1 mb-2 me-2" placeholder="Add recipients" />
@@ -421,14 +421,14 @@ const EmailBody = () => {
                                             </div>
                                         </div>
                                         <div className="media-body">
-                                            <div>Morgan Freeman</div>
+                                            <div>Mark Proner</div>
                                             <div className="fs-7">
                                                 <span>to</span>
                                                 <Dropdown bsPrefix="mail-desc-dropdown">
                                                     <Dropdown.Toggle as="a" className="link-dark ms-1" href="#">me</Dropdown.Toggle >
                                                     <Dropdown.Menu>
                                                         <div>
-                                                            <span>from :</span><span>Morgan <span>&lt;rose@pacifictoll.com&gt;</span></span>
+                                                            <span>from :</span><span>Mark <span>&lt;mproner@pacifictoll.com&gt;</span></span>
                                                         </div>
                                                         <div>
                                                             <span>to :</span><span>Pacific Toll <span>&lt;rose@pacifictoll.com&gt;</span></span>
@@ -539,14 +539,14 @@ const EmailBody = () => {
                                             </div>
                                         </div>
                                         <div className="media-body">
-                                            <div>Morgan Freeman</div>
+                                            <div>Mark Proner</div>
                                             <div className="fs-7">
                                                 <span>to</span>
                                                 <Dropdown bsPrefix="mail-desc-dropdown">
                                                     <Dropdown.Toggle as="a" className="link-dark ms-1" href="#">me</Dropdown.Toggle>
                                                     <Dropdown.Menu>
                                                         <div>
-                                                            <span>from :</span><span>Morgan <span>&lt;rose@pacifictoll.com&gt;</span></span>
+                                                            <span>from :</span><span>Mark <span>&lt;mproner@pacifictoll.com&gt;</span></span>
                                                         </div>
                                                         <div>
                                                             <span>to :</span><span>Pacific Toll <span>&lt;rose@pacifictoll.com&gt;</span></span>
@@ -615,13 +615,13 @@ const EmailBody = () => {
                                             <div className="fs-7">
                                                 <span>to</span>
                                                 <Dropdown bsPrefix="mail-desc-dropdown">
-                                                    <Dropdown.Toggle as="a" className="link-dark ms-1" href="#">Morgan</Dropdown.Toggle>
+                                                    <Dropdown.Toggle as="a" className="link-dark ms-1" href="#">Mark</Dropdown.Toggle>
                                                     <Dropdown.Menu>
                                                         <div>
                                                             <span>from :</span><span>Admin <span>&lt;admin@pacifictoll.com&gt;</span></span>
                                                         </div>
                                                         <div>
-                                                            <span>to :</span><span>Morgan <span>&lt;rose@pacifictoll.com&gt;</span></span>
+                                                            <span>to :</span><span>Mark <span>&lt;mproner@pacifictoll.com&gt;</span></span>
                                                         </div>
                                                         <div>
                                                             <span>date :</span><span>Jan 2, 10:21 AM</span>
@@ -702,15 +702,15 @@ const EmailBody = () => {
                                                 <Form.Group>
                                                     <div className="d-flex flex-wrap">
                                                         <HkChips className="mb-2 me-2" variant="primary" src={avatar11} dismissable >
-                                                            Morgan
+                                                            Mark
                                                         </HkChips>
 
                                                         <HkChips className="mb-2 me-2" variant="primary" src={avatar12} dismissable >
-                                                            Charlie
+                                                            Jeff
                                                         </HkChips>
 
                                                         <HkChips className="mb-2 me-2" variant="primary" src={avatar13} dismissable >
-                                                            Winston
+                                                            Sales
                                                         </HkChips>
 
                                                         <Form.Control type="text" className="border-0 p-0 shadow-none flex-1 mb-2 me-2" placeholder="Add recipients" />

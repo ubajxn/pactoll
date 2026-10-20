@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { useState } from 'react';
 import { Badge, Button, Dropdown, Form, ListGroup } from 'react-bootstrap';
 import SimpleBar from 'simplebar-react';
@@ -7,14 +6,6 @@ import { useWindowWidth } from '@react-hook/window-size';
 import { Archive, Calendar, Check, Edit, Inbox, Layout, Mail, RefreshCw, Send, Settings, Star, Trash2 } from 'react-feather';
 import { useGlobalStateContext } from '@/context/GolobalStateProvider';
 import ComposeEmail from './ComposeEmail';
-
-//Images
-import avatar2 from '@/assets/img/avatar2.jpg';
-import avatar3 from '@/assets/img/avatar3.jpg';
-import avatar7 from '@/assets/img/avatar7.jpg';
-import avatar8 from '@/assets/img/avatar8.jpg';
-import avatar9 from '@/assets/img/avatar9.jpg';
-import avatar10 from '@/assets/img/avatar10.jpg';
 
 const InboxList = ({ show, toggleSidebar }) => {
     const { states, dispatch } = useGlobalStateContext();
@@ -140,27 +131,23 @@ const InboxList = ({ show, toggleSidebar }) => {
                         <ListGroup.Item as="li" onClick={Conversation} >
                             <div className="media">
                                 <div className="media-head">
-                                    <div className="avatar avatar-sm avatar-rounded">
-                                        <Image src={avatar2} alt="user" className="avatar-img" />
+                                    <div className="avatar avatar-sm avatar-primary avatar-rounded">
+                                        <span className="initial-wrap">MP</span>
                                     </div>
                                     <Badge bg="primary" className="badge-indicator badge-indicator-nobdr" />
                                 </div>
                                 <div className="media-body">
                                     <div>
                                         <div>
-                                            <div className="email-head">Morgan Freeman</div>
+                                            <div className="email-head">Mark Proner</div>
                                             <div>
-                                                <span className="email-star marked">
-                                                    <span className="feather-icon">
-                                                        <Star />
-                                                    </span>
-                                                </span>
+                                                <span className="email-star marked"><span className="feather-icon"><Star /></span></span>
                                                 <div className="email-time">9:30 AM</div>
                                             </div>
                                         </div>
-                                        <div className="email-subject">Creation timelines for our forth</div>
+                                        <div className="email-subject">Website RFQ form — field requirements</div>
                                         <div className="email-text">
-                                            <p>Abilities or he perfectly pretended so strangers be exquisite. Oh to anothe.</p>
+                                            <p>Jeff, the RFQ form needs gauge, width, grade, and quantity fields. Also need a dropdown for service type (slitting, leveling, CTL).</p>
                                         </div>
                                     </div>
                                 </div>
@@ -169,23 +156,23 @@ const InboxList = ({ show, toggleSidebar }) => {
                         <ListGroup.Item as="li" onClick={Conversation} >
                             <div className="media read-email">
                                 <div className="media-head">
-                                    <div className="avatar avatar-sm avatar-rounded">
-                                        <Image src={avatar9} alt="user" className="avatar-img" />
+                                    <div className="avatar avatar-sm avatar-soft-warning avatar-rounded">
+                                        <span className="initial-wrap">TR</span>
                                     </div>
                                 </div>
                                 <div className="media-body">
                                     <div>
                                         <div>
-                                            <div className="email-head">Huma Therman</div>
-                                            <Badge pill bg="warning" className="badge-sm ">updates</Badge>
+                                            <div className="email-head">Thomas Register</div>
+                                            <Badge pill bg="warning" className="badge-sm">Directory</Badge>
                                             <div>
                                                 <span className="email-star"><span className="feather-icon"><Star /></span></span>
                                                 <div className="email-time">7:51 AM</div>
                                             </div>
                                         </div>
-                                        <div className="email-subject">Proposal for 3rd quarter.</div>
+                                        <div className="email-subject">Your listing has been verified</div>
                                         <div className="email-text">
-                                            <p>Excellent so to no sincerity smallness. Removal request delight if on he we can grow together.</p>
+                                            <p>Pacific Toll Processing has been verified and is now live on Thomas Register. Your profile will appear in steel processing searches.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -195,21 +182,21 @@ const InboxList = ({ show, toggleSidebar }) => {
                             <div className="media read-email active-user">
                                 <div className="media-head">
                                     <div className="avatar avatar-sm avatar-soft-success avatar-rounded">
-                                        <span className="initial-wrap">C</span>
+                                        <span className="initial-wrap">JJ</span>
                                     </div>
                                 </div>
                                 <div className="media-body">
                                     <div>
                                         <div>
-                                            <div className="email-head">Charlie Chaplin</div>
+                                            <div className="email-head">Jeff Jack</div>
                                             <div>
                                                 <span className="email-star"><span className="feather-icon"><Star /></span></span>
                                                 <div className="email-time">Yesterday</div>
                                             </div>
                                         </div>
-                                        <div className="email-subject">Built out the PTP operations platform.</div>
+                                        <div className="email-subject">Campaign calendar synced — 32 campaigns mapped</div>
                                         <div className="email-text">
-                                            <p>So how did the classical latin become so insensive about things tiy do things you change in the world that is insane.</p>
+                                            <p>All campaigns are now in the operations suite with deliverables, KPIs, timelines, and budgets. Calendar is live.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -218,23 +205,23 @@ const InboxList = ({ show, toggleSidebar }) => {
                         <ListGroup.Item as="li" onClick={Conversation} >
                             <div className="media">
                                 <div className="media-head">
-                                    <div className="avatar avatar-sm avatar-rounded">
-                                        <Image src={avatar10} alt="user" className="avatar-img" />
+                                    <div className="avatar avatar-sm avatar-soft-info avatar-rounded">
+                                        <span className="initial-wrap">FB</span>
                                     </div>
                                     <Badge bg="primary" className="badge-indicator badge-indicator-nobdr" />
                                 </div>
                                 <div className="media-body">
                                     <div>
                                         <div>
-                                            <div className="email-head">Winston Churchil</div>
+                                            <div className="email-head">FABTECH Events</div>
                                             <div>
                                                 <span className="email-star marked"><span className="feather-icon"><Star /></span></span>
-                                                <div className="email-time">3 Mar</div>
+                                                <div className="email-time">Oct 18</div>
                                             </div>
                                         </div>
-                                        <div className="email-subject">Transactions in your account for.</div>
+                                        <div className="email-subject">Booth confirmation — FABTECH 2026</div>
                                         <div className="email-text">
-                                            <p>Letter wooded direct two men indeed income sister. Impression up admiration he by partiality is.</p>
+                                            <p>Your booth #4217 for FABTECH 2026 has been confirmed. Please review the floor plan and submit your booth design by Nov 15.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -242,74 +229,24 @@ const InboxList = ({ show, toggleSidebar }) => {
                         </ListGroup.Item>
                         <ListGroup.Item as="li" onClick={Conversation} >
                             <div className="media read-email">
-                                <div className="media-head">
-                                    <div className="avatar avatar-sm avatar-rounded">
-                                        <Image src={avatar3} alt="user" className="avatar-img" />
-                                    </div>
-                                </div>
-                                <div className="media-body">
-                                    <div>
-                                        <div>
-                                            <div className="email-head">Jaquiline Joker</div>
-                                            <Badge bg="primary" pill className="badge-sm">Team</Badge>
-                                            <div>
-                                                <span className="email-star marked"><span className="feather-icon"><Star /></span></span>
-                                                <div className="email-time">3 Mar</div>
-                                            </div>
-                                        </div>
-                                        <div className="email-subject">Launching PTP Operations Suite v1</div>
-                                        <div className="email-text">
-                                            <p>Instantly immediate his saw one day perceived. Old blushes respect but offices hearted minutes effects.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </ListGroup.Item>
-                        <ListGroup.Item as="li" onClick={Conversation} >
-                            <div className="media read-email">
-                                <div className="media-head">
-                                    <div className="avatar avatar-sm avatar-rounded">
-                                        <Image src={avatar7} alt="user" className="avatar-img" />
-                                    </div>
-                                </div>
-                                <div className="media-body">
-                                    <div>
-                                        <div>
-                                            <div className="email-head">Tom Cruz</div>
-                                            <Badge bg="success" pill className="badge-sm">support</Badge>
-                                            <div>
-                                                <span className="email-star"><span className="feather-icon"><Star /></span></span>
-                                                <div className="email-time">28 Feb</div>
-                                            </div>
-                                        </div>
-                                        <div className="email-subject">Charges and brokerage plans issue.</div>
-                                        <div className="email-text">
-                                            <p>Son read such next see the rest two. Was use extent old entire sus. Curiosity remaining own see repulsive.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </ListGroup.Item>
-                        <ListGroup.Item as="li" onClick={Conversation} >
-                            <div className="media">
                                 <div className="media-head">
                                     <div className="avatar avatar-sm avatar-soft-danger avatar-rounded">
-                                        <span className="initial-wrap">D</span>
+                                        <span className="initial-wrap">LI</span>
                                     </div>
-                                    <Badge bg="primary" className="badge-indicator badge-indicator-nobdr" />
                                 </div>
                                 <div className="media-body">
                                     <div>
                                         <div>
-                                            <div className="email-head">Danial Craig</div>
+                                            <div className="email-head">LinkedIn Sales Nav</div>
+                                            <Badge bg="primary" pill className="badge-sm">Outreach</Badge>
                                             <div>
-                                                <span className="email-star"><span className="feather-icon"><Star /></span></span>
-                                                <div className="email-time">25 Feb</div>
+                                                <span className="email-star marked"><span className="feather-icon"><Star /></span></span>
+                                                <div className="email-time">Oct 17</div>
                                             </div>
                                         </div>
-                                        <div className="email-subject">Invoice for design services.</div>
+                                        <div className="email-subject">7 new connection requests accepted</div>
                                         <div className="email-text">
-                                            <p>Supposing exquisite daughters eagerness why repulsive for. Praise turned it lovers be warmly by.</p>
+                                            <p>Your outreach campaign targeting automotive and construction sector purchasing managers has 7 new accepted connections this week.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -318,27 +255,23 @@ const InboxList = ({ show, toggleSidebar }) => {
                         <ListGroup.Item as="li" onClick={Conversation} >
                             <div className="media read-email">
                                 <div className="media-head">
-                                    <div className="avatar avatar-sm avatar-rounded">
-                                        <Image src={avatar8} alt="user" className="avatar-img" />
+                                    <div className="avatar avatar-sm avatar-soft-violet avatar-rounded">
+                                        <span className="initial-wrap">MC</span>
                                     </div>
-                                    <Badge bg="primary" className="badge-indicator badge-indicator-nobdr" />
                                 </div>
                                 <div className="media-body">
                                     <div>
                                         <div>
-                                            <div className="email-head">Katherine Jones</div>
+                                            <div className="email-head">Metal Center News</div>
+                                            <Badge bg="success" pill className="badge-sm">Publication</Badge>
                                             <div>
-                                                <span className="email-star marked">
-                                                    <span className="feather-icon">
-                                                        <Star />
-                                                    </span>
-                                                </span>
-                                                <div className="email-time">22 Feb</div>
+                                                <span className="email-star"><span className="feather-icon"><Star /></span></span>
+                                                <div className="email-time">Oct 15</div>
                                             </div>
                                         </div>
-                                        <div className="email-subject">Welcome to the PTP team.</div>
+                                        <div className="email-subject">Ad placement confirmation — Q1 2027</div>
                                         <div className="email-text">
-                                            <p>Incommode our not one ourselves residence. Shall there whose those stand she end.</p>
+                                            <p>Your half-page ad placement in Metal Center News has been confirmed for Jan/Feb and Mar/Apr 2027 issues.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -348,21 +281,21 @@ const InboxList = ({ show, toggleSidebar }) => {
                             <div className="media read-email">
                                 <div className="media-head">
                                     <div className="avatar avatar-sm avatar-success avatar-rounded">
-                                        <span className="initial-wrap">H</span>
+                                        <span className="initial-wrap">PTP</span>
                                     </div>
                                 </div>
                                 <div className="media-body">
                                     <div>
                                         <div>
-                                            <div className="email-head">Pacific Toll</div>
+                                            <div className="email-head">PTP Operations</div>
                                             <div>
                                                 <span className="email-star marked"><span className="feather-icon"><Star /></span></span>
-                                                <div className="email-time">30 Jan</div>
+                                                <div className="email-time">Oct 14</div>
                                             </div>
                                         </div>
-                                        <div className="email-subject">Dear Danial, regarding reversal of.</div>
+                                        <div className="email-subject">Weekly pipeline update — 205 target accounts</div>
                                         <div className="email-text">
-                                            <p>So unaffected partiality indulgence dispatched to of celebrated remarkably. Unfeeling are had allowance..</p>
+                                            <p>Pipeline status: 194 awareness, 7 engagement, 3 consideration, 1 proposal. Total estimated value: $3.3M.</p>
                                         </div>
                                     </div>
                                 </div>
