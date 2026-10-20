@@ -700,24 +700,24 @@
   <!-- Terms -->
   <section class="prop-section" id="terms">
     <div class="prop-section__label" contenteditable="true">05 — Terms</div>
-    <h2 class="prop-section__title" contenteditable="true">How This Works</h2>
+    <h2 class="prop-section__title" contenteditable="true">How This Could Work (W2 or 1099)</h2>
 
     <div class="terms-grid">
       <div class="term-block">
-        <h4 contenteditable="true">Setup Payment</h4>
+        <h4 contenteditable="true">Getting Started</h4>
         <p contenteditable="true">Phase 1 setup fee ($8,500) due 50% at signing, 50% at launch. Travel and media expenses billed separately at cost.</p>
       </div>
       <div class="term-block">
         <h4 contenteditable="true">Monthly Retainer</h4>
-        <p contenteditable="true">Billed on the 1st of each month, beginning the month after launch. 3-month minimum commitment, then month-to-month with 30-day written notice to cancel.</p>
+        <p contenteditable="true">Billed on the 1st of each month, beginning the month after launch. 3-month minimum commitment, then month-to-month with 30 days' written notice to cancel.</p>
       </div>
       <div class="term-block">
         <h4 contenteditable="true">Ownership</h4>
-        <p contenteditable="true">PTP owns all code, content, designs, and data produced under this engagement. Full source code access via GitHub from day one. No vendor lock-in.</p>
+        <p contenteditable="true">PTP owns all code, content, designs, and data produced under this engagement. Full source code access via GitHub from day one.</p>
       </div>
       <div class="term-block">
         <h4 contenteditable="true">Communication</h4>
-        <p contenteditable="true">Direct access via Slack, email, and scheduled calls. Response time: same business day for urgent items, 24 hours for everything else.</p>
+        <p contenteditable="true">Direct access via Slack or similar, email, and scheduled calls. Minimum of 2 days in the office per month to deliver updates on actions and analytics and capture media.</p>
       </div>
       <div class="term-block">
         <h4 contenteditable="true">Reporting</h4>
@@ -725,7 +725,7 @@
       </div>
       <div class="term-block">
         <h4 contenteditable="true">Scope Changes</h4>
-        <p contenteditable="true">New feature requests or major additions outside the retainer scope will be scoped and quoted separately. Small adjustments and content updates are included.</p>
+        <p contenteditable="true">I expect new ideas and opportunities to emerge, and we will stay nimble to adapt and seize them as they arise. We will adjust schedules and media budgets accordingly.</p>
       </div>
     </div>
   </section>
@@ -733,8 +733,8 @@
   <!-- CTA -->
   <section class="prop-cta">
     <h2 contenteditable="true">Ready to Start?</h2>
-    <p contenteditable="true">This proposal is valid for 30 days from the date above. Let's get PTP the digital presence it deserves.</p>
-    <a href="mailto:jeff@stjack.com" class="prop-cta__btn" contenteditable="true">Let's Talk →</a>
+    <p contenteditable="true">Let's get PTP the digital presence it deserves.</p>
+    <a href="mailto:jeff@stjack.com" class="prop-cta__btn" contenteditable="true">GO →</a>
   </section>
 
   <footer class="prop-footer" contenteditable="true">
@@ -744,18 +744,32 @@
   <!-- Edit toolbar -->
   <div class="edit-bar">
     <span class="edit-bar__label">Edit Mode</span>
-    <button class="edit-bar__btn" onclick="saveHTML()">Save HTML</button>
+    <button class="edit-bar__btn edit-bar__btn--primary" onclick="saveToServer()">Save (Ctrl+S)</button>
     <button class="edit-bar__btn" onclick="window.print()">Print / PDF</button>
-    <button class="edit-bar__btn edit-bar__btn--primary" onclick="downloadHTML()">Download</button>
+    <button class="edit-bar__btn" onclick="downloadHTML()">Download Clean</button>
   </div>
   <div class="edit-bar__toast" id="toast"></div>
 
   <script>
-    function toast(msg) {
+    function toast(msg, isError) {
       var t = document.getElementById('toast');
       t.textContent = msg;
+      t.style.background = isError ? '#c0392b' : 'var(--green)';
       t.classList.add('show');
-      setTimeout(function() { t.classList.remove('show'); }, 2200);
+      setTimeout(function() { t.classList.remove('show'); }, 2600);
+    }
+
+    function getEditableHTML() {
+      var clone = document.documentElement.cloneNode(true);
+      // Remove edit toolbar and toast
+      var bar = clone.querySelector('.edit-bar');
+      if (bar) bar.remove();
+      var toastEl = clone.querySelector('.edit-bar__toast');
+      if (toastEl) toastEl.remove();
+      // Remove scripts
+      clone.querySelectorAll('script').forEach(function(s) { s.remove(); });
+      // Keep contenteditable for the source file so it stays editable
+      return '<!DOCTYPE html>\n' + clone.outerHTML;
     }
 
     function getCleanHTML() {
@@ -764,12 +778,30 @@
       if (bar) bar.remove();
       var toastEl = clone.querySelector('.edit-bar__toast');
       if (toastEl) toastEl.remove();
-      var scripts = clone.querySelectorAll('script');
-      scripts.forEach(function(s) { s.remove(); });
+      clone.querySelectorAll('script').forEach(function(s) { s.remove(); });
       clone.querySelectorAll('[contenteditable]').forEach(function(el) {
         el.removeAttribute('contenteditable');
       });
       return '<!DOCTYPE html>\n' + clone.outerHTML;
+    }
+
+    function saveToServer() {
+      var html = document.querySelector('html').outerHTML;
+      fetch('/save-proposal', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ html: '<!DOCTYPE html>\n' + html })
+      })
+      .then(function(r) {
+        if (r.ok) {
+          toast('Saved to repo + admin');
+        } else {
+          throw new Error('Server error');
+        }
+      })
+      .catch(function() {
+        toast('Save failed — is save-server running?', true);
+      });
     }
 
     function downloadHTML() {
@@ -783,16 +815,13 @@
       toast('Downloaded ptp-proposal.html');
     }
 
-    function saveHTML() {
-      var html = getCleanHTML();
-      var blob = new Blob([html], { type: 'text/html' });
-      var a = document.createElement('a');
-      a.href = URL.createObjectURL(blob);
-      a.download = 'proposal.html';
-      a.click();
-      URL.revokeObjectURL(a.href);
-      toast('Saved — replace proposal.html in your repo');
-    }
+    // Ctrl+S / Cmd+S saves to server
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+        e.preventDefault();
+        saveToServer();
+      }
+    });
   </script>
 
 <!-- Quick Nav -->
