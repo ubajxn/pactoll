@@ -9,6 +9,7 @@ const nextConfig = {
             },
         ];
     },
+    trailingSlash: true,
     sassOptions: {
         quietDeps: true, // Suppresses warnings from dependencies
         api: 'modern-compiler',
