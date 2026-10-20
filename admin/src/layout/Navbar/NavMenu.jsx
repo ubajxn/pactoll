@@ -11,6 +11,11 @@ export const NavMenu = [
                 path: '/dashboard',
                 badge: <HkBadge size="sm" bg="pumpkin" soft className="ms-xl-2 ms-auto">CMO</HkBadge>
             },
+            {
+                name: 'Analytics',
+                icon: <Icons.ChartLine />,
+                path: '/apps/analytics',
+            },
         ]
     },
     {
@@ -96,6 +101,12 @@ export const NavMenu = [
     {
         group: 'Content',
         contents: [
+            {
+                name: 'Holiday Cards',
+                icon: <Icons.Gift />,
+                path: '/apps/cards',
+                grp_name: "content",
+            },
             {
                 name: 'Content Calendar',
                 icon: <Icons.CalendarEvent />,

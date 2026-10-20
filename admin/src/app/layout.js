@@ -1,4 +1,5 @@
 import { DM_Sans } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/react';
 import { GlobalStateProvider } from '@/context/GolobalStateProvider';
 import { ThemeProvider } from '@/layout/theme-provider/theme-provider';
 
@@ -29,6 +30,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           <GlobalStateProvider>
             {children}
+            <Analytics />
           </GlobalStateProvider>
         </ThemeProvider>
       </body>
