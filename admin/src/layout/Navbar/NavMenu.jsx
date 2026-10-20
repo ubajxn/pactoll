@@ -65,6 +65,12 @@ export const NavMenu = [
         group: 'Content',
         contents: [
             {
+                name: 'Content Calendar',
+                icon: <Icons.CalendarEvent />,
+                path: '/apps/content-calendar',
+                grp_name: "content",
+            },
+            {
                 name: 'Gallery',
                 icon: <Icons.Photo />,
                 path: '/apps/gallery',

@@ -51,11 +51,26 @@ const CAMPAIGNS = [
     { name: 'MSCI Steel Conference', cat: 'event', timeline: 'Mar 2027', status: 'planned', progress: 0,
       deliverables: 'Attend, network, collect competitor intel, distribute capability one-pagers',
       kpi: '25 business cards collected; 10 follow-up meetings; 3 proposals' },
+    { name: 'FFJournal Outreach', cat: 'publication', timeline: 'Nov 2026', status: 'planned', progress: 0,
+      deliverables: 'Editor intro, pitch 2 articles: solar-powered operations piece + West Coast capacity guide',
+      kpi: 'Editorial contact established; 1 article accepted for Q1 2027 issue' },
+    { name: 'Modern Metals Feature', cat: 'publication', timeline: 'Nov-Dec 2026', status: 'planned', progress: 0,
+      deliverables: 'Pitch solar/green steel angle, supply facility photos, executive interview',
+      kpi: 'Feature article or company profile in Q1-Q2 2027 issue' },
+    { name: 'The Metals Directory Listing', cat: 'publication', timeline: 'Nov 2026', status: 'planned', progress: 0,
+      deliverables: 'Complete company profile, capabilities matrix, equipment list, certifications',
+      kpi: 'Full listing live; profile views tracked; inbound leads within 60 days' },
+    { name: 'MSCI Metals Activity Report', cat: 'publication', timeline: 'Dec 2026', status: 'planned', progress: 0,
+      deliverables: 'Submit data for industry report, build relationship with MSCI editorial',
+      kpi: 'PTP cited in annual industry report; speaking opportunity at conference' },
+    { name: 'Content Syndication Pipeline', cat: 'publication', timeline: 'Jan-Jun 2027', status: 'planned', progress: 0,
+      deliverables: 'Monthly article published on PTP site, pitched to FFJournal/Modern Metals for republication',
+      kpi: '6 articles written; 3 accepted for syndication; 2 published in trade pubs' },
 ];
 
 const STATUS_COLORS = { active: 'success', ready: 'primary', planned: 'warning', complete: 'info' };
-const CAT_LABELS = { website: 'Website', listing: 'Listing', social: 'Social', content: 'Content', paid: 'Paid Media', event: 'Event' };
-const CAT_COLORS = { website: 'primary', listing: 'info', social: 'violet', content: 'pumpkin', paid: 'danger', event: 'success' };
+const CAT_LABELS = { website: 'Website', listing: 'Listing', social: 'Social', content: 'Content', paid: 'Paid Media', event: 'Event', publication: 'Trade Pub' };
+const CAT_COLORS = { website: 'primary', listing: 'info', social: 'violet', content: 'pumpkin', paid: 'danger', event: 'success', publication: 'teal' };
 
 const CampaignsPage = () => {
     const byCat = Object.keys(CAT_LABELS).map(k => ({
