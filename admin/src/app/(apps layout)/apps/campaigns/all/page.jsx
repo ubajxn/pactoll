@@ -1,84 +1,25 @@
 "use client"
-import { Card, Col, Container, ProgressBar, Row, Table } from 'react-bootstrap';
+import { useState, useMemo } from 'react';
+import Link from 'next/link';
+import { Card, Col, Container, Row, Badge } from 'react-bootstrap';
 import HkBadge from '@/components/@hk-badge/@hk-badge';
-
-const CAMPAIGNS = [
-    { name: 'Website Redesign', cat: 'website', timeline: 'Oct-Dec 2026', status: 'active', progress: 15,
-      deliverables: 'New IA, RFQ form, steel sales pages, mobile responsive, SEO foundation',
-      kpi: 'Launch by Dec 2; 500 monthly visitors by Jan; 10 RFQs/month' },
-    { name: 'Google Business Profile', cat: 'listing', timeline: 'Oct 2026', status: 'ready', progress: 0,
-      deliverables: 'Claim/verify profile, facility photos, service categories, hours',
-      kpi: 'Profile live within 48 hrs; 5-star review campaign started' },
-    { name: 'IQS Directory Listing', cat: 'listing', timeline: 'Oct 2026', status: 'ready', progress: 0,
-      deliverables: 'Free listing with equipment specs, capabilities, certifications',
-      kpi: 'Listing live; first inbound lead within 30 days' },
-    { name: 'LinkedIn Company Page', cat: 'social', timeline: 'Oct-Nov 2026', status: 'active', progress: 5,
-      deliverables: 'Page created, banner/about, 10 posts drafted, 3x/week cadence',
-      kpi: '100 followers month 1; 500 by month 3; 2% engagement rate' },
-    { name: 'Photography Library', cat: 'content', timeline: 'Oct-Nov 2026', status: 'planned', progress: 0,
-      deliverables: '100+ web-optimized facility, equipment, team, product photos',
-      kpi: 'Complete library by Nov 15; photos on website, social, directories' },
-    { name: 'Drone Video Shoot', cat: 'content', timeline: 'Nov 2026', status: 'planned', progress: 0,
-      deliverables: 'Aerial facility footage, production floor walkthroughs, Braner close-ups',
-      kpi: 'Hero video (2 min); 10 short clips; website + social deployment' },
-    { name: 'Instagram Launch', cat: 'social', timeline: 'Nov-Dec 2026', status: 'planned', progress: 0,
-      deliverables: 'Profile, Reels from facility footage, ASMR steel content, 2x/week',
-      kpi: '200 followers month 1; ASMR videos >1K views each' },
-    { name: 'SteelOrbis Listing', cat: 'listing', timeline: 'Nov 2026', status: 'planned', progress: 0,
-      deliverables: 'Paid listing with company profile, capabilities, certifications',
-      kpi: 'Listing live; 5 profile views/week within 60 days' },
-    { name: 'MSCI Membership', cat: 'event', timeline: 'Nov 2026', status: 'planned', progress: 0,
-      deliverables: 'Membership application, conference registration for March',
-      kpi: 'Application submitted; conference registered; networking list built' },
-    { name: 'Constant Contact', cat: 'social', timeline: 'Dec 2026', status: 'planned', progress: 0,
-      deliverables: 'Account setup, template design, contact list import, welcome sequence',
-      kpi: 'First newsletter Dec; 25% open rate; 300 subscribers by Feb' },
-    { name: 'ThomasNet Listing', cat: 'listing', timeline: 'Dec 2026', status: 'planned', progress: 0,
-      deliverables: 'Company profile, capabilities, certifications, product categories',
-      kpi: 'Listing live; 3 inbound leads within 90 days' },
-    { name: 'LinkedIn Ad Campaign', cat: 'paid', timeline: 'Jan 2027', status: 'planned', progress: 0,
-      deliverables: 'Targeted ads to purchasing managers at automotive/data center companies',
-      kpi: '50K impressions; 500 clicks; 10 qualified leads; <$50 CPL' },
-    { name: 'PTP Steel Sales Microsite', cat: 'website', timeline: 'Jan 2027', status: 'planned', progress: 0,
-      deliverables: 'Dedicated product catalog, quote request flow, delivery calculator',
-      kpi: '200 monthly visitors; 15 quote requests/month' },
-    { name: 'Open House Event', cat: 'event', timeline: 'Feb 2027', status: 'planned', progress: 0,
-      deliverables: 'Facility tours, Braner line demos, catered, 50-100 attendees, video recap',
-      kpi: '75 attendees; 20 qualified prospects; 5 proposals within 30 days' },
-    { name: 'Grand Tour Series', cat: 'content', timeline: 'Feb-Apr 2027', status: 'planned', progress: 0,
-      deliverables: 'Truck camera road series, 3-4 episodes, customer stops along routes',
-      kpi: '5K total views; 50 new followers; 3 customer spotlights' },
-    { name: 'MSCI Steel Conference', cat: 'event', timeline: 'Mar 2027', status: 'planned', progress: 0,
-      deliverables: 'Attend, network, collect competitor intel, distribute capability one-pagers',
-      kpi: '25 business cards collected; 10 follow-up meetings; 3 proposals' },
-    { name: 'FFJournal Outreach', cat: 'publication', timeline: 'Nov 2026', status: 'planned', progress: 0,
-      deliverables: 'Editor intro, pitch 2 articles: solar-powered operations piece + West Coast capacity guide',
-      kpi: 'Editorial contact established; 1 article accepted for Q1 2027 issue' },
-    { name: 'Modern Metals Feature', cat: 'publication', timeline: 'Nov-Dec 2026', status: 'planned', progress: 0,
-      deliverables: 'Pitch solar/green steel angle, supply facility photos, executive interview',
-      kpi: 'Feature article or company profile in Q1-Q2 2027 issue' },
-    { name: 'The Metals Directory Listing', cat: 'publication', timeline: 'Nov 2026', status: 'planned', progress: 0,
-      deliverables: 'Complete company profile, capabilities matrix, equipment list, certifications',
-      kpi: 'Full listing live; profile views tracked; inbound leads within 60 days' },
-    { name: 'MSCI Metals Activity Report', cat: 'publication', timeline: 'Dec 2026', status: 'planned', progress: 0,
-      deliverables: 'Submit data for industry report, build relationship with MSCI editorial',
-      kpi: 'PTP cited in annual industry report; speaking opportunity at conference' },
-    { name: 'Content Syndication Pipeline', cat: 'publication', timeline: 'Jan-Jun 2027', status: 'planned', progress: 0,
-      deliverables: 'Monthly article published on PTP site, pitched to FFJournal/Modern Metals for republication',
-      kpi: '6 articles written; 3 accepted for syndication; 2 published in trade pubs' },
-];
-
-const STATUS_COLORS = { active: 'success', ready: 'primary', planned: 'warning', complete: 'info' };
-const CAT_LABELS = { website: 'Website', listing: 'Listing', social: 'Social', content: 'Content', paid: 'Paid Media', event: 'Event', publication: 'Trade Pub' };
-const CAT_COLORS = { website: 'primary', listing: 'info', social: 'violet', content: 'pumpkin', paid: 'danger', event: 'success', publication: 'teal' };
+import { CAMPAIGNS, CAMPAIGN_CATEGORIES, CAMPAIGN_STATUSES, CATEGORY_COUNTS } from '@/data/campaigns/campaign-data';
 
 const CampaignsPage = () => {
-    const byCat = Object.keys(CAT_LABELS).map(k => ({
-        key: k,
-        label: CAT_LABELS[k],
-        count: CAMPAIGNS.filter(c => c.cat === k).length,
-        color: CAT_COLORS[k],
-    }));
+    const [categoryFilter, setCategoryFilter] = useState('all');
+    const [statusFilter, setStatusFilter] = useState('all');
+
+    const filtered = useMemo(() => {
+        return CAMPAIGNS.filter(c => {
+            const matchCat = categoryFilter === 'all' || c.category === categoryFilter;
+            const matchStatus = statusFilter === 'all' || c.status === statusFilter;
+            return matchCat && matchStatus;
+        });
+    }, [categoryFilter, statusFilter]);
+
+    const activeCount = CAMPAIGNS.filter(c => c.status === 'active').length;
+    const plannedCount = CAMPAIGNS.filter(c => c.status === 'planned').length;
+    const draftCount = CAMPAIGNS.filter(c => c.status === 'draft').length;
 
     return (
         <Container fluid="xxl">
@@ -86,56 +27,115 @@ const CampaignsPage = () => {
                 <div className="d-flex flex-wrap justify-content-between align-items-center">
                     <div>
                         <h1 className="pg-title">Campaign Manager</h1>
-                        <p>{CAMPAIGNS.length} campaigns across {Object.keys(CAT_LABELS).length} channels &middot; Oct 2026 &ndash; Apr 2027</p>
+                        <p className="text-muted mb-0">
+                            {CAMPAIGNS.length} campaigns across {Object.keys(CAMPAIGN_CATEGORIES).length} channels &middot; Oct 2026 &ndash; Q2 2027
+                        </p>
+                    </div>
+                    <div className="d-flex gap-2">
+                        <Badge bg="success" className="px-3 py-2">{activeCount} Active</Badge>
+                        <Badge bg="primary" className="px-3 py-2">{plannedCount} Planned</Badge>
+                        <Badge bg="secondary" className="px-3 py-2">{draftCount} Draft</Badge>
                     </div>
                 </div>
             </div>
 
             <div className="hk-pg-body">
-                {/* Channel Summary */}
+                {/* Category Filter Cards */}
                 <Row className="mb-4">
-                    {byCat.map(c => (
-                        <Col xl={2} sm={4} xs={6} key={c.key} className="mb-3">
-                            <Card className="card-border mb-0">
+                    {Object.entries(CAMPAIGN_CATEGORIES).map(([key, cat]) => (
+                        <Col key={key} className="mb-3">
+                            <Card
+                                className={`card-border mb-0 cursor-pointer ${categoryFilter === key ? 'border-primary' : ''}`}
+                                onClick={() => setCategoryFilter(categoryFilter === key ? 'all' : key)}
+                            >
                                 <Card.Body className="text-center py-3">
-                                    <div className={`fs-3 fw-bold text-${c.color}`}>{c.count}</div>
-                                    <div className="fs-8 text-muted">{c.label}</div>
+                                    <i className={`${cat.icon} fs-3 text-${cat.color} d-block mb-1`} />
+                                    <div className="fs-4 fw-bold">{CATEGORY_COUNTS[key]}</div>
+                                    <div className="fs-8 text-muted">{cat.label}</div>
                                 </Card.Body>
                             </Card>
                         </Col>
                     ))}
                 </Row>
 
+                {/* Status Filter */}
+                <div className="d-flex gap-2 mb-4">
+                    <Badge
+                        bg={statusFilter === 'all' ? 'dark' : 'soft-dark'}
+                        className={`cursor-pointer px-3 py-2 ${statusFilter === 'all' ? '' : 'text-dark'}`}
+                        onClick={() => setStatusFilter('all')}
+                    >All ({CAMPAIGNS.length})</Badge>
+                    {Object.entries(CAMPAIGN_STATUSES).map(([key, s]) => {
+                        const count = CAMPAIGNS.filter(c => c.status === key).length;
+                        if (count === 0) return null;
+                        return (
+                            <Badge
+                                key={key}
+                                bg={statusFilter === key ? s.color : `soft-${s.color}`}
+                                className={`cursor-pointer px-3 py-2 ${statusFilter === key ? '' : `text-${s.color}`}`}
+                                onClick={() => setStatusFilter(statusFilter === key ? 'all' : key)}
+                            >{s.label} ({count})</Badge>
+                        );
+                    })}
+                </div>
+
                 {/* Campaign Cards */}
                 <Row>
-                    {CAMPAIGNS.map((c, i) => (
-                        <Col xl={4} md={6} key={i} className="mb-4">
-                            <Card className="card-border mb-0 h-100">
-                                <Card.Header className="d-flex justify-content-between align-items-center">
-                                    <h6 className="mb-0">{c.name}</h6>
-                                    <HkBadge bg={STATUS_COLORS[c.status] || 'secondary'} soft size="sm" className="text-capitalize">{c.status}</HkBadge>
-                                </Card.Header>
-                                <Card.Body>
-                                    <div className="d-flex justify-content-between mb-2">
-                                        <HkBadge bg={CAT_COLORS[c.cat] || 'secondary'} soft size="sm">{CAT_LABELS[c.cat] || c.cat}</HkBadge>
-                                        <span className="fs-8 text-muted">{c.timeline}</span>
-                                    </div>
-                                    {c.progress > 0 && (
-                                        <ProgressBar variant="primary" now={c.progress} className="mb-3" style={{ height: '4px' }} />
-                                    )}
-                                    <div className="mb-2">
-                                        <div className="fw-medium fs-8 text-uppercase text-muted mb-1">Deliverables</div>
-                                        <div className="fs-7">{c.deliverables}</div>
-                                    </div>
-                                    <div>
-                                        <div className="fw-medium fs-8 text-uppercase text-muted mb-1">KPIs</div>
-                                        <div className="fs-7">{c.kpi}</div>
-                                    </div>
-                                </Card.Body>
-                            </Card>
-                        </Col>
-                    ))}
+                    {filtered.map((c) => {
+                        const cat = CAMPAIGN_CATEGORIES[c.category] || {};
+                        const status = CAMPAIGN_STATUSES[c.status] || {};
+                        return (
+                            <Col xl={4} md={6} key={c.slug} className="mb-4">
+                                <Link href={`/apps/campaigns/${c.slug}`} className="text-decoration-none">
+                                    <Card className="card-border mb-0 h-100 campaign-card" style={{ transition: 'box-shadow 0.2s' }}>
+                                        <Card.Header className="d-flex justify-content-between align-items-center bg-transparent">
+                                            <div className="d-flex align-items-center gap-2">
+                                                <span className="text-muted fs-8">#{c.number}</span>
+                                                <h6 className="mb-0 text-dark">{c.name}</h6>
+                                            </div>
+                                            <HkBadge bg={status.color || 'secondary'} soft size="sm">{status.label || c.status}</HkBadge>
+                                        </Card.Header>
+                                        <Card.Body>
+                                            <div className="d-flex justify-content-between mb-3">
+                                                <HkBadge bg={cat.color || 'secondary'} soft size="sm">
+                                                    <i className={`${cat.icon} me-1`} />{cat.label || c.category}
+                                                </HkBadge>
+                                                <span className="fs-8 text-muted">{c.timeline}</span>
+                                            </div>
+                                            <div className="d-flex justify-content-between mb-3">
+                                                <span className="fs-8 text-muted">Budget: <span className="fw-semibold text-dark">{c.budget}</span></span>
+                                                <span className="fs-8 text-muted">{c.deliverables.length} deliverables</span>
+                                            </div>
+                                            <div className="mb-2">
+                                                <div className="fw-medium fs-8 text-uppercase text-muted mb-1">Deliverables</div>
+                                                <ul className="list-unstyled mb-0">
+                                                    {c.deliverables.slice(0, 3).map((d, j) => (
+                                                        <li key={j} className="fs-7 text-muted">
+                                                            <i className="ri-checkbox-blank-circle-fill fs-9 me-1 text-primary" />{d}
+                                                        </li>
+                                                    ))}
+                                                    {c.deliverables.length > 3 && (
+                                                        <li className="fs-8 text-primary fw-medium">+{c.deliverables.length - 3} more</li>
+                                                    )}
+                                                </ul>
+                                            </div>
+                                            <div>
+                                                <div className="fw-medium fs-8 text-uppercase text-muted mb-1">KPIs</div>
+                                                <div className="fs-7 text-muted" style={{ display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>{c.kpis}</div>
+                                            </div>
+                                        </Card.Body>
+                                    </Card>
+                                </Link>
+                            </Col>
+                        );
+                    })}
                 </Row>
+
+                {filtered.length === 0 && (
+                    <Card className="border-0 shadow-sm text-center py-5">
+                        <p className="text-muted mb-0">No campaigns match the selected filters.</p>
+                    </Card>
+                )}
             </div>
         </Container>
     );

@@ -8,10 +8,11 @@ import { useTheme } from '@/layout/theme-provider/theme-provider';
 import ptpLogo from '@/assets/img/ptp-logo.png';
 import { TARGET_ACCOUNTS, PIPELINE_STAGES, getAccountsByStage } from '@/data/targets/target-data';
 import { TICKETS, TICKET_STATUSES, TICKET_PRIORITIES, TICKET_TYPES, getTeamMember, getOpenTicketCount } from '@/data/tickets/ticket-data';
+import { CAMPAIGNS, getActiveCampaignCount } from '@/data/campaigns/campaign-data';
 
 const STATS = [
     { label: 'Target Accounts', value: String(TARGET_ACCOUNTS.length), change: '+12', icon: <Target size={20} />, color: 'primary', href: '/apps/targets' },
-    { label: 'Active Campaigns', value: '32', change: '+5', icon: <Speakerphone size={20} />, color: 'success', href: '/apps/campaigns/all' },
+    { label: 'Active Campaigns', value: String(CAMPAIGNS.length), change: `${getActiveCampaignCount()} active`, icon: <Speakerphone size={20} />, color: 'success', href: '/apps/campaigns/all' },
     { label: 'Pipeline Value', value: '$4.2M', change: '+18%', icon: <TrendingUp size={20} />, color: 'warning', href: '/apps/pipeline' },
     { label: 'Active Tickets', value: String(getOpenTicketCount()), change: 'Open', icon: <Ticket size={20} />, color: 'info', href: '/apps/tickets' },
 ];
