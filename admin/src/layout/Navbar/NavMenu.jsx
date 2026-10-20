@@ -58,7 +58,7 @@ export const NavMenu = [
                 name: 'Target Accounts',
                 icon: <Icons.Target />,
                 path: '/apps/targets',
-                badge: <HkBadge size="sm" bg="primary" soft className="ms-xl-2 ms-auto">203</HkBadge>,
+                badge: <HkBadge size="sm" bg="primary" soft className="ms-xl-2 ms-auto">205</HkBadge>,
                 grp_name: "sales",
             },
             {
