@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Competitive Landscape — PTP Growth Strategy</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --bg: #f7f5f2; --surface: #ffffff; --surface-2: #f0ede8;
+      --border: #ddd8d0; --text: #1a1a1a; --text-mid: #4a4a4a;
+      --text-dim: #888880; --accent: #c85a1a; --accent-dim: rgba(200,90,26,0.08);
+      --steel: #2d3540; --steel-light: #4a5568;
+      --sans: 'Inter', system-ui, sans-serif;
+      --mono: 'DM Mono', monospace;
+      --serif: 'Playfair Display', Georgia, serif;
+    }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(247,245,242,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; padding: 0 24px; height: 56px; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--steel); text-decoration: none; font-weight: 500; }
+    .nav-links { display: flex; gap: 4px; align-items: center; }
+    .nav-links a { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--text-dim); padding: 6px 12px; border-radius: 4px; transition: all 0.2s; }
+    .nav-links a:hover { color: var(--text); background: var(--accent-dim); }
+    .nav-links a.active { color: var(--accent); background: var(--accent-dim); font-weight: 500; }
+    .nav-ext { display: flex; gap: 12px; }
+    .nav-ext a { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; color: var(--text-dim); transition: color 0.2s; }
+    .nav-ext a:hover { color: var(--accent); }
+
+    .page-header { max-width: 1100px; margin: 0 auto; padding: 64px 24px 40px; }
+    .page-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .page-header h1 { font-family: var(--serif); font-size: clamp(28px, 4vw, 42px); font-weight: 700; color: var(--steel); max-width: 650px; margin-bottom: 16px; }
+    .page-header p { font-size: 16px; color: var(--text-mid); max-width: 600px; line-height: 1.7; }
+
+    .content { max-width: 1100px; margin: 0 auto; padding: 0 24px 80px; }
+
+    .competitor-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 48px; }
+
+    .competitor {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+      transition: border-color 0.3s;
+    }
+    .competitor:hover { border-color: var(--accent); }
+
+    .comp-meta { border-right: 1px solid var(--border); padding-right: 32px; }
+    .comp-name { font-size: 18px; font-weight: 700; color: var(--steel); margin-bottom: 4px; }
+    .comp-type { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
+    .comp-stat { margin-bottom: 12px; }
+    .comp-stat-val { font-family: var(--mono); font-size: 14px; font-weight: 600; color: var(--steel); }
+    .comp-stat-label { font-family: var(--mono); font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
+
+    .comp-detail h3 { font-size: 13px; font-weight: 600; color: var(--steel); margin-bottom: 8px; }
+    .comp-detail p { font-size: 13px; color: var(--text-mid); line-height: 1.7; margin-bottom: 16px; }
+
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+    .tag { font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; background: var(--surface-2); color: var(--text-dim); }
+    .tag.gap { background: rgba(200,90,26,0.08); color: var(--accent); }
+
+    .takeaway-box {
+      background: var(--steel);
+      color: #fff;
+      border-radius: 12px;
+      padding: 40px;
+      margin-top: 48px;
+    }
+    .takeaway-box h2 { font-family: var(--serif); font-size: 24px; color: #fff; margin-bottom: 16px; }
+    .takeaway-box p { font-size: 14px; color: rgba(255,255,255,0.7); line-height: 1.8; max-width: 700px; }
+    .takeaway-list { list-style: none; margin-top: 20px; }
+    .takeaway-list li {
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      gap: 12px;
+    }
+    .takeaway-list li:last-child { border-bottom: none; }
+    .takeaway-list .bullet { color: var(--accent); font-weight: 700; flex-shrink: 0; }
+
+    .footer { text-align: center; padding: 48px 24px; border-top: 1px solid var(--border); }
+    .footer-brand { font-family: var(--mono); font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--steel); }
+    .footer-sub { font-family: var(--mono); font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-top: 4px; }
+
+    @media (max-width: 768px) {
+      .competitor { grid-template-columns: 1fr; }
+      .comp-meta { border-right: none; border-bottom: 1px solid var(--border); padding-right: 0; padding-bottom: 20px; }
+      .nav-ext { display: none; }
+      .nav-links a { padding: 6px 8px; font-size: 9px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">PTP &middot; Growth Strategy</a>
+    <div class="nav-links">
+      <a href="index.html">Overview</a>
+      <a href="landscape.html" class="active">Landscape</a>
+      <a href="presence.html">Presence</a>
+      <a href="roadmap.html">Roadmap</a>
+    </div>
+    <div class="nav-ext">
+      <a href="https://pacifictoll.com" target="_blank" rel="noopener">pacifictoll.com</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-header">
+  <p class="page-eyebrow">Competitive Landscape</p>
+  <h1>Who PTP is up against &mdash; and where you already win</h1>
+  <p>
+    These are the companies your target buyers are choosing between. Some are
+    national. Some are regional. All of them are more visible than PTP right now.
+    That&rsquo;s not about capability &mdash; it&rsquo;s about presence.
+  </p>
+</div>
+
+<div class="content">
+
+  <div class="competitor-grid">
+
+    <!-- Ryerson -->
+    <div class="competitor">
+      <div class="comp-meta">
+        <div class="comp-name">Ryerson</div>
+        <div class="comp-type">National &middot; Public (RYI)</div>
+        <div class="comp-stat">
+          <div class="comp-stat-val">100+ locations</div>
+          <div class="comp-stat-label">Nationwide footprint</div>
+        </div>
+        <div class="comp-stat">
+          <div class="comp-stat-val">$5B+ revenue</div>
+          <div class="comp-stat-label">Annual</div>
+        </div>
+      </div>
+      <div class="comp-detail">
+        <h3>What they do well</h3>
+        <p>
+          Full digital transformation &mdash; rebuilt their eCommerce platform with Orbit Media,
+          stock-list search, online ordering. Heavy LinkedIn presence with regular content.
+          MSCI member, trade show regular, industry publication advertiser.
+        </p>
+        <h3>Where PTP competes</h3>
+        <p>
+          Ryerson is a generalist. They cover everything but specialize in nothing locally.
+          PTP&rsquo;s 11-acre Carson facility with Class-1 Automotive precision lines
+          is a specialization advantage Ryerson can&rsquo;t match in SoCal.
+        </p>
+        <div class="tag-row">
+          <span class="tag">eCommerce</span>
+          <span class="tag">Content marketing</span>
+          <span class="tag">Trade shows</span>
+          <span class="tag gap">PTP gap: digital presence</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reliance Steel -->
+    <div class="competitor">
+      <div class="comp-meta">
+        <div class="comp-name">Reliance Steel</div>
+        <div class="comp-type">National &middot; Public (RS)</div>
+        <div class="comp-stat">
+          <div class="comp-stat-val">300+ locations</div>
+          <div class="comp-stat-label">Across 40 countries</div>
+        </div>
+        <div class="comp-stat">
+          <div class="comp-stat-val">$14B+ revenue</div>
+          <div class="comp-stat-label">Annual</div>
+        </div>
+      </div>
+      <div class="comp-detail">
+        <h3>What they do well</h3>
+        <p>
+          The largest metals service center in North America. Acquisition-driven growth model &mdash;
+          they buy companies like PTP. Professional investor relations, polished brand,
+          extensive directory and catalog presence.
+        </p>
+        <h3>Where PTP competes</h3>
+        <p>
+          Reliance&rsquo;s scale is also its weakness for local buyers &mdash; you&rsquo;re a number,
+          not a relationship. PTP&rsquo;s decades of direct relationships are irreplaceable.
+          And if Reliance ever comes knocking to acquire, brand visibility is the price multiplier.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Acquisition model</span>
+          <span class="tag">Directory presence</span>
+          <span class="tag">Investor visibility</span>
+          <span class="tag gap">PTP gap: catalog listings</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Genesis -->
+    <div class="competitor">
+      <div class="comp-meta">
+        <div class="comp-name">Genesis Steel</div>
+        <div class="comp-type">Regional &middot; Broker</div>
+        <div class="comp-stat">
+          <div class="comp-stat-val">West Coast</div>
+          <div class="comp-stat-label">Primary market</div>
+        </div>
+      </div>
+      <div class="comp-detail">
+        <h3>What they do well</h3>
+        <p>
+          Lean broker-style operation with low overhead. Quick quoting, flexible sourcing.
+          Active on industry platforms and directories.
+        </p>
+        <h3>Where PTP competes</h3>
+        <p>
+          Genesis moves steel but doesn&rsquo;t process it. PTP has the equipment, the facility,
+          the rail spur, the cranes. When a buyer needs processing and distribution,
+          PTP can do what Genesis has to outsource.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Broker model</span>
+          <span class="tag">Low overhead</span>
+          <span class="tag gap">PTP advantage: vertical integration</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAS Hanson -->
+    <div class="competitor">
+      <div class="comp-meta">
+        <div class="comp-name">M.A.S. Hanson</div>
+        <div class="comp-type">Regional &middot; Service Center</div>
+        <div class="comp-stat">
+          <div class="comp-stat-val">SoCal</div>
+          <div class="comp-stat-label">Primary market</div>
+        </div>
+      </div>
+      <div class="comp-detail">
+        <h3>What they do well</h3>
+        <p>
+          Regional competitor with a similar customer base. Established relationships
+          in the same geographic territory. Active in local industry networks.
+        </p>
+        <h3>Where PTP competes</h3>
+        <p>
+          Direct competitor for SoCal accounts. The differentiator is facility scale &mdash;
+          PTP&rsquo;s Braner Class-1 Automotive lines, indoor rail, and 8 overhead bridge cranes
+          are hard to match. Making that capability visible is the gap.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Regional overlap</span>
+          <span class="tag">Same accounts</span>
+          <span class="tag gap">PTP gap: visibility of capability</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Steel Co -->
+    <div class="competitor">
+      <div class="comp-meta">
+        <div class="comp-name">Steel Co</div>
+        <div class="comp-type">Regional &middot; Service Center</div>
+      </div>
+      <div class="comp-detail">
+        <h3>What they do well</h3>
+        <p>
+          Competing for specific accounts that overlap with PTP&rsquo;s target market.
+          More active digital presence and quoting infrastructure.
+        </p>
+        <h3>Where PTP competes</h3>
+        <p>
+          Account-by-account competition. The wins go to whoever is easier to find,
+          faster to quote, and more credible online. Right now that&rsquo;s not PTP &mdash;
+          not because of capability, but because of presence.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Account competition</span>
+          <span class="tag gap">PTP gap: quoting speed &amp; findability</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nucor / Worthington -->
+    <div class="competitor">
+      <div class="comp-meta">
+        <div class="comp-name">Nucor &amp; Worthington</div>
+        <div class="comp-type">National &middot; Producers</div>
+        <div class="comp-stat">
+          <div class="comp-stat-val">$30B+ / $3B+</div>
+          <div class="comp-stat-label">Revenue (respective)</div>
+        </div>
+      </div>
+      <div class="comp-detail">
+        <h3>What they do well</h3>
+        <p>
+          Mill-direct operations with massive scale. Nucor is the largest steel producer in the US.
+          Worthington specializes in value-added processing. Both have deep marketing budgets,
+          extensive trade show presence, and full digital ecosystems.
+        </p>
+        <h3>Where PTP competes</h3>
+        <p>
+          PTP doesn&rsquo;t compete head-to-head with producers &mdash; you complement them.
+          But in the eyes of a buyer sourcing processed flat-roll, PTP needs to show up in the
+          same directories and search results. These are the companies setting the bar
+          for what &ldquo;professional&rdquo; looks like in this industry.
+        </p>
+        <div class="tag-row">
+          <span class="tag">Producer-scale</span>
+          <span class="tag">Full digital ecosystem</span>
+          <span class="tag gap">PTP gap: parity of presentation</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Takeaway -->
+  <div class="takeaway-box">
+    <h2>The pattern is clear</h2>
+    <p>
+      Every competitor on this list &mdash; from the $14B public company to the regional broker &mdash;
+      is doing at least three things PTP isn&rsquo;t: maintaining an active digital presence,
+      showing up in industry directories, and attending trade events. None of them have a better
+      facility. None of them have a better reputation with the customers who know them.
+      The gap is visibility, not capability.
+    </p>
+    <ul class="takeaway-list">
+      <li><span class="bullet">&raquo;</span> PTP&rsquo;s facility and equipment outclass most regional competitors</li>
+      <li><span class="bullet">&raquo;</span> Decades of toll relationships are proof of quality no ad can buy</li>
+      <li><span class="bullet">&raquo;</span> The sales side is invisible to new buyers &mdash; that&rsquo;s the fixable problem</li>
+      <li><span class="bullet">&raquo;</span> Every competitor is findable online. PTP needs to be too.</li>
+    </ul>
+  </div>
+
+</div>
+
+<div class="footer">
+  <div class="footer-brand">Pacific Toll Processing</div>
+  <div class="footer-sub">Growth Strategy &middot; Prepared by Jeff Jack</div>
+</div>
+
+</body>
+</html>
