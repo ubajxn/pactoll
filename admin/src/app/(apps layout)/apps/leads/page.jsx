@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Table, Badge, Button, Modal, Form, InputGroup, Dropdown, Spinner, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Plus, Search, Filter, Download, Phone, Mail, Clock, ChevronDown, ChevronUp, Edit2, Trash2, ExternalLink, AlertCircle } from 'react-feather';
 import Link from 'next/link';
+import { TARGET_ACCOUNTS, SECTORS, PIPELINE_STAGES } from '@/data/targets/target-data';
 
 const STATUS_CONFIG = {
   new: { bg: 'info', label: 'New' },
@@ -12,6 +13,14 @@ const STATUS_CONFIG = {
   negotiating: { bg: 'purple', label: 'Negotiating' },
   won: { bg: 'success', label: 'Won' },
   lost: { bg: 'danger', label: 'Lost' },
+};
+
+const PIPELINE_TO_STATUS = {
+  awareness: 'new',
+  engagement: 'contacted',
+  consideration: 'quoted',
+  proposal: 'negotiating',
+  closed: 'won',
 };
 
 const SOURCE_OPTIONS = ['website', 'phone', 'email', 'referral', 'trade-show', 'linkedin', 'cold-outreach', 'other'];
@@ -38,18 +47,30 @@ export default function LeadsPage() {
   const [submitting, setSubmitting] = useState(false);
   const [formError, setFormError] = useState('');
 
-  const fetchLeads = useCallback(() => {
-    setLoading(true);
-    fetch('/api/leads')
-      .then((r) => r.json())
-      .then((data) => {
-        if (Array.isArray(data)) setLeads(data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
+  useEffect(() => {
+    const targetLeads = TARGET_ACCOUNTS.map((a, i) => ({
+      id: `target-${a.slug}`,
+      slug: a.slug,
+      name: a.contacts?.[0]?.name || a.n,
+      company: a.n,
+      email: a.contacts?.[0]?.email || '',
+      phone: a.contacts?.[0]?.phone || a.phone || '',
+      services: a.needs ? a.needs.split(',').map(s => s.trim()).slice(0, 3) : [],
+      material: a.steel || '',
+      gauge: '', width: '', quantity: '',
+      timeline: '',
+      details: a.description || '',
+      source: 'outbound',
+      status: PIPELINE_TO_STATUS[a.pipelineStage] || 'new',
+      created_at: null,
+      sector: a.cat,
+      loc: a.loc,
+      pri: a.pri,
+      isTarget: true,
+    }));
+    setLeads(targetLeads);
+    setLoading(false);
   }, []);
-
-  useEffect(() => { fetchLeads(); }, [fetchLeads]);
 
   const counts = leads.reduce((acc, l) => {
     acc[l.status] = (acc[l.status] || 0) + 1;
@@ -95,7 +116,7 @@ export default function LeadsPage() {
     }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setFormError('');
 
@@ -104,22 +125,15 @@ export default function LeadsPage() {
       return;
     }
 
-    setSubmitting(true);
-    try {
-      const res = await fetch('/api/leads', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-      if (!res.ok) throw new Error('Failed to create lead');
-      setShowAddModal(false);
-      setFormData({ ...EMPTY_LEAD });
-      fetchLeads();
-    } catch {
-      setFormError('Failed to save lead. Check your connection and try again.');
-    } finally {
-      setSubmitting(false);
-    }
+    const newLead = {
+      ...formData,
+      id: `manual-${Date.now()}`,
+      created_at: new Date().toISOString(),
+      isTarget: false,
+    };
+    setLeads(prev => [newLead, ...prev]);
+    setShowAddModal(false);
+    setFormData({ ...EMPTY_LEAD });
   };
 
   const updateStatus = async (leadId, newStatus) => {
@@ -141,7 +155,7 @@ export default function LeadsPage() {
         <div>
           <h4 className="mb-1 fw-bold">Leads Pipeline</h4>
           <p className="text-muted mb-0 fs-7">
-            {leads.length} total lead{leads.length !== 1 ? 's' : ''} from website quotes and manual entry
+            {leads.length} total lead{leads.length !== 1 ? 's' : ''} &middot; {leads.filter(l => l.isTarget).length} target accounts + inbound
           </p>
         </div>
         <Button variant="primary" onClick={() => setShowAddModal(true)}>
@@ -441,7 +455,13 @@ function LeadRow({ lead, expanded, onToggle, onStatusChange }) {
           <div className="fw-semibold">{lead.name}</div>
           {lead.email && <div className="text-muted fs-8">{lead.email}</div>}
         </td>
-        <td className="text-muted">{lead.company || '—'}</td>
+        <td>
+          {lead.isTarget && lead.slug ? (
+            <Link href={`/apps/targets/${lead.slug}`} className="text-decoration-none fw-medium" onClick={e => e.stopPropagation()}>{lead.company}</Link>
+          ) : (
+            <span className="text-muted">{lead.company || '—'}</span>
+          )}
+        </td>
         <td>
           <div className="d-flex flex-wrap gap-1">
             {services.slice(0, 2).map(s => (
