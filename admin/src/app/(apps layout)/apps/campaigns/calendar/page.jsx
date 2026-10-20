@@ -1,3 +1,5 @@
-"use client"
 import { redirect } from 'next/navigation';
-redirect('/apps/calendar');
+
+export default function CampaignCalendarPage() {
+  redirect('/apps/calendar');
+}

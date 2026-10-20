@@ -1387,10 +1387,37 @@ img { max-width: 100%; height: auto; display: block; }
 .wizard__card input:checked + .wizard__card-inner {
   border-color: var(--steel-blue);
   background: rgba(74,127,165,.06);
+  position: relative;
+}
+
+.wizard__card input:checked + .wizard__card-inner::after {
+  content: '✓';
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  background: var(--steel-blue);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
 }
 
 .wizard__card input:checked + .wizard__card-inner svg {
   color: var(--steel-blue);
+}
+
+.wizard__selection-count {
+  font-size: .8rem;
+  color: var(--text-light);
+  text-align: center;
+  margin-bottom: 8px;
+  transition: color .2s;
 }
 
 /* Review step */

@@ -17,6 +17,12 @@ export const NavMenu = [
         group: 'Operations',
         contents: [
             {
+                name: 'Leads',
+                icon: <Icons.Flame />,
+                path: '/apps/leads',
+                grp_name: "ops",
+            },
+            {
                 name: 'Target Accounts',
                 icon: <Icons.Target />,
                 path: '/apps/targets',

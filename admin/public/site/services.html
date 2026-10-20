@@ -250,10 +250,11 @@
         <form id="quote-form" action="https://formspree.io/f/xoevpyja" method="POST">
           <!-- Step 1: Service Selection -->
           <div class="wizard__step active" data-step="1">
-            <p class="wizard__step-title">What do you need?</p>
+            <p class="wizard__step-title">What can we help with?</p>
+            <p class="wizard__selection-count">Select all that apply</p>
             <div class="wizard__cards">
               <label class="wizard__card">
-                <input type="radio" name="service" value="slitting">
+                <input type="checkbox" name="service" value="slitting">
                 <span class="wizard__card-inner">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
                   <strong>Steel Slitting</strong>
@@ -261,7 +262,7 @@
                 </span>
               </label>
               <label class="wizard__card">
-                <input type="radio" name="service" value="blanking">
+                <input type="checkbox" name="service" value="blanking">
                 <span class="wizard__card-inner">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/></svg>
                   <strong>Multi-Blanking</strong>
@@ -269,7 +270,7 @@
                 </span>
               </label>
               <label class="wizard__card">
-                <input type="radio" name="service" value="leveling">
+                <input type="checkbox" name="service" value="leveling">
                 <span class="wizard__card-inner">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12h20M6 8h12M4 16h16"/></svg>
                   <strong>Precision Leveling</strong>
@@ -277,7 +278,7 @@
                 </span>
               </label>
               <label class="wizard__card">
-                <input type="radio" name="service" value="ctl">
+                <input type="checkbox" name="service" value="ctl">
                 <span class="wizard__card-inner">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M18 14l4 4-4 4"/></svg>
                   <strong>Cut-to-Length</strong>
@@ -285,7 +286,7 @@
                 </span>
               </label>
               <label class="wizard__card">
-                <input type="radio" name="service" value="steel-sales">
+                <input type="checkbox" name="service" value="steel-sales">
                 <span class="wizard__card-inner">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
                   <strong>Steel Sales</strong>
@@ -293,7 +294,7 @@
                 </span>
               </label>
               <label class="wizard__card">
-                <input type="radio" name="service" value="other">
+                <input type="checkbox" name="service" value="other">
                 <span class="wizard__card-inner">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9 9a3 3 0 115.12 2.12c-.58.59-1.62 1.13-2.12 1.88v1M12 17h.01"/></svg>
                   <strong>Something Else</strong>

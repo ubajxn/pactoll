@@ -169,6 +169,38 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var taglineEl = overlay.querySelector('.modal__tagline');
 
+  function getSelectedServices() {
+    var checked = form.querySelectorAll('[name="service"]:checked');
+    var services = [];
+    checked.forEach(function(cb) {
+      services.push(serviceLabels[cb.value] || cb.value);
+    });
+    return services;
+  }
+
+  function getSelectedServiceValues() {
+    var checked = form.querySelectorAll('[name="service"]:checked');
+    var values = [];
+    checked.forEach(function(cb) { values.push(cb.value); });
+    return values;
+  }
+
+  function updateCardStates() {
+    overlay.querySelectorAll('.wizard__card').forEach(function(card) {
+      var cb = card.querySelector('input[type="checkbox"]');
+      if (cb && cb.checked) {
+        card.classList.add('selected');
+      } else {
+        card.classList.remove('selected');
+      }
+    });
+    var count = form.querySelectorAll('[name="service"]:checked').length;
+    var counter = overlay.querySelector('.wizard__selection-count');
+    if (counter) {
+      counter.textContent = count > 0 ? count + ' selected' : 'Select all that apply';
+    }
+  }
+
   function goToStep(n) {
     currentStep = n;
     steps.forEach(function(s) { s.classList.remove('active'); });
@@ -188,8 +220,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function populateReview() {
-    var svc = form.querySelector('[name="service"]:checked');
-    document.getElementById('review-service').textContent = svc ? (serviceLabels[svc.value] || svc.value) : '—';
+    var services = getSelectedServices();
+    document.getElementById('review-service').textContent = services.length > 0 ? services.join(', ') : '—';
     var mat = form.querySelector('[name="material"]');
     document.getElementById('review-material').textContent = mat && mat.value ? (materialLabels[mat.value] || mat.value) : '—';
     document.getElementById('review-gauge').textContent = form.querySelector('[name="gauge"]').value || '—';
@@ -203,8 +235,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   function validateStep(n) {
     if (n === 1) {
-      var checked = form.querySelector('[name="service"]:checked');
-      if (!checked) {
+      var checked = form.querySelectorAll('[name="service"]:checked');
+      if (checked.length === 0) {
         var cards = overlay.querySelectorAll('.wizard__card-inner');
         cards.forEach(function(c) {
           c.style.borderColor = 'rgba(200,50,50,.4)';
@@ -238,11 +270,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (currentStep > 1) goToStep(currentStep - 1);
   });
 
-  // Auto-advance on card selection (step 1)
-  overlay.querySelectorAll('.wizard__card input').forEach(function(radio) {
-    radio.addEventListener('change', function() {
-      setTimeout(function() { goToStep(2); }, 300);
-    });
+  // Toggle card selection state on checkbox change
+  overlay.querySelectorAll('.wizard__card input[type="checkbox"]').forEach(function(cb) {
+    cb.addEventListener('change', updateCardStates);
   });
 
   function openModal(service) {
@@ -250,8 +280,9 @@ document.addEventListener('DOMContentLoaded', function() {
       taglineEl.textContent = taglines[Math.floor(Math.random() * taglines.length)];
     }
     if (service && serviceLabels[service]) {
-      var radio = form.querySelector('[name="service"][value="' + service + '"]');
-      if (radio) radio.checked = true;
+      var cb = form.querySelector('[name="service"][value="' + service + '"]');
+      if (cb) cb.checked = true;
+      updateCardStates();
       goToStep(2);
     } else {
       goToStep(1);
@@ -270,6 +301,7 @@ document.addEventListener('DOMContentLoaded', function() {
     successEl.classList.remove('show');
     wizardNav.style.display = '';
     form.reset();
+    updateCardStates();
     goToStep(1);
   }
 
@@ -308,19 +340,52 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(function() { openModal(); }, 600);
   }
 
-  // Form submission
+  // Form submission — sends to Supabase API and Formspree
   form.addEventListener('submit', function(e) {
     e.preventDefault();
     var submitBtn = form.querySelector('[type="submit"]');
     submitBtn.disabled = true;
     submitBtn.textContent = 'Sending...';
-    var data = new FormData(form);
-    fetch(form.action, {
+
+    var formData = new FormData(form);
+    var services = getSelectedServiceValues();
+
+    var payload = {
+      services: services,
+      material: formData.get('material') || null,
+      gauge: formData.get('gauge') || null,
+      width: formData.get('width') || null,
+      quantity: formData.get('quantity') || null,
+      timeline: formData.get('timeline') || null,
+      details: formData.get('details') || null,
+      name: formData.get('name'),
+      company: formData.get('company') || null,
+      email: formData.get('email'),
+      phone: formData.get('phone') || null
+    };
+
+    // Flatten services for Formspree (it doesn't handle arrays)
+    formData.delete('service');
+    formData.append('service', services.map(function(v) { return serviceLabels[v] || v; }).join(', '));
+
+    var apiUrl = '/api/leads';
+    var formspreeUrl = form.action;
+
+    // Send to both — API first, Formspree as notification backup
+    var apiPromise = fetch(apiUrl, {
       method: 'POST',
-      body: data,
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    }).catch(function() { return { ok: false }; });
+
+    var formspreePromise = fetch(formspreeUrl, {
+      method: 'POST',
+      body: formData,
       headers: { 'Accept': 'application/json' }
-    }).then(function(r) {
-      if (r.ok) {
+    }).catch(function() { return { ok: false }; });
+
+    Promise.all([apiPromise, formspreePromise]).then(function(results) {
+      if (results[0].ok || results[1].ok) {
         form.style.display = 'none';
         wizardNav.style.display = 'none';
         successEl.classList.add('show');
@@ -328,9 +393,6 @@ document.addEventListener('DOMContentLoaded', function() {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Submit Request';
       }
-    }).catch(function() {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Submit Request';
     });
   });
 
