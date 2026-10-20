@@ -398,8 +398,75 @@
       .timeline__item { grid-template-columns: 1fr; gap: 8px; }
     }
 
+    /* Editable highlights */
+    [contenteditable]:hover {
+      outline: 1px dashed rgba(74,127,165,.3);
+      outline-offset: 4px;
+    }
+    [contenteditable]:focus {
+      outline: 2px solid var(--steel-blue);
+      outline-offset: 4px;
+      background: rgba(74,127,165,.04);
+    }
+
+    /* Edit toolbar */
+    .edit-bar {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 200;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      background: var(--charcoal);
+      padding: 10px 16px;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.3);
+    }
+    .edit-bar__label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-right: 4px;
+    }
+    .edit-bar__btn {
+      background: rgba(255,255,255,.1);
+      border: none;
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .edit-bar__btn:hover { background: rgba(255,255,255,.2); }
+    .edit-bar__btn--primary { background: var(--steel-blue); }
+    .edit-bar__btn--primary:hover { background: var(--steel-blue-dark); }
+    .edit-bar__toast {
+      position: fixed;
+      bottom: 80px;
+      right: 24px;
+      background: var(--green);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 13px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all .3s;
+      pointer-events: none;
+      z-index: 201;
+    }
+    .edit-bar__toast.show { opacity: 1; transform: translateY(0); }
+
     @media print {
-      .prop-nav { display: none; }
+      .prop-nav, .edit-bar, .edit-bar__toast { display: none; }
+      [contenteditable] { outline: none !important; background: none !important; }
       .cover { min-height: auto; padding: 80px 40px; }
       .prop-section { padding: 40px 0; }
       body { background: #fff; }
@@ -411,10 +478,10 @@
   <!-- Cover -->
   <section class="cover">
     <div class="cover__inner">
-      <div class="cover__label">Proposal</div>
-      <h1 class="cover__title">Digital Growth <em>&amp; Marketing</em><br>Operations Partner</h1>
-      <p class="cover__sub">A fractional CMO engagement to build, launch, and run Pacific Toll Processing's digital presence, sales pipeline, and growth infrastructure.</p>
-      <div class="cover__meta">
+      <div class="cover__label" contenteditable="true">Proposal</div>
+      <h1 class="cover__title" contenteditable="true">Digital Growth <em>&amp; Marketing</em><br>Operations Partner</h1>
+      <p class="cover__sub" contenteditable="true">A fractional CMO engagement to build, launch, and run Pacific Toll Processing's digital presence, sales pipeline, and growth infrastructure.</p>
+      <div class="cover__meta" contenteditable="true">
         <span>Prepared October 2026</span>
         <span>·</span>
         <span>Confidential</span>
@@ -435,58 +502,58 @@
 
   <!-- Situation -->
   <section class="prop-section" id="situation">
-    <div class="prop-section__label">01 — The Situation</div>
-    <h2 class="prop-section__title">PTP Has the Steel. It Needs the Story.</h2>
-    <p>Pacific Toll Processing has 35+ years of operational excellence, a 100,000+ sq ft solar-powered facility, and the capacity to serve the entire West Coast. What it doesn't have is a modern digital presence that matches the quality of its work.</p>
-    <p>The current website is outdated. There's no CRM. No lead pipeline. No competitive intelligence system. No content strategy. No SEO presence strong enough for AI-driven search to surface PTP when buyers ask "who can slit my coils in Southern California?"</p>
-    <p>This proposal covers a full digital build-out and ongoing fractional CMO engagement to fix that — not with a one-time project that gets handed off and ignored, but with an ongoing partnership that keeps the engine running.</p>
+    <div class="prop-section__label" contenteditable="true">01 — The Situation</div>
+    <h2 class="prop-section__title" contenteditable="true">PTP Has the Steel. It Needs the Story.</h2>
+    <p contenteditable="true">Pacific Toll Processing has 35+ years of operational excellence, a 100,000+ sq ft solar-powered facility, and the capacity to serve the entire West Coast. What it doesn't have is a modern digital presence that matches the quality of its work.</p>
+    <p contenteditable="true">The current website is outdated. There's no CRM. No lead pipeline. No competitive intelligence system. No content strategy. No SEO presence strong enough for AI-driven search to surface PTP when buyers ask "who can slit my coils in Southern California?"</p>
+    <p contenteditable="true">This proposal covers a full digital build-out and ongoing fractional CMO engagement to fix that — not with a one-time project that gets handed off and ignored, but with an ongoing partnership that keeps the engine running.</p>
   </section>
 
   <!-- What's Been Built -->
   <section class="prop-section" id="deliverables">
-    <div class="prop-section__label">02 — Deliverables</div>
-    <h2 class="prop-section__title">What You're Getting</h2>
-    <p>This isn't a pitch deck. Everything listed below has already been built or is actively being developed. You can see it, click through it, and use it today.</p>
+    <div class="prop-section__label" contenteditable="true">02 — Deliverables</div>
+    <h2 class="prop-section__title" contenteditable="true">What You're Getting</h2>
+    <p contenteditable="true">This isn't a pitch deck. Everything listed below has already been built or is actively being developed. You can see it, click through it, and use it today.</p>
 
     <div class="deliverables">
       <div class="deliverable">
-        <span class="deliverable__status deliverable__status--done">Complete</span>
-        <h4>Customer-Facing Website</h4>
-        <p>10-page website with dedicated pages for services, steel sales, equipment, about, and contact. Mobile-responsive, SEO-optimized with structured data, 4-step quote wizard, 40 rotating taglines, cookie consent, full legal pages.</p>
+        <span class="deliverable__status deliverable__status--done" contenteditable="true">Complete</span>
+        <h4 contenteditable="true">Customer-Facing Website</h4>
+        <p contenteditable="true">10-page website with dedicated pages for services, steel sales, equipment, about, and contact. Mobile-responsive, SEO-optimized with structured data, 4-step quote wizard, 40 rotating taglines, cookie consent, full legal pages.</p>
       </div>
       <div class="deliverable">
-        <span class="deliverable__status deliverable__status--done">Complete</span>
-        <h4>SEO & AI Discoverability</h4>
-        <p>JSON-LD structured data for LocalBusiness, Services, and Products. Sitemap, robots.txt, meta keywords, canonical URLs. Built so AI search engines return PTP as THE source for West Coast steel processing.</p>
+        <span class="deliverable__status deliverable__status--done" contenteditable="true">Complete</span>
+        <h4 contenteditable="true">SEO & AI Discoverability</h4>
+        <p contenteditable="true">JSON-LD structured data for LocalBusiness, Services, and Products. Sitemap, robots.txt, meta keywords, canonical URLs. Built so AI search engines return PTP as THE source for West Coast steel processing.</p>
       </div>
       <div class="deliverable">
-        <span class="deliverable__status deliverable__status--done">Complete</span>
-        <h4>Growth Strategy Deck</h4>
-        <p>Interactive presentation suite: CMO Operations dashboard, competitive landscape analysis, industry presence mapping, and digital roadmap. Used for internal alignment and executive presentations.</p>
+        <span class="deliverable__status deliverable__status--done" contenteditable="true">Complete</span>
+        <h4 contenteditable="true">Growth Strategy Deck</h4>
+        <p contenteditable="true">Interactive presentation suite: CMO Operations dashboard, competitive landscape analysis, industry presence mapping, and digital roadmap. Used for internal alignment and executive presentations.</p>
       </div>
       <div class="deliverable">
-        <span class="deliverable__status deliverable__status--active">In Progress</span>
-        <h4>Admin & CRM Dashboard</h4>
-        <p>Next.js admin panel with contact management, sales pipeline, target account tracking, campaign management, competitive intelligence, invoicing, calendar, and internal communications.</p>
+        <span class="deliverable__status deliverable__status--active" contenteditable="true">In Progress</span>
+        <h4 contenteditable="true">Admin & CRM Dashboard</h4>
+        <p contenteditable="true">Next.js admin panel with contact management, sales pipeline, target account tracking, campaign management, competitive intelligence, invoicing, calendar, and internal communications.</p>
       </div>
       <div class="deliverable">
-        <span class="deliverable__status deliverable__status--done">Complete</span>
-        <h4>Lead Capture System</h4>
-        <p>Multi-step quote wizard that qualifies leads by collecting service type, material specs, quantity, timeline, and contact info — all feeding to a central admin inbox via Formspree.</p>
+        <span class="deliverable__status deliverable__status--done" contenteditable="true">Complete</span>
+        <h4 contenteditable="true">Lead Capture System</h4>
+        <p contenteditable="true">Multi-step quote wizard that qualifies leads by collecting service type, material specs, quantity, timeline, and contact info — all feeding to a central admin inbox via Formspree.</p>
       </div>
       <div class="deliverable">
-        <span class="deliverable__status deliverable__status--planned">Ongoing</span>
-        <h4>Content & SEO Strategy</h4>
-        <p>Monthly content planning, keyword targeting for steel processing terms, blog/resource pages, Google Business optimization, and industry directory listings to dominate local and AI search.</p>
+        <span class="deliverable__status deliverable__status--planned" contenteditable="true">Ongoing</span>
+        <h4 contenteditable="true">Content & SEO Strategy</h4>
+        <p contenteditable="true">Monthly content planning, keyword targeting for steel processing terms, blog/resource pages, Google Business optimization, and industry directory listings to dominate local and AI search.</p>
       </div>
     </div>
   </section>
 
   <!-- Pricing -->
   <section class="prop-section" id="pricing">
-    <div class="prop-section__label">03 — Investment</div>
-    <h2 class="prop-section__title">What This Costs</h2>
-    <p>This engagement is structured as a fractional CMO retainer — not a one-time project fee. You're hiring a strategic partner, not a contractor who disappears after launch.</p>
+    <div class="prop-section__label" contenteditable="true">03 — Investment</div>
+    <h2 class="prop-section__title" contenteditable="true">What This Costs</h2>
+    <p contenteditable="true">This engagement is structured as a fractional CMO retainer — not a one-time project fee. You're hiring a strategic partner, not a contractor who disappears after launch.</p>
 
     <div class="pricing">
 
@@ -494,15 +561,15 @@
       <div class="pricing-tier">
         <div class="pricing-tier__header">
           <div>
-            <h3 class="pricing-tier__name">Phase 1 — Build & Launch</h3>
+            <h3 class="pricing-tier__name" contenteditable="true">Phase 1 — Build & Launch</h3>
           </div>
           <div class="pricing-tier__price">
-            <div class="pricing-tier__amount">$8,500</div>
-            <div class="pricing-tier__period">one-time setup</div>
+            <div class="pricing-tier__amount" contenteditable="true">$8,500</div>
+            <div class="pricing-tier__period" contenteditable="true">one-time setup</div>
           </div>
         </div>
-        <p class="pricing-tier__desc">Everything needed to go live: the website, the admin platform, the strategy deck, SEO foundation, and lead capture system. This is the base infrastructure.</p>
-        <ul class="pricing-tier__includes">
+        <p class="pricing-tier__desc" contenteditable="true">Everything needed to go live: the website, the admin platform, the strategy deck, SEO foundation, and lead capture system. This is the base infrastructure.</p>
+        <ul class="pricing-tier__includes" contenteditable="true">
           <li>10-page customer website, deployed</li>
           <li>Admin dashboard setup & configuration</li>
           <li>Growth strategy presentation suite</li>
@@ -518,15 +585,15 @@
       <div class="pricing-tier pricing-tier--recommended">
         <div class="pricing-tier__header">
           <div>
-            <h3 class="pricing-tier__name">Phase 2 — Fractional CMO Retainer</h3>
+            <h3 class="pricing-tier__name" contenteditable="true">Phase 2 — Fractional CMO Retainer</h3>
           </div>
           <div class="pricing-tier__price">
-            <div class="pricing-tier__amount">$3,500</div>
-            <div class="pricing-tier__period">per month</div>
+            <div class="pricing-tier__amount" contenteditable="true">$3,500</div>
+            <div class="pricing-tier__period" contenteditable="true">per month</div>
           </div>
         </div>
-        <p class="pricing-tier__desc">Ongoing strategic marketing leadership, content creation, platform management, and growth execution. This is where the compounding value happens — the digital engine that keeps running and improving.</p>
-        <ul class="pricing-tier__includes">
+        <p class="pricing-tier__desc" contenteditable="true">Ongoing strategic marketing leadership, content creation, platform management, and growth execution. This is where the compounding value happens — the digital engine that keeps running and improving.</p>
+        <ul class="pricing-tier__includes" contenteditable="true">
           <li>Monthly content strategy & creation</li>
           <li>Website updates & feature development</li>
           <li>SEO monitoring & optimization</li>
@@ -544,15 +611,15 @@
       <div class="pricing-tier">
         <div class="pricing-tier__header">
           <div>
-            <h3 class="pricing-tier__name">Alternative — Maintenance & Support</h3>
+            <h3 class="pricing-tier__name" contenteditable="true">Alternative — Maintenance & Support</h3>
           </div>
           <div class="pricing-tier__price">
-            <div class="pricing-tier__amount">$1,500</div>
-            <div class="pricing-tier__period">per month</div>
+            <div class="pricing-tier__amount" contenteditable="true">$1,500</div>
+            <div class="pricing-tier__period" contenteditable="true">per month</div>
           </div>
         </div>
-        <p class="pricing-tier__desc">For teams that want to keep the lights on but handle strategy internally. Website hosting, security updates, basic content updates, and monthly check-ins.</p>
-        <ul class="pricing-tier__includes">
+        <p class="pricing-tier__desc" contenteditable="true">For teams that want to keep the lights on but handle strategy internally. Website hosting, security updates, basic content updates, and monthly check-ins.</p>
+        <ul class="pricing-tier__includes" contenteditable="true">
           <li>Website hosting & maintenance</li>
           <li>Security updates & monitoring</li>
           <li>Up to 4 content/page updates per month</li>
@@ -566,20 +633,20 @@
 
     <!-- Value Comparison -->
     <div class="value-box">
-      <h3>For Context</h3>
-      <p>A full-time CMO costs $180K-$280K/year plus benefits. A mid-tier marketing agency charges $8K-$15K/month with no strategic ownership. This engagement delivers executive-level marketing leadership, custom-built technology, and hands-on execution at a fraction of either.</p>
+      <h3 contenteditable="true">For Context</h3>
+      <p contenteditable="true">A full-time CMO costs $180K-$280K/year plus benefits. A mid-tier marketing agency charges $8K-$15K/month with no strategic ownership. This engagement delivers executive-level marketing leadership, custom-built technology, and hands-on execution at a fraction of either.</p>
       <div class="value-grid">
         <div class="value-stat">
-          <div class="value-stat__num">~$42K</div>
-          <div class="value-stat__label">Year 1 Total (Build + 10mo retainer)</div>
+          <div class="value-stat__num" contenteditable="true">~$42K</div>
+          <div class="value-stat__label" contenteditable="true">Year 1 Total (Build + 10mo retainer)</div>
         </div>
         <div class="value-stat">
-          <div class="value-stat__num">$200K+</div>
-          <div class="value-stat__label">Full-Time CMO Annual Cost</div>
+          <div class="value-stat__num" contenteditable="true">$200K+</div>
+          <div class="value-stat__label" contenteditable="true">Full-Time CMO Annual Cost</div>
         </div>
         <div class="value-stat">
-          <div class="value-stat__num">$96K+</div>
-          <div class="value-stat__label">Agency Annual Cost</div>
+          <div class="value-stat__num" contenteditable="true">$96K+</div>
+          <div class="value-stat__label" contenteditable="true">Agency Annual Cost</div>
         </div>
       </div>
     </div>
@@ -587,37 +654,37 @@
 
   <!-- Timeline -->
   <section class="prop-section" id="timeline">
-    <div class="prop-section__label">04 — Timeline</div>
-    <h2 class="prop-section__title">How This Rolls Out</h2>
-    <p>The build is mostly done. What remains is deployment, refinement, and the switch to ongoing operations.</p>
+    <div class="prop-section__label" contenteditable="true">04 — Timeline</div>
+    <h2 class="prop-section__title" contenteditable="true">How This Rolls Out</h2>
+    <p contenteditable="true">The build is mostly done. What remains is deployment, refinement, and the switch to ongoing operations.</p>
 
     <div class="timeline">
       <div class="timeline__item">
-        <div class="timeline__phase">Week 1-2</div>
+        <div class="timeline__phase" contenteditable="true">Week 1-2</div>
         <div class="timeline__content">
-          <h4>Deploy & Go Live</h4>
-          <p>Domain setup, hosting configuration, website deployment, Google Business Profile, analytics integration. Site is live and indexed.</p>
+          <h4 contenteditable="true">Deploy & Go Live</h4>
+          <p contenteditable="true">Domain setup, hosting configuration, website deployment, Google Business Profile, analytics integration. Site is live and indexed.</p>
         </div>
       </div>
       <div class="timeline__item">
-        <div class="timeline__phase">Week 3-4</div>
+        <div class="timeline__phase" contenteditable="true">Week 3-4</div>
         <div class="timeline__content">
-          <h4>Admin & Pipeline Setup</h4>
-          <p>Configure admin dashboard with PTP's real contacts, set up pipeline stages, import target accounts, connect lead capture to admin.</p>
+          <h4 contenteditable="true">Admin & Pipeline Setup</h4>
+          <p contenteditable="true">Configure admin dashboard with PTP's real contacts, set up pipeline stages, import target accounts, connect lead capture to admin.</p>
         </div>
       </div>
       <div class="timeline__item">
-        <div class="timeline__phase">Month 2</div>
+        <div class="timeline__phase" contenteditable="true">Month 2</div>
         <div class="timeline__content">
-          <h4>Content & SEO Push</h4>
-          <p>First round of SEO-optimized content, industry directory submissions, Google Business posts, initial keyword rankings baseline.</p>
+          <h4 contenteditable="true">Content & SEO Push</h4>
+          <p contenteditable="true">First round of SEO-optimized content, industry directory submissions, Google Business posts, initial keyword rankings baseline.</p>
         </div>
       </div>
       <div class="timeline__item">
-        <div class="timeline__phase">Month 3+</div>
+        <div class="timeline__phase" contenteditable="true">Month 3+</div>
         <div class="timeline__content">
-          <h4>Ongoing Growth Operations</h4>
-          <p>Monthly content cadence, pipeline management, competitive updates, campaign execution, performance reporting, and continuous platform improvement.</p>
+          <h4 contenteditable="true">Ongoing Growth Operations</h4>
+          <p contenteditable="true">Monthly content cadence, pipeline management, competitive updates, campaign execution, performance reporting, and continuous platform improvement.</p>
         </div>
       </div>
     </div>
@@ -625,47 +692,101 @@
 
   <!-- Terms -->
   <section class="prop-section" id="terms">
-    <div class="prop-section__label">05 — Terms</div>
-    <h2 class="prop-section__title">How This Works</h2>
+    <div class="prop-section__label" contenteditable="true">05 — Terms</div>
+    <h2 class="prop-section__title" contenteditable="true">How This Works</h2>
 
     <div class="terms-grid">
       <div class="term-block">
-        <h4>Setup Payment</h4>
-        <p>Phase 1 build fee ($8,500) due 50% at signing, 50% at launch. Covers all deliverables listed above.</p>
+        <h4 contenteditable="true">Setup Payment</h4>
+        <p contenteditable="true">Phase 1 build fee ($8,500) due 50% at signing, 50% at launch. Covers all deliverables listed above.</p>
       </div>
       <div class="term-block">
-        <h4>Monthly Retainer</h4>
-        <p>Billed on the 1st of each month, beginning the month after launch. 3-month minimum commitment, then month-to-month with 30-day written notice to cancel.</p>
+        <h4 contenteditable="true">Monthly Retainer</h4>
+        <p contenteditable="true">Billed on the 1st of each month, beginning the month after launch. 3-month minimum commitment, then month-to-month with 30-day written notice to cancel.</p>
       </div>
       <div class="term-block">
-        <h4>Ownership</h4>
-        <p>PTP owns all code, content, designs, and data produced under this engagement. Full source code access via GitHub from day one. No vendor lock-in.</p>
+        <h4 contenteditable="true">Ownership</h4>
+        <p contenteditable="true">PTP owns all code, content, designs, and data produced under this engagement. Full source code access via GitHub from day one. No vendor lock-in.</p>
       </div>
       <div class="term-block">
-        <h4>Communication</h4>
-        <p>Direct access via Slack, email, and scheduled calls. Response time: same business day for urgent items, 24 hours for everything else.</p>
+        <h4 contenteditable="true">Communication</h4>
+        <p contenteditable="true">Direct access via Slack, email, and scheduled calls. Response time: same business day for urgent items, 24 hours for everything else.</p>
       </div>
       <div class="term-block">
-        <h4>Reporting</h4>
-        <p>Monthly written report covering: website traffic & SEO rankings, lead volume & quality, pipeline status, content performance, and next month's priorities.</p>
+        <h4 contenteditable="true">Reporting</h4>
+        <p contenteditable="true">Monthly written report covering: website traffic & SEO rankings, lead volume & quality, pipeline status, content performance, and next month's priorities.</p>
       </div>
       <div class="term-block">
-        <h4>Scope Changes</h4>
-        <p>New feature requests or major additions outside the retainer scope will be scoped and quoted separately. Small adjustments and content updates are included.</p>
+        <h4 contenteditable="true">Scope Changes</h4>
+        <p contenteditable="true">New feature requests or major additions outside the retainer scope will be scoped and quoted separately. Small adjustments and content updates are included.</p>
       </div>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="prop-cta">
-    <h2>Ready to Start?</h2>
-    <p>This proposal is valid for 30 days from the date above. Let's get PTP the digital presence it deserves.</p>
-    <a href="mailto:jeff@stjack.com" class="prop-cta__btn">Let's Talk →</a>
+    <h2 contenteditable="true">Ready to Start?</h2>
+    <p contenteditable="true">This proposal is valid for 30 days from the date above. Let's get PTP the digital presence it deserves.</p>
+    <a href="mailto:jeff@stjack.com" class="prop-cta__btn" contenteditable="true">Let's Talk →</a>
   </section>
 
-  <footer class="prop-footer">
-    Prepared by Jeff St. Jack &middot; Confidential &middot; October 2026
+  <footer class="prop-footer" contenteditable="true">
+    Prepared by Jeff St. Jack · Confidential · October 2026
   </footer>
+
+  <!-- Edit toolbar -->
+  <div class="edit-bar">
+    <span class="edit-bar__label">Edit Mode</span>
+    <button class="edit-bar__btn" onclick="saveHTML()">Save HTML</button>
+    <button class="edit-bar__btn" onclick="window.print()">Print / PDF</button>
+    <button class="edit-bar__btn edit-bar__btn--primary" onclick="downloadHTML()">Download</button>
+  </div>
+  <div class="edit-bar__toast" id="toast"></div>
+
+  <script>
+    function toast(msg) {
+      var t = document.getElementById('toast');
+      t.textContent = msg;
+      t.classList.add('show');
+      setTimeout(function() { t.classList.remove('show'); }, 2200);
+    }
+
+    function getCleanHTML() {
+      var clone = document.documentElement.cloneNode(true);
+      var bar = clone.querySelector('.edit-bar');
+      if (bar) bar.remove();
+      var toastEl = clone.querySelector('.edit-bar__toast');
+      if (toastEl) toastEl.remove();
+      var scripts = clone.querySelectorAll('script');
+      scripts.forEach(function(s) { s.remove(); });
+      clone.querySelectorAll('[contenteditable]').forEach(function(el) {
+        el.removeAttribute('contenteditable');
+      });
+      return '<!DOCTYPE html>\n' + clone.outerHTML;
+    }
+
+    function downloadHTML() {
+      var html = getCleanHTML();
+      var blob = new Blob([html], { type: 'text/html' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'ptp-proposal.html';
+      a.click();
+      URL.revokeObjectURL(a.href);
+      toast('Downloaded ptp-proposal.html');
+    }
+
+    function saveHTML() {
+      var html = getCleanHTML();
+      var blob = new Blob([html], { type: 'text/html' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'proposal.html';
+      a.click();
+      URL.revokeObjectURL(a.href);
+      toast('Saved — replace proposal.html in your repo');
+    }
+  </script>
 
 </body>
 </html>
