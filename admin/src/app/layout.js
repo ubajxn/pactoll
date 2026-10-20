@@ -1,7 +1,7 @@
 import { DM_Sans } from 'next/font/google'
 import { GlobalStateProvider } from '@/context/GolobalStateProvider';
 import { ThemeProvider } from '@/layout/theme-provider/theme-provider';
-import QuickNav from '@/components/QuickNav';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-perfect-scrollbar/dist/css/styles.css';
 import '@/styles/scss/style.scss';
@@ -29,7 +29,6 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           <GlobalStateProvider>
             {children}
-            <QuickNav />
           </GlobalStateProvider>
         </ThemeProvider>
       </body>
