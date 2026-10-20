@@ -192,7 +192,7 @@ const ChatBotInterface = ({ show }) => {
                 <footer>
                     <div className={classNames("chatbot-intro-text fs-7", { "d-none": startConversation })}>
                         <div className="separator-full separator-light" />
-                        <p className="mb-2">This is jampack&apos;s beta version please sign up now to get early access to our full version</p>
+                        <p className="mb-2">Welcome to PTP Operations Suite. Contact us for full access.</p>
                         <a className="d-block mb-2" href="#some"><u>Give Feedback</u></a>
                     </div>
                     <InputGroup className={classNames({ "d-none": !startConversation })}>
@@ -278,7 +278,7 @@ const ChatBotInterface = ({ show }) => {
                     </span>
                 </span>
             </Button>
-            <div className={classNames("chat-popover shadow-xl", { "d-flex": showPopup })}><p>Try Jampack Chat for free and connect with your customers now!</p></div>
+            <div className={classNames("chat-popover shadow-xl", { "d-flex": showPopup })}><p>Connect with Pacific Toll Processing - we are here to help!</p></div>
         </>
     )
 }

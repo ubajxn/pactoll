@@ -11,8 +11,8 @@ import CommonFooter1 from '../CommonFooter1';
 import signupBg from '@/assets/img/signup-bg.jpg';
 import slide1 from '@/assets/img/slide1.jpg';
 import slide2 from '@/assets/img/slide2.jpg';
-import jampackImg from '@/assets/img/logo-light.svg';
-import jampackImgDark from '@/assets/img/logo-dark.svg';
+import ptpLogo from '@/assets/img/logo-light.svg';
+import ptpLogoDark from '@/assets/img/logo-dark.svg';
 import { useTheme } from '@/layout/theme-provider/theme-provider';
 
 
@@ -71,13 +71,13 @@ const { theme } = useTheme();
                             <div className="auth-content flex-column pt-8 pb-md-8 pb-13">
                                 <div className="text-center mb-7">
                                     <Link href="/" className="navbar-brand me-0">
-                                        {theme === "light" ? <Image className="brand-img d-inline-block" src={jampackImg} alt="brand" /> : <Image className="brand-img d-inline-block" src={jampackImgDark} alt="brand" />}
+                                        {theme === "light" ? <Image className="brand-img d-inline-block" src={ptpLogo} alt="brand" /> : <Image className="brand-img d-inline-block" src={ptpLogoDark} alt="brand" />}
                                     </Link>
                                 </div>
                                 <Form className="w-100">
                                     <Row>
                                         <Col xxl={5} xl={7} lg={10} className="mx-auto">
-                                            <h4 className="text-center mb-4">Sign Up to Jampack</h4>
+                                            <h4 className="text-center mb-4">Sign Up to PTP Operations</h4>
                                             <Button variant="outline-dark" className="btn-rounded btn-block mb-3">
                                                 <span>
                                                     <span className="icon">

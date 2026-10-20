@@ -166,7 +166,7 @@ const FileInfo = ({ onHide }) => {
                                                         </div>
                                                         <div className="media-body">
                                                             <p>
-                                                                <span className="text-dark">Hencework</span> is working on <a href="#" className="link-url"><u>https://assets.adobe.com/id/urn:aaid:sc:AP:5cebaf53-ca19-420a-aeeb-1517b04ab8c0?view=file</u></a>
+                                                                <span className="text-dark">Pacific Toll</span> is working on <a href="#" className="link-url"><u>https://assets.adobe.com/id/urn:aaid:sc:AP:5cebaf53-ca19-420a-aeeb-1517b04ab8c0?view=file</u></a>
                                                             </p>
                                                             <div className="last-activity-time">3:15 PM</div>
                                                         </div>
@@ -206,7 +206,7 @@ const FileInfo = ({ onHide }) => {
                                                             </div>
                                                         </div>
                                                         <div className="media-body">
-                                                            <p><span className="text-dark">Hencework</span> is working on <a href="#" className="link-url"><u>https://assets.adobe.com/id/urn:aaid:sc:AP:5cebaf53-ca19-420a-aeeb-1517b04ab8c0?view=file</u></a></p>
+                                                            <p><span className="text-dark">Pacific Toll</span> is working on <a href="#" className="link-url"><u>https://assets.adobe.com/id/urn:aaid:sc:AP:5cebaf53-ca19-420a-aeeb-1517b04ab8c0?view=file</u></a></p>
                                                             <div className="last-activity-time">3:15 PM</div>
                                                         </div>
                                                     </div>

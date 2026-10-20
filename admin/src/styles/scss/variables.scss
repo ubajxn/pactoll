@@ -1,5 +1,5 @@
 /*__________________________________________________________________;
-[Variables] – Jampack Theme (Teal Primary Edition)
+[Variables] – PTP Theme (Teal Primary Edition)
 Updated: December 2025
 Primary: #007D88 (Teal) | Success: #00D67F | Info: #18DDEF
 ___________________________________________________________________*/
@@ -451,7 +451,7 @@ $theme-colors-rgb: (
   "gray": --bs-gray-rgb) !default;
 // Theme-colors-rgb-end
 
-$jampack-colors: (
+$ptp-colors: (
   "sky": $sky,
   "cyan": $cyan,
   "info": $info,
@@ -601,7 +601,7 @@ $jampack-colors: (
   --bs-link-hover-color-rgb: #{to-rgb($primary_light_1)};
   --bs-code-color: #{$primary};
   --bs-highlight-bg: #{$orange};
-  --bs-body-font-family: var(--font-jampack);
+  --bs-body-font-family: var(--font-ptp);
   --bs-text-opacity: 1;
   --bs-bg-opacity: 1;
   --bs-shadow-color: #{to-rgb($black)};
@@ -709,7 +709,7 @@ $jampack-colors: (
 
 
   // ********************************** For Background colors (.bg) Start ********************************** //
-  @each $name, $color in $jampack-colors {
+  @each $name, $color in $ptp-colors {
     // Base Color
     --bs-bg-#{$name}: #{$color};
 
@@ -850,7 +850,7 @@ $jampack-colors: (
   --bs-link-hover-color-rgb: #{to-rgb($primary)};
   --bs-code-color: #{$primary_light_1};
   --bs-highlight-bg: #{$orange_dark_1};
-  --bs-body-font-family: var(--font-jampack);
+  --bs-body-font-family: var(--font-ptp);
   --bs-text-opacity: 1;
   --bs-bg-opacity: 1;
   --bs-shadow-color: #{to-rgb($white)}; // Light shadows
@@ -963,7 +963,7 @@ $jampack-colors: (
 
 
   // ********************************** For Background colors (.bg) Start ********************************** //
-  @each $name, $color in $jampack-colors {
+  @each $name, $color in $ptp-colors {
     // Base Color (Slightly dimmed for dark mode to reduce eye strain)
     --bs-bg-#{$name}: #{mix($black_2, $color, 15%)};
 

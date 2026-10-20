@@ -189,7 +189,7 @@ export const data = [
         id: 5,
         starred: false,
         task: "Set up first call for demo",
-        assignee: [{ cstmAvt: "H", avtBg: "primary", userName: "Hencework" }],
+        assignee: [{ cstmAvt: "H", avtBg: "primary", userName: "Pacific Toll" }],
         due_date: "Sunday",
         status: [{ status: "In Progress", variant: "warning" }],
         actions: [{ archiveLink: "#", editLink: "edit-contact", deleteLink: "#" }]

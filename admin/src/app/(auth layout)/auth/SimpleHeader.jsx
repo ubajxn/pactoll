@@ -5,8 +5,8 @@ import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import { HelpCircle } from 'react-feather';
 
 //Images
-import jampackImg from '@/assets/img/logo-light.svg';
-import jampackImgDark from '@/assets/img/logo-dark.svg';
+import ptpLogo from '@/assets/img/logo-light.svg';
+import ptpLogoDark from '@/assets/img/logo-dark.svg';
 import { useTheme } from '@/layout/theme-provider/theme-provider';
 
 const SimpleHeader = () => {
@@ -22,7 +22,7 @@ const SimpleHeader = () => {
                 {/* Start Nav */}
                 <div className="nav-start-wrap">
                     <Navbar.Brand as={Link} href="/" >
-                        {theme === "light" ? <Image className="brand-img d-inline-block" src={jampackImg} alt="brand" /> : <Image className="brand-img d-inline-block" src={jampackImgDark} alt="brand" />}
+                        {theme === "light" ? <Image className="brand-img d-inline-block" src={ptpLogo} alt="brand" /> : <Image className="brand-img d-inline-block" src={ptpLogoDark} alt="brand" />}
                     </Navbar.Brand>
                 </div>
 

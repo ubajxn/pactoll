@@ -66,7 +66,7 @@ const Info = ({ toggleInfo, invitePeople }) => {
                                     <ul className="hk-list">
                                         <li>
                                             <div className="avatar avatar-sm avatar-primary avatar-rounded">
-                                                <HkTooltip placement="top" title="Hencework">
+                                                <HkTooltip placement="top" title="Pacific Toll">
                                                     <span className="initial-wrap">H</span>
                                                 </HkTooltip>
                                             </div>
@@ -246,7 +246,7 @@ const Info = ({ toggleInfo, invitePeople }) => {
                                                 </div>
                                                 <div className="media-body">
                                                     <div>
-                                                        <p className="file-name">jampack.pdf</p>
+                                                        <p className="file-name">ptp-proposal.pdf</p>
                                                         <p className="file-size">1.3 GB</p>
                                                     </div>
                                                     <div>
@@ -278,7 +278,7 @@ const Info = ({ toggleInfo, invitePeople }) => {
                                                 </div>
                                                 <div className="media-body">
                                                     <div>
-                                                        <p className="file-name">jampack.zip</p>
+                                                        <p className="file-name">ptp-assets.zip</p>
                                                         <p className="file-size">2.45 GB</p>
                                                     </div>
                                                     <div>

@@ -5,8 +5,8 @@ import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
 import CommonFooter1 from '../CommonFooter1';
 
 //image
-import jampackImg from '@/assets/img/logo-light.svg';
-import jampackImgDark from '@/assets/img/logo-dark.svg';
+import ptpLogo from '@/assets/img/logo-light.svg';
+import ptpLogoDark from '@/assets/img/logo-dark.svg';
 import { useTheme } from '@/layout/theme-provider/theme-provider';
 
 const ResetPassword = () => {
@@ -24,7 +24,7 @@ const ResetPassword = () => {
                                         <Col lg={5} md={7} sm={10} className="mx-auto">
                                             <div className="text-center mb-7">
                                                 <Link href="/" className="navbar-brand me-0">
-                                                    {theme === "light" ? <Image className="brand-img d-inline-block" src={jampackImg} alt="brand" /> : <Image className="brand-img d-inline-block" src={jampackImgDark} alt="brand" />}
+                                                    {theme === "light" ? <Image className="brand-img d-inline-block" src={ptpLogo} alt="brand" /> : <Image className="brand-img d-inline-block" src={ptpLogoDark} alt="brand" />}
                                                 </Link>
                                             </div>
                                             <Card className="card-flush">

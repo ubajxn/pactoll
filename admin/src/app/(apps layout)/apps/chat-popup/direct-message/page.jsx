@@ -18,7 +18,7 @@ const ChatPopup = () => {
     const ChatPopover = (
         <Popover>
             <Popover.Body className="shadow-xl" >
-                Try Jampack Chat for free and connect with your customers now!
+                Welcome to PTP team communications.
             </Popover.Body>
         </Popover>
     )

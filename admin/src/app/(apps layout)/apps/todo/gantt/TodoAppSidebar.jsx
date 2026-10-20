@@ -127,7 +127,7 @@ const TodoAppSidebar = () => {
                                             </div>
                                             <div className="media-body">
                                                 <div>
-                                                    <div className="name">Jampack</div>
+                                                    <div className="name">PTP</div>
                                                 </div>
                                             </div>
                                         </div>
@@ -159,7 +159,7 @@ const TodoAppSidebar = () => {
                                             </div>
                                             <div className="media-body">
                                                 <div>
-                                                    <div className="name">Hencework</div>
+                                                    <div className="name">Pacific Toll</div>
                                                 </div>
                                             </div>
                                         </div>

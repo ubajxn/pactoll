@@ -10,7 +10,7 @@ const PageFooter = () => {
                 <Row>
                     <Col xl={8}>
                         <p className="footer-text">
-                            <span className="copy-text">Jampack © {new Date().getFullYear()} All rights reserved.</span> <Link href="#">Privacy Policy</Link><span className="footer-link-sep">|</span><Link href="#">T&amp;C</Link><span className="footer-link-sep">|</span><Link href="#">System Status</Link></p>
+                            <span className="copy-text">Pacific Toll Processing © {new Date().getFullYear()} All rights reserved.</span></p>
                     </Col>
                     <Col xl={4}>
                         <Link href="#" className="footer-extr-link link-default">

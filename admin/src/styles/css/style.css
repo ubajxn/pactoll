@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*------------------------------------------------------------------
 [Master Stylesheet]
-Project:	Jampack
+Project:	PTP
 ++++ Imports ++++
 ++++ Reset ++++
 ++++ Basic ++++
@@ -145,13 +145,13 @@ Project:	Jampack
 @import url(../../vendors/owl.carousel/dist/assets/owl.theme.default.min.css);
 /*__________________________________________________________________;
 [Mixin]
-Project:	Jampack
+Project:	PTP
 ___________________________________________________________________*/
 /*Shadow*/
 /*Table Variants*/
 /*__________________________________________________________________;
 [Variables]
-Project:	Jampack
+Project:	PTP
 ___________________________________________________________________*/
 :root {
   --bs-body-font-family: 'DM Sans', sans-serif;
@@ -81813,7 +81813,7 @@ div.hopscotch-bubble.fade-in-left {
 /****************************/
 /*------------------------------------------------------------------
 [Header]
-Project:	Jampack
+Project:	PTP
 -------------------------------------------------------------------*/
 /*Top Nav*/
 .hk-wrapper .hk-navbar {
@@ -82047,7 +82047,7 @@ Project:	Jampack
 }
 /*------------------------------------------------------------------
 [Footer]
-Project:	Jampack
+Project:	PTP
 -------------------------------------------------------------------*/
 /*Footer*/
 [data-footer="simple"].hk-wrapper .hk-pg-wrapper, .footer-simple-example.hk-wrapper .hk-pg-wrapper {
@@ -82251,7 +82251,7 @@ Project:	Jampack
 }
 /*------------------------------------------------------------------
 [Nav]
-Project:	Jampack
+Project:	PTP
 -------------------------------------------------------------------*/
 /*Navbar*/
 .navbar .navbar-toggler-menu,
@@ -82762,7 +82762,7 @@ Project:	Jampack
 
 /*------------------------------------------------------------------
 [Horizontal Menu]
-Project:	Jampack
+Project:	PTP
 --------------------------------------------------------------------*/
 /**Horizontal Navigation**/
 .hk-wrapper[data-layout="horizontal"] .hk-pg-wrapper {
@@ -83115,7 +83115,7 @@ Project:	Jampack
 }
 /*------------------------------------------------------------------
 [Classic Menu]
-Project:	Jampack
+Project:	PTP
 --------------------------------------------------------------------*/
 /**Vertical Navigation**/
 .hk-wrapper[data-layout="vertical"] .hk-pg-wrapper {
@@ -83422,7 +83422,7 @@ Project:	Jampack
 }
 /*------------------------------------------------------------------
 [Icon Menu]
-Project:	Jampack
+Project:	PTP
 -------------------------------------------------------------------*/
 /**Vertical Icon Navigation**/
 .hk-wrapper[data-layout="twocolumn"] .hk-pg-wrapper {
@@ -83744,7 +83744,7 @@ Project:	Jampack
 }
 /*------------------------------------------------------------------
 [Navbar Menu]
-Project:	Jampack
+Project:	PTP
 --------------------------------------------------------------------*/
 /**Navbar Navigation**/
 .hk-wrapper[data-layout="navbar"] .hk-pg-wrapper {
@@ -84087,7 +84087,7 @@ Project:	Jampack
 }
 /*------------------------------------------------------------------
 [Drawer]
-Project:	Jampack
+Project:	PTP
 -------------------------------------------------------------------*/
 /*Drawer*/
 .hk-wrapper .hk-drawer {
@@ -84236,7 +84236,7 @@ Project:	Jampack
 }
 /*------------------------------------------------------------------
 [Master Stylesheet]
-Project:	Jampack
+Project:	PTP
 ++++ ChatApp ++++
 ++++ Chat Popup ++++
 ++++ Chatbot Popup ++++

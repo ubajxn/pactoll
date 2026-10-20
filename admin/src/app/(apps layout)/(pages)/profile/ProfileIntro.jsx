@@ -27,7 +27,7 @@ const ProfileIntro = () => {
                         <li className="list-inline-item d-sm-inline-block d-block mb-sm-0 mb-1 me-3">
                             <i className="bi bi-briefcase me-1" />
                             <a href="#">Co-Founder,</a>
-                            <a href="#">Jampack</a>
+                            <a href="#">Pacific Toll Processing</a>
                         </li>
                         <li className="list-inline-item d-sm-inline-block d-block mb-sm-0 mb-1 me-3">
                             <i className="bi bi-geo-alt me-1" />

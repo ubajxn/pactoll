@@ -8,7 +8,7 @@ const Footer = () => {
                 <Row>
                     <Col xl={8} className="text-center">
                         <p className="footer-text pb-0">
-                            <span className="copy-text text-white opacity-55">Jampack © {new Date().getFullYear()} All rights reserved.</span><a href="#" className="text-white opacity-55">Privacy Policy</a><span className="footer-link-sep text-white opacity-55">|</span><a href="#" className="text-white opacity-55">T&amp;C</a><span className="footer-link-sep text-white opacity-55">|</span><a href="#" className="text-white opacity-55">System Status</a>
+                            <span className="copy-text text-white opacity-55">Pacific Toll Processing © {new Date().getFullYear()} All rights reserved.</span><a href="#" className="text-white opacity-55">Privacy Policy</a><span className="footer-link-sep text-white opacity-55">|</span><a href="#" className="text-white opacity-55">T&amp;C</a><span className="footer-link-sep text-white opacity-55">|</span><a href="#" className="text-white opacity-55">System Status</a>
                         </p>
                     </Col>
                 </Row>

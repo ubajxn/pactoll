@@ -16,7 +16,7 @@ const VideoCallModal = ({ show, hide }) => {
         <Modal show={show} onHide={hide} fullscreen={fullScreen} size="xl" centered dialogClassName="chatapp-call-window" className="ps-0" >
             <div className="modal-content bg-primary-dark-5">
                 <Modal.Header className="header-wth-bg bg-primary-dark-3">
-                    <Modal.Title as="h6" className="text-muted">Jampack  Video Call</Modal.Title>
+                    <Modal.Title as="h6" className="text-muted">PTP Video Call</Modal.Title>
                     <div className="modal-action">
                         <Link href="#" className="btn btn-xs btn-icon btn-rounded btn-link link-secondary modal-fullscreen-togglable" onClick={() => setFullScreen(!fullScreen)}>
                             <span className="icon">

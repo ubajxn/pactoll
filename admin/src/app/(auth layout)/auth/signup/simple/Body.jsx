@@ -67,7 +67,7 @@ const Body = () => {
                             <Form className="w-100">
                                 <Row>
                                     <Col lg={10} className="mx-auto">
-                                        <h4 className="text-center mb-4">Sign Up to Jampack</h4>
+                                        <h4 className="text-center mb-4">Sign Up to PTP Operations</h4>
                                         <Button variant="outline-dark" className="btn-rounded btn-block mb-3">
                                             <span>
                                                 <span className="icon">

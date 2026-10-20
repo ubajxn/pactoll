@@ -286,7 +286,7 @@ const TaskInfo = ({ close }) => {
                 </header>
                 <div className="task-detail-body">
                     <HkAlert variant="primary" className="alert-wth-icon">
-                        <span className="alert-icon-wrap"><span className="feather-icon"><i className="zmdi zmdi-lock" /></span></span> This task is private for Jampack Team
+                        <span className="alert-icon-wrap"><span className="feather-icon"><i className="zmdi zmdi-lock" /></span></span> This task is private for PTP Team
                     </HkAlert>
 
                     <HkInlineEdit as="h4" id="editable1" className="fw-bold mb-0" value="Framworking Building" />
@@ -684,7 +684,7 @@ const TaskInfo = ({ close }) => {
                                                         </div>
                                                         <div className="media-body">
                                                             <div>
-                                                                <p className="file-name">jampack.pdf</p>
+                                                                <p className="file-name">ptp-proposal.pdf</p>
                                                                 <p className="file-size">1.3 GB</p>
                                                             </div>
                                                             <div>
@@ -719,7 +719,7 @@ const TaskInfo = ({ close }) => {
                                                         </div>
                                                         <div className="media-body">
                                                             <div>
-                                                                <p className="file-name">jampack.zip</p>
+                                                                <p className="file-name">ptp-assets.zip</p>
                                                                 <p className="file-size">2.45 GB</p>
                                                             </div>
                                                             <div>
@@ -940,7 +940,7 @@ const TaskInfo = ({ close }) => {
                                                         </div>
                                                     </div>
                                                     <div className="media-body">
-                                                        <p><span className="text-dark">Hencework</span> on Documentation link is working now - <a href="#some" className="link-url"><u>ttps://hencework.com/theme/jampa</u></a></p>
+                                                        <p><span className="text-dark">Pacific Toll</span> on Documentation link is working now - <a href="#some" className="link-url"><u>ttps://Pacific Toll.com/theme/jampa</u></a></p>
                                                         <div className="last-activity-time">Oct 15, 2021, 12:34 PM</div>
                                                     </div>
                                                 </div>
@@ -1041,7 +1041,7 @@ const TaskInfo = ({ close }) => {
                                                         </div>
                                                     </div>
                                                     <div className="media-body">
-                                                        <p><span className="text-dark">Hencework</span> commented on <a href="#some" className="link-default"><u>basic structure</u></a></p>
+                                                        <p><span className="text-dark">Pacific Toll</span> commented on <a href="#some" className="link-default"><u>basic structure</u></a></p>
                                                         <div className="last-activity-time">Sep 10, 2021, 10:13 AM</div>
                                                     </div>
                                                 </div>

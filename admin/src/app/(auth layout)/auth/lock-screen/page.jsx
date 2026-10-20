@@ -42,7 +42,7 @@ const LockScreen = () => {
                                                         </div>
                                                     </div>
                                                     <h4 className="text-white">Jim Carry</h4>
-                                                    <p className="p-sm mb-4 text-white opacity-55">admistrator@jampack.com</p>
+                                                    <p className="p-sm mb-4 text-white opacity-55">Rose@pacifictoll.com</p>
                                                     <Row className="gx-3">
                                                         <Col as={Form.Group} className="mb-3">
                                                             <Form.Control placeholder="Enter Password" type="password" />

@@ -19,9 +19,7 @@ const BoardHeader = ({ showSidebar, toggleSidebar, showInfo, toggleInfo }) => {
             <div className="d-flex align-items-center flex-1">
                 <div className="d-flex">
                     <Link href="#" className="taskboardapp-title link-dark">
-                        <h1>
-                            Jampack
-                            <span className="task-star marked">
+                        <h1>PTP<span className="task-star marked">
                                 <span className="feather-icon">
                                     <Star />
                                 </span>

@@ -106,7 +106,7 @@ const GroupChatBody = () => {
                                         </span>
                                     </div>
                                     <div className="media-body">
-                                        <p className="file-name">jampack.zip</p>
+                                        <p className="file-name">ptp-assets.zip</p>
                                         <p className="file-size">2.45 GB</p>
                                     </div>
                                 </div>

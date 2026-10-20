@@ -130,7 +130,7 @@ const EditProfile = ({ toggleCollapsedNav }) => {
                                             <Col sm={12}>
                                                 <Form.Group className="mb-3">
                                                     <Form.Label>Personal Website</Form.Label>
-                                                    <Form.Control type="text" defaultValue="hencework.com" />
+                                                    <Form.Control type="text" defaultValue="Pacific Toll.com" />
                                                 </Form.Group>
                                             </Col>
                                             <Col sm={12}>
@@ -172,7 +172,7 @@ const EditProfile = ({ toggleCollapsedNav }) => {
                                             <Col sm={12}>
                                                 <Form.Group className="mb-3">
                                                     <Form.Label>URL</Form.Label>
-                                                    <Form.Control type="text" defaultValue="hencework.com" />
+                                                    <Form.Control type="text" defaultValue="Pacific Toll.com" />
                                                 </Form.Group>
                                             </Col>
                                         </Row>
@@ -217,7 +217,7 @@ const EditProfile = ({ toggleCollapsedNav }) => {
                                                 <Form.Check className="form-check-lg">
                                                     <Form.Check.Input id="customChecks1" />
                                                     <Form.Check.Label htmlFor="customChecks1">let others find me by email address</Form.Check.Label>
-                                                    <Form.Text muted className="d-block">People who have your email address will be able to connect you by Jampack</Form.Text>
+                                                    <Form.Text muted className="d-block">People who have your email address can connect with you</Form.Text>
                                                 </Form.Check>
                                                 <div className="separator" />
                                                 <Form.Check className="form-check-lg">

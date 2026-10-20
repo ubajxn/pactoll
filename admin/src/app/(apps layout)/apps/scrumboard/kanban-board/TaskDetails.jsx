@@ -277,7 +277,7 @@ const TaskDetails = ({ show, onHide }) => {
                     </header>
                     <div className="task-detail-body">
                         <HkAlert variant="primary" className="alert-wth-icon" >
-                            <span className="alert-icon-wrap"><span className="feather-icon"><i className="zmdi zmdi-lock" /></span></span> This task is private for Jampack Team
+                            <span className="alert-icon-wrap"><span className="feather-icon"><i className="zmdi zmdi-lock" /></span></span> This task is private for PTP Team
                         </HkAlert>
                         <HkInlineEdit as="h4" id="edit1" className="fw-bold mb-0" value="Framworking Building" />
                         <HkInlineEdit as="p" id="edit2" className="mb-0" value="Instant rebuilding of assets during development" />
@@ -308,7 +308,7 @@ const TaskDetails = ({ show, onHide }) => {
                                         </div>
                                     </div>
                                     <div className="media-body">
-                                        <div className="as-name">Hencework</div>
+                                        <div className="as-name">Pacific Toll</div>
                                         <div className="as-date">4 july 2022, 8:30pm</div>
                                     </div>
                                 </div>
@@ -680,7 +680,7 @@ const TaskDetails = ({ show, onHide }) => {
                                                             </div>
                                                             <div className="media-body">
                                                                 <div>
-                                                                    <p className="file-name">jampack.pdf</p>
+                                                                    <p className="file-name">ptp-proposal.pdf</p>
                                                                     <p className="file-size">1.3 GB</p>
                                                                 </div>
                                                                 <div>
@@ -715,7 +715,7 @@ const TaskDetails = ({ show, onHide }) => {
                                                             </div>
                                                             <div className="media-body">
                                                                 <div>
-                                                                    <p className="file-name">jampack.zip</p>
+                                                                    <p className="file-name">ptp-assets.zip</p>
                                                                     <p className="file-size">2.45 GB</p>
                                                                 </div>
                                                                 <div>
@@ -936,7 +936,7 @@ const TaskDetails = ({ show, onHide }) => {
                                                             </div>
                                                         </div>
                                                         <div className="media-body">
-                                                            <p><span className="text-dark">Hencework</span> on Documentation link is working now - <a href="#some" className="link-url"><u>ttps://hencework.com/theme/jampa</u></a></p>
+                                                            <p><span className="text-dark">Pacific Toll</span> on Documentation link is working now - <a href="#some" className="link-url"><u>ttps://Pacific Toll.com/theme/jampa</u></a></p>
                                                             <div className="last-activity-time">Oct 15, 2021, 12:34 PM</div>
                                                         </div>
                                                     </div>
@@ -1037,7 +1037,7 @@ const TaskDetails = ({ show, onHide }) => {
                                                             </div>
                                                         </div>
                                                         <div className="media-body">
-                                                            <p><span className="text-dark">Hencework</span> commented on <a href="#some" className="link-default"><u>basic structure</u></a></p>
+                                                            <p><span className="text-dark">Pacific Toll</span> commented on <a href="#some" className="link-default"><u>basic structure</u></a></p>
                                                             <div className="last-activity-time">Sep 10, 2021, 10:13 AM</div>
                                                         </div>
                                                     </div>

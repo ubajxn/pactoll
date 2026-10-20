@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*------------------------------------------------------------------
 [Master Stylesheet]
-Project:	Jampack
+Project:	PTP
 ++++ Imports ++++
 ++++ Reset ++++
 ++++ Basic ++++
@@ -111,15 +111,15 @@ Project:	Jampack
 @import url(../../vendors/owl.carousel/dist/assets/owl.theme.default.min.css);
 /*__________________________________________________________________;
 [Mixin]
-Project:	Jampack
+Project:	PTP
 ___________________________________________________________________*/
 /*__________________________________________________________________;
 [Colors]
-Project:	Jampack
+Project:	PTP
 ___________________________________________________________________*/
 /*------------------------------------------------------------------
 [Header]
-Project:	Jampack
+Project:	PTP
 -------------------------------------------------------------------*/
 /*Top Nav*/
 .hk-wrapper .hk-navbar {
@@ -241,7 +241,7 @@ Project:	Jampack
       display: none; } }
 /*------------------------------------------------------------------
 [Footer]
-Project:	Jampack
+Project:	PTP
 -------------------------------------------------------------------*/
 /*Footer*/
 .hk-footer-wrap {
@@ -275,7 +275,7 @@ Project:	Jampack
       text-align: center; } }
 /*------------------------------------------------------------------
 [Nav]
-Project:	Jampack
+Project:	PTP
 -------------------------------------------------------------------*/
 /*Navbar*/
 .navbar {
@@ -1103,7 +1103,7 @@ Project:	Jampack
 
 /*------------------------------------------------------------------
 [Horizontal Menu]
-Project:	Jampack
+Project:	PTP
 -------------------------------------------------------------------*/
 /*Horizontal Navigation*/
 .hk-wrapper.hk-horizontal-menu-active .hk-pg-wrapper {
@@ -2071,7 +2071,7 @@ Project:	Jampack
     display: none !important; } }
 /*------------------------------------------------------------------
 [Classic Menu]
-Project:	Jampack
+Project:	PTP
 ----------------------------------------------------------`---------*/
 /**Vertical Navigation**/
 .hk-classic-menu .navbar-nav .nav-item .nav-link-text {
@@ -2546,7 +2546,7 @@ Project:	Jampack
       right: 0; } }
 /*------------------------------------------------------------------
 [Icon Menu]
-Project:	Jampack
+Project:	PTP
 -------------------------------------------------------------------*/
 /**Vertical Icon Navigation**/
 .hk-wrapper.hk-icon-menu-1-active {
@@ -3543,7 +3543,7 @@ Project:	Jampack
     right: -480px; } }
 /*------------------------------------------------------------------
 [Slide Menu]
-Project:	Jampack
+Project:	PTP
 ----------------------------------------------------------`---------*/
 /**Vertical Navigation**/
 .hk-wrapper.hk-slide-menu-active {
@@ -3949,7 +3949,7 @@ Project:	Jampack
       right: 0; } }
 /*------------------------------------------------------------------
 [Drawer]
-Project:	Jampack
+Project:	PTP
 -------------------------------------------------------------------*/
 /*Drawer*/
 .hk-wrapper .hk-drawer {

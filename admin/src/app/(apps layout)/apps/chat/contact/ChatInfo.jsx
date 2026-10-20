@@ -49,7 +49,7 @@ const ChatInfo = ({ infoToggle }) => {
                                         <span className="cp-icon-wrap"><span className="feather-icon">
                                             <Mail />
                                         </span></span>
-                                        <span className="text-primary">contact@hencework.com</span>
+                                        <span className="text-primary">rose@pacifictoll.com</span>
                                     </a>
                                 </li>
                                 <li>

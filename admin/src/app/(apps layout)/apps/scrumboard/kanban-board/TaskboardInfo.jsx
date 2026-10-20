@@ -32,7 +32,7 @@ const TaskboardInfo = ({ onHide }) => {
                     >
                         <ul className="hk-list">
                             <li>
-                                <div className="avatar avatar-sm avatar-primary avatar-rounded" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Hencework">
+                                <div className="avatar avatar-sm avatar-primary avatar-rounded" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-original-title="Pacific Toll">
                                     <span className="initial-wrap">H</span>
                                 </div>
                             </li>
@@ -99,7 +99,7 @@ const TaskboardInfo = ({ onHide }) => {
                                         </div>
                                     </div>
                                     <div className="media-body">
-                                        <p><span className="text-dark">Hencework</span> on Documentation link is working now - <a href="#some" className="link-url"><u>ttps://hencework.com/theme/jampa</u></a></p>
+                                        <p><span className="text-dark">Pacific Toll</span> on Documentation link is working now - <a href="#some" className="link-url"><u>ttps://Pacific Toll.com/theme/jampa</u></a></p>
                                         <div className="last-activity-time">Oct 15, 2021, 12:34 PM</div>
                                     </div>
                                 </div>
@@ -190,7 +190,7 @@ const TaskboardInfo = ({ onHide }) => {
                                         </div>
                                     </div>
                                     <div className="media-body">
-                                        <p><span className="text-dark">Hencework</span> commented on <a href="#some" className="link-default"><u>basic structure</u></a></p>
+                                        <p><span className="text-dark">Pacific Toll</span> commented on <a href="#some" className="link-default"><u>basic structure</u></a></p>
                                         <div className="last-activity-time">Sep 10, 2021, 10:13 AM</div>
                                     </div>
                                 </div>

@@ -191,7 +191,7 @@ const ContactList = () => {
                                 <div className="media-body">
                                     <div>
                                         <div className="user-name">Adam Sandler</div>
-                                        <div className="user-status">Hi There, I am using Jampack</div>
+                                        <div className="user-status">Welcome to PTP Operations</div>
                                     </div>
                                     <div>
                                         <div className="dropdown action-drp">
@@ -371,7 +371,7 @@ const ContactList = () => {
                                 <div className="media-body">
                                     <div>
                                         <div className="user-name">Chuck Norris</div>
-                                        <div className="user-status">Hi There, I am using Jampack</div>
+                                        <div className="user-status">Welcome to PTP Operations</div>
                                     </div>
                                     <div>
                                         <div className="dropdown action-drp">

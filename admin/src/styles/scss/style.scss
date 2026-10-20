@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /*------------------------------------------------------------------
 [Master Stylesheet]
-Project:	Jampack
+Project:	PTP
 ++++ Imports ++++
 ++++ Reset ++++
 ++++ Basic ++++
@@ -4068,7 +4068,7 @@ $num1: 1.5;
 /*Background Colors - GENERATED DYNAMICALLY Start*/
 
 // Loop through the colors defined in variables.scss
-@each $name, $color in $jampack-colors {
+@each $name, $color in $ptp-colors {
 
 	// 1. Base Class (e.g., .bg-blue)
 	.bg-#{$name} {

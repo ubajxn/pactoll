@@ -27,7 +27,7 @@ const PostDetails = () => {
                                 </Form.Group>
                                 <Form.Group className="mb-3">
                                     <Form.Label>Permalink</Form.Label>
-                                    <Form.Control defaultValue="https://hencework.com/theme/jampack" placeholder="Post Title" />
+                                    <Form.Control defaultValue="https://pactoll.vercel.app" placeholder="Post Title" />
                                 </Form.Group>
                                 <Tab.Container defaultActiveKey="tabClassic" >
                                     <Nav variant="tabs" className="nav-light border-bottom-0">

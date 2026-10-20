@@ -7,8 +7,8 @@ import { ExternalLink } from 'react-feather';
 import { useTheme } from '@/layout/theme-provider/theme-provider';
 
 //Images
-import jampackImg from '@/assets/img/logo-light.svg';
-import jampackImgDark from '@/assets/img/logo-dark.svg';
+import ptpLogo from '@/assets/img/logo-light.svg';
+import ptpLogoDark from '@/assets/img/logo-dark.svg';
 import logoutImg from '@/assets/img/macaroni-logged-out.png';
 import { useRouter } from 'next/navigation';
 
@@ -34,7 +34,7 @@ const Login = () => {
                             <div className="auth-content flex-column pt-8 pb-md-8 pb-13">
                                 <div className="text-center mb-7">
                                     <Link href="/" className="navbar-brand me-0">
-                                        {theme === "light" ? <Image className="brand-img d-inline-block" src={jampackImg} alt="brand" /> : <Image className="brand-img d-inline-block" src={jampackImgDark} alt="brand" />}
+                                        {theme === "light" ? <Image className="brand-img d-inline-block" src={ptpLogo} alt="brand" /> : <Image className="brand-img d-inline-block" src={ptpLogoDark} alt="brand" />}
                                     </Link>
                                 </div>
                                 <Form className="w-100" onSubmit={e => handleSubmit(e)} >
@@ -78,7 +78,7 @@ const Login = () => {
                                                 </Form.Check>
                                             </div>
                                             <Button variant="primary" type="submit" className="btn-uppercase btn-block">Login</Button>
-                                            <p className="p-xs mt-2 text-center">New to Jampack? <Link href="#"><u>Create new account</u></Link></p>
+                                            <p className="p-xs mt-2 text-center">New to PTP? <Link href="#"><u>Create new account</u></Link></p>
                                             <Link href="#" className="d-block extr-link text-center mt-4">
                                                 <span className="feather-icon">
                                                     <ExternalLink />
@@ -94,7 +94,7 @@ const Login = () => {
                                 <Container fluid as="footer" className="footer">
                                     <Row>
                                         <div className="col-xl-8 text-center">
-                                            <p className="footer-text pb-0"><span className="copy-text">Jampack © {new Date().getFullYear()} All rights reserved.</span> <a href="#some" target="_blank">Privacy Policy</a><span className="footer-link-sep">|</span><a href="#some" target="_blank">T&amp;C</a><span className="footer-link-sep">|</span><a href="#some" target="_blank">System Status</a></p>
+                                            <p className="footer-text pb-0"><span className="copy-text">Pacific Toll Processing © {new Date().getFullYear()} All rights reserved.</span> <a href="#some" target="_blank">Privacy Policy</a><span className="footer-link-sep">|</span><a href="#some" target="_blank">T&amp;C</a><span className="footer-link-sep">|</span><a href="#some" target="_blank">System Status</a></p>
                                         </div>
                                     </Row>
                                 </Container>
@@ -104,7 +104,7 @@ const Login = () => {
                             <div className="auth-content flex-column text-center py-8">
                                 <Row>
                                     <Col xxl={7} xl={8} lg={11} className="mx-auto">
-                                        <h2 className="mb-4">Meet all new Pro Jampack 2.0</h2>
+                                        <h2 className="mb-4">Pacific Toll Processing Operations Suite</h2>
                                         <p>There are many variations of passages of Lorem Ipsum available, passages of Lorem Ipsum available, in some form, by injected.</p>
                                         <Button variant="flush-primary" className="btn-uppercase mt-2">Take Tour</Button>
                                     </Col>

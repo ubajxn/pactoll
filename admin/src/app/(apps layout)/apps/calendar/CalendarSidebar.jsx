@@ -59,7 +59,7 @@ const CalendarSidebar = ({ createNewEvent }) => {
                                             <Badge bg="violet" className="badge-indicator badge-indicator-lg me-2" />
                                             <span className="event-time">Today, 5:00 onwards</span>
                                         </div>
-                                        <div className="event-name">Jampack Team Meet</div>
+                                        <div className="event-name">PTP Team Meeting</div>
                                     </Nav.Link>
                                 </Nav.Item>
                                 <Nav.Item as="li">

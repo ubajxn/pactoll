@@ -14,7 +14,7 @@ export const CalendarEvents = [
     {
         backgroundColor: '#da82f8',
         borderColor: '#da82f8',
-        title: 'Jampack Team Meet',
+        title: 'PTP Team Meeting',
         start: curYear + '-' + curMonth + '-13',
         end: curYear + '-' + curMonth + '-15'
     },

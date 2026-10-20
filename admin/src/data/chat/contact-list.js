@@ -67,10 +67,10 @@ const contacts = [
     },
     {
         id: 7,
-        name: "Hencework",
+        name: "Pacific Toll",
         initAvatar: { type: "init", title: "H", variant: "primary" },
         time: "24 Jan",
-        lastChat: "give me the last copy of jampack",
+        lastChat: "can you send the latest proposal?",
         status: "Active 1min ago",
         unread: 0,
     },

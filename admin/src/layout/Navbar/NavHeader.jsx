@@ -7,7 +7,7 @@ import { useGlobalStateContext } from '@/context/GolobalStateProvider';
 
 //Images
 import logo from '@/assets/img/brand-sm.svg';
-import jampackImg from '@/assets/img/Jampack.svg';
+import ptpLogo from '@/assets/img/ptp-icon.svg';
 
 const NavHeader = () => {
 
@@ -18,7 +18,7 @@ const NavHeader = () => {
             <span>
                 <Link className="navbar-brand" href="/">
                     <Image className="brand-img img-fluid" src={logo} alt="brand" />
-                    <Image className="brand-img img-fluid" src={jampackImg} alt="brand" />
+                    <Image className="brand-img img-fluid" src={ptpLogo} alt="brand" />
                 </Link>
                 <Button id="tggl-btn" variant="flush-dark" className="btn-icon btn-rounded flush-soft-hover navbar-toggle" onClick={() => dispatch({ type: "sidebar_toggle" })} >
                     <span className="icon">

@@ -206,7 +206,7 @@ const FmGrid = ({ fileInfo }) => {
                                         <Card.Footer>
                                             <div className="d-flex justify-content-between align-items-start">
                                                 <div>
-                                                    <div className="file-name">jampack.doc</div>
+                                                    <div className="file-name">ptp-report.doc</div>
                                                     <div className="text-truncate fs-8 mb-2">951 KB</div>
                                                 </div>
                                                 <div className="d-flex">
@@ -290,7 +290,7 @@ const FmGrid = ({ fileInfo }) => {
                                         <Card.Footer>
                                             <div className="d-flex justify-content-between align-items-start">
                                                 <div>
-                                                    <div className="file-name">Jampack - html - v1.0</div>
+                                                    <div className="file-name">PTP - Website - v1.0</div>
                                                     <div className="text-truncate fs-8 mb-2">1.6 GB</div>
                                                 </div>
                                                 <div className="d-flex">
@@ -374,7 +374,7 @@ const FmGrid = ({ fileInfo }) => {
                                         <Card.Footer>
                                             <div className="d-flex justify-content-between align-items-start">
                                                 <div>
-                                                    <div className="file-name">Jampack - Angular</div>
+                                                    <div className="file-name">PTP - Dashboard</div>
                                                     <div className="text-truncate fs-8 mb-2">2,637 KB</div>
                                                 </div>
                                                 <div className="d-flex">
@@ -472,7 +472,7 @@ const FmGrid = ({ fileInfo }) => {
                                                     </div>
                                                 </div>
                                                 <div className="media-body">
-                                                    <div className="file-name">Jampack - HTML - v1.0</div>
+                                                    <div className="file-name">PTP - Website - v1.0</div>
                                                     <div className="text-truncate fs-8 mb-2">1.6 GB</div>
                                                 </div>
                                             </div>
@@ -557,7 +557,7 @@ const FmGrid = ({ fileInfo }) => {
                                                     </div>
                                                 </div>
                                                 <div className="media-body">
-                                                    <div className="file-name">Jampack - Angular</div>
+                                                    <div className="file-name">PTP - Dashboard</div>
                                                     <div className="text-truncate fs-8 mb-2">2,635 KB</div>
                                                 </div>
                                             </div>
@@ -913,7 +913,7 @@ const FmGrid = ({ fileInfo }) => {
                                                     </div>
                                                 </div>
                                                 <div className="media-body">
-                                                    <div className="file-name">jampack.pdf</div>
+                                                    <div className="file-name">ptp-proposal.pdf</div>
                                                     <div className="text-truncate fs-8 mb-2">21.73 MB</div>
                                                 </div>
                                             </div>
@@ -1083,7 +1083,7 @@ const FmGrid = ({ fileInfo }) => {
                                                     </div>
                                                 </div>
                                                 <div className="media-body">
-                                                    <div className="file-name">jampack.zip</div>
+                                                    <div className="file-name">ptp-assets.zip</div>
                                                     <div className="text-truncate fs-8 mb-2">2.45 GB</div>
                                                 </div>
                                             </div>

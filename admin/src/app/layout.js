@@ -11,7 +11,7 @@ const dm_sans = DM_Sans({
   weight: ["400", "500", "700"],
   display: "swap",
   subsets: ["latin"],
-  variable: '--font-jampack'
+  variable: '--font-ptp'
 })
 
 // metadata

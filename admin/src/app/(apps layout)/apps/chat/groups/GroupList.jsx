@@ -198,7 +198,7 @@ const GroupList = () => {
                             <Nav.Link className="link-dark">#Team_goals</Nav.Link>
                         </Nav.Item>
                         <Nav.Item>
-                            <Nav.Link className="link-dark">#Support_jampack</Nav.Link>
+                            <Nav.Link className="link-dark">#Support_PTP</Nav.Link>
                         </Nav.Item>
                     </Nav>
                 </SimpleBar>

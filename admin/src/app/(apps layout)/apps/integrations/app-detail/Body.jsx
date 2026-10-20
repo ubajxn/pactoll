@@ -52,7 +52,7 @@ const Body = () => {
                                     </div>
                                     <div className="media-body">
                                         <h3 className="hd-bold mb-0">Kickstarter</h3>
-                                        <span>by Hencework</span>
+                                        <span>by Pacific Toll</span>
                                         <div className="d-flex align-items-center mt-1">
                                             <div className="d-flex align-items-center">
                                                 {/* <div className="d-flex align-items-center rating rating-yellow my-rating-4 me-2" data-rating={3} /> */}
@@ -407,7 +407,7 @@ const Body = () => {
                                         <Card.Body>
                                             <h6 className="mb-4">Categories</h6>
                                             <div className="tag-cloud">
-                                                <HkBadge as="a" href="#" bg="primary" soft className="me-1">Jampack</HkBadge>
+                                                <HkBadge as="a" href="#" bg="primary" soft className="me-1">PTP</HkBadge>
                                                 <HkBadge as="a" href="#" bg="primary" soft className="me-1">Bootstrap 5</HkBadge>
                                                 <HkBadge as="a" href="#" bg="primary" soft className="me-1">Admin Template</HkBadge>
                                             </div>
@@ -454,7 +454,7 @@ const Body = () => {
                                                 </li>
                                                 <li className="mb-3">
                                                     <div className="fs-7">Developed by</div>
-                                                    <div className="text-dark fw-medium d-flex align-items-center">Hencework<i className="ri-information-fill fs-7 ms-1 lh-1" /></div>
+                                                    <div className="text-dark fw-medium d-flex align-items-center">Pacific Toll<i className="ri-information-fill fs-7 ms-1 lh-1" /></div>
                                                 </li>
                                                 <li className="mb-3">
                                                     <div className="fs-7">Resources</div>
@@ -572,7 +572,7 @@ const Body = () => {
                                         <div className="avatar avatar-sm avatar-violet mb-3">
                                             <span className="initial-wrap">H</span>
                                         </div>
-                                        <div className="app-name">Hencework</div>
+                                        <div className="app-name">Pacific Toll</div>
                                         <div className="app-cat">Chat Application</div>
                                         <div className="d-flex align-items-center justify-content-center">
                                             <Rating initialValue={3} readonly size="20" className="d-flex align-items-center me-2" />
@@ -589,7 +589,7 @@ const Body = () => {
                                                 <Image src={symbolAvatar4} alt="logo" />
                                             </span>
                                         </div>
-                                        <div className="app-name">Jampack</div>
+                                        <div className="app-name">PTP</div>
                                         <div className="app-cat">Dashboard Template</div>
                                         <div className="d-flex align-items-center justify-content-center">
                                             <Rating initialValue={3} readonly size="20" className="d-flex align-items-center me-2" />

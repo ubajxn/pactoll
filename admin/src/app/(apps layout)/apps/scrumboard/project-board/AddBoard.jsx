@@ -22,7 +22,7 @@ const AddBoard = ({ show, hide }) => {
                                         </div>
                                     </div>
                                     <div className="media-body">
-                                        <div className="name">Jampack</div>
+                                        <div className="name">PTP</div>
                                     </div>
                                 </div>
                                 <div className="form-check">
@@ -37,7 +37,7 @@ const AddBoard = ({ show, hide }) => {
                                         </div>
                                     </div>
                                     <div className="media-body">
-                                        <div className="name">Hencework</div>
+                                        <div className="name">Pacific Toll</div>
                                     </div>
                                 </div>
                                 <div className="form-check">
@@ -67,7 +67,7 @@ const AddBoard = ({ show, hide }) => {
                                         </div>
                                     </div>
                                     <div className="media-body">
-                                        <div className="name">React - Jampack</div>
+                                        <div className="name">PTP Dashboard</div>
                                     </div>
                                 </div>
                                 <div className="form-check">
@@ -97,7 +97,7 @@ const AddBoard = ({ show, hide }) => {
                                         </div>
                                     </div>
                                     <div className="media-body">
-                                        <div className="name">Angular - Jampack</div>
+                                        <div className="name">PTP Analytics</div>
                                     </div>
                                 </div>
                                 <div className="form-check">
@@ -112,7 +112,7 @@ const AddBoard = ({ show, hide }) => {
                                         </div>
                                     </div>
                                     <div className="media-body">
-                                        <div className="name">React - Jampack</div>
+                                        <div className="name">PTP Dashboard</div>
                                     </div>
                                 </div>
                                 <div className="form-check">
@@ -142,7 +142,7 @@ const AddBoard = ({ show, hide }) => {
                                         </div>
                                     </div>
                                     <div className="media-body">
-                                        <div className="name">Angular - Jampack</div>
+                                        <div className="name">PTP Analytics</div>
                                     </div>
                                 </div>
                                 <div className="form-check">

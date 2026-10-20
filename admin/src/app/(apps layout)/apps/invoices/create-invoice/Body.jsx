@@ -178,11 +178,11 @@ const Body = () => {
                                     >
                                         <div id="address_collpase">
                                             <div className="address-wrap">
-                                                <h6>Hencework</h6>
+                                                <h6>Pacific Toll</h6>
                                                 <p>4747, Pearl Street</p>
                                                 <p>Rainy Day Drive, </p>
                                                 <p>Washington DC 42156</p>
-                                                <p>jampack_01@hencework.com</p>
+                                                <p>rose@pacifictoll.com</p>
                                             </div>
                                             <a href="#" className="d-inline-flex align-items-center mt-2" onClick={() => setEditInfo(!editInfo)} >
                                                 <i className="ri-pencil-line me-1" /> Edit Info
@@ -481,7 +481,7 @@ const Body = () => {
                                                 </Button>
                                             </Form.Group>
                                             <Form.Group className="form-group close-over">
-                                                <Form.Control type="text" className="form-control" defaultValue="Co-founder Hencework" />
+                                                <Form.Control type="text" className="form-control" defaultValue="Co-founder Pacific Toll" />
                                                 <Button bsPrefix="btn-close" className="close-input">
                                                     <span aria-hidden="true">×</span>
                                                 </Button>
@@ -501,7 +501,7 @@ const Body = () => {
                                             </Button>
                                         </Form.Group>
                                         <Form.Group className="form-group close-over">
-                                            <Form.Control type="text" className="form-control" defaultValue="Co-founder Hencework" />
+                                            <Form.Control type="text" className="form-control" defaultValue="Co-founder Pacific Toll" />
                                             <Button bsPrefix="btn-close" className="close-input">
                                                 <span aria-hidden="true">×</span>
                                             </Button>

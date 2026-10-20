@@ -15,7 +15,7 @@ export const contactCards = [
     {
         id: 1,
         name: "Morgan Freeman",
-        mail: "morgan@jampack.com",
+        mail: "morgan@pacifictoll.com",
         phone: "+145 52 5689",
         position: "Design",
         badge: "primary",
@@ -59,7 +59,7 @@ export const contactCards = [
     {
         id: 5,
         name: "Jaquiline Joker",
-        mail: "contact@hencework.com",
+        mail: "rose@pacifictoll.com",
         phone: "+91-34-2636-1916",
         position: "Design",
         badge: "primary",
@@ -70,7 +70,7 @@ export const contactCards = [
     {
         id: 6,
         name: "Tom Cruz",
-        mail: "tomcz@jampack.com",
+        mail: "tomcz@pacifictoll.com",
         phone: "+456 52 4862",
         position: "Developer",
         badge: "primary",
@@ -81,7 +81,7 @@ export const contactCards = [
     {
         id: 7,
         name: "Daniel Craig",
-        mail: "danialc@jampack.com",
+        mail: "danialc@pacifictoll.com",
         phone: "+145 52 1916",
         position: "Design",
         badge: "success",
@@ -92,7 +92,7 @@ export const contactCards = [
     {
         id: 8,
         name: "Katharine Jones",
-        mail: "joneskath@jampack.com",
+        mail: "joneskath@pacifictoll.com",
         phone: "+741 56 1916",
         position: " Inventory",
         badge: "danger",
@@ -102,8 +102,8 @@ export const contactCards = [
     },
     {
         id: 9,
-        name: "Hencework",
-        mail: "contact@hencework.com",
+        name: "Pacific Toll",
+        mail: "rose@pacifictoll.com",
         phone: "+145 52 5478",
         position: "Design",
         badge: "primary",
@@ -114,7 +114,7 @@ export const contactCards = [
     {
         id: 10,
         name: "Daniel Raynolds",
-        mail: "danialraynolds@hencework.com",
+        mail: "mark@pacifictoll.com",
         phone: "+145 36 1916",
         position: "Design",
         badge: "primary",

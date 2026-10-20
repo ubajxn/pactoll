@@ -12,7 +12,7 @@ const AudioCallModal = ({ show, hide }) => {
     return (
         <Modal show={show} onHide={hide} fullscreen={fullScreen} centered size='xl' dialogClassName="chatapp-call-window" className="ps-0" >
             <Modal.Header className="header-wth-bg">
-                <Modal.Title as="h6" className="text-muted">Jampack Audio Call</Modal.Title>
+                <Modal.Title as="h6" className="text-muted">PTP Audio Call</Modal.Title>
                 <div className="modal-action">
                     <Button variant="flush-dark" size="xs" className="btn-icon btn-rounded flush-soft-hover modal-fullscreen-togglable" onClick={() => setFullScreen(!fullScreen)} >
                         <span className="icon">

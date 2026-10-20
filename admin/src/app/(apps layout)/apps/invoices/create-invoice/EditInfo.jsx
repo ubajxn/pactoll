@@ -12,11 +12,11 @@ const EditInfo = ({ show, hide }) => {
                     <Row className="gx-3">
                         <Col sm={12} as={Form.Group} className="mb-3" >
                             <Form.Label>Company Name</Form.Label>
-                            <Form.Control type="text" defaultValue="Hencework" />
+                            <Form.Control type="text" defaultValue="Pacific Toll" />
                         </Col>
                         <Col sm={12} as={Form.Group} className="mb-3" >
                             <Form.Label>Email ID</Form.Label>
-                            <Form.Control type="email" defaultValue="jampack_01@hencework.com" />
+                            <Form.Control type="email" defaultValue="rose@pacifictoll.com" />
                         </Col>
                         <Col sm={12} as={Form.Group} className="mb-3" >
                             <Form.Label>Address Line One</Form.Label>

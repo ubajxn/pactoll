@@ -121,7 +121,7 @@ const ChatPopupBody = ({ showContactList }) => {
                                     <div className="media-body">
                                         <div>
                                             <div className="user-name">Adam Sandler</div>
-                                            <div className="user-status">Hi There, I am using Jampack</div>
+                                            <div className="user-status">Hi, welcome to PTP Operations</div>
                                         </div>
                                         <div>
                                             <Dropdown className="action-drp">
@@ -343,7 +343,7 @@ const ChatPopupBody = ({ showContactList }) => {
                                     <div className="media-body">
                                         <div>
                                             <div className="user-name">Chuck Norris</div>
-                                            <div className="user-status">Hi There, I am using Jampack</div>
+                                            <div className="user-status">Hi, welcome to PTP Operations</div>
                                         </div>
                                         <div>
                                             <Dropdown className="action-drp">
@@ -504,7 +504,7 @@ const ChatPopupBody = ({ showContactList }) => {
                                                 </span>
                                             </div>
                                             <div className="media-body">
-                                                <p className="file-name">jampack.zip</p>
+                                                <p className="file-name">ptp-assets.zip</p>
                                                 <p className="file-size">2.45 GB</p>
                                             </div>
                                         </div>

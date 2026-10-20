@@ -28,7 +28,7 @@ const Body = () => {
                                 <Col xxl={9} xl={8} lg={11} className="text-center mx-auto">
                                     <Image src={logoutImg} className="img-fluid w-sm-40 w-50 mb-3" alt="login" />
                                     <h3 className="mb-2">Dig into festive savings, Go Premium</h3>
-                                    <p className="w-xxl-65 w-100 mx-auto">Save 20% on the premium membership plan by using the promo code &quot;JAMPACK20&quot;</p>
+                                    <p className="w-xxl-65 w-100 mx-auto">Save 20% on the premium membership plan by using the promo code &quot;PTP20&quot;</p>
                                     <Button size="sm" variant="primary" className="btn-uppercase mt-4">Upgrade Now</Button>
                                     <p className="p-xs mt-5 text-light">All illustration are powered by <a href="https://icons8.com/ouch/" rel="noreferrer" target="_blank" className="text-light"><u>Icons8</u></a></p>
                                 </Col>

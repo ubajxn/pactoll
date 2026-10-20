@@ -32,7 +32,7 @@ const Body = () => {
                     <div className="d-flex flex-md-nowrap flex-wrap align-items-center justify-content-between mb-5">
                         <div>
                             <h5>Recommended for you</h5>
-                            <p>Because you installed Jampack template these are your recommendations.</p>
+                            <p>Recommended integrations for PTP Operations Suite.</p>
                         </div>
                         <a href="#" className="fs-7 flex-shrink-0"><u>View All</u></a>
                     </div>
@@ -125,7 +125,7 @@ const Body = () => {
                                     <div className="avatar avatar-sm avatar-violet mb-3">
                                         <span className="initial-wrap">H</span>
                                     </div>
-                                    <div className="app-name">Hencework</div>
+                                    <div className="app-name">Pacific Toll</div>
                                     <div className="app-cat">Design Agency</div>
                                     <p className="p-sm multine-ellipsis">Id diam maecenas ultricies mi eget mauris. At consectetur lorem donec massa sapien faucibus et.</p>
                                 </Card.Body>
@@ -144,7 +144,7 @@ const Body = () => {
                                             <Image src={symbolAvatar4} alt="logo" />
                                         </span>
                                     </div>
-                                    <div className="app-name">Jampack</div>
+                                    <div className="app-name">PTP</div>
                                     <div className="app-cat">Dashboard Template</div>
                                     <p className="p-sm multine-ellipsis">Ac ut consequat semper viverra nam libero justo laoreet sit. Consectetur adipiscing elit duis tristique sollicitudin nibh sit amet commodo.</p>
                                 </Card.Body>

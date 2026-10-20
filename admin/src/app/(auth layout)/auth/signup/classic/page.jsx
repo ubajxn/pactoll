@@ -8,8 +8,8 @@ import { Button, Card, Col, Container, Form, InputGroup, Row } from 'react-boots
 import CommonFooter1 from '../../CommonFooter1';
 
 //image
-import jampackImg from '@/assets/img/logo-light.svg';
-import jampackImgDark from '@/assets/img/logo-dark.svg';
+import ptpLogo from '@/assets/img/logo-light.svg';
+import ptpLogoDark from '@/assets/img/logo-dark.svg';
 import { useTheme } from '@/layout/theme-provider/theme-provider';
 
 const SignupClassic = () => {
@@ -29,12 +29,12 @@ const SignupClassic = () => {
                                         <Col xxl={5} xl={7} lg={8} sm={10} className="mx-auto">
                                             <div className="text-center mb-7">
                                                 <Link className="navbar-brand me-0" href="/" >
-                                                    {theme === "light" ? <Image className="brand-img d-inline-block" src={jampackImg} alt="brand" /> : <Image className="brand-img d-inline-block" src={jampackImgDark} alt="brand" />}
+                                                    {theme === "light" ? <Image className="brand-img d-inline-block" src={ptpLogo} alt="brand" /> : <Image className="brand-img d-inline-block" src={ptpLogoDark} alt="brand" />}
                                                 </Link>
                                             </div>
                                             <Card className="card-border">
                                                 <Card.Body>
-                                                    <h4 className="text-center mb-0">Sign Up to Jampack</h4>
+                                                    <h4 className="text-center mb-0">Sign Up to PTP Operations</h4>
                                                     <p className="p-xs mt-2 mb-4 text-center">
                                                         Already a member ? <Link href="/auth/login/classic"><u>Sign In</u></Link>
                                                     </p>
