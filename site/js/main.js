@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // ===================== QUOTE MODAL =====================
+  // ===================== QUOTE WIZARD MODAL =====================
   var overlay = document.getElementById('quote-modal');
   if (!overlay) return;
 
@@ -90,6 +90,14 @@ document.addEventListener('DOMContentLoaded', function() {
   var form = document.getElementById('quote-form');
   var successEl = overlay.querySelector('.modal__success');
   var closeBtn = overlay.querySelector('.modal__close');
+  var wizardNav = overlay.querySelector('.wizard__nav');
+  var steps = overlay.querySelectorAll('.wizard__step');
+  var progressBar = overlay.querySelector('.wizard__progress-bar');
+  var stepLabel = overlay.querySelector('.wizard__current');
+  var backBtn = overlay.querySelector('.wizard__btn--back');
+  var nextBtn = overlay.querySelector('.wizard__btn--next');
+  var totalSteps = steps.length;
+  var currentStep = 1;
 
   var taglines = [
     "Let's forge something great together.",
@@ -134,15 +142,119 @@ document.addEventListener('DOMContentLoaded', function() {
     "The only thing we level more than steel is the playing field."
   ];
 
+  var serviceLabels = {
+    'slitting': 'Steel Slitting',
+    'blanking': 'Multi-Blanking',
+    'leveling': 'Precision Leveling',
+    'ctl': 'Cut-to-Length',
+    'steel-sales': 'Steel Sales',
+    'other': 'Other'
+  };
+
+  var materialLabels = {
+    'hot-rolled': 'Hot-Rolled Steel',
+    'cold-rolled': 'Cold-Rolled Steel',
+    'galvanized': 'Galvanized Steel',
+    'galvanneal': 'Galvanneal',
+    'stainless': 'Stainless Steel',
+    'other': 'Other'
+  };
+
+  var timelineLabels = {
+    'asap': 'ASAP / Rush',
+    '1-2weeks': '1-2 Weeks',
+    '2-4weeks': '2-4 Weeks',
+    'flexible': 'Flexible'
+  };
+
   var taglineEl = overlay.querySelector('.modal__tagline');
 
-  function openModal(service) {
-    if (service) {
-      var sel = form.querySelector('[name="service"]');
-      if (sel) sel.value = service;
+  function goToStep(n) {
+    currentStep = n;
+    steps.forEach(function(s) { s.classList.remove('active'); });
+    var target = overlay.querySelector('[data-step="' + n + '"]');
+    if (target) target.classList.add('active');
+    progressBar.style.width = (n / totalSteps * 100) + '%';
+    stepLabel.textContent = n;
+    backBtn.classList.toggle('hidden', n === 1);
+    if (n === totalSteps) {
+      nextBtn.style.display = 'none';
+      populateReview();
+    } else {
+      nextBtn.style.display = '';
     }
+    wizardNav.style.display = '';
+    modal.scrollTop = 0;
+  }
+
+  function populateReview() {
+    var svc = form.querySelector('[name="service"]:checked');
+    document.getElementById('review-service').textContent = svc ? (serviceLabels[svc.value] || svc.value) : '—';
+    var mat = form.querySelector('[name="material"]');
+    document.getElementById('review-material').textContent = mat && mat.value ? (materialLabels[mat.value] || mat.value) : '—';
+    document.getElementById('review-gauge').textContent = form.querySelector('[name="gauge"]').value || '—';
+    document.getElementById('review-width').textContent = form.querySelector('[name="width"]').value || '—';
+    document.getElementById('review-quantity').textContent = form.querySelector('[name="quantity"]').value || '—';
+    var tl = form.querySelector('[name="timeline"]');
+    document.getElementById('review-timeline').textContent = tl && tl.value ? (timelineLabels[tl.value] || tl.value) : '—';
+    document.getElementById('review-name').textContent = form.querySelector('[name="name"]').value || '—';
+    document.getElementById('review-email').textContent = form.querySelector('[name="email"]').value || '—';
+  }
+
+  function validateStep(n) {
+    if (n === 1) {
+      var checked = form.querySelector('[name="service"]:checked');
+      if (!checked) {
+        var cards = overlay.querySelectorAll('.wizard__card-inner');
+        cards.forEach(function(c) {
+          c.style.borderColor = 'rgba(200,50,50,.4)';
+          setTimeout(function() { c.style.borderColor = ''; }, 1200);
+        });
+        return false;
+      }
+    }
+    if (n === 3) {
+      var name = form.querySelector('[name="name"]');
+      var email = form.querySelector('[name="email"]');
+      if (!name.value.trim() || !email.value.trim() || !email.checkValidity()) {
+        if (!name.value.trim()) name.style.borderBottomColor = 'rgba(200,50,50,.6)';
+        if (!email.value.trim() || !email.checkValidity()) email.style.borderBottomColor = 'rgba(200,50,50,.6)';
+        setTimeout(function() {
+          name.style.borderBottomColor = '';
+          email.style.borderBottomColor = '';
+        }, 1500);
+        return false;
+      }
+    }
+    return true;
+  }
+
+  nextBtn.addEventListener('click', function() {
+    if (!validateStep(currentStep)) return;
+    if (currentStep < totalSteps) goToStep(currentStep + 1);
+  });
+
+  backBtn.addEventListener('click', function() {
+    if (currentStep > 1) goToStep(currentStep - 1);
+  });
+
+  // Auto-advance on card selection (step 1)
+  overlay.querySelectorAll('.wizard__card input').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      setTimeout(function() { goToStep(2); }, 300);
+    });
+  });
+
+  function openModal(service) {
     if (taglineEl) {
       taglineEl.textContent = taglines[Math.floor(Math.random() * taglines.length)];
+    }
+    if (service && serviceLabels[service]) {
+      var radio = form.querySelector('[name="service"][value="' + service + '"]');
+      if (radio) radio.checked = true;
+      goToStep(2);
+    } else {
+      goToStep(1);
     }
     overlay.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -156,7 +268,9 @@ document.addEventListener('DOMContentLoaded', function() {
   function resetModal() {
     form.style.display = '';
     successEl.classList.remove('show');
+    wizardNav.style.display = '';
     form.reset();
+    goToStep(1);
   }
 
   closeBtn.addEventListener('click', function() {
@@ -180,7 +294,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Intercept all quote/contact CTA links
   document.querySelectorAll('a[href="contact.html"], a[data-modal="quote"]').forEach(function(link) {
-    // Skip nav links to the Contact page itself
     if (link.closest('.nav__links') || link.closest('.footer')) return;
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -198,6 +311,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Form submission
   form.addEventListener('submit', function(e) {
     e.preventDefault();
+    var submitBtn = form.querySelector('[type="submit"]');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending...';
     var data = new FormData(form);
     fetch(form.action, {
       method: 'POST',
@@ -206,8 +322,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }).then(function(r) {
       if (r.ok) {
         form.style.display = 'none';
+        wizardNav.style.display = 'none';
         successEl.classList.add('show');
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Submit Request';
       }
+    }).catch(function() {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit Request';
     });
   });
 
