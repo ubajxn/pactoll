@@ -152,7 +152,7 @@ const Calendar = () => {
                                 editable={true}
                                 events={CalendarEvents}
                                 eventClick={function (info) {
-                                    // console.log(info);
+                                    info.jsEvent.preventDefault();
                                     setTargetEvent(info.event);
                                     setEventTitle(info.event._def.title);
                                     setShowEventInfo(true);
