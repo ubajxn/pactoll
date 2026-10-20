@@ -25,16 +25,8 @@ const PIPELINE = [
     { stage: 'Closed', key: 'closed', accounts: 11, pct: 5, color: 'danger' },
 ];
 
-const CAMPAIGNS = [
-    { name: 'Website Redesign', status: 'In Progress', timeline: 'Oct-Dec 2026', progress: 15, color: 'primary' },
-    { name: 'LinkedIn Launch', status: 'Starting', timeline: 'Oct-Nov 2026', progress: 5, color: 'info' },
-    { name: 'Google Business Profile', status: 'Quick Win', timeline: 'Oct 2026', progress: 0, color: 'success' },
-    { name: 'IQS Directory', status: 'Quick Win', timeline: 'Oct 2026', progress: 0, color: 'success' },
-    { name: 'Photography Library', status: 'Planned', timeline: 'Oct-Nov 2026', progress: 0, color: 'warning' },
-    { name: 'Drone Video Shoot', status: 'Planned', timeline: 'Nov 2026', progress: 0, color: 'warning' },
-    { name: 'Instagram Launch', status: 'Planned', timeline: 'Nov-Dec 2026', progress: 0, color: 'violet' },
-    { name: 'Open House Event', status: 'Planning', timeline: 'Feb 2027', progress: 0, color: 'pumpkin' },
-];
+const CAMPAIGN_STATUS_COLORS = { active: 'success', planned: 'primary', draft: 'secondary', completed: 'info', paused: 'warning' };
+const DASHBOARD_CAMPAIGNS = CAMPAIGNS.slice(0, 8);
 
 const TOP_TARGETS = TARGET_ACCOUNTS
     .filter(t => t.pri === 'high' && t.estDealValue)
@@ -160,10 +152,10 @@ const Dashboard = () => {
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    {CAMPAIGNS.map((c, i) => (
-                                                        <tr key={i} className="cursor-pointer" onClick={() => window.location.href = '/apps/campaigns/all'}>
+                                                    {DASHBOARD_CAMPAIGNS.map((c, i) => (
+                                                        <tr key={i} className="cursor-pointer" onClick={() => window.location.href = `/apps/campaigns/${c.slug}`}>
                                                             <td className="fw-medium">{c.name}</td>
-                                                            <td><HkBadge bg={c.color} soft size="sm">{c.status}</HkBadge></td>
+                                                            <td><HkBadge bg={CAMPAIGN_STATUS_COLORS[c.status] || 'secondary'} soft size="sm">{c.status}</HkBadge></td>
                                                             <td className="text-muted fs-8">{c.timeline}</td>
                                                         </tr>
                                                     ))}
@@ -441,17 +433,17 @@ const Dashboard = () => {
                                                 <th>Campaign</th>
                                                 <th>Status</th>
                                                 <th>Timeline</th>
-                                                <th>Progress</th>
+                                                <th>Category</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             {CAMPAIGNS.map((c, i) => (
-                                                <tr key={i} className="cursor-pointer" onClick={() => window.location.href = '/apps/campaigns/all'} style={{ cursor: 'pointer' }}>
+                                                <tr key={i} className="cursor-pointer" onClick={() => window.location.href = `/apps/campaigns/${c.slug}`} style={{ cursor: 'pointer' }}>
                                                     <td className="fw-medium">{c.name}</td>
-                                                    <td><HkBadge bg={c.color} soft size="sm">{c.status}</HkBadge></td>
+                                                    <td><HkBadge bg={CAMPAIGN_STATUS_COLORS[c.status] || 'secondary'} soft size="sm">{c.status}</HkBadge></td>
                                                     <td className="text-muted fs-8">{c.timeline}</td>
                                                     <td style={{ width: 120 }}>
-                                                        <ProgressBar variant={c.color} now={c.progress || 1} style={{ height: 6 }} />
+                                                        <HkBadge bg={CAMPAIGN_STATUS_COLORS[c.status] || 'secondary'} soft size="sm">{c.category}</HkBadge>
                                                     </td>
                                                 </tr>
                                             ))}
