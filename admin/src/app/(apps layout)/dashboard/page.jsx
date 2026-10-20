@@ -10,7 +10,7 @@ import { TARGET_ACCOUNTS, PIPELINE_STAGES, getAccountsByStage } from '@/data/tar
 import { TICKETS, TICKET_STATUSES, TICKET_PRIORITIES, TICKET_TYPES, getTeamMember, getOpenTicketCount } from '@/data/tickets/ticket-data';
 
 const STATS = [
-    { label: 'Target Accounts', value: '203', change: '+12', icon: <Target size={20} />, color: 'primary', href: '/apps/targets' },
+    { label: 'Target Accounts', value: String(TARGET_ACCOUNTS.length), change: '+12', icon: <Target size={20} />, color: 'primary', href: '/apps/targets' },
     { label: 'Active Campaigns', value: '32', change: '+5', icon: <Speakerphone size={20} />, color: 'success', href: '/apps/campaigns/all' },
     { label: 'Pipeline Value', value: '$4.2M', change: '+18%', icon: <TrendingUp size={20} />, color: 'warning', href: '/apps/pipeline' },
     { label: 'Active Tickets', value: String(getOpenTicketCount()), change: 'Open', icon: <Ticket size={20} />, color: 'info', href: '/apps/tickets' },
@@ -138,7 +138,7 @@ const Dashboard = () => {
                                             <div className="separator-full mt-4 mb-3" />
                                             <div className="d-flex justify-content-between">
                                                 <span className="fw-medium">Total Pipeline</span>
-                                                <span className="fw-medium text-dark">203 accounts &middot; $4.2M potential</span>
+                                                <span className="fw-medium text-dark">{TARGET_ACCOUNTS.length} accounts &middot; $4.2M potential</span>
                                             </div>
                                         </Card.Body>
                                     </Card>
@@ -229,7 +229,7 @@ const Dashboard = () => {
                                     <Card className="card-border mb-0">
                                         <Card.Header className="card-header-action">
                                             <h6>Priority Target Accounts</h6>
-                                            <Link href="/apps/targets" className="btn btn-sm btn-soft-primary">View All 203</Link>
+                                            <Link href="/apps/targets" className="btn btn-sm btn-soft-primary">View All {TARGET_ACCOUNTS.length}</Link>
                                         </Card.Header>
                                         <Card.Body>
                                             <Table responsive hover className="mb-0">
