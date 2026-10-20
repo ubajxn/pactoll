@@ -22,6 +22,36 @@ export const PIPELINE_STAGES = {
     closed: { label: 'Closed Won', color: 'danger', order: 5 },
 };
 
+export const CONTACT_LEVELS = {
+    executive: { label: 'C-Suite / Executive', order: 1 },
+    vp: { label: 'Vice President', order: 2 },
+    director: { label: 'Director', order: 3 },
+    manager: { label: 'Manager', order: 4 },
+    coordinator: { label: 'Coordinator', order: 5 },
+    analyst: { label: 'Analyst', order: 6 },
+    other: { label: 'Other', order: 7 },
+};
+
+export const SOURCE_TYPES = {
+    'linkedin': { label: 'LinkedIn', icon: 'ri-linkedin-box-fill', color: 'primary' },
+    'company-website': { label: 'Company Website', icon: 'ri-global-line', color: 'info' },
+    'direct-conversation': { label: 'Direct Conversation', icon: 'ri-chat-3-line', color: 'success' },
+    'email-signature': { label: 'Email Signature', icon: 'ri-mail-line', color: 'warning' },
+    'business-card': { label: 'Business Card', icon: 'ri-contacts-book-line', color: 'violet' },
+    'conference': { label: 'Conference / Trade Show', icon: 'ri-calendar-event-line', color: 'pumpkin' },
+    'annual-report': { label: 'Annual Report', icon: 'ri-file-chart-line', color: 'dark' },
+    'news-article': { label: 'News Article', icon: 'ri-newspaper-line', color: 'secondary' },
+    'crm-import': { label: 'CRM Import', icon: 'ri-database-2-line', color: 'smoke' },
+    'sales-navigator': { label: 'Sales Navigator', icon: 'ri-search-eye-line', color: 'primary' },
+    'zoominfo': { label: 'ZoomInfo', icon: 'ri-search-2-line', color: 'info' },
+    'apollo': { label: 'Apollo.io', icon: 'ri-rocket-line', color: 'warning' },
+    'referral': { label: 'Referral', icon: 'ri-team-line', color: 'success' },
+    'social-media': { label: 'Social Media', icon: 'ri-share-line', color: 'danger' },
+    'sec-filing': { label: 'SEC Filing', icon: 'ri-government-line', color: 'dark' },
+    'manual-research': { label: 'Manual Research', icon: 'ri-search-line', color: 'smoke' },
+    'other': { label: 'Other', icon: 'ri-more-line', color: 'secondary' },
+};
+
 export const TARGET_ACCOUNTS = [
     {
         slug: "royal-truck-body",
@@ -43,7 +73,7 @@ export const TARGET_ACCOUNTS = [
         estDealValue: "$180K",
         socialLinks: { twitter: null, facebook: "https://facebook.com/royaltruckbody", instagram: null },
         contacts: [
-            { name: "Mike Davila", title: "VP of Purchasing", email: "mdavila@royaltruckbody.com", phone: "(562) 633-0101 x204", linkedin: "https://linkedin.com/in/mikedavila", birthday: "Mar 15", isPrimary: true, level: "vp" },
+            { name: "Mike Davila", title: "VP of Purchasing", email: "mdavila@royaltruckbody.com", phone: "(562) 633-0101 x204", linkedin: "https://linkedin.com/in/mikedavila", birthday: null, isPrimary: true, level: "vp" },
             { name: "Sandra Chen", title: "Materials Manager", email: "schen@royaltruckbody.com", phone: "(562) 633-0101 x211", linkedin: null, birthday: null, isPrimary: false, level: "manager" },
         ],
         touchLog: [
@@ -104,7 +134,7 @@ export const TARGET_ACCOUNTS = [
         estDealValue: "$140K",
         socialLinks: { twitter: null, facebook: null, instagram: null },
         contacts: [
-            { name: "James Park", title: "Purchasing Director", email: "jpark@wcmetalstamping.com", phone: "(714) 993-3300 x102", linkedin: "https://linkedin.com/in/jamespark-wcms", birthday: "Jul 22", isPrimary: true, level: "director" },
+            { name: "James Park", title: "Purchasing Director", email: "jpark@wcmetalstamping.com", phone: "(714) 993-3300 x102", linkedin: "https://linkedin.com/in/jamespark-wcms", birthday: null, isPrimary: true, level: "director" },
         ],
         touchLog: [
             { date: "2026-10-15", type: "research", note: "Identified — precision slit coil consumer, GA and EG spec work", who: "System" },
@@ -158,9 +188,9 @@ export const TARGET_ACCOUNTS = [
         estDealValue: "$320K",
         socialLinks: { twitter: "https://twitter.com/NucorCorp", facebook: null, instagram: null },
         contacts: [
-            { name: "David Martinez", title: "VP Operations", email: "dmartinez@swdataproducts.com", phone: "(909) 382-4420 x301", linkedin: "https://linkedin.com/in/david-martinez-swdp", birthday: "Nov 8", isPrimary: true, level: "vp" },
+            { name: "David Martinez", title: "VP Operations", email: "dmartinez@swdataproducts.com", phone: "(909) 382-4420 x301", linkedin: "https://linkedin.com/in/david-martinez-swdp", birthday: null, isPrimary: true, level: "vp" },
             { name: "Angela Wu", title: "Supply Chain Manager", email: "awu@swdataproducts.com", phone: "(909) 382-4420 x215", linkedin: null, birthday: null, isPrimary: false, level: "manager" },
-            { name: "Tom Rivera", title: "Quality Director", email: "trivera@swdataproducts.com", phone: "(909) 382-4420 x180", linkedin: null, birthday: "Feb 14", isPrimary: false, level: "director" },
+            { name: "Tom Rivera", title: "Quality Director", email: "trivera@swdataproducts.com", phone: "(909) 382-4420 x180", linkedin: null, birthday: null, isPrimary: false, level: "director" },
         ],
         touchLog: [
             { date: "2026-10-19", type: "call", note: "Spoke with Angela Wu — interested in sample slit coil for tolerance testing", who: "Rose" },
@@ -193,7 +223,7 @@ export const TARGET_ACCOUNTS = [
         estDealValue: "$450K",
         socialLinks: { twitter: "https://twitter.com/ChatsworthProd", facebook: "https://facebook.com/ChatsworthProducts", instagram: null },
         contacts: [
-            { name: "Brian Lowell", title: "Director of Procurement", email: "blowell@chatsworth.com", phone: "(805) 584-8810 x500", linkedin: "https://linkedin.com/in/brianlowell", birthday: "Jun 3", isPrimary: true, level: "director" },
+            { name: "Brian Lowell", title: "Director of Procurement", email: "blowell@chatsworth.com", phone: "(805) 584-8810 x500", linkedin: "https://linkedin.com/in/brianlowell", birthday: null, isPrimary: true, level: "director" },
             { name: "Karen Shields", title: "VP Manufacturing", email: "kshields@chatsworth.com", phone: "(805) 584-8810 x410", linkedin: "https://linkedin.com/in/karenshields-cpi", birthday: null, isPrimary: false, level: "vp" },
         ],
         touchLog: [
@@ -300,7 +330,7 @@ export const TARGET_ACCOUNTS = [
         estDealValue: "$500K",
         socialLinks: { twitter: "https://twitter.com/NucorCorp", facebook: null, instagram: null },
         contacts: [
-            { name: "Carlos Mendez", title: "VP Procurement", email: "cmendez@vulcraft.com", phone: "(602) 272-1217 x300", linkedin: "https://linkedin.com/in/carlosmendez-nucor", birthday: "Sep 21", isPrimary: true, level: "vp" },
+            { name: "Carlos Mendez", title: "VP Procurement", email: "cmendez@vulcraft.com", phone: "(602) 272-1217 x300", linkedin: "https://linkedin.com/in/carlosmendez-nucor", birthday: null, isPrimary: true, level: "vp" },
             { name: "Lisa Chang", title: "Supply Chain Analyst", email: "lchang@vulcraft.com", phone: "(602) 272-1217 x215", linkedin: null, birthday: null, isPrimary: false, level: "analyst" },
         ],
         touchLog: [
@@ -612,7 +642,7 @@ export const TARGET_ACCOUNTS = [
         estDealValue: "$350K",
         socialLinks: { twitter: "https://twitter.com/SamsungSDI", facebook: null, instagram: null },
         contacts: [
-            { name: "Daniel Kim", title: "Procurement Manager, NA Operations", email: "dkim@samsungsdi.com", phone: "(909) 673-8500 x200", linkedin: "https://linkedin.com/in/danielkim-sdi", birthday: "Jan 30", isPrimary: true, level: "manager" },
+            { name: "Daniel Kim", title: "Procurement Manager, NA Operations", email: "dkim@samsungsdi.com", phone: "(909) 673-8500 x200", linkedin: "https://linkedin.com/in/danielkim-sdi", birthday: null, isPrimary: true, level: "manager" },
         ],
         touchLog: [
             { date: "2026-10-18", type: "linkedin", note: "Connected with Daniel Kim — Ontario facility is 30 min from PTP", who: "Rose" },
@@ -693,7 +723,7 @@ export const TARGET_ACCOUNTS = [
         estDealValue: "$180K",
         socialLinks: { twitter: "https://twitter.com/ironaborning", facebook: "https://facebook.com/IronRidge", instagram: null },
         contacts: [
-            { name: "Amy Foster", title: "Director of Supply Chain", email: "afoster@ironridge.com", phone: "(510) 731-4100 x120", linkedin: "https://linkedin.com/in/amyfoster-ironridge", birthday: "Apr 17", isPrimary: true, level: "director" },
+            { name: "Amy Foster", title: "Director of Supply Chain", email: "afoster@ironridge.com", phone: "(510) 731-4100 x120", linkedin: "https://linkedin.com/in/amyfoster-ironridge", birthday: null, isPrimary: true, level: "director" },
         ],
         touchLog: [
             { date: "2026-10-19", type: "call", note: "Phone call with Amy Foster — current supplier has quality issues with GI coating weight consistency", who: "Rose" },
@@ -773,7 +803,7 @@ export const TARGET_ACCOUNTS = [
         estDealValue: "$300K",
         socialLinks: { twitter: null, facebook: null, instagram: null },
         contacts: [
-            { name: "Frank Delgado", title: "VP Estimating", email: "fdelgado@dbmvircon.com", phone: "(310) 233-4831 x105", linkedin: "https://linkedin.com/in/frankdelgado", birthday: "Dec 1", isPrimary: true, level: "vp" },
+            { name: "Frank Delgado", title: "VP Estimating", email: "fdelgado@dbmvircon.com", phone: "(310) 233-4831 x105", linkedin: "https://linkedin.com/in/frankdelgado", birthday: null, isPrimary: true, level: "vp" },
         ],
         touchLog: [
             { date: "2026-10-17", type: "meeting", note: "Met Frank Delgado at Carson Chamber mixer — very interested in local toll source", who: "Rose" },
@@ -801,7 +831,7 @@ export const TARGET_ACCOUNTS = [
         estDealValue: "$120K",
         socialLinks: { twitter: null, facebook: null, instagram: null },
         contacts: [
-            { name: "Tony Martin Jr.", title: "President", email: "tony@martinbrossteel.com", phone: "(310) 327-8777", linkedin: null, birthday: "Aug 9", isPrimary: true, level: "executive" },
+            { name: "Tony Martin Jr.", title: "President", email: "tony@martinbrossteel.com", phone: "(310) 327-8777", linkedin: null, birthday: null, isPrimary: true, level: "executive" },
         ],
         touchLog: [
             { date: "2026-10-19", type: "email", note: "Sent formal pricing proposal for monthly HR/CR blanking", who: "Rose" },
@@ -989,7 +1019,7 @@ export const TARGET_ACCOUNTS = [
         estDealValue: "$500K",
         socialLinks: { twitter: null, facebook: null, instagram: null },
         contacts: [
-            { name: "George Estrada", title: "VP Commercial", email: "gestrada@californiasteel.com", phone: "(909) 350-6200 x400", linkedin: "https://linkedin.com/in/georgeestrada-csi", birthday: "May 28", isPrimary: true, level: "vp" },
+            { name: "George Estrada", title: "VP Commercial", email: "gestrada@californiasteel.com", phone: "(909) 350-6200 x400", linkedin: "https://linkedin.com/in/georgeestrada-csi", birthday: null, isPrimary: true, level: "vp" },
             { name: "Wendy Nguyen", title: "Toll Processing Coordinator", email: "wnguyen@californiasteel.com", phone: "(909) 350-6200 x425", linkedin: null, birthday: null, isPrimary: false, level: "coordinator" },
         ],
         touchLog: [

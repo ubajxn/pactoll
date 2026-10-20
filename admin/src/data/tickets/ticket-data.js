@@ -25,7 +25,7 @@ export const TICKET_TYPES = {
 };
 
 export const TEAM_MEMBERS = [
-  { id: 'jeff', name: 'Jeff Zielinski', role: 'Admin / CMO', email: 'jeff@pacifictoll.com', initials: 'JZ', color: 'primary' },
+  { id: 'jeff', name: 'Jeff Jack', role: 'Admin / CMO', email: 'jeff@pacifictoll.com', initials: 'JJ', color: 'primary' },
   { id: 'mark', name: 'Mark Proner', role: 'Owner / President', email: 'mproner@pacifictoll.com', initials: 'MP', color: 'success' },
   { id: 'rose', name: 'Rose', role: 'Operations', email: 'rose@pacifictoll.com', initials: 'RO', color: 'warning' },
 ];

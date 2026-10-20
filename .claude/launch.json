@@ -10,9 +10,9 @@
     {
       "name": "ptp-admin",
       "runtimeExecutable": "cmd",
-      "runtimeArgs": ["/c", "cd admin && npm run dev -- -p 3457"],
-      "port": 3457,
-      "url": "http://localhost:3457"
+      "runtimeArgs": ["/c", "cd admin && npm run dev -- -p 3460"],
+      "port": 3460,
+      "url": "http://localhost:3460"
     },
     {
       "name": "ptp-website",

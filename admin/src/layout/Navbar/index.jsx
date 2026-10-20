@@ -215,22 +215,22 @@ const CompactNav = () => {
                                         <div className="media">
                                             <div className="media-head me-2">
                                                 <div className="avatar avatar-primary avatar-sm avatar-rounded">
-                                                    <span className="initial-wrap">JZ</span>
+                                                    <span className="initial-wrap">JJ</span>
                                                 </div>
                                             </div>
                                             <div className="media-body">
                                                 <Dropdown>
-                                                    <Dropdown.Toggle as="a" href="#" className="d-block fw-medium text-dark">Jeff Zielinski</Dropdown.Toggle>
+                                                    <Dropdown.Toggle as="a" href="#" className="d-block fw-medium text-dark">Jeff Jack</Dropdown.Toggle>
                                                     <Dropdown.Menu align="end">
                                                         <div className="p-2">
                                                             <div className="media align-items-center active-user mb-3">
                                                                 <div className="media-head me-2">
                                                                     <div className="avatar avatar-primary avatar-xs avatar-rounded">
-                                                                        <span className="initial-wrap">JZ</span>
+                                                                        <span className="initial-wrap">JJ</span>
                                                                     </div>
                                                                 </div>
                                                                 <div className="media-body">
-                                                                    <Link href="#" className="d-flex link-dark">Jeff Zielinski <i className="ri-checkbox-circle-fill fs-7 text-primary ms-1" />
+                                                                    <Link href="#" className="d-flex link-dark">Jeff Jack <i className="ri-checkbox-circle-fill fs-7 text-primary ms-1" />
                                                                     </Link>
                                                                     <Link href="#" className="d-block fs-8 link-secondary">
                                                                         <u>Manage your account</u>

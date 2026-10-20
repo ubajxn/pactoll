@@ -179,7 +179,7 @@ export default function TicketDetailPage() {
               <Form onSubmit={handleAddComment}>
                 <div className="d-flex gap-3">
                   <div className="avatar avatar-sm avatar-primary avatar-rounded flex-shrink-0">
-                    <span className="initial-wrap">JZ</span>
+                    <span className="initial-wrap">JJ</span>
                   </div>
                   <div className="flex-fill">
                     <Form.Control
