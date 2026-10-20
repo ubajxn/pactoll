@@ -14,20 +14,64 @@ export const NavMenu = [
         ]
     },
     {
-        group: 'Operations',
+        group: 'Work',
+        contents: [
+            {
+                name: 'Tickets',
+                icon: <Icons.Ticket />,
+                path: '/apps/tickets',
+                badge: <HkBadge size="sm" bg="danger" soft className="ms-xl-2 ms-auto">8</HkBadge>,
+                grp_name: "work",
+            },
+            {
+                name: 'Calendar',
+                icon: <Icons.CalendarEvent />,
+                path: '/apps/calendar',
+                grp_name: "work",
+            },
+            {
+                id: 'dash_email',
+                name: 'Messages',
+                icon: <Icons.Mail />,
+                path: '/apps/email',
+                grp_name: "work",
+            },
+            {
+                id: 'dash_chat',
+                name: 'Team Chat',
+                icon: <Icons.Messages />,
+                path: '/apps/chat/chats',
+                grp_name: "work",
+            },
+        ]
+    },
+    {
+        group: 'Sales',
         contents: [
             {
                 name: 'Leads',
                 icon: <Icons.Flame />,
                 path: '/apps/leads',
-                grp_name: "ops",
+                grp_name: "sales",
             },
             {
                 name: 'Target Accounts',
                 icon: <Icons.Target />,
                 path: '/apps/targets',
                 badge: <HkBadge size="sm" bg="primary" soft className="ms-xl-2 ms-auto">203</HkBadge>,
-                grp_name: "ops",
+                grp_name: "sales",
+            },
+            {
+                name: 'Pipeline',
+                icon: <Icons.ArrowsRight />,
+                path: '/apps/pipeline',
+                grp_name: "sales",
+            },
+            {
+                name: 'Competitors',
+                icon: <Icons.ChartBar />,
+                path: '/apps/competitors',
+                grp_name: "sales",
             },
             {
                 id: 'dash_campaigns',
@@ -38,26 +82,14 @@ export const NavMenu = [
                     {
                         name: 'All Campaigns',
                         path: '/apps/campaigns/all',
-                        grp_name: "ops",
+                        grp_name: "sales",
                     },
                     {
                         name: 'Calendar',
                         path: '/apps/campaigns/calendar',
-                        grp_name: "ops",
+                        grp_name: "sales",
                     },
                 ]
-            },
-            {
-                name: 'Pipeline',
-                icon: <Icons.ArrowsRight />,
-                path: '/apps/pipeline',
-                grp_name: "ops",
-            },
-            {
-                name: 'Competitors',
-                icon: <Icons.ChartBar />,
-                path: '/apps/competitors',
-                grp_name: "ops",
             },
         ]
     },
@@ -94,6 +126,11 @@ export const NavMenu = [
                     },
                 ]
             },
+        ]
+    },
+    {
+        group: 'Admin',
+        contents: [
             {
                 id: 'dash_contact',
                 name: 'Contacts',
@@ -103,20 +140,15 @@ export const NavMenu = [
                     {
                         name: 'Contact List',
                         path: '/apps/contact/contact-list',
-                        grp_name: "content",
+                        grp_name: "admin",
                     },
                     {
                         name: 'Contact Cards',
                         path: '/apps/contact/contact-cards',
-                        grp_name: "content",
+                        grp_name: "admin",
                     },
                 ]
             },
-        ]
-    },
-    {
-        group: 'Admin',
-        contents: [
             {
                 id: 'dash_invoice',
                 name: 'Proposals',
@@ -141,9 +173,15 @@ export const NavMenu = [
                 ]
             },
             {
+                name: 'File Manager',
+                icon: <Icons.Folders />,
+                path: '/apps/file-manager/list-view',
+                grp_name: "admin",
+            },
+            {
                 id: 'dash_profile',
-                name: 'Profile',
-                icon: <Icons.UserSearch />,
+                name: 'Settings',
+                icon: <Icons.Settings />,
                 path: '/profile/',
                 childrens: [
                     {
@@ -157,6 +195,23 @@ export const NavMenu = [
                         grp_name: "admin",
                     },
                 ]
+            },
+        ]
+    },
+    {
+        group: 'Quick Links',
+        contents: [
+            {
+                name: 'PTP Website',
+                icon: <Icons.World />,
+                path: '/site/index.html',
+                grp_name: "links",
+            },
+            {
+                name: 'Intro Deck',
+                icon: <Icons.Presentation />,
+                path: '/deck/index.html',
+                grp_name: "links",
             },
         ]
     },

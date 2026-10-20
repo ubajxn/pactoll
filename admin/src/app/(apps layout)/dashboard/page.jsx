@@ -1,15 +1,16 @@
 "use client"
 import Link from 'next/link';
-import { Card, Col, Container, Nav, ProgressBar, Row, Tab, Table } from 'react-bootstrap';
+import { Card, Col, Container, Nav, ProgressBar, Row, Tab, Table, Badge } from 'react-bootstrap';
 import HkBadge from '@/components/@hk-badge/@hk-badge';
-import { Target, Speakerphone, TrendingUp, Calendar, ExternalLink } from 'tabler-icons-react';
+import { Target, Speakerphone, TrendingUp, Calendar, ExternalLink, Ticket, AlertTriangle } from 'tabler-icons-react';
 import { TARGET_ACCOUNTS, PIPELINE_STAGES, getAccountsByStage } from '@/data/targets/target-data';
+import { TICKETS, TICKET_STATUSES, TICKET_PRIORITIES, TICKET_TYPES, getTeamMember, getOpenTicketCount } from '@/data/tickets/ticket-data';
 
 const STATS = [
     { label: 'Target Accounts', value: '203', change: '+12', icon: <Target size={20} />, color: 'primary', href: '/apps/targets' },
     { label: 'Active Campaigns', value: '32', change: '+5', icon: <Speakerphone size={20} />, color: 'success', href: '/apps/campaigns/all' },
     { label: 'Pipeline Value', value: '$4.2M', change: '+18%', icon: <TrendingUp size={20} />, color: 'warning', href: '/apps/pipeline' },
-    { label: 'Days to Launch', value: '3', change: 'Oct 22', icon: <Calendar size={20} />, color: 'info', href: null },
+    { label: 'Active Tickets', value: String(getOpenTicketCount()), change: 'Open', icon: <Ticket size={20} />, color: 'info', href: '/apps/tickets' },
 ];
 
 const PIPELINE = [
@@ -158,6 +159,56 @@ const Dashboard = () => {
                                                             <td className="text-muted fs-8">{c.timeline}</td>
                                                         </tr>
                                                     ))}
+                                                </tbody>
+                                            </Table>
+                                        </Card.Body>
+                                    </Card>
+                                </Col>
+                            </Row>
+
+                            {/* Active Tickets */}
+                            <Row className="mb-4">
+                                <Col md={12} className="mb-md-4 mb-3">
+                                    <Card className="card-border mb-0">
+                                        <Card.Header className="card-header-action">
+                                            <h6><Ticket size={16} className="me-2" />Active Tickets</h6>
+                                            <Link href="/apps/tickets" className="btn btn-sm btn-soft-primary">All Tickets</Link>
+                                        </Card.Header>
+                                        <Card.Body className="p-0">
+                                            <Table responsive hover className="mb-0">
+                                                <thead>
+                                                    <tr>
+                                                        <th style={{ width: 90 }}>ID</th>
+                                                        <th>Title</th>
+                                                        <th style={{ width: 90 }}>Priority</th>
+                                                        <th style={{ width: 130 }}>Status</th>
+                                                        <th style={{ width: 100 }}>Assignee</th>
+                                                        <th style={{ width: 90 }} className="text-end">Due</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {TICKETS
+                                                        .filter(t => !['resolved', 'closed'].includes(t.status))
+                                                        .sort((a, b) => (TICKET_PRIORITIES[a.priority]?.order ?? 99) - (TICKET_PRIORITIES[b.priority]?.order ?? 99))
+                                                        .slice(0, 6)
+                                                        .map(t => {
+                                                            const priCfg = TICKET_PRIORITIES[t.priority];
+                                                            const stCfg = TICKET_STATUSES[t.status];
+                                                            const assignee = getTeamMember(t.assignee);
+                                                            const isOverdue = t.dueDate && new Date(t.dueDate) < new Date() && !['resolved', 'closed'].includes(t.status);
+                                                            return (
+                                                                <tr key={t.id} className="cursor-pointer" onClick={() => window.location.href = `/apps/tickets/${t.id}`} style={{ cursor: 'pointer' }}>
+                                                                    <td><Link href={`/apps/tickets/${t.id}`} className="link-primary fw-semibold fs-7">{t.id}</Link></td>
+                                                                    <td className="fw-medium">{t.title}</td>
+                                                                    <td><HkBadge bg={priCfg?.bg || 'secondary'} size="sm">{priCfg?.label}</HkBadge></td>
+                                                                    <td><HkBadge bg={stCfg?.bg || 'secondary'} soft size="sm">{stCfg?.label}</HkBadge></td>
+                                                                    <td className="fs-7">{assignee?.name?.split(' ')[0] || '—'}</td>
+                                                                    <td className={`text-end fs-7 ${isOverdue ? 'text-danger fw-semibold' : 'text-muted'}`}>
+                                                                        {t.dueDate ? new Date(t.dueDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : '—'}
+                                                                    </td>
+                                                                </tr>
+                                                            );
+                                                        })}
                                                 </tbody>
                                             </Table>
                                         </Card.Body>
