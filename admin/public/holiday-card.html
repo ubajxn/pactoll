@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PTP Holiday Card 2026</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=Inter:wght@300;400;500;600&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --charcoal: #1a1f25;
+      --charcoal-mid: #252b33;
+      --steel-blue: #4A7FA5;
+      --steel-blue-light: #6196BA;
+      --steel-blue-dark: #3A6585;
+      --silver: #c0c5cc;
+      --silver-light: #e2e5ea;
+      --gold: #c4a35a;
+      --gold-light: #d4bc7e;
+      --sans: 'Inter', system-ui, sans-serif;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --mono: 'DM Mono', monospace;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: #f0eeeb;
+      color: var(--charcoal);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
+      gap: 60px;
+      min-height: 100vh;
+    }
+
+    .label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: #999;
+      text-align: center;
+    }
+
+    /* ─── Card Container ─── */
+    .card-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .card {
+      width: 700px;
+      height: 500px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.2), 0 2px 8px rgba(0,0,0,.1);
+    }
+
+    /* ─── FRONT ─── */
+    .card-front {
+      background: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    /* Metallic shimmer overlay */
+    .card-front::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(74,127,165,.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 80%, rgba(196,163,90,.08) 0%, transparent 50%);
+    }
+
+    /* Subtle brushed-metal texture */
+    .card-front::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: .03;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 1px,
+        rgba(255,255,255,.5) 1px,
+        rgba(255,255,255,.5) 2px
+      );
+    }
+
+    .card-front__content {
+      position: relative;
+      z-index: 1;
+      padding: 48px;
+    }
+
+    /* Decorative steel coil rings */
+    .coil-ring {
+      position: absolute;
+      border: 1px solid rgba(74,127,165,.12);
+      border-radius: 50%;
+    }
+    .coil-ring--1 { width: 400px; height: 400px; top: -100px; right: -100px; }
+    .coil-ring--2 { width: 300px; height: 300px; top: -50px; right: -50px; }
+    .coil-ring--3 { width: 500px; height: 500px; bottom: -200px; left: -200px; }
+    .coil-ring--4 { width: 350px; height: 350px; bottom: -120px; left: -120px; }
+
+    .card-front__tagline {
+      font-family: var(--serif);
+      font-size: 3.2rem;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .card-front__tagline em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--steel-blue-light), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .card-front__sub {
+      font-size: .95rem;
+      color: rgba(255,255,255,.35);
+      font-weight: 300;
+      letter-spacing: .02em;
+    }
+
+    /* Snowflake accents — subtle, geometric, industrial */
+    .snowflake {
+      position: absolute;
+      z-index: 1;
+    }
+    .snowflake svg {
+      opacity: .08;
+    }
+    .snowflake--1 { top: 40px; left: 50px; }
+    .snowflake--2 { top: 80px; right: 80px; transform: rotate(30deg); }
+    .snowflake--3 { bottom: 60px; left: 120px; transform: rotate(15deg); }
+    .snowflake--4 { bottom: 40px; right: 40px; transform: rotate(45deg); }
+    .snowflake--5 { top: 50%; left: 30px; transform: rotate(22deg); }
+
+    /* Logo mark */
+    .card-front__logo {
+      margin-top: 40px;
+    }
+    .card-front__logo img {
+      height: 40px;
+      opacity: .35;
+    }
+
+    /* Prestige monogram pattern — Gucci-style tight repeat */
+    .card-front__monogram {
+      position: absolute;
+      inset: 0;
+      opacity: .05;
+      pointer-events: none;
+      z-index: 0;
+      background: url(images/ptp-logo-white.png) repeat;
+      background-size: 36px auto;
+    }
+
+    /* ─── BACK (INSIDE) ─── */
+    .card-back {
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .card-back__monogram {
+      position: absolute;
+      inset: 0;
+      opacity: .055;
+      pointer-events: none;
+      z-index: 0;
+      background: url(images/ptp-logo-white.png) repeat;
+      background-size: 36px auto;
+      filter: brightness(0);
+    }
+
+    .card-back__top {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-back__message {
+      max-width: 480px;
+    }
+    .card-back__message h2 {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      color: var(--charcoal);
+      margin-bottom: 20px;
+      line-height: 1.3;
+    }
+    .card-back__message p {
+      font-size: .9rem;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .card-back__message p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card-back__bottom {
+      border-top: 1px solid #eee;
+      padding: 24px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      z-index: 1;
+    }
+
+    .card-back__company {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .card-back__company-name {
+      font-weight: 600;
+      font-size: .85rem;
+      color: var(--charcoal);
+    }
+    .card-back__company-detail {
+      font-size: .75rem;
+      color: #999;
+      line-height: 1.4;
+    }
+
+    .card-back__contact {
+      text-align: right;
+      font-size: .75rem;
+      color: #999;
+      line-height: 1.5;
+    }
+    .card-back__contact a {
+      color: var(--steel-blue);
+      text-decoration: none;
+    }
+
+    /* Accent line */
+    .accent-line {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--steel-blue), var(--gold));
+      margin: 0 auto 24px;
+    }
+
+    /* ─── Email Version ─── */
+    .email-card {
+      width: 600px;
+      background: var(--charcoal);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 20px 60px rgba(0,0,0,.2);
+    }
+
+    .email-card__header {
+      padding: 60px 48px;
+      text-align: center;
+      position: relative;
+    }
+    .email-card__header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 20%, rgba(74,127,165,.12) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 80%, rgba(196,163,90,.08) 0%, transparent 50%);
+    }
+    .email-card__header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: .03;
+      background: repeating-linear-gradient(90deg, transparent, transparent 1px, rgba(255,255,255,.5) 1px, rgba(255,255,255,.5) 2px);
+    }
+    .email-card__header > * { position: relative; z-index: 1; }
+
+    .email-card__tagline {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .email-card__tagline em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--steel-blue-light), var(--gold-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .email-card__year {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .2em;
+      color: rgba(255,255,255,.25);
+    }
+
+    .email-card__body {
+      background: #fff;
+      padding: 40px 48px;
+      text-align: center;
+    }
+    .email-card__body p {
+      font-size: .9rem;
+      color: #666;
+      line-height: 1.7;
+      max-width: 440px;
+      margin: 0 auto 16px;
+    }
+    .email-card__body p:last-of-type { margin-bottom: 0; }
+
+    .email-card__footer {
+      background: #fafafa;
+      border-top: 1px solid #eee;
+      padding: 20px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .email-card__footer-name {
+      font-weight: 600;
+      font-size: .8rem;
+      color: var(--charcoal);
+    }
+    .email-card__footer-sub {
+      font-size: .7rem;
+      color: #999;
+    }
+    .email-card__footer-contact {
+      font-size: .7rem;
+      color: #999;
+    }
+    .email-card__footer-contact a {
+      color: var(--steel-blue);
+      text-decoration: none;
+    }
+
+    /* ─── Editor Panel ─── */
+    .editor-toggle {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 300;
+      background: var(--charcoal);
+      border: none;
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 10px 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 8px 32px rgba(0,0,0,.3);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .editor-toggle:hover { background: var(--charcoal-mid); }
+
+    .editor-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 320px;
+      height: 100vh;
+      background: var(--charcoal);
+      color: #fff;
+      z-index: 250;
+      overflow-y: auto;
+      box-shadow: -8px 0 40px rgba(0,0,0,.4);
+      transform: translateX(100%);
+      transition: transform .25s ease;
+      font-size: 12px;
+    }
+    .editor-panel.open { transform: translateX(0); }
+
+    .editor-panel__header {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .editor-panel__title {
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .editor-panel__close {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,.5);
+      font-size: 18px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .editor-panel__close:hover { color: #fff; }
+
+    .editor-section {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .editor-section__title {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 12px;
+    }
+
+    .editor-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .editor-row:last-child { margin-bottom: 0; }
+    .editor-row label {
+      font-size: 12px;
+      color: rgba(255,255,255,.7);
+      flex-shrink: 0;
+      width: 80px;
+    }
+    .editor-row input[type="range"] {
+      flex: 1;
+      margin: 0 8px;
+      accent-color: var(--steel-blue);
+      height: 4px;
+    }
+    .editor-row .val {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--steel-blue-light);
+      width: 44px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .editor-row input[type="color"] {
+      width: 28px;
+      height: 28px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 4px;
+      cursor: pointer;
+      background: none;
+      padding: 2px;
+    }
+    .editor-row select {
+      flex: 1;
+      margin-left: 8px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+
+    .editor-actions {
+      padding: 16px 20px;
+      display: flex;
+      gap: 8px;
+    }
+    .editor-actions button {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .editor-btn {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.12);
+      color: rgba(255,255,255,.7);
+      font-family: var(--sans);
+      font-size: 10px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .editor-btn:hover { background: rgba(255,255,255,.15); color: #fff; }
+    .btn-save {
+      background: var(--steel-blue);
+      color: #fff;
+    }
+    .btn-save:hover { background: var(--steel-blue-dark); }
+    .btn-print {
+      background: rgba(255,255,255,.1);
+      color: #fff;
+    }
+    .btn-print:hover { background: rgba(255,255,255,.15); }
+
+    /* ─── Print ─── */
+    @media print {
+      @page { size: 7in 5in; margin: 0; }
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      body { background: none; padding: 0; gap: 0; }
+      .label, .editor-toggle, .editor-panel, .email-section { display: none !important; }
+      .card { box-shadow: none; width: 100%; height: 100vh; }
+      .card-wrap:last-of-type .card { page-break-before: always; }
+    }
+
+    @media (max-width: 740px) {
+      .card, .email-card { width: 100%; }
+      .card { height: auto; aspect-ratio: 7/5; }
+      .card-front__tagline { font-size: 2rem; }
+      .email-card__tagline { font-size: 1.8rem; }
+    }
+  </style>
+<style>.f1l1o3bf{font-family:Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif, Arial;font-style:normal;font-weight:400}.f1l1o3bf button, .f1l1o3bf input, .f1l1o3bf textarea{font-family:inherit}</style></head>
+<body>
+
+  <!-- ═══ PHYSICAL CARD — FRONT ═══ -->
+  <div class="card-wrap">
+    <div class="label">Physical Card — Front</div>
+    <div class="card card-front">
+      <!-- Coil rings -->
+      <div class="coil-ring coil-ring--1"></div>
+      <div class="coil-ring coil-ring--2"></div>
+      <div class="coil-ring coil-ring--3"></div>
+      <div class="coil-ring coil-ring--4"></div>
+
+      <!-- Geometric snowflakes -->
+      <div class="snowflake snowflake--1">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" stroke="#fff" stroke-width="0.75" style="opacity: 0.07;">
+          <line x1="16" y1="0" x2="16" y2="32"></line>
+          <line x1="0" y1="16" x2="32" y2="16"></line>
+          <line x1="4.7" y1="4.7" x2="27.3" y2="27.3"></line>
+          <line x1="27.3" y1="4.7" x2="4.7" y2="27.3"></line>
+          <circle cx="16" cy="16" r="6"></circle>
+          <circle cx="16" cy="16" r="12"></circle>
+        </svg>
+      </div>
+      <div class="snowflake snowflake--2">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="0.75" style="opacity: 0.07;">
+          <line x1="12" y1="0" x2="12" y2="24"></line>
+          <line x1="0" y1="12" x2="24" y2="12"></line>
+          <line x1="3.5" y1="3.5" x2="20.5" y2="20.5"></line>
+          <line x1="20.5" y1="3.5" x2="3.5" y2="20.5"></line>
+          <circle cx="12" cy="12" r="4"></circle>
+        </svg>
+      </div>
+      <div class="snowflake snowflake--3">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="#fff" stroke-width="0.75" style="opacity: 0.07;">
+          <line x1="10" y1="0" x2="10" y2="20"></line>
+          <line x1="0" y1="10" x2="20" y2="10"></line>
+          <line x1="2.9" y1="2.9" x2="17.1" y2="17.1"></line>
+          <line x1="17.1" y1="2.9" x2="2.9" y2="17.1"></line>
+        </svg>
+      </div>
+      <div class="snowflake snowflake--4">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="#fff" stroke-width="0.75" style="opacity: 0.07;">
+          <line x1="14" y1="0" x2="14" y2="28"></line>
+          <line x1="0" y1="14" x2="28" y2="14"></line>
+          <line x1="4.1" y1="4.1" x2="23.9" y2="23.9"></line>
+          <line x1="23.9" y1="4.1" x2="4.1" y2="23.9"></line>
+          <circle cx="14" cy="14" r="5"></circle>
+          <circle cx="14" cy="14" r="10"></circle>
+        </svg>
+      </div>
+      <div class="snowflake snowflake--5">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="0.75" style="opacity: 0.07;">
+          <line x1="8" y1="0" x2="8" y2="16"></line>
+          <line x1="0" y1="8" x2="16" y2="8"></line>
+          <line x1="2.3" y1="2.3" x2="13.7" y2="13.7"></line>
+          <line x1="13.7" y1="2.3" x2="2.3" y2="13.7"></line>
+        </svg>
+      </div>
+
+      <!-- Prestige monogram pattern -->
+      <div class="card-front__monogram" id="mono-front" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAFU0lEQVR4AeyXW0gcZxTHR02CGm+pUSmldDfG0CbWUEywmjalKXlJIFaEQLB5iAlWfVAf2rrah1YK1YKWatrUtBraoLYIQqt0HwLaS2wMFqmJouCFXbwFXPBSL/Fuf2ezs2yCujvTtRBQzt9zvvOd73z/OfPNmVlf5Sn52yHq7Ru1U9GdinqrAuvr6z4gwVv51DzbcUbfJ/kbwKuyHUSj5+fnX/cqS5J5jajNZjvELT9BzpuBgYElYoNDjL0iuohC4DjYLQymp6dj+vr6+vfv338L34f4TC4QnxX/y/gU0eC+2Fqhi2hdXV0RG/3Ops1Urz4kJCST8Y8+Pj5X8IVjh46MjNweGxu7h50OqvA3d3d3BxMTx1iz6CKalpZ2hp18QFRpaWlzVFRUYFlZmeQ6PTc3V1FTU7NkNps79+3bZ+np6fmKuCSIHjhy5EgdcyGMNYsk17yITeX2PVtVVXWloKDgPRK8nZeXd6ejoyM7KChoeHl5+VZGRkZUQEDAb+np6SabzVZJJX2amprMXGQr8ZpFF1F2kaocGB0dbW9paUktLy8vgsgX8fHxVcydunTpUjb6E/B5a2vrpxEREaexlbi4uHB0CBfaidYkmomyiYUdziwsLNxNTU01trW1vZObm/uHr69vHmS/Ze4qUMV3165de2XQ0NAwYDAYcrFHQBh5AtEei6/HkQSSPAglZ9OvqKjIGhsbW11YWGhvQaurq9LoFchOEfOYsE5JTk5empycjMQec0xq2tuj4OLi4mqI1Do2EBV5/vx5A4Y81faK+fn5PQeJZnzKxMTEa+jvgF0gr1DZF+gOxsXFxRlaWjovhW7iKzo7O6vtQW7+uSXa398fYTKZGsjzCui2Wq33V1ZWznLuUhgnA1eJlkF4ePgI5D7GlrOKUhTWTHExHywtLZ0IDQ39lbYm/uNHjx5tmJmZiZDBVnBLNCYmxsamZjY5TAWWjUbjOcjeSUxMfIbEBQ6gHgkxPz+yFDkGZkVRpI9KRWewlaysrJ9EC8ibCMzBwcE2GW8Ft0RdF5O0DCLWgwcPlg4PDzcxVwzeBZXgLCgB8xIDfsFWpqam7A2eij7P+Hptba3EYWoTTURJXQNEbvBPyFXSM+UBy2QsxEyDg4M9vIFK6Aq3IWsKCwvLY06ZnZ1taGxsPMUZlRZmGRgYuMG8/XzLvDtoIkorWq2oqLhO0gtAyGUODQ39jS1H4Br6h+jo6Mt0A5O/v7/Mv4qvgAcnG8J3e3t7H1y8ePFL7oyhq6vrReakH6PciyaiSUlJD3NycjJIGwDsAjFp5nIE5MG5QAsyWSwWOadmHpzDBBXz4MhFXMvPz79QX18/SCWtKSkpSRB+wLxH4ilRZzKSG52DDQze7yU8cNINzuzZs+cvQtIgPI2WV6fgT4f9Etpj0UxUMq+trc2K9gDyfVoL4VBipbcKxBfCBT/E57HoIkqriuUD5CM2M7S3t7/JbkMuwNxQlvEOyRpwDluT6CIqOxw7dux70QkJCRY2PukCA/ZGiMF/UtbogW6iejb7L2s0EeVp3Q3ubQB7pTbwS+zVjfzj4+MevePVi9NE1LFIep88HK64CRlpU64+1ZbPOdV2ar4V3mJNpCOnW6WHqCSN47w5zyGODrBX9WHLe16dv/zE2O7HJ53DD+2R6CX6DdWoUcFO8WBLUWNVTbA/8Fj0EpVXo/REFV9TTedX0Sa7q7F2ze+octZs35vJQeKxW8+Gnzn8mypi7Ldc1ZGRka4/WTZdp07orai6/n/TmohSjWVgBP9sxZB5+ZniDHly7JzQYGgiqiGv10N3iHq7pDsV9XZF/wUAAP//GWVivQAAAAZJREFUAwAlBzZzZNGTFAAAAABJRU5ErkJggg==&quot;); background-size: 42px 42px; background-repeat: repeat; background-position: 0px 0px; opacity: 0.05; transform: none;"></div>
+
+      <div class="card-front__content">
+        <h1 class="card-front__tagline" contenteditable="true">Have a<br><em>Metal</em> Holiday</h1>
+        <p class="card-front__sub" contenteditable="true">From all of us at Pacific Toll Processing</p>
+        <div class="card-front__logo">
+          <img src="images/ptp-logo-white.png" alt="Pacific Toll Processing" style="height: 147px; opacity: 0.5;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ PHYSICAL CARD — INSIDE ═══ -->
+  <div class="card-wrap">
+    <div class="label">Physical Card — Inside</div>
+    <div class="card card-back">
+      <!-- Prestige monogram pattern -->
+      <div class="card-back__monogram" id="mono-inside" style="background-image: url(&quot;data:image/png;base64,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&quot;); background-size: 112px 112px; background-repeat: repeat; background-position: -3px 1px; opacity: 0.06; transform: rotate(-25deg) scale(1.5);"></div>
+      <div class="card-back__top">
+        <div class="card-back__message">
+          <div class="accent-line"></div>
+          <h2 contenteditable="true">Wishing You Strength, Precision &amp; Prosperity in 2027</h2>
+          <p contenteditable="true">Thank you for your partnership this year. Whether we're slitting coils, leveling sheets, or cutting to length — we're grateful to be the team you trust with your steel.</p>
+          <p contenteditable="true">Here's to another year of building something solid together.</p>
+        </div>
+      </div>
+      <div class="card-back__bottom">
+        <div class="card-back__company">
+          <img src="images/ptp-logo-white.png" alt="PTP" style="height: 53px; filter: brightness(0) saturate(100%) invert(44%) sepia(15%) saturate(1200%) hue-rotate(167deg) brightness(95%) contrast(85%);">
+          <div>
+            <div class="card-back__company-name">Pacific Toll Processing</div>
+            <div class="card-back__company-detail">24724 Wilmington Ave, Carson, CA 90745</div>
+          </div>
+        </div>
+        <div class="card-back__contact">
+          <div>(310) 952-4992</div>
+          <div><a href="https://pacifictoll.com">pacifictoll.com</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ EMAIL VERSION ═══ -->
+  <div class="card-wrap email-section">
+    <div class="label">Email / Digital Version</div>
+    <div class="email-card">
+      <div class="email-card__header">
+        <!-- Monogram pattern -->
+        <div id="mono-email" style="position: absolute; inset: 0px; opacity: 0.05; pointer-events: none; z-index: 0; background: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAFNUlEQVR4AeyXf0hkVRTH3ziOy2jm+GPF1fVHpLaZkbCugqUIZkVmRIRBGhZbbLtG7JYFxf4hW9tGifTXQmUZWOmyErEFku5CbIIpGVtKJI6/U1PWcR1/jD/HPmeaicFq5r3n/NHCDOf7zjn33nfu951775n3QpSb5BckGuiFCmY0mNFAZyDQ8QK+R3d2dl4U/O+JBpqgJ17AMyqBHQ5HeENDg1nsQEEXUZbWBPYLCbQZHHQjhTbL8PDwiczMzBPuNulzkcbfD0yM0Sy6iDLLIXCeScPRT4IuNy6hi7Ozs61lZWVPY3ctLS1dBRXusW/QdhvQLHqJOphpFjy4vb397Obmpg17AN3Y3d1dbjAY7rfZbM12u/16Z2fnwNTU1Etra2tPMKYRTALNopfoNPvwu7m5uYLe3t7XR0dHL1qt1td6enp+S01NfZTs5ba0tIy0trZ+Dul3Q0JCBmg7A7uvwe1As2gmyoSy3A+srKwcKSkpaR4cHLTFxsY6w8LC6oxG45HExMTjsGirqanJrays3JeRkVGVkJCQubGx4QA/05fujoGpXjQTJfQBcDQuLu6d/v5+Y15eXhrLejwlJWW4oKDgHH1tQKQyIiLiBfbrQzzEgb6+vh95qC/oOAUkBkq9aCJKJuT0FrvDp6PfzsrKOpyUlISppNB/F8aQG6i/ZHV1VQkNDW1PS0urdjqdE7TmMlZiYaoTv0QJaGCZH0PLYagi7Em73f4Te1MI34n/PBC5l8vj7Mlv0Q1ACKMUJSYmRikqKvo9MjKynf16mcZXQJXEXF9fl9gGfJ/ilyh3Gwh+NzoHZJGdtfr6+snZ2dko/CvAWw4xeQ5k22kUsp+hR4FICZfF5eXlY2Q1HjsL5Lhj750okzrNZvOb6NMTExNnxsfHr6Wnpx8tLy8fY6I+0EidvLCwsDCILVmt9ZCVe2i7BpT5+flqsvcWJBPFB+9Jv8lkkthOfJ+iJqN/B2hqalocGhr6oLS0VA7DaToqwA1Os516uoEtp1qIFUPW83JyB+3K1taWwrgvGXcBgks82DOTk5Nm6VMDTUTr6uqc+fn58xyMcYKfB71AoTwlUQVke4gruI/LYaDYbDbJpmufskdbxsbGZqkSn5BZu/SrhSaiEpRsGIxGYyi27NFb0BYgtRWlrHGRk5+LlmxZGBvGPsRVlOnp6WrK2FMsdxIP15ycnCz/cK4+fxfNROPj4w2cYqlHlQR/GDwHpAKgFCEfLQaQv9WxqKiolejoaMVkMilk9BGLxRLHikgFiWCMalFL1DvgHM774N9EXlakOkifPIzYknHxP4RoLRmuxRHcQKsWzURZ+iWi7y5LNP1D7qFFMpeKFhFfMt9LjDawKo1qoZmoO7AcJlny/wTvpJ2cbDlMVxYXFyWDH3HvV0BTJhnvEl1EyYYdXPaFmZmZc5SkKgr82Y6OjkteYzWddhdLLrqIcp9fKSwsHOHgdfHaN1JRUSE11u89vgZoJkohl0+Lb9B7hetTxhc57z7NRLl5HwgDJ70gL8Sybz1tv9D3PRBfvgSyseV/X3zBrfgXeVgpZ5j+RQ9RiSrfPZ9ieHAMW/atlb1oxZYaet1te/akHCjP+ERebl5l3DJQJXqJypfkQWbw4Afss8CXxNHpGR8aHh4+xYNs06ZK9BL9leiynB68zKT+siNZ94wX/QcxVIteottCzAvyH+9vUofX+GVsv6923gE1E2WCYVDuHWS3TX89+Fja0adAGrgqvl5oJqp3or3eFyS61wzuvj+Y0d0Z2at/02T0TwAAAP//6wCYSQAAAAZJREFUAwBKajNzOuzYdwAAAABJRU5ErkJggg==&quot;) 0px 0px / 42px 42px repeat; transform: none;"></div>
+        <div class="email-card__year">Holiday Season 2026</div>
+        <h1 class="email-card__tagline">Have a <em>Metal</em> Holiday</h1>
+      </div>
+      <div class="email-card__body">
+        <div class="accent-line"></div>
+        <p>Thank you for your partnership this year. Whether we're slitting coils, leveling sheets, or cutting to length — we're grateful to be the team you trust with your steel.</p>
+        <p>Wishing you strength, precision, and prosperity in 2027.</p>
+        <p style="margin-top:24px;font-size:.8rem;color:#999;">— The team at Pacific Toll Processing</p>
+      </div>
+      <div class="email-card__footer">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <img src="images/ptp-logo-white.png" alt="PTP" style="height:48px;filter:brightness(0) saturate(100%) invert(44%) sepia(15%) saturate(1200%) hue-rotate(167deg) brightness(95%) contrast(85%);">
+          <div>
+            <div class="email-card__footer-name">Pacific Toll Processing</div>
+            <div class="email-card__footer-sub">24724 Wilmington Ave, Carson, CA 90745</div>
+          </div>
+        </div>
+        <div class="email-card__footer-contact">
+          (310) 952-4992<br>
+          <a href="https://pacifictoll.com">pacifictoll.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Editor Toggle -->
+  <button class="editor-toggle" onclick="toggleEditor()" style="display: none;">Design Editor</button>
+
+  <!-- Hidden file input for image uploads -->
+  <input type="file" id="fileInput" accept="image/*" style="display:none">
+
+  <!-- Editor Panel -->
+  <div class="editor-panel" id="editorPanel" style="display: none;">
+    <div class="editor-panel__header">
+      <span class="editor-panel__title">Card Designer</span>
+      <button class="editor-panel__close" onclick="toggleEditor()">×</button>
+    </div>
+
+    <!-- ── FRONT PATTERN ── -->
+    <div class="editor-section">
+      <div class="editor-section__title">Front — Pattern</div>
+      <div class="editor-row">
+        <label>Image</label>
+        <button class="editor-btn" onclick="pickImage('front-pattern')">Change</button>
+        <button class="editor-btn" onclick="clearPattern('mono-front')">Clear</button>
+      </div>
+      <div class="editor-row">
+        <label>Logo Size</label>
+        <input type="range" min="8" max="80" value="28" id="fp-size">
+        <span class="val">30px</span>
+      </div>
+      <div class="editor-row">
+        <label>Spread</label>
+        <input type="range" min="16" max="120" value="42" id="fp-spread">
+        <span class="val">42px</span>
+      </div>
+      <div class="editor-row">
+        <label>Opacity</label>
+        <input type="range" min="0" max="30" value="5" id="fp-opacity">
+        <span class="val">5.0%</span>
+      </div>
+      <div class="editor-row">
+        <label>Angle</label>
+        <input type="range" min="-45" max="45" value="0" id="fp-angle">
+        <span class="val">0°</span>
+      </div>
+      <div class="editor-row">
+        <label>Offset X</label>
+        <input type="range" min="-60" max="60" value="0" id="fp-ox">
+        <span class="val">0px</span>
+      </div>
+      <div class="editor-row">
+        <label>Offset Y</label>
+        <input type="range" min="-60" max="60" value="0" id="fp-oy">
+        <span class="val">0px</span>
+      </div>
+    </div>
+
+    <!-- FRONT BG -->
+    <div class="editor-section">
+      <div class="editor-section__title">Front — Background</div>
+      <div class="editor-row">
+        <label>Color</label>
+        <input type="color" value="#1a1f25" id="front-bg-color">
+      </div>
+    </div>
+
+    <!-- ── INSIDE PATTERN ── -->
+    <div class="editor-section">
+      <div class="editor-section__title">Inside — Pattern</div>
+      <div class="editor-row">
+        <label>Image</label>
+        <button class="editor-btn" onclick="pickImage('inside-pattern')">Change</button>
+        <button class="editor-btn" onclick="clearPattern('mono-inside')">Clear</button>
+      </div>
+      <div class="editor-row">
+        <label>Logo Size</label>
+        <input type="range" min="8" max="80" value="28" id="ip-size">
+        <span class="val">58px</span>
+      </div>
+      <div class="editor-row">
+        <label>Spread</label>
+        <input type="range" min="16" max="120" value="42" id="ip-spread">
+        <span class="val">112px</span>
+      </div>
+      <div class="editor-row">
+        <label>Opacity</label>
+        <input type="range" min="0" max="30" value="6" id="ip-opacity">
+        <span class="val">6.0%</span>
+      </div>
+      <div class="editor-row">
+        <label>Angle</label>
+        <input type="range" min="-45" max="45" value="0" id="ip-angle">
+        <span class="val">-25°</span>
+      </div>
+      <div class="editor-row">
+        <label>Offset X</label>
+        <input type="range" min="-60" max="60" value="0" id="ip-ox">
+        <span class="val">-3px</span>
+      </div>
+      <div class="editor-row">
+        <label>Offset Y</label>
+        <input type="range" min="-60" max="60" value="0" id="ip-oy">
+        <span class="val">1px</span>
+      </div>
+    </div>
+
+    <!-- INSIDE BG -->
+    <div class="editor-section">
+      <div class="editor-section__title">Inside — Background</div>
+      <div class="editor-row">
+        <label>Color</label>
+        <input type="color" value="#ffffff" id="inside-bg-color">
+      </div>
+    </div>
+
+    <!-- ── EMAIL PATTERN ── -->
+    <div class="editor-section">
+      <div class="editor-section__title">Email — Header Pattern</div>
+      <div class="editor-row">
+        <label>Image</label>
+        <button class="editor-btn" onclick="pickImage('email-pattern')">Change</button>
+        <button class="editor-btn" onclick="clearPattern('mono-email')">Clear</button>
+      </div>
+      <div class="editor-row">
+        <label>Logo Size</label>
+        <input type="range" min="8" max="80" value="28" id="ep-size">
+        <span class="val">28px</span>
+      </div>
+      <div class="editor-row">
+        <label>Spread</label>
+        <input type="range" min="16" max="120" value="42" id="ep-spread">
+        <span class="val">42px</span>
+      </div>
+      <div class="editor-row">
+        <label>Opacity</label>
+        <input type="range" min="0" max="30" value="5" id="ep-opacity">
+        <span class="val">5.0%</span>
+      </div>
+      <div class="editor-row">
+        <label>Angle</label>
+        <input type="range" min="-45" max="45" value="0" id="ep-angle">
+        <span class="val">0°</span>
+      </div>
+      <div class="editor-row">
+        <label>Offset X</label>
+        <input type="range" min="-60" max="60" value="0" id="ep-ox">
+        <span class="val">0px</span>
+      </div>
+      <div class="editor-row">
+        <label>Offset Y</label>
+        <input type="range" min="-60" max="60" value="0" id="ep-oy">
+        <span class="val">0px</span>
+      </div>
+    </div>
+
+    <!-- ── TYPOGRAPHY & EFFECTS ── -->
+    <div class="editor-section">
+      <div class="editor-section__title">Title Text</div>
+      <div class="editor-row">
+        <label>Font</label>
+        <select id="title-font">
+          <option value="'DM Serif Display', Georgia, serif" selected="">DM Serif Display</option>
+          <option value="Georgia, serif">Georgia</option>
+          <option value="'Playfair Display', serif">Playfair Display</option>
+          <option value="'Inter', sans-serif">Inter</option>
+          <option value="'DM Mono', monospace">DM Mono</option>
+          <option value="Impact, sans-serif">Impact</option>
+        </select>
+      </div>
+      <div class="editor-row">
+        <label>Size</label>
+        <input type="range" min="16" max="72" value="51" id="title-size">
+        <span class="val">3.2rem</span>
+      </div>
+      <div class="editor-row">
+        <label>Color</label>
+        <input type="color" value="#ffffff" id="title-color">
+      </div>
+    </div>
+
+    <div class="editor-section">
+      <div class="editor-section__title">"Metal" Gradient Effect</div>
+      <div class="editor-row">
+        <label>Start</label>
+        <input type="color" value="#6196BA" id="grad-start">
+      </div>
+      <div class="editor-row">
+        <label>End</label>
+        <input type="color" value="#d4bc7e" id="grad-end">
+      </div>
+      <div class="editor-row">
+        <label>Direction</label>
+        <input type="range" min="0" max="360" value="135" id="grad-angle">
+        <span class="val">135°</span>
+      </div>
+      <div class="editor-row">
+        <label>Effect</label>
+        <select id="grad-effect">
+          <option value="gradient" selected="">Gradient</option>
+          <option value="solid-start">Solid (Start Color)</option>
+          <option value="solid-end">Solid (End Color)</option>
+          <option value="none">Plain White</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- ── FOREGROUND IMAGES ── -->
+    <div class="editor-section">
+      <div class="editor-section__title">Front — Logo</div>
+      <div class="editor-row">
+        <label>Image</label>
+        <button class="editor-btn" onclick="pickImage('front-logo')">Change</button>
+        <button class="editor-btn" onclick="toggleVis('front-logo')">Show/Hide</button>
+      </div>
+      <div class="editor-row">
+        <label>Size</label>
+        <input type="range" min="16" max="160" value="40" id="fl-size">
+        <span class="val">147px</span>
+      </div>
+      <div class="editor-row">
+        <label>Opacity</label>
+        <input type="range" min="0" max="100" value="35" id="fl-opacity">
+        <span class="val">50%</span>
+      </div>
+    </div>
+
+    <div class="editor-section">
+      <div class="editor-section__title">Inside — Footer Logo</div>
+      <div class="editor-row">
+        <label>Image</label>
+        <button class="editor-btn" onclick="pickImage('inside-logo')">Change</button>
+        <button class="editor-btn" onclick="toggleVis('inside-logo')">Show/Hide</button>
+      </div>
+      <div class="editor-row">
+        <label>Size</label>
+        <input type="range" min="24" max="280" value="140" id="il-size">
+        <span class="val">53px</span>
+      </div>
+    </div>
+
+    <div class="editor-section">
+      <div class="editor-section__title">Email — Footer Logo</div>
+      <div class="editor-row">
+        <label>Image</label>
+        <button class="editor-btn" onclick="pickImage('email-logo')">Change</button>
+        <button class="editor-btn" onclick="toggleVis('email-logo')">Show/Hide</button>
+      </div>
+      <div class="editor-row">
+        <label>Size</label>
+        <input type="range" min="20" max="140" value="48" id="el-size">
+        <span class="val">48px</span>
+      </div>
+    </div>
+
+    <!-- ── SNOWFLAKES ── -->
+    <div class="editor-section">
+      <div class="editor-section__title">Snowflake Accents</div>
+      <div class="editor-row">
+        <label>Visible</label>
+        <button class="editor-btn" onclick="toggleSnowflakes()">Show/Hide</button>
+      </div>
+      <div class="editor-row">
+        <label>Opacity</label>
+        <input type="range" min="0" max="30" value="8" id="snow-opacity">
+        <span class="val">7%</span>
+      </div>
+    </div>
+
+    <div class="editor-actions">
+      <button class="btn-print" onclick="window.print()">Print</button>
+      <button class="btn-save" onclick="saveToServer()">Save</button>
+      <button class="btn-save" style="background:#c4a35a" onclick="publishCard()">Publish</button>
+    </div>
+    <div id="publishResult" style="display:none;padding:16px 20px;text-align:center;">
+      <div id="publishQR" style="margin-bottom:12px;"></div>
+      <div id="publishURL" style="font-family:var(--mono);font-size:10px;color:var(--steel-blue-light);word-break:break-all;margin-bottom:8px;"></div>
+      <button class="editor-btn" id="publishCopy" style="display:none;">Copy Link</button>
+    </div>
+  </div>
+
+  <script>
+    /* ── Refs ── */
+    var monoFront = document.getElementById('mono-front');
+    var monoInside = document.getElementById('mono-inside');
+    var monoEmail = document.getElementById('mono-email');
+    var cardFront = document.querySelector('.card-front');
+    var cardBack = document.querySelector('.card-back');
+    var titleEl = document.querySelector('.card-front__tagline');
+    var metalEl = document.querySelector('.card-front__tagline em');
+    var frontLogo = document.querySelector('.card-front__logo img');
+    var insideLogo = document.querySelector('.card-back__company img');
+    var emailLogo = document.querySelector('.email-card__footer img');
+    var snowflakes = document.querySelectorAll('.snowflake');
+
+    /* ── Pattern engine: canvas-based tile generation ── */
+    var patternImages = {
+      'front-pattern': null,
+      'inside-pattern': null,
+      'email-pattern': null
+    };
+    var patternSrc = 'images/ptp-logo-white.png';
+
+    function loadPatternImage(key, src, cb) {
+      var img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = function() {
+        patternImages[key] = img;
+        if (cb) cb();
+      };
+      img.src = src;
+    }
+
+    function generateTile(img, logoSize, tileSize, invert) {
+      var c = document.createElement('canvas');
+      c.width = tileSize;
+      c.height = tileSize;
+      var ctx = c.getContext('2d');
+      var aspect = img.naturalWidth / img.naturalHeight;
+      var w, h;
+      if (aspect >= 1) { w = logoSize; h = logoSize / aspect; }
+      else { h = logoSize; w = logoSize * aspect; }
+      var x = (tileSize - w) / 2;
+      var y = (tileSize - h) / 2;
+      ctx.drawImage(img, x, y, w, h);
+      if (invert) {
+        ctx.globalCompositeOperation = 'source-in';
+        ctx.fillStyle = '#000';
+        ctx.fillRect(0, 0, tileSize, tileSize);
+      }
+      return c.toDataURL();
+    }
+
+    function refreshPattern(prefix) {
+      var key = prefix === 'fp' ? 'front-pattern' : prefix === 'ip' ? 'inside-pattern' : 'email-pattern';
+      var el = prefix === 'fp' ? monoFront : prefix === 'ip' ? monoInside : monoEmail;
+      var img = patternImages[key];
+      if (!img) return;
+
+      var logoSize = parseInt(document.getElementById(prefix + '-size').value);
+      var spread = parseInt(document.getElementById(prefix + '-spread').value);
+      var opacity = parseInt(document.getElementById(prefix + '-opacity').value) / 100;
+      var angle = parseInt(document.getElementById(prefix + '-angle').value);
+      var invert = (prefix === 'ip');
+
+      var ox = parseInt(document.getElementById(prefix + '-ox').value);
+      var oy = parseInt(document.getElementById(prefix + '-oy').value);
+
+      var tile = generateTile(img, logoSize, spread, invert);
+      el.style.backgroundImage = 'url(' + tile + ')';
+      el.style.backgroundSize = spread + 'px ' + spread + 'px';
+      el.style.backgroundRepeat = 'repeat';
+      el.style.backgroundPosition = ox + 'px ' + oy + 'px';
+      el.style.opacity = opacity;
+      el.style.transform = angle === 0 ? 'none' : 'rotate(' + angle + 'deg) scale(1.5)';
+
+      var sizeVal = document.getElementById(prefix + '-size').nextElementSibling;
+      var spreadVal = document.getElementById(prefix + '-spread').nextElementSibling;
+      var opacityVal = document.getElementById(prefix + '-opacity').nextElementSibling;
+      var angleVal = document.getElementById(prefix + '-angle').nextElementSibling;
+      var oxVal = document.getElementById(prefix + '-ox').nextElementSibling;
+      var oyVal = document.getElementById(prefix + '-oy').nextElementSibling;
+      if (sizeVal) sizeVal.textContent = logoSize + 'px';
+      if (spreadVal) spreadVal.textContent = spread + 'px';
+      if (opacityVal) opacityVal.textContent = (opacity * 100).toFixed(1) + '%';
+      if (angleVal) angleVal.innerHTML = angle + '&deg;';
+      if (oxVal) oxVal.textContent = ox + 'px';
+      if (oyVal) oyVal.textContent = oy + 'px';
+    }
+
+    /* Init patterns */
+    ['front-pattern','inside-pattern','email-pattern'].forEach(function(key) {
+      loadPatternImage(key, patternSrc, function() {
+        var prefix = key === 'front-pattern' ? 'fp' : key === 'inside-pattern' ? 'ip' : 'ep';
+        refreshPattern(prefix);
+      });
+    });
+
+    /* Bind pattern sliders */
+    ['fp','ip','ep'].forEach(function(prefix) {
+      ['size','spread','opacity','angle','ox','oy'].forEach(function(prop) {
+        var el = document.getElementById(prefix + '-' + prop);
+        if (el) el.addEventListener('input', function() { refreshPattern(prefix); });
+      });
+    });
+
+    /* ── Image picker ── */
+    var pendingImageTarget = null;
+    var fileInput = document.getElementById('fileInput');
+
+    function pickImage(target) {
+      pendingImageTarget = target;
+      fileInput.click();
+    }
+
+    fileInput.addEventListener('change', function() {
+      if (!this.files[0] || !pendingImageTarget) return;
+      var file = this.files[0];
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        var dataUrl = e.target.result;
+        var base64 = dataUrl.split(',')[1];
+        fetch('/upload-image', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({filename: file.name, data: base64})
+        }).then(function(r) { return r.json(); }).then(function(d) {
+          if (!d.ok) return;
+          var path = d.path;
+          applyImage(pendingImageTarget, path, dataUrl);
+          pendingImageTarget = null;
+        });
+      };
+      reader.readAsDataURL(file);
+      this.value = '';
+    });
+
+    function applyImage(target, path, dataUrl) {
+      if (target === 'front-pattern') {
+        loadPatternImage('front-pattern', dataUrl || path, function() { refreshPattern('fp'); });
+      } else if (target === 'inside-pattern') {
+        loadPatternImage('inside-pattern', dataUrl || path, function() { refreshPattern('ip'); });
+      } else if (target === 'email-pattern') {
+        loadPatternImage('email-pattern', dataUrl || path, function() { refreshPattern('ep'); });
+      } else if (target === 'front-logo') {
+        frontLogo.src = path;
+      } else if (target === 'inside-logo') {
+        insideLogo.src = path;
+      } else if (target === 'email-logo') {
+        emailLogo.src = path;
+      }
+    }
+
+    function clearPattern(id) {
+      var el = document.getElementById(id);
+      el.style.backgroundImage = 'none';
+      el.style.opacity = '0';
+    }
+
+    function toggleVis(target) {
+      var el;
+      if (target === 'front-logo') el = frontLogo;
+      else if (target === 'inside-logo') el = insideLogo;
+      else if (target === 'email-logo') el = emailLogo;
+      if (el) el.style.display = el.style.display === 'none' ? '' : 'none';
+    }
+
+    /* ── Background colors ── */
+    document.getElementById('front-bg-color').addEventListener('input', function() {
+      cardFront.style.background = this.value;
+    });
+    document.getElementById('inside-bg-color').addEventListener('input', function() {
+      cardBack.style.background = this.value;
+    });
+
+    /* ── Typography ── */
+    document.getElementById('title-font').addEventListener('change', function() {
+      titleEl.style.fontFamily = this.value;
+    });
+    document.getElementById('title-size').addEventListener('input', function() {
+      var rem = (this.value / 16).toFixed(1);
+      titleEl.style.fontSize = rem + 'rem';
+      this.nextElementSibling.textContent = rem + 'rem';
+    });
+    document.getElementById('title-color').addEventListener('input', function() {
+      titleEl.style.color = this.value;
+    });
+
+    /* ── "Metal" gradient effect ── */
+    function updateGradient() {
+      var effect = document.getElementById('grad-effect').value;
+      var start = document.getElementById('grad-start').value;
+      var end = document.getElementById('grad-end').value;
+      var angle = document.getElementById('grad-angle').value;
+
+      if (effect === 'gradient') {
+        metalEl.style.background = 'linear-gradient(' + angle + 'deg, ' + start + ', ' + end + ')';
+        metalEl.style.webkitBackgroundClip = 'text';
+        metalEl.style.webkitTextFillColor = 'transparent';
+        metalEl.style.backgroundClip = 'text';
+      } else if (effect === 'solid-start') {
+        metalEl.style.background = 'none';
+        metalEl.style.webkitTextFillColor = start;
+      } else if (effect === 'solid-end') {
+        metalEl.style.background = 'none';
+        metalEl.style.webkitTextFillColor = end;
+      } else {
+        metalEl.style.background = 'none';
+        metalEl.style.webkitTextFillColor = '#fff';
+      }
+      document.getElementById('grad-angle').nextElementSibling.innerHTML = angle + '&deg;';
+    }
+    document.getElementById('grad-start').addEventListener('input', updateGradient);
+    document.getElementById('grad-end').addEventListener('input', updateGradient);
+    document.getElementById('grad-angle').addEventListener('input', updateGradient);
+    document.getElementById('grad-effect').addEventListener('change', updateGradient);
+
+    /* ── Front logo controls ── */
+    document.getElementById('fl-size').addEventListener('input', function() {
+      frontLogo.style.height = this.value + 'px';
+      this.nextElementSibling.textContent = this.value + 'px';
+    });
+    document.getElementById('fl-opacity').addEventListener('input', function() {
+      var op = this.value / 100;
+      frontLogo.style.opacity = op;
+      this.nextElementSibling.textContent = this.value + '%';
+    });
+
+    /* ── Inside logo controls ── */
+    document.getElementById('il-size').addEventListener('input', function() {
+      insideLogo.style.height = this.value + 'px';
+      this.nextElementSibling.textContent = this.value + 'px';
+    });
+
+    /* ── Email logo controls ── */
+    document.getElementById('el-size').addEventListener('input', function() {
+      emailLogo.style.height = this.value + 'px';
+      this.nextElementSibling.textContent = this.value + 'px';
+    });
+
+    /* ── Snowflakes ── */
+    var snowVisible = true;
+    function toggleSnowflakes() {
+      snowVisible = !snowVisible;
+      snowflakes.forEach(function(s) { s.style.display = snowVisible ? '' : 'none'; });
+    }
+    document.getElementById('snow-opacity').addEventListener('input', function() {
+      var op = this.value / 100;
+      snowflakes.forEach(function(s) { s.querySelector('svg').style.opacity = op; });
+      this.nextElementSibling.textContent = this.value + '%';
+    });
+
+    /* ── Editor toggle ── */
+    function toggleEditor() {
+      document.getElementById('editorPanel').classList.toggle('open');
+    }
+
+    /* ── Save ── */
+    function saveToServer() {
+      var panel = document.getElementById('editorPanel');
+      var toggle = document.querySelector('.editor-toggle');
+      var fi = document.getElementById('fileInput');
+      panel.classList.remove('open');
+      toggle.style.display = 'none';
+      panel.style.display = 'none';
+      fi.style.display = 'none';
+
+      setTimeout(function() {
+        var html = '<!DOCTYPE html>\n' + document.querySelector('html').outerHTML;
+        panel.style.display = '';
+        toggle.style.display = '';
+
+        fetch('/save-holiday-card', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({html: html})
+        })
+        .then(function(r) { if (r.ok) alert('Saved!'); else alert('Save failed'); })
+        .catch(function() { alert('Server not running — start save-server.py'); });
+      }, 100);
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+        e.preventDefault();
+        saveToServer();
+      }
+    });
+
+    /* ── Publish to admin with QR code ── */
+    function publishCard() {
+      var panel = document.getElementById('editorPanel');
+      var toggle = document.querySelector('.editor-toggle');
+      var fi = document.getElementById('fileInput');
+      panel.classList.remove('open');
+      toggle.style.display = 'none';
+      panel.style.display = 'none';
+      fi.style.display = 'none';
+
+      setTimeout(function() {
+        var html = '<!DOCTYPE html>\n' + document.querySelector('html').outerHTML;
+        panel.style.display = '';
+        toggle.style.display = '';
+
+        var title = prompt('Card title:', 'Holiday Card 2026') || 'Holiday Card 2026';
+
+        fetch('http://localhost:3461/api/cards', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify({title: title, html: html})
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data.error) { alert('Publish failed: ' + data.error); return; }
+          var url = data.url;
+          var resultDiv = document.getElementById('publishResult');
+          var qrDiv = document.getElementById('publishQR');
+          var urlDiv = document.getElementById('publishURL');
+          var copyBtn = document.getElementById('publishCopy');
+
+          qrDiv.innerHTML = '<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=' +
+            encodeURIComponent(url) + '" alt="QR Code" style="width:200px;height:200px;border-radius:8px;">';
+          urlDiv.textContent = url;
+          copyBtn.style.display = '';
+          copyBtn.onclick = function() {
+            navigator.clipboard.writeText(url);
+            copyBtn.textContent = 'Copied!';
+            setTimeout(function() { copyBtn.textContent = 'Copy Link'; }, 1500);
+          };
+          resultDiv.style.display = '';
+          panel.classList.add('open');
+          resultDiv.scrollIntoView({behavior:'smooth'});
+        })
+        .catch(function() { alert('Admin server not running — start it on port 3461'); });
+      }, 100);
+    }
+  </script>
+
+
+
+</body></html>
