@@ -1,9 +1,10 @@
 "use client"
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Card, Col, Container, Nav, ProgressBar, Row, Tab, Table, Badge } from 'react-bootstrap';
 import HkBadge from '@/components/@hk-badge/@hk-badge';
-import { Target, Speakerphone, TrendingUp, Calendar, ExternalLink, Ticket, AlertTriangle } from 'tabler-icons-react';
+import { Target, Speakerphone, TrendingUp, Calendar, ExternalLink, Ticket, AlertTriangle, Gift } from 'tabler-icons-react';
 import { useTheme } from '@/layout/theme-provider/theme-provider';
 import ptpLogo from '@/assets/img/ptp-logo.png';
 import { TARGET_ACCOUNTS, PIPELINE_STAGES, getAccountsByStage } from '@/data/targets/target-data';
@@ -215,6 +216,9 @@ const Dashboard = () => {
                                     </Card>
                                 </Col>
                             </Row>
+
+                            {/* Holiday Cards */}
+                            <HolidayCardsWidget />
 
                             {/* Top Target Accounts */}
                             <Row className="mb-4">
@@ -483,5 +487,85 @@ function formatCurrency(value) {
 }
 
 const THREAT_COLORS = { high: 'danger', medium: 'warning', low: 'success' };
+
+function HolidayCardsWidget() {
+    const [cards, setCards] = useState([]);
+    useEffect(() => {
+        fetch('/api/cards')
+            .then(r => r.json())
+            .then(data => { if (Array.isArray(data)) setCards(data); })
+            .catch(() => {});
+    }, []);
+
+    const totalViews = cards.reduce((s, c) => s + (c.viewCount || 0), 0);
+    const totalShares = cards.reduce((s, c) => s + (c.shareCount || 0), 0);
+
+    return (
+        <Row className="mb-4">
+            <Col md={12} className="mb-md-4 mb-3">
+                <Card className="card-border mb-0">
+                    <Card.Header className="card-header-action">
+                        <h6><Gift size={16} className="me-2" />Holiday Cards</h6>
+                        <Link href="/apps/cards" className="btn btn-sm btn-soft-primary">Manage Cards</Link>
+                    </Card.Header>
+                    <Card.Body>
+                        <Row className="g-3">
+                            <Col sm={4}>
+                                <div className="text-center">
+                                    <div className="fs-2 fw-bold text-primary">{cards.length}</div>
+                                    <div className="fs-7 text-muted">Published</div>
+                                </div>
+                            </Col>
+                            <Col sm={4}>
+                                <div className="text-center">
+                                    <div className="fs-2 fw-bold text-info">{totalViews}</div>
+                                    <div className="fs-7 text-muted">Total Views</div>
+                                </div>
+                            </Col>
+                            <Col sm={4}>
+                                <div className="text-center">
+                                    <div className="fs-2 fw-bold text-success">{totalShares}</div>
+                                    <div className="fs-7 text-muted">Total Shares</div>
+                                </div>
+                            </Col>
+                        </Row>
+                        {cards.length > 0 && (
+                            <>
+                                <div className="separator-full mt-3 mb-3" />
+                                <Table responsive size="sm" className="mb-0 table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Card</th>
+                                            <th className="text-center">Views</th>
+                                            <th className="text-center">Shares</th>
+                                            <th className="text-end">Published</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {cards.slice(0, 5).map(c => (
+                                            <tr key={c.id} className="cursor-pointer" onClick={() => window.location.href = `/apps/cards`} style={{ cursor: 'pointer' }}>
+                                                <td className="fw-medium">{c.title}</td>
+                                                <td className="text-center"><HkBadge bg="primary" soft size="sm">{c.viewCount || 0}</HkBadge></td>
+                                                <td className="text-center"><HkBadge bg="success" soft size="sm">{c.shareCount || 0}</HkBadge></td>
+                                                <td className="text-end text-muted fs-8">
+                                                    {new Date(c.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                                                </td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </Table>
+                            </>
+                        )}
+                        {cards.length === 0 && (
+                            <div className="text-center mt-3">
+                                <p className="text-muted fs-7 mb-0">No cards published yet. Open the editor to create your first card.</p>
+                            </div>
+                        )}
+                    </Card.Body>
+                </Card>
+            </Col>
+        </Row>
+    );
+}
 
 export default Dashboard
