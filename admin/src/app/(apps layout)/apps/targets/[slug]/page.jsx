@@ -1,11 +1,11 @@
 "use client"
-import { useState } from 'react';
-import { useParams } from 'next/navigation';
+import { useState, useEffect, useCallback } from 'react';
+import { useParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { Badge, Button, Card, Col, Container, Form, Modal, Nav, OverlayTrigger, Row, Tab, Table, Tooltip } from 'react-bootstrap';
 import HkBadge from '@/components/@hk-badge/@hk-badge';
 import { ArrowLeft, ArrowRight, Edit2, ExternalLink as ExternalLinkIcon, Plus, Trash2, X } from 'react-feather';
-import { getAccountBySlug, TARGET_ACCOUNTS, SECTORS, PRIORITY_MAP, PIPELINE_STAGES, CONTACT_LEVELS, SOURCE_TYPES } from '@/data/targets/target-data';
+import { SECTORS, PRIORITY_MAP, PIPELINE_STAGES, CONTACT_LEVELS, SOURCE_TYPES } from '@/data/targets/target-data';
 import { COMPETITORS } from '@/data/competitors/competitor-data';
 
 const WEATHER_DATA = {
@@ -362,12 +362,77 @@ function ContactModal({ show, onHide, onSave, contact, title }) {
 
 export default function AccountDetailPage() {
     const { slug } = useParams();
-    const account = getAccountBySlug(slug);
-
-    const [contacts, setContacts] = useState(account?.contacts || []);
+    const router = useRouter();
+    const [account, setAccount] = useState(null);
+    const [loading, setLoading] = useState(true);
+    const [contacts, setContacts] = useState([]);
     const [showAddModal, setShowAddModal] = useState(false);
     const [editContact, setEditContact] = useState(null);
     const [deleteContact, setDeleteContact] = useState(null);
+    const [showEditAccount, setShowEditAccount] = useState(false);
+    const [showDeleteAccount, setShowDeleteAccount] = useState(false);
+    const [editForm, setEditForm] = useState({});
+    const [saving, setSaving] = useState(false);
+
+    const fetchAccount = useCallback(async () => {
+        try {
+            const res = await fetch(`/api/targets/${slug}`);
+            if (res.ok) {
+                const data = await res.json();
+                setAccount(data);
+                setContacts(data.contacts || []);
+            }
+        } catch { }
+        setLoading(false);
+    }, [slug]);
+
+    useEffect(() => { fetchAccount(); }, [fetchAccount]);
+
+    const saveAccount = async (updates) => {
+        setSaving(true);
+        try {
+            const res = await fetch(`/api/targets/${slug}`, {
+                method: 'PUT',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(updates),
+            });
+            if (res.ok) {
+                const data = await res.json();
+                setAccount(data);
+                setContacts(data.contacts || []);
+                return true;
+            }
+        } catch { }
+        setSaving(false);
+        return false;
+    };
+
+    const handleEditAccount = async (e) => {
+        e.preventDefault();
+        const ok = await saveAccount(editForm);
+        if (ok) setShowEditAccount(false);
+        setSaving(false);
+    };
+
+    const handleDeleteAccount = async () => {
+        setSaving(true);
+        try {
+            const res = await fetch(`/api/targets/${slug}`, { method: 'DELETE' });
+            if (res.ok) {
+                router.push('/apps/targets');
+                return;
+            }
+        } catch { }
+        setSaving(false);
+    };
+
+    if (loading) {
+        return (
+            <Container fluid="xxl" className="py-7">
+                <div className="text-center py-5 text-muted">Loading account...</div>
+            </Container>
+        );
+    }
 
     if (!account) {
         return (
@@ -381,10 +446,6 @@ export default function AccountDetailPage() {
             </Container>
         );
     }
-
-    const idx = TARGET_ACCOUNTS.findIndex(t => t.slug === slug);
-    const prev = idx > 0 ? TARGET_ACCOUNTS[idx - 1] : null;
-    const next = idx < TARGET_ACCOUNTS.length - 1 ? TARGET_ACCOUNTS[idx + 1] : null;
 
     const sector = SECTORS[account.cat] || {};
     const priority = PRIORITY_MAP[account.pri] || { label: account.pri, color: 'secondary' };
@@ -401,22 +462,28 @@ export default function AccountDetailPage() {
         return acc;
     }, {});
 
-    const handleAddContact = (newContact) => {
-        setContacts(prev => [...prev, { ...newContact, id: Date.now() }]);
+    const handleAddContact = async (newContact) => {
+        const updated = [...contacts, { ...newContact, id: Date.now() }];
+        setContacts(updated);
+        await saveAccount({ contacts: updated });
     };
 
-    const handleEditContact = (updated) => {
-        setContacts(prev => prev.map(c =>
+    const handleEditContact = async (updated) => {
+        const newContacts = contacts.map(c =>
             (c.id || c.name) === (editContact.id || editContact.name) ? { ...updated, id: c.id } : c
-        ));
+        );
+        setContacts(newContacts);
         setEditContact(null);
+        await saveAccount({ contacts: newContacts });
     };
 
-    const handleDeleteContact = () => {
-        setContacts(prev => prev.filter(c =>
+    const handleDeleteContact = async () => {
+        const newContacts = contacts.filter(c =>
             (c.id || c.name) !== (deleteContact.id || deleteContact.name)
-        ));
+        );
+        setContacts(newContacts);
         setDeleteContact(null);
+        await saveAccount({ contacts: newContacts });
     };
 
     return (
@@ -456,18 +523,12 @@ export default function AccountDetailPage() {
                                 <div className="fs-3 fw-bold text-dark">{account.estDealValue}</div>
                             </div>
                         )}
-                        <div className="d-flex gap-1">
-                            {prev && (
-                                <Link href={`/apps/targets/${prev.slug}`} className="btn btn-sm btn-flush-dark btn-icon btn-rounded flush-soft-hover">
-                                    <ArrowLeft size={14} />
-                                </Link>
-                            )}
-                            {next && (
-                                <Link href={`/apps/targets/${next.slug}`} className="btn btn-sm btn-flush-dark btn-icon btn-rounded flush-soft-hover">
-                                    <ArrowRight size={14} />
-                                </Link>
-                            )}
-                        </div>
+                        <Button variant="outline-primary" size="sm" className="d-inline-flex align-items-center gap-1" onClick={() => { setEditForm({ ...account }); setShowEditAccount(true); }}>
+                            <Edit2 size={14} /> Edit
+                        </Button>
+                        <Button variant="outline-danger" size="sm" className="d-inline-flex align-items-center gap-1" onClick={() => setShowDeleteAccount(true)}>
+                            <Trash2 size={14} /> Delete
+                        </Button>
                     </div>
                 </div>
 
@@ -898,7 +959,7 @@ export default function AccountDetailPage() {
                 />
             )}
 
-            {/* Delete Confirmation Modal */}
+            {/* Delete Contact Confirmation Modal */}
             <Modal show={!!deleteContact} onHide={() => setDeleteContact(null)} centered size="sm">
                 <Modal.Header closeButton>
                     <Modal.Title className="fs-6">Delete Contact</Modal.Title>
@@ -910,6 +971,138 @@ export default function AccountDetailPage() {
                     <Button variant="light" size="sm" onClick={() => setDeleteContact(null)}>Cancel</Button>
                     <Button variant="danger" size="sm" onClick={handleDeleteContact}>
                         <Trash2 size={14} className="me-1" /> Delete
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+            {/* Edit Account Modal */}
+            <Modal show={showEditAccount} onHide={() => setShowEditAccount(false)} size="lg" centered>
+                <Form onSubmit={handleEditAccount}>
+                    <Modal.Header closeButton>
+                        <Modal.Title className="fs-5">Edit Account</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Row className="g-3">
+                            <Col md={6}>
+                                <Form.Group>
+                                    <Form.Label className="fs-8 fw-semibold">Company Name *</Form.Label>
+                                    <Form.Control value={editForm.n || ''} onChange={e => setEditForm(p => ({ ...p, n: e.target.value }))} required />
+                                </Form.Group>
+                            </Col>
+                            <Col md={6}>
+                                <Form.Group>
+                                    <Form.Label className="fs-8 fw-semibold">Location</Form.Label>
+                                    <Form.Control value={editForm.loc || ''} onChange={e => setEditForm(p => ({ ...p, loc: e.target.value }))} />
+                                </Form.Group>
+                            </Col>
+                            <Col md={4}>
+                                <Form.Group>
+                                    <Form.Label className="fs-8 fw-semibold">Sector</Form.Label>
+                                    <Form.Select value={editForm.cat || 'automotive'} onChange={e => setEditForm(p => ({ ...p, cat: e.target.value }))}>
+                                        {Object.entries(SECTORS).map(([k, v]) => (
+                                            <option key={k} value={k}>{v.label}</option>
+                                        ))}
+                                    </Form.Select>
+                                </Form.Group>
+                            </Col>
+                            <Col md={4}>
+                                <Form.Group>
+                                    <Form.Label className="fs-8 fw-semibold">Priority</Form.Label>
+                                    <Form.Select value={editForm.pri || 'med'} onChange={e => setEditForm(p => ({ ...p, pri: e.target.value }))}>
+                                        {Object.entries(PRIORITY_MAP).map(([k, v]) => (
+                                            <option key={k} value={k}>{v.label}</option>
+                                        ))}
+                                    </Form.Select>
+                                </Form.Group>
+                            </Col>
+                            <Col md={4}>
+                                <Form.Group>
+                                    <Form.Label className="fs-8 fw-semibold">Pipeline Stage</Form.Label>
+                                    <Form.Select value={editForm.pipelineStage || 'awareness'} onChange={e => setEditForm(p => ({ ...p, pipelineStage: e.target.value }))}>
+                                        {Object.entries(PIPELINE_STAGES).map(([k, v]) => (
+                                            <option key={k} value={k}>{v.label}</option>
+                                        ))}
+                                    </Form.Select>
+                                </Form.Group>
+                            </Col>
+                            <Col md={6}>
+                                <Form.Group>
+                                    <Form.Label className="fs-8 fw-semibold">Steel Needs</Form.Label>
+                                    <Form.Control value={editForm.needs || ''} onChange={e => setEditForm(p => ({ ...p, needs: e.target.value }))} />
+                                </Form.Group>
+                            </Col>
+                            <Col md={6}>
+                                <Form.Group>
+                                    <Form.Label className="fs-8 fw-semibold">Steel Products</Form.Label>
+                                    <Form.Control value={editForm.steel || ''} onChange={e => setEditForm(p => ({ ...p, steel: e.target.value }))} />
+                                </Form.Group>
+                            </Col>
+                            <Col md={4}>
+                                <Form.Group>
+                                    <Form.Label className="fs-8 fw-semibold">Est. Deal Value</Form.Label>
+                                    <Form.Control value={editForm.estDealValue || ''} onChange={e => setEditForm(p => ({ ...p, estDealValue: e.target.value }))} />
+                                </Form.Group>
+                            </Col>
+                            <Col md={4}>
+                                <Form.Group>
+                                    <Form.Label className="fs-8 fw-semibold">Revenue</Form.Label>
+                                    <Form.Control value={editForm.revenue || ''} onChange={e => setEditForm(p => ({ ...p, revenue: e.target.value }))} />
+                                </Form.Group>
+                            </Col>
+                            <Col md={4}>
+                                <Form.Group>
+                                    <Form.Label className="fs-8 fw-semibold">Employees</Form.Label>
+                                    <Form.Control value={editForm.employees || ''} onChange={e => setEditForm(p => ({ ...p, employees: e.target.value }))} />
+                                </Form.Group>
+                            </Col>
+                            <Col md={4}>
+                                <Form.Group>
+                                    <Form.Label className="fs-8 fw-semibold">Website</Form.Label>
+                                    <Form.Control value={editForm.website || ''} onChange={e => setEditForm(p => ({ ...p, website: e.target.value }))} />
+                                </Form.Group>
+                            </Col>
+                            <Col md={4}>
+                                <Form.Group>
+                                    <Form.Label className="fs-8 fw-semibold">LinkedIn</Form.Label>
+                                    <Form.Control value={editForm.linkedin || ''} onChange={e => setEditForm(p => ({ ...p, linkedin: e.target.value }))} />
+                                </Form.Group>
+                            </Col>
+                            <Col md={4}>
+                                <Form.Group>
+                                    <Form.Label className="fs-8 fw-semibold">Phone</Form.Label>
+                                    <Form.Control value={editForm.phone || ''} onChange={e => setEditForm(p => ({ ...p, phone: e.target.value }))} />
+                                </Form.Group>
+                            </Col>
+                            <Col xs={12}>
+                                <Form.Group>
+                                    <Form.Label className="fs-8 fw-semibold">Description</Form.Label>
+                                    <Form.Control as="textarea" rows={2} value={editForm.description || ''} onChange={e => setEditForm(p => ({ ...p, description: e.target.value }))} />
+                                </Form.Group>
+                            </Col>
+                        </Row>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="light" onClick={() => setShowEditAccount(false)}>Cancel</Button>
+                        <Button variant="primary" type="submit" disabled={saving}>
+                            {saving ? 'Saving...' : 'Save Changes'}
+                        </Button>
+                    </Modal.Footer>
+                </Form>
+            </Modal>
+
+            {/* Delete Account Confirmation Modal */}
+            <Modal show={showDeleteAccount} onHide={() => setShowDeleteAccount(false)} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title className="fs-5">Delete Account</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>Are you sure you want to delete <strong>{account.n}</strong>?</p>
+                    <p className="text-muted mb-0">This action cannot be undone. All contacts, notes, and activity history for this account will be permanently removed.</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="light" onClick={() => setShowDeleteAccount(false)}>Cancel</Button>
+                    <Button variant="danger" onClick={handleDeleteAccount} disabled={saving}>
+                        {saving ? 'Deleting...' : 'Delete Account'}
                     </Button>
                 </Modal.Footer>
             </Modal>
