@@ -21,6 +21,7 @@ export default async function Page({
 }) {
   const params = await searchParams;
   const { signupAllowed } = await registrationStatus();
+  const googleEnabled = Boolean(process.env.GOOGLE_CLIENT_ID);
   const invitationId = /^\/invite\/([^/?]+)$/.exec(
     safeReturnTo(params.next),
   )?.[1];
@@ -60,6 +61,7 @@ export default async function Page({
             invalidLink={Boolean(params.error)}
             signupAllowed={signupAllowed}
             invitationId={invitationId}
+            googleEnabled={googleEnabled}
           />
 
           <p className="mt-10 text-center text-xs text-[#999]">

@@ -39,6 +39,13 @@ export function createAuth(
     secret: options.secret ?? authSecret(),
     trustedOrigins: [baseURL],
     emailAndPassword: { enabled: true },
+    socialProviders: {
+      google: {
+        clientId: process.env.GOOGLE_CLIENT_ID!,
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+        enabled: Boolean(process.env.GOOGLE_CLIENT_ID),
+      },
+    },
     onAPIError: {
       onError(error) {
         const constraint =
