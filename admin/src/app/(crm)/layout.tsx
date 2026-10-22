@@ -68,6 +68,12 @@ export default async function CrmLayout({
                   defaultMarketingOpen={
                     preferences.get("sidebar_marketing_open")?.value !== "false"
                   }
+                  defaultOperationsOpen={
+                    preferences.get("sidebar_operations_open")?.value !== "false"
+                  }
+                  defaultFinanceOpen={
+                    preferences.get("sidebar_finance_open")?.value !== "false"
+                  }
                 />
                 <PageHeaderProvider>
                   <DetailOverlayProvider>

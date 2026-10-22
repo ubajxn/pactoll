@@ -43,11 +43,15 @@ export function AppSidebar({
   defaultChatsOpen = true,
   defaultRecordsOpen = true,
   defaultMarketingOpen = true,
+  defaultOperationsOpen = true,
+  defaultFinanceOpen = true,
 }: {
   defaultListsOpen?: boolean;
   defaultChatsOpen?: boolean;
   defaultRecordsOpen?: boolean;
   defaultMarketingOpen?: boolean;
+  defaultOperationsOpen?: boolean;
+  defaultFinanceOpen?: boolean;
 }) {
   const { toggleSidebar, isMobile, setOpenMobile } = useSidebar();
 
@@ -67,12 +71,28 @@ export function AppSidebar({
       item.group === "marketing" &&
       (pathname === item.href || pathname.startsWith(`${item.href}/`)),
   );
+  const activeOperations = crmNavigation.some(
+    (item) =>
+      item.group === "operations" &&
+      (pathname === item.href || pathname.startsWith(`${item.href}/`)),
+  );
+  const activeFinance = crmNavigation.some(
+    (item) =>
+      item.group === "finance" &&
+      (pathname === item.href || pathname.startsWith(`${item.href}/`)),
+  );
   const [chatsOpen, setChatsOpen] = useState(defaultChatsOpen || activeChats);
   const [recordsOpen, setRecordsOpen] = useState(
     defaultRecordsOpen || activeRecords,
   );
   const [marketingOpen, setMarketingOpen] = useState(
     defaultMarketingOpen || activeMarketing,
+  );
+  const [operationsOpen, setOperationsOpen] = useState(
+    defaultOperationsOpen || activeOperations,
+  );
+  const [financeOpen, setFinanceOpen] = useState(
+    defaultFinanceOpen || activeFinance,
   );
   const [previousPathname, setPreviousPathname] = useState(pathname);
 
@@ -82,6 +102,8 @@ export function AppSidebar({
     if (activeChats) setChatsOpen(true);
     if (activeRecords) setRecordsOpen(true);
     if (activeMarketing) setMarketingOpen(true);
+    if (activeOperations) setOperationsOpen(true);
+    if (activeFinance) setFinanceOpen(true);
   }
 
   useEffect(() => {
@@ -93,7 +115,11 @@ export function AppSidebar({
     document.cookie = `sidebar_lists_open=${listsOpen}; path=/; max-age=604800; SameSite=Lax`;
     // biome-ignore lint/suspicious/noDocumentCookie: server-rendered browser-local preference.
     document.cookie = `sidebar_marketing_open=${marketingOpen}; path=/; max-age=604800; SameSite=Lax`;
-  }, [chatsOpen, recordsOpen, listsOpen, marketingOpen]);
+    // biome-ignore lint/suspicious/noDocumentCookie: server-rendered browser-local preference.
+    document.cookie = `sidebar_operations_open=${operationsOpen}; path=/; max-age=604800; SameSite=Lax`;
+    // biome-ignore lint/suspicious/noDocumentCookie: server-rendered browser-local preference.
+    document.cookie = `sidebar_finance_open=${financeOpen}; path=/; max-age=604800; SameSite=Lax`;
+  }, [chatsOpen, recordsOpen, listsOpen, marketingOpen, operationsOpen, financeOpen]);
 
   return (
     <GlobalSearchProvider>
@@ -168,6 +194,18 @@ export function AppSidebar({
                 setOpen={setRecordsOpen}
               />
               <NavigationGroup
+                group="operations"
+                label="Operations"
+                open={operationsOpen}
+                setOpen={setOperationsOpen}
+              />
+              <NavigationGroup
+                group="finance"
+                label="Finance"
+                open={financeOpen}
+                setOpen={setFinanceOpen}
+              />
+              <NavigationGroup
                 group="marketing"
                 label="Marketing"
                 open={marketingOpen}
@@ -194,7 +232,7 @@ function NavigationGroup({
   open,
   setOpen,
 }: {
-  group: "chats" | "records" | "marketing" | "lists";
+  group: "chats" | "records" | "marketing" | "lists" | "operations" | "finance";
   label: string;
   open: boolean;
   setOpen: (open: boolean) => void;
