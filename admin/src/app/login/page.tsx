@@ -32,18 +32,15 @@ export default async function Page({
       <div className="flex w-full flex-col justify-center px-8 py-12 sm:px-12 lg:w-[480px] lg:shrink-0 lg:px-16">
         <div className="mx-auto w-full max-w-sm">
           <div className="mb-10">
-            <div className="mb-6 flex flex-col items-center lg:items-start">
+            <div className="mb-6">
               <Image
                 src="/images/ptp-logo-white.png"
                 alt="Pacific Toll Processing"
                 width={56}
                 height={56}
-                className="mb-3 object-contain"
+                className="object-contain"
                 style={{ filter: "invert(1)" }}
               />
-              <span className="text-lg font-semibold tracking-tight text-[#2d3540]">
-                Pacific Toll Processing
-              </span>
             </div>
             <h1 className="text-2xl font-semibold tracking-tight text-[#1a1a1a]">
               {signupAllowed ? "Set up your company" : "Welcome back"}
