@@ -360,12 +360,157 @@ function ContactModal({ show, onHide, onSave, contact, title }) {
     );
 }
 
+function TouchModal({ show, onHide, onSave, touch, title }) {
+    const today = new Date().toISOString().split('T')[0];
+    const [form, setForm] = useState({
+        type: 'call', date: today, note: '', who: 'Jeff', content: '', subject: '',
+    });
+
+    useEffect(() => {
+        if (touch) {
+            setForm({
+                type: touch.type || 'call',
+                date: touch.date || today,
+                note: touch.note || '',
+                who: touch.who || 'Jeff',
+                content: touch.content || '',
+                subject: touch.subject || '',
+            });
+        } else {
+            setForm({ type: 'call', date: today, note: '', who: 'Jeff', content: '', subject: '' });
+        }
+    }, [touch, show]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!form.note.trim()) return;
+        onSave(form);
+    };
+
+    const showContentField = ['email', 'meeting', 'call', 'linkedin'].includes(form.type);
+
+    return (
+        <Modal show={show} onHide={onHide} size="lg" centered>
+            <Form onSubmit={handleSubmit}>
+                <Modal.Header closeButton>
+                    <Modal.Title className="fs-5">{title}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Row className="g-3">
+                        <Col md={4}>
+                            <Form.Group>
+                                <Form.Label className="fs-8 fw-semibold">Type</Form.Label>
+                                <Form.Select size="sm" value={form.type} onChange={e => setForm(p => ({ ...p, type: e.target.value }))}>
+                                    {Object.entries(TOUCH_ICONS).map(([k, v]) => (
+                                        <option key={k} value={k}>{v.label}</option>
+                                    ))}
+                                </Form.Select>
+                            </Form.Group>
+                        </Col>
+                        <Col md={4}>
+                            <Form.Group>
+                                <Form.Label className="fs-8 fw-semibold">Date</Form.Label>
+                                <Form.Control size="sm" type="date" value={form.date} onChange={e => setForm(p => ({ ...p, date: e.target.value }))} />
+                            </Form.Group>
+                        </Col>
+                        <Col md={4}>
+                            <Form.Group>
+                                <Form.Label className="fs-8 fw-semibold">Logged By</Form.Label>
+                                <Form.Control size="sm" value={form.who} onChange={e => setForm(p => ({ ...p, who: e.target.value }))} />
+                            </Form.Group>
+                        </Col>
+                        {form.type === 'email' && (
+                            <Col xs={12}>
+                                <Form.Group>
+                                    <Form.Label className="fs-8 fw-semibold">Subject Line</Form.Label>
+                                    <Form.Control size="sm" value={form.subject} onChange={e => setForm(p => ({ ...p, subject: e.target.value }))} placeholder="Email subject..." />
+                                </Form.Group>
+                            </Col>
+                        )}
+                        <Col xs={12}>
+                            <Form.Group>
+                                <Form.Label className="fs-8 fw-semibold">Summary *</Form.Label>
+                                <Form.Control size="sm" value={form.note} onChange={e => setForm(p => ({ ...p, note: e.target.value }))} required placeholder="Brief description of the activity..." />
+                            </Form.Group>
+                        </Col>
+                        {showContentField && (
+                            <Col xs={12}>
+                                <Form.Group>
+                                    <Form.Label className="fs-8 fw-semibold">
+                                        {form.type === 'email' ? 'Email Body' : form.type === 'meeting' ? 'Meeting Notes' : form.type === 'call' ? 'Call Notes' : 'Message Content'}
+                                    </Form.Label>
+                                    <Form.Control
+                                        as="textarea"
+                                        rows={6}
+                                        value={form.content}
+                                        onChange={e => setForm(p => ({ ...p, content: e.target.value }))}
+                                        placeholder={form.type === 'email' ? 'Paste or compose the full email here...' : 'Detailed notes from the interaction...'}
+                                        style={{ fontFamily: form.type === 'email' ? 'inherit' : 'inherit', fontSize: '0.85rem' }}
+                                    />
+                                    <Form.Text className="text-muted">
+                                        {form.type === 'email' ? 'Include the full email text so you can review it later.' : 'Capture details — these become your conversation history.'}
+                                    </Form.Text>
+                                </Form.Group>
+                            </Col>
+                        )}
+                    </Row>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="light" onClick={onHide}>Cancel</Button>
+                    <Button variant="primary" type="submit" disabled={!form.note.trim()}>
+                        <i className="ri-save-line me-1" /> {touch ? 'Update Activity' : 'Log Activity'}
+                    </Button>
+                </Modal.Footer>
+            </Form>
+        </Modal>
+    );
+}
+
+function NoteModal({ show, onHide, onSave, note, title }) {
+    const [text, setText] = useState('');
+
+    useEffect(() => {
+        setText(note?.text || '');
+    }, [note, show]);
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (!text.trim()) return;
+        onSave(text.trim());
+        onHide();
+    };
+
+    return (
+        <Modal show={show} onHide={onHide} centered>
+            <Form onSubmit={handleSubmit}>
+                <Modal.Header closeButton>
+                    <Modal.Title className="fs-5">{title}</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form.Group>
+                        <Form.Label className="fs-8 fw-semibold">Note</Form.Label>
+                        <Form.Control as="textarea" rows={4} value={text} onChange={e => setText(e.target.value)} required placeholder="Add a note about this account..." autoFocus />
+                    </Form.Group>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="light" onClick={onHide}>Cancel</Button>
+                    <Button variant="warning" type="submit" disabled={!text.trim()}>
+                        <i className="ri-save-line me-1" /> {note ? 'Update Note' : 'Add Note'}
+                    </Button>
+                </Modal.Footer>
+            </Form>
+        </Modal>
+    );
+}
+
 export default function AccountDetailPage() {
     const { slug } = useParams();
     const router = useRouter();
     const [account, setAccount] = useState(null);
     const [loading, setLoading] = useState(true);
     const [contacts, setContacts] = useState([]);
+    const [touchLog, setTouchLog] = useState([]);
+    const [notes, setNotes] = useState([]);
     const [showAddModal, setShowAddModal] = useState(false);
     const [editContact, setEditContact] = useState(null);
     const [deleteContact, setDeleteContact] = useState(null);
@@ -373,6 +518,13 @@ export default function AccountDetailPage() {
     const [showDeleteAccount, setShowDeleteAccount] = useState(false);
     const [editForm, setEditForm] = useState({});
     const [saving, setSaving] = useState(false);
+    const [showTouchModal, setShowTouchModal] = useState(false);
+    const [editTouch, setEditTouch] = useState(null);
+    const [deleteTouch, setDeleteTouch] = useState(null);
+    const [expandedTouch, setExpandedTouch] = useState(null);
+    const [showNoteModal, setShowNoteModal] = useState(false);
+    const [editNote, setEditNote] = useState(null);
+    const [deleteNote, setDeleteNote] = useState(null);
 
     const fetchAccount = useCallback(async () => {
         try {
@@ -381,6 +533,8 @@ export default function AccountDetailPage() {
                 const data = await res.json();
                 setAccount(data);
                 setContacts(data.contacts || []);
+                setTouchLog(data.touchLog || []);
+                setNotes(data.notes || []);
             }
         } catch { }
         setLoading(false);
@@ -400,6 +554,8 @@ export default function AccountDetailPage() {
                 const data = await res.json();
                 setAccount(data);
                 setContacts(data.contacts || []);
+                setTouchLog(data.touchLog || []);
+                setNotes(data.notes || []);
                 return true;
             }
         } catch { }
@@ -484,6 +640,48 @@ export default function AccountDetailPage() {
         setContacts(newContacts);
         setDeleteContact(null);
         await saveAccount({ contacts: newContacts });
+    };
+
+    const handleAddTouch = async (touch) => {
+        const updated = [{ ...touch, id: Date.now() }, ...touchLog];
+        setTouchLog(updated);
+        setShowTouchModal(false);
+        await saveAccount({ touchLog: updated });
+    };
+
+    const handleEditTouch = async (touch) => {
+        const updated = touchLog.map(t => (t.id || t.date + t.note) === (editTouch.id || editTouch.date + editTouch.note) ? { ...touch, id: t.id } : t);
+        setTouchLog(updated);
+        setEditTouch(null);
+        await saveAccount({ touchLog: updated });
+    };
+
+    const handleDeleteTouch = async () => {
+        const updated = touchLog.filter(t => (t.id || t.date + t.note) !== (deleteTouch.id || deleteTouch.date + deleteTouch.note));
+        setTouchLog(updated);
+        setDeleteTouch(null);
+        await saveAccount({ touchLog: updated });
+    };
+
+    const handleAddNote = async (noteText) => {
+        const updated = [...notes, noteText];
+        setNotes(updated);
+        setShowNoteModal(false);
+        await saveAccount({ notes: updated });
+    };
+
+    const handleEditNote = async (newText) => {
+        const updated = notes.map((n, i) => i === editNote.idx ? newText : n);
+        setNotes(updated);
+        setEditNote(null);
+        await saveAccount({ notes: updated });
+    };
+
+    const handleDeleteNote = async () => {
+        const updated = notes.filter((_, i) => i !== deleteNote.idx);
+        setNotes(updated);
+        setDeleteNote(null);
+        await saveAccount({ notes: updated });
     };
 
     return (
@@ -578,7 +776,7 @@ export default function AccountDetailPage() {
                         </Nav.Item>
                         <Nav.Item>
                             <Nav.Link eventKey="activity">
-                                <span className="nav-link-text">Activity {account.touchLog?.length > 0 && <HkBadge bg="info" soft size="sm" className="ms-1">{account.touchLog.length}</HkBadge>}</span>
+                                <span className="nav-link-text">Activity {touchLog.length > 0 && <HkBadge bg="info" soft size="sm" className="ms-1">{touchLog.length}</HkBadge>}</span>
                             </Nav.Link>
                         </Nav.Item>
                     </Nav>
@@ -720,15 +918,15 @@ export default function AccountDetailPage() {
                                         </Card.Body>
                                     </Card>
 
-                                    {account.notes?.length > 0 && (
+                                    {notes.length > 0 && (
                                         <Card className="card-border mb-4">
                                             <Card.Header className="card-header-action">
                                                 <h6 className="mb-0">Notes</h6>
-                                                <HkBadge bg="smoke" soft size="sm">{account.notes.length}</HkBadge>
+                                                <HkBadge bg="smoke" soft size="sm">{notes.length}</HkBadge>
                                             </Card.Header>
                                             <Card.Body className="p-0">
                                                 <div className="list-group list-group-flush">
-                                                    {account.notes.map((note, i) => (
+                                                    {notes.map((note, i) => (
                                                         <div key={i} className="list-group-item px-4 py-3">
                                                             <div className="d-flex gap-2">
                                                                 <i className="ri-sticky-note-line text-warning flex-shrink-0 mt-1" />
@@ -837,35 +1035,61 @@ export default function AccountDetailPage() {
                                     <Card className="card-border mb-4">
                                         <Card.Header className="card-header-action">
                                             <h6 className="mb-0">Touch Log</h6>
-                                            <button className="btn btn-sm btn-primary" disabled>
+                                            <Button variant="primary" size="sm" onClick={() => setShowTouchModal(true)}>
                                                 <i className="ri-add-line me-1" /> Log Activity
-                                            </button>
+                                            </Button>
                                         </Card.Header>
                                         <Card.Body className="p-0">
-                                            {account.touchLog?.length === 0 ? (
+                                            {touchLog.length === 0 ? (
                                                 <div className="text-center py-5">
                                                     <i className="ri-history-line fs-1 text-muted d-block mb-3" />
                                                     <h5>No Activity Yet</h5>
                                                     <p className="text-muted">Start logging touches with {account.n}.</p>
+                                                    <Button variant="primary" size="sm" onClick={() => setShowTouchModal(true)}>
+                                                        <i className="ri-add-line me-1" /> Log First Activity
+                                                    </Button>
                                                 </div>
                                             ) : (
                                                 <div className="timeline-activity px-4 py-3">
-                                                    {account.touchLog.map((t, i) => {
+                                                    {touchLog.map((t, i) => {
                                                         const cfg = TOUCH_ICONS[t.type] || TOUCH_ICONS.note;
+                                                        const isExpanded = expandedTouch === (t.id || i);
                                                         return (
-                                                            <div key={i} className="d-flex gap-3 mb-4">
+                                                            <div key={t.id || i} className="d-flex gap-3 mb-4">
                                                                 <div className={`avatar avatar-icon avatar-xs avatar-soft-${cfg.color} avatar-rounded flex-shrink-0`}>
                                                                     <span className="initial-wrap"><i className={cfg.icon} /></span>
                                                                 </div>
                                                                 <div className="flex-1">
                                                                     <div className="d-flex justify-content-between align-items-start">
-                                                                        <div>
-                                                                            <HkBadge bg={cfg.color} soft size="sm" className="mb-1">{cfg.label}</HkBadge>
+                                                                        <div className="flex-1" style={{ cursor: t.content ? 'pointer' : 'default' }} onClick={() => t.content && setExpandedTouch(isExpanded ? null : (t.id || i))}>
+                                                                            <div className="d-flex align-items-center gap-2 mb-1">
+                                                                                <HkBadge bg={cfg.color} soft size="sm">{cfg.label}</HkBadge>
+                                                                                {t.content && <i className={`ri-arrow-${isExpanded ? 'up' : 'down'}-s-line text-muted fs-7`} />}
+                                                                                {t.subject && <span className="fs-8 fw-medium text-dark">{t.subject}</span>}
+                                                                            </div>
                                                                             <p className="mb-0 fs-7">{t.note}</p>
+                                                                            {isExpanded && t.content && (
+                                                                                <Card className="card-border mt-2 bg-light">
+                                                                                    <Card.Body className="py-2 px-3">
+                                                                                        {t.subject && <div className="fw-semibold fs-7 mb-2 pb-2 border-bottom">Subject: {t.subject}</div>}
+                                                                                        <div className="fs-8" style={{ whiteSpace: 'pre-wrap' }}>{t.content}</div>
+                                                                                    </Card.Body>
+                                                                                </Card>
+                                                                            )}
                                                                         </div>
-                                                                        <div className="text-end flex-shrink-0 ms-3">
-                                                                            <div className="fs-8 text-muted">{formatDate(t.date)}</div>
-                                                                            <div className="fs-9 text-muted">{t.who}</div>
+                                                                        <div className="d-flex align-items-start gap-2 flex-shrink-0 ms-3">
+                                                                            <div className="text-end">
+                                                                                <div className="fs-8 text-muted">{formatDate(t.date)}</div>
+                                                                                <div className="fs-9 text-muted">{t.who}</div>
+                                                                            </div>
+                                                                            <div className="d-flex gap-0">
+                                                                                <Button variant="flush-dark" size="sm" className="btn-icon btn-rounded flush-soft-hover p-0" onClick={() => { setEditTouch(t); }}>
+                                                                                    <Edit2 size={12} />
+                                                                                </Button>
+                                                                                <Button variant="flush-dark" size="sm" className="btn-icon btn-rounded flush-soft-hover text-danger p-0" onClick={() => setDeleteTouch(t)}>
+                                                                                    <Trash2 size={12} />
+                                                                                </Button>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -881,18 +1105,28 @@ export default function AccountDetailPage() {
                                     <Card className="card-border mb-4">
                                         <Card.Header className="card-header-action">
                                             <h6 className="mb-0">Notes</h6>
-                                            <button className="btn btn-sm btn-soft-warning" disabled>
+                                            <Button variant="soft-warning" size="sm" onClick={() => setShowNoteModal(true)}>
                                                 <i className="ri-add-line me-1" /> Add Note
-                                            </button>
+                                            </Button>
                                         </Card.Header>
                                         <Card.Body className="p-0">
-                                            {account.notes?.length > 0 ? (
+                                            {notes.length > 0 ? (
                                                 <div className="list-group list-group-flush">
-                                                    {account.notes.map((note, i) => (
+                                                    {notes.map((note, i) => (
                                                         <div key={i} className="list-group-item px-4 py-3">
-                                                            <div className="d-flex gap-2">
-                                                                <i className="ri-sticky-note-line text-warning flex-shrink-0 mt-1" />
-                                                                <span className="fs-7">{note}</span>
+                                                            <div className="d-flex justify-content-between align-items-start">
+                                                                <div className="d-flex gap-2 flex-1">
+                                                                    <i className="ri-sticky-note-line text-warning flex-shrink-0 mt-1" />
+                                                                    <span className="fs-7">{note}</span>
+                                                                </div>
+                                                                <div className="d-flex gap-0 flex-shrink-0 ms-2">
+                                                                    <Button variant="flush-dark" size="sm" className="btn-icon btn-rounded flush-soft-hover p-0" onClick={() => setEditNote({ idx: i, text: note })}>
+                                                                        <Edit2 size={12} />
+                                                                    </Button>
+                                                                    <Button variant="flush-dark" size="sm" className="btn-icon btn-rounded flush-soft-hover text-danger p-0" onClick={() => setDeleteNote({ idx: i, text: note })}>
+                                                                        <Trash2 size={12} />
+                                                                    </Button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     ))}
@@ -909,7 +1143,7 @@ export default function AccountDetailPage() {
                                         <Card.Header><h6 className="mb-0">Activity Summary</h6></Card.Header>
                                         <Card.Body>
                                             {Object.entries(
-                                                (account.touchLog || []).reduce((acc, t) => {
+                                                touchLog.reduce((acc, t) => {
                                                     acc[t.type] = (acc[t.type] || 0) + 1;
                                                     return acc;
                                                 }, {})
@@ -925,7 +1159,7 @@ export default function AccountDetailPage() {
                                                     </div>
                                                 );
                                             })}
-                                            {account.touchLog?.length === 0 && (
+                                            {touchLog.length === 0 && (
                                                 <p className="text-muted fs-8 mb-0">No activity recorded</p>
                                             )}
                                         </Card.Body>
@@ -1088,6 +1322,54 @@ export default function AccountDetailPage() {
                         </Button>
                     </Modal.Footer>
                 </Form>
+            </Modal>
+
+            {/* Touch Log Modal (Add / Edit) */}
+            <TouchModal
+                show={showTouchModal || !!editTouch}
+                onHide={() => { setShowTouchModal(false); setEditTouch(null); }}
+                onSave={editTouch ? handleEditTouch : handleAddTouch}
+                touch={editTouch}
+                title={editTouch ? 'Edit Activity' : 'Log Activity'}
+            />
+
+            {/* Note Modal (Add / Edit) */}
+            <NoteModal
+                show={showNoteModal || !!editNote}
+                onHide={() => { setShowNoteModal(false); setEditNote(null); }}
+                onSave={editNote ? (text) => handleEditNote(text) : handleAddNote}
+                note={editNote}
+                title={editNote ? 'Edit Note' : 'Add Note'}
+            />
+
+            {/* Delete Touch Confirmation */}
+            <Modal show={!!deleteTouch} onHide={() => setDeleteTouch(null)} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title className="fs-5">Delete Activity</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>Are you sure you want to delete this <strong>{deleteTouch && (TOUCH_ICONS[deleteTouch.type]?.label || 'activity')}</strong> entry?</p>
+                    <p className="text-muted mb-0">{deleteTouch?.note}</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="light" onClick={() => setDeleteTouch(null)}>Cancel</Button>
+                    <Button variant="danger" onClick={handleDeleteTouch}>Delete</Button>
+                </Modal.Footer>
+            </Modal>
+
+            {/* Delete Note Confirmation */}
+            <Modal show={!!deleteNote} onHide={() => setDeleteNote(null)} centered>
+                <Modal.Header closeButton>
+                    <Modal.Title className="fs-5">Delete Note</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>Are you sure you want to delete this note?</p>
+                    <p className="text-muted mb-0 fst-italic">&ldquo;{deleteNote?.text}&rdquo;</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="light" onClick={() => setDeleteNote(null)}>Cancel</Button>
+                    <Button variant="danger" onClick={handleDeleteNote}>Delete</Button>
+                </Modal.Footer>
             </Modal>
 
             {/* Delete Account Confirmation Modal */}
