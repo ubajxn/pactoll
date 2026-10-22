@@ -113,9 +113,11 @@ export function PageBreadcrumbs({
 export function PageHeader({
   children,
   title,
+  description: _description,
 }: {
   children?: ReactNode;
   title?: string;
+  description?: string;
 }) {
   const target = useContext(HeaderContext);
   return target

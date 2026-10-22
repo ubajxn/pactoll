@@ -138,7 +138,7 @@ const US_STATES = [
 ];
 
 function StatCard({ label, value, icon: Icon, color, delay, prefix }: {
-  label: string; value: string | number; icon: React.ComponentType<{ className?: string }>;
+  label: string; value: string | number; icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>;
   color: string; delay: number; prefix?: string;
 }) {
   return (

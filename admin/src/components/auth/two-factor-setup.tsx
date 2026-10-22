@@ -19,7 +19,7 @@ export function TwoFactorSetup() {
   const [pending, setPending] = useState(false);
   const [error, setError] = useState("");
   const [enabled, setEnabled] = useState(
-    (account.user as Record<string, unknown>).twoFactorEnabled === true,
+    (account.user as unknown as Record<string, unknown>).twoFactorEnabled === true,
   );
 
   async function startEnable() {
@@ -34,8 +34,9 @@ export function TwoFactorSetup() {
         setPending(false);
         return;
       }
-      setTotpURI(result.data?.totpURI ?? "");
-      setBackupCodes(result.data?.backupCodes ?? []);
+      const data = result.data as { totpURI?: string; backupCodes?: string[] } | undefined;
+      setTotpURI(data?.totpURI ?? "");
+      setBackupCodes(data?.backupCodes ?? []);
       setStep("qr");
     } catch {
       setError("Failed to start 2FA setup.");

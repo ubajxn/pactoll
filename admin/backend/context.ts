@@ -1,5 +1,6 @@
 import type { Pool } from "pg";
 import type { WorkspaceContext } from "../src/lib/auth/types";
+import type { Role } from "../src/lib/permissions";
 import { DataError } from "../src/lib/data/contracts";
 import type { Auth } from "./auth";
 
@@ -35,6 +36,6 @@ export async function getWorkspaceContext(
       image: session.user.image,
     },
     workspace: { id: workspace.id, name: workspace.name, slug: workspace.slug },
-    role: workspace.role,
+    role: workspace.role as Role,
   };
 }

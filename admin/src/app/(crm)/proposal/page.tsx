@@ -54,7 +54,7 @@ const CATEGORY_CONFIG: Record<string, { label: string; color: string }> = {
   other: { label: "Other", color: "text-muted-foreground" },
 };
 
-function StatCard({ label, value, icon: Icon, color, delay, format }: { label: string; value: number | string; icon: React.ComponentType<{ className?: string }>; color: string; delay: number; format?: "currency" }) {
+function StatCard({ label, value, icon: Icon, color, delay, format }: { label: string; value: number | string; icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>; color: string; delay: number; format?: "currency" }) {
   const display = format === "currency" ? `$${Number(value).toLocaleString()}` : value;
   return (
     <motion.div initial={{ opacity: 0, y: 20, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.4, delay, ease: [0.22, 1, 0.36, 1] }} className="rounded-lg border bg-card p-4 transition-shadow hover:shadow-md">

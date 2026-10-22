@@ -55,7 +55,7 @@ type CompetitorRecord = {
   created_at: string;
 };
 
-const THREAT_CONFIG: Record<string, { label: string; color: string; bg: string; icon: React.ComponentType<{ className?: string }> }> = {
+const THREAT_CONFIG: Record<string, { label: string; color: string; bg: string; icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }> }> = {
   high: { label: "HIGH THREAT", color: "#dc2626", bg: "#fef2f2", icon: AlertTriangle },
   medium: { label: "MEDIUM THREAT", color: "#d97706", bg: "#fffbeb", icon: ShieldAlert },
   low: { label: "LOW THREAT", color: "#059669", bg: "#ecfdf5", icon: ShieldCheck },
@@ -70,7 +70,7 @@ const TYPE_LABELS: Record<string, string> = {
   other: "Other",
 };
 
-function StatCard({ label, value, icon: Icon, color, delay }: { label: string; value: number; icon: React.ComponentType<{ className?: string }>; color: string; delay: number }) {
+function StatCard({ label, value, icon: Icon, color, delay }: { label: string; value: number; icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>; color: string; delay: number }) {
   return (
     <motion.div initial={{ opacity: 0, y: 20, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.4, delay, ease: [0.22, 1, 0.36, 1] }} className="rounded-lg border bg-card p-4 transition-shadow hover:shadow-md">
       <div className="flex items-center justify-between">
@@ -84,7 +84,7 @@ function StatCard({ label, value, icon: Icon, color, delay }: { label: string; v
   );
 }
 
-function DossierSection({ icon: Icon, title, children, defaultOpen = false }: { icon: React.ComponentType<{ className?: string }>; title: string; children: React.ReactNode; defaultOpen?: boolean }) {
+function DossierSection({ icon: Icon, title, children, defaultOpen = false }: { icon: React.ComponentType<{ className?: string; style?: React.CSSProperties }>; title: string; children: React.ReactNode; defaultOpen?: boolean }) {
   const [open, setOpen] = useState(defaultOpen);
   return (
     <div className="border-t border-dashed border-muted-foreground/20">
