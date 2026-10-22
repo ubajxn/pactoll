@@ -27,21 +27,20 @@ export default async function Page({
   )?.[1];
 
   return (
-    <main className="flex min-h-svh bg-[#f5f3ef]">
+    <main className="flex min-h-svh bg-[#f0f4f7]">
       {/* Left — form */}
       <div className="flex w-full flex-col justify-center px-8 py-12 sm:px-12 lg:w-[480px] lg:shrink-0 lg:px-16">
         <div className="mx-auto w-full max-w-sm">
           <div className="mb-10">
-            <div className="mb-6 flex items-center gap-3">
-              <div className="flex size-10 items-center justify-center rounded-lg bg-[#2d3540] p-1.5">
-                <Image
-                  src="/images/ptp-logo-white.png"
-                  alt="PTP"
-                  width={28}
-                  height={28}
-                  className="object-contain"
-                />
-              </div>
+            <div className="mb-6 flex flex-col items-center lg:items-start">
+              <Image
+                src="/images/ptp-logo-white.png"
+                alt="Pacific Toll Processing"
+                width={56}
+                height={56}
+                className="mb-3 object-contain"
+                style={{ filter: "invert(1)" }}
+              />
               <span className="text-lg font-semibold tracking-tight text-[#2d3540]">
                 Pacific Toll Processing
               </span>
@@ -73,7 +72,7 @@ export default async function Page({
       {/* Right — rotating images */}
       <div className="relative hidden flex-1 lg:block">
         <LoginImageCarousel images={images} />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#f5f3ef] via-transparent to-transparent" style={{ width: "80px" }} />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#f0f4f7] via-transparent to-transparent" style={{ width: "80px" }} />
       </div>
     </main>
   );

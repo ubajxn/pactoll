@@ -1,6 +1,6 @@
 import { betterAuth } from "better-auth";
 import { APIError, createAuthMiddleware } from "better-auth/api";
-import { magicLink, organization } from "better-auth/plugins";
+import { magicLink, organization, twoFactor } from "better-auth/plugins";
 import type { Pool } from "pg";
 import { validatedAvatar } from "./avatar";
 import { authBaseUrl, authSecret } from "./config";
@@ -202,6 +202,10 @@ export function createAuth(
             });
           }
         },
+      }),
+      twoFactor({
+        issuer: "PTP Operations",
+        backupCodeOptions: { length: 10, characterSet: "numeric" },
       }),
       organization({
         allowUserToCreateOrganization: false,

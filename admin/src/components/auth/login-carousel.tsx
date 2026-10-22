@@ -54,7 +54,7 @@ export function LoginImageCarousel({ images }: { images: CarouselImage[] }) {
               className="h-1.5 rounded-full transition-all duration-300"
               style={{
                 width: i === current ? "24px" : "8px",
-                background: i === current ? "#c85a1a" : "rgba(255,255,255,0.4)",
+                background: i === current ? "#157070" : "rgba(255,255,255,0.4)",
               }}
               aria-label={`Show image ${i + 1}`}
             />

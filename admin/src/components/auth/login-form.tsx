@@ -112,7 +112,7 @@ export function LoginForm({
           <Button
             type="button"
             variant="outline"
-            className="w-full gap-2 border-[#ddd8d0] bg-white text-[#2d3540] hover:bg-[#f5f3ef]"
+            className="w-full gap-2 border-[#d0d8e0] bg-white text-[#2d3540] hover:bg-[#f0f4f7]"
             onClick={signInWithGoogle}
             disabled={pending}
           >
@@ -122,10 +122,10 @@ export function LoginForm({
 
           <div className="relative my-5">
             <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t border-[#ddd8d0]" />
+              <span className="w-full border-t border-[#d0d8e0]" />
             </div>
             <div className="relative flex justify-center text-xs">
-              <span className="bg-[#f5f3ef] px-3 text-[#999]">or</span>
+              <span className="bg-[#f0f4f7] px-3 text-[#999]">or</span>
             </div>
           </div>
         </>
@@ -185,7 +185,7 @@ export function LoginForm({
           </p>
         )}
 
-        <Button type="submit" className="w-full bg-[#c85a1a] text-white hover:bg-[#b04e16]" disabled={pending}>
+        <Button type="submit" className="w-full bg-[#157070] text-white hover:bg-[#0f5858]" disabled={pending}>
           {pending
             ? "Signing in…"
             : mode === "password"
@@ -199,7 +199,7 @@ export function LoginForm({
       <div className="mt-4 text-center">
         <button
           type="button"
-          className="text-xs text-[#888] hover:text-[#c85a1a] transition-colors"
+          className="text-xs text-[#888] hover:text-[#157070] transition-colors"
           onClick={() => {
             setMode(mode === "magic" ? "password" : "magic");
             setError("");
