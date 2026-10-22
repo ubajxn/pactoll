@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { FileText, Rocket, CheckCircle2, DollarSign, Plus, Pencil, Trash2, X, ChevronDown, ChevronRight, Target, Clock, Calendar } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { PageHeader } from "@/components/crm/page-header";
+import { PermissionGate } from "@/components/crm/permission-gate";
 
 const ORG_ID = "da62326b-707d-41bd-bc2d-a61a81926dae";
 
@@ -439,7 +440,7 @@ export default function ProposalPage() {
   const completed = items.filter((d) => d.status === "completed").length;
 
   return (
-    <>
+    <PermissionGate module="proposal">
       <PageHeader title="Proposal & Deliverables" description="Marketing services scope, deliverables, and cost tracking" />
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard label="Total Deliverables" value={items.length} icon={FileText} color="#157070" delay={0} />

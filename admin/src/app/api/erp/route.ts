@@ -1,5 +1,6 @@
 import { getPool } from "@/lib/api/singleton";
 import { getContext } from "@/lib/api/singleton";
+import { canAccessTable } from "@/lib/permissions";
 
 export const runtime = "nodejs";
 
@@ -79,6 +80,10 @@ export async function GET(request: Request) {
     const context = await getContext(request);
     if (!context) {
       return Response.json({ error: "Unauthorized" }, { status: 401 });
+    }
+
+    if (!canAccessTable(context.role, table)) {
+      return Response.json({ error: "Forbidden" }, { status: 403 });
     }
 
     const pool = getPool();
@@ -168,6 +173,9 @@ export async function POST(request: Request) {
     if (!validateTable(table)) {
       return Response.json({ error: "Invalid table" }, { status: 400 });
     }
+    if (!canAccessTable(context.role, table)) {
+      return Response.json({ error: "Forbidden" }, { status: 403 });
+    }
 
     const pool = getPool();
     const columns = Object.keys(fields).filter((k) => !SYSTEM_COLUMNS.includes(k));
@@ -210,6 +218,9 @@ export async function PUT(request: Request) {
     }
     if (!validateTable(table)) {
       return Response.json({ error: "Invalid table" }, { status: 400 });
+    }
+    if (!canAccessTable(context.role, table)) {
+      return Response.json({ error: "Forbidden" }, { status: 403 });
     }
 
     const pool = getPool();
@@ -267,6 +278,9 @@ export async function DELETE(request: Request) {
     }
     if (!validateTable(table)) {
       return Response.json({ error: "Invalid table" }, { status: 400 });
+    }
+    if (!canAccessTable(context.role, table)) {
+      return Response.json({ error: "Forbidden" }, { status: 403 });
     }
 
     const pool = getPool();

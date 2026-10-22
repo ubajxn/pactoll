@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { CreditCard, Clock, CheckCircle2, DollarSign, Plus, Pencil, Trash2, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { PageHeader } from "@/components/crm/page-header";
+import { PermissionGate } from "@/components/crm/permission-gate";
 
 const ORG_ID = "da62326b-707d-41bd-bc2d-a61a81926dae";
 
@@ -284,7 +285,7 @@ export default function ExpensesPage() {
   const needsReceipt = items.filter((e) => !e.receipt_on_file && e.status !== "void" && e.status !== "rejected").length;
 
   return (
-    <>
+    <PermissionGate module="expenses">
       <PageHeader title="Expenses" description="Operating costs, receipts, and reimbursements" />
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard label="Pending Approval" value={pending > 0 ? pending.toLocaleString() : "0"} icon={Clock} color="#d97706" delay={0} prefix="$" />

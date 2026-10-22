@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { motion } from "motion/react";
 import { PageHeader } from "@/components/crm/page-header";
+import { PermissionGate } from "@/components/crm/permission-gate";
 import {
   EMAIL_METRICS,
   PAID_MEDIA_DETAIL,
@@ -146,7 +147,7 @@ export default function AnalyticsPage() {
   }, {});
 
   return (
-    <>
+    <PermissionGate module="analytics">
       <PageHeader title="Analytics" />
 
       {loading ? (

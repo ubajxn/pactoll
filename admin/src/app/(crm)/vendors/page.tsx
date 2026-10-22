@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Wrench, CheckCircle2, Clock, Star, Plus, Pencil, Trash2, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { PageHeader } from "@/components/crm/page-header";
+import { PermissionGate } from "@/components/crm/permission-gate";
 
 const ORG_ID = "da62326b-707d-41bd-bc2d-a61a81926dae";
 
@@ -317,7 +318,7 @@ export default function VendorsPage() {
   const topRated = items.filter((v) => (v.rating || 0) >= 4).length;
 
   return (
-    <>
+    <PermissionGate module="vendors">
       <PageHeader title="Vendors" description="Supplier management, contracts, and ratings" />
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard label="Active Vendors" value={active} icon={CheckCircle2} color="#059669" delay={0} />

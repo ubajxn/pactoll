@@ -36,7 +36,9 @@ import {
   useSidebar,
 } from "@/components/ui/sidebar";
 import { useAnimatedHeight } from "@/hooks/use-animated-height";
+import { useAccount } from "@/lib/auth/provider";
 import { crmNavigation } from "@/lib/crm-navigation";
+import { canAccess, type Module } from "@/lib/permissions";
 
 export function AppSidebar({
   defaultListsOpen = true,
@@ -121,6 +123,14 @@ export function AppSidebar({
     document.cookie = `sidebar_finance_open=${financeOpen}; path=/; max-age=604800; SameSite=Lax`;
   }, [chatsOpen, recordsOpen, listsOpen, marketingOpen, operationsOpen, financeOpen]);
 
+  const { role } = useAccount();
+  const groupHasItems = (group: string) =>
+    crmNavigation.some((item) => {
+      if (item.group !== group) return false;
+      const mod = item.href.replace(/^\//, "").split("/")[0] as Module;
+      return canAccess(role, mod);
+    });
+
   return (
     <GlobalSearchProvider>
       <Sidebar collapsible="icon">
@@ -199,18 +209,22 @@ export function AppSidebar({
                 open={operationsOpen}
                 setOpen={setOperationsOpen}
               />
-              <NavigationGroup
-                group="finance"
-                label="Finance"
-                open={financeOpen}
-                setOpen={setFinanceOpen}
-              />
-              <NavigationGroup
-                group="marketing"
-                label="Marketing"
-                open={marketingOpen}
-                setOpen={setMarketingOpen}
-              />
+              {groupHasItems("finance") && (
+                <NavigationGroup
+                  group="finance"
+                  label="Finance"
+                  open={financeOpen}
+                  setOpen={setFinanceOpen}
+                />
+              )}
+              {groupHasItems("marketing") && (
+                <NavigationGroup
+                  group="marketing"
+                  label="Marketing"
+                  open={marketingOpen}
+                  setOpen={setMarketingOpen}
+                />
+              )}
               <NavigationGroup
                 group="lists"
                 label="Lists"
@@ -293,12 +307,17 @@ function NavigationItems({
 }) {
   const pathname = usePathname();
   const { setOpenMobile } = useSidebar();
+  const { role } = useAccount();
 
   return (
     <nav aria-label={label}>
       <SidebarMenu>
         {crmNavigation
           .filter((item) => item.group === group)
+          .filter((item) => {
+            const mod = item.href.replace(/^\//, "").split("/")[0] as Module;
+            return canAccess(role, mod);
+          })
           .map((item) => {
             const isNewChat = item.href === "/chat/new";
             const active =

@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { PageHeader } from "@/components/crm/page-header";
+import { PermissionGate } from "@/components/crm/permission-gate";
 
 const ORG_ID = "da62326b-707d-41bd-bc2d-a61a81926dae";
 
@@ -652,7 +653,7 @@ export default function CompetitorsPage() {
   const filtered = filter === "all" ? items : items.filter((c) => c.threat_level === filter);
 
   return (
-    <>
+    <PermissionGate module="competitors">
       <PageHeader title="Competitive Intelligence" description="Threat assessments, market positioning, and competitor dossiers" />
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
@@ -721,6 +722,6 @@ export default function CompetitorsPage() {
           </>
         )}
       </AnimatePresence>
-    </>
+    </PermissionGate>
   );
 }

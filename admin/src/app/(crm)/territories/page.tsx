@@ -18,6 +18,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { PageHeader } from "@/components/crm/page-header";
+import { PermissionGate } from "@/components/crm/permission-gate";
 
 const ORG_ID = "da62326b-707d-41bd-bc2d-a61a81926dae";
 
@@ -964,7 +965,7 @@ export default function TerritoriesPage() {
   };
 
   return (
-    <>
+    <PermissionGate module="territories">
       <PageHeader title="Territories & Growth" description="Sales territories, target markets, and pipeline — your team's command center" />
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard label="Territories" value={territories.length} icon={MapPin} color="#2563eb" delay={0} />

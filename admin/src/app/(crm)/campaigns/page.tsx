@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 import { Megaphone, TrendingUp, DollarSign, Users, Plus, Pencil, Trash2, X, ChevronDown, ChevronUp, Target, BarChart3 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { PageHeader } from "@/components/crm/page-header";
+import { PermissionGate } from "@/components/crm/permission-gate";
 
 const ORG_ID = "da62326b-707d-41bd-bc2d-a61a81926dae";
 

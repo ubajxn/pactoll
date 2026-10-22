@@ -34,6 +34,11 @@ type Invitation = {
   expiresAt: Date | string;
 };
 const roles = ["member", "admin", "owner"] as const;
+const roleLabels: Record<(typeof roles)[number], string> = {
+  member: "Staff — Operations & records",
+  admin: "Manager — + Finance & marketing",
+  owner: "Owner — Full access",
+};
 
 export function TeamSettings({ readOnly = false }: { readOnly?: boolean }) {
   const account = useAccount();
@@ -248,7 +253,7 @@ export function TeamSettings({ readOnly = false }: { readOnly?: boolean }) {
                         )
                         .map((role) => (
                           <option key={role} value={role}>
-                            {role[0].toUpperCase() + role.slice(1)}
+                            {roleLabels[role]}
                           </option>
                         ))}
                     </NativeSelect>
