@@ -477,9 +477,10 @@
     }
 
     .editor-actions {
-      padding: 16px 20px;
+      padding: 16px 20px 80px;
       display: flex;
       gap: 8px;
+      flex-wrap: wrap;
     }
     .editor-actions button {
       flex: 1;
@@ -671,13 +672,13 @@
   </div>
 
   <!-- Editor Toggle -->
-  <button class="editor-toggle" onclick="toggleEditor()" style="display: none;">Design Editor</button>
+  <button class="editor-toggle" onclick="toggleEditor()">Design Editor</button>
 
   <!-- Hidden file input for image uploads -->
   <input type="file" id="fileInput" accept="image/*" style="display:none">
 
   <!-- Editor Panel -->
-  <div class="editor-panel" id="editorPanel" style="display: none;">
+  <div class="editor-panel" id="editorPanel">
     <div class="editor-panel__header">
       <span class="editor-panel__title">Card Designer</span>
       <button class="editor-panel__close" onclick="toggleEditor()">×</button>
@@ -1251,7 +1252,7 @@
 
         var title = prompt('Card title:', 'Holiday Card 2026') || 'Holiday Card 2026';
 
-        fetch('http://localhost:3461/api/cards', {
+        fetch('/api/cards', {
           method: 'POST',
           headers: {'Content-Type':'application/json'},
           body: JSON.stringify({title: title, html: html})
