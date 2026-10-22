@@ -43,13 +43,13 @@ export default async function Page({
                 />
               </div>
             </div>
-            <h1 className="text-2xl font-semibold tracking-tight text-[#1a1a1a]">
+            <h1 className="font-[family-name:var(--font-serif)] text-3xl tracking-tight text-[#1a2a33]">
               {signupAllowed ? "Set up your company" : "Welcome back"}
             </h1>
-            <p className="mt-2 text-sm leading-relaxed text-[#666]">
+            <p className="mt-2 text-[13px] leading-relaxed tracking-wide text-[#888] uppercase">
               {signupAllowed
                 ? "Create the first account to get started."
-                : "Sign in with a secure link sent to your email."}
+                : "Sign in to your operations suite"}
             </p>
           </div>
 
@@ -61,7 +61,7 @@ export default async function Page({
             googleEnabled={googleEnabled}
           />
 
-          <p className="mt-10 text-center text-xs text-[#999]">
+          <p className="mt-10 text-center text-[11px] tracking-widest uppercase text-[#bbb]">
             Pacific Toll Processing &middot; Carson, CA
           </p>
         </div>
