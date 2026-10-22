@@ -1,8 +1,19 @@
-import { AuthCard } from "@/components/auth/auth-card";
 import { LoginForm } from "@/components/auth/login-form";
+import { LoginImageCarousel } from "@/components/auth/login-carousel";
 import { safeReturnTo } from "@/lib/auth/redirect";
 import { registrationStatus } from "@/lib/auth/server";
+import Image from "next/image";
+
 export const metadata = { title: "Sign in" };
+
+const images = [
+  { src: "/images/blanking-line.jpg", alt: "Steel blanking line in operation" },
+  { src: "/images/build-banner.jpg", alt: "PTP steel processing facility" },
+  { src: "/images/build-banner-2.jpg", alt: "Steel coil processing" },
+  { src: "/images/leveler.jpg", alt: "Precision leveler equipment" },
+  { src: "/images/solar.jpg", alt: "Solar panel steel components" },
+];
+
 export default async function Page({
   searchParams,
 }: {
@@ -13,21 +24,55 @@ export default async function Page({
   const invitationId = /^\/invite\/([^/?]+)$/.exec(
     safeReturnTo(params.next),
   )?.[1];
+
   return (
-    <AuthCard
-      title={signupAllowed ? "Set up your company" : "Welcome back"}
-      description={
-        signupAllowed
-          ? "Create the first account to get started. You can invite your team once you’re signed in."
-          : "Sign in with a link sent to your email. New accounts require an invitation from your company."
-      }
-    >
-      <LoginForm
-        next={params.next}
-        invalidLink={Boolean(params.error)}
-        signupAllowed={signupAllowed}
-        invitationId={invitationId}
-      />
-    </AuthCard>
+    <main className="flex min-h-svh bg-[#f5f3ef]">
+      {/* Left — form */}
+      <div className="flex w-full flex-col justify-center px-8 py-12 sm:px-12 lg:w-[480px] lg:shrink-0 lg:px-16">
+        <div className="mx-auto w-full max-w-sm">
+          <div className="mb-10">
+            <div className="mb-6 flex items-center gap-3">
+              <div className="flex size-10 items-center justify-center rounded-lg bg-[#2d3540] p-1.5">
+                <Image
+                  src="/images/ptp-logo-white.png"
+                  alt="PTP"
+                  width={28}
+                  height={28}
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-lg font-semibold tracking-tight text-[#2d3540]">
+                Pacific Toll Processing
+              </span>
+            </div>
+            <h1 className="text-2xl font-semibold tracking-tight text-[#1a1a1a]">
+              {signupAllowed ? "Set up your company" : "Welcome back"}
+            </h1>
+            <p className="mt-2 text-sm leading-relaxed text-[#666]">
+              {signupAllowed
+                ? "Create the first account to get started."
+                : "Sign in with a secure link sent to your email."}
+            </p>
+          </div>
+
+          <LoginForm
+            next={params.next}
+            invalidLink={Boolean(params.error)}
+            signupAllowed={signupAllowed}
+            invitationId={invitationId}
+          />
+
+          <p className="mt-10 text-center text-xs text-[#999]">
+            Pacific Toll Processing &middot; Carson, CA
+          </p>
+        </div>
+      </div>
+
+      {/* Right — rotating images */}
+      <div className="relative hidden flex-1 lg:block">
+        <LoginImageCarousel images={images} />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-[#f5f3ef] via-transparent to-transparent" style={{ width: "80px" }} />
+      </div>
+    </main>
   );
 }

@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Growth Proposal — Pacific Toll Processing</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --bg: #faf9f7;
+      --surface: #ffffff;
+      --charcoal: #1a1f25;
+      --charcoal-mid: #252b33;
+      --steel-blue: #4A7FA5;
+      --steel-blue-light: #6196BA;
+      --steel-blue-dark: #3A6585;
+      --text: #1a1f25;
+      --text-mid: #555d6a;
+      --text-dim: #8a919c;
+      --border: #ddd8d0;
+      --border-light: #e8e5df;
+      --accent: #4A7FA5;
+      --green: #2d7a4f;
+      --amber: #b8860b;
+      --sans: 'Inter', system-ui, sans-serif;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --mono: 'DM Mono', monospace;
+    }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+    /* Cover */
+    .cover {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--charcoal);
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -30%;
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(74,127,165,.15) 0%, transparent 70%);
+    }
+    .cover__inner {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      padding: 40px;
+    }
+    .cover__label {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--steel-blue-light);
+      margin-bottom: 32px;
+    }
+    .cover__title {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .cover__title em { font-style: italic; color: var(--steel-blue-light); }
+    .cover__sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,.45);
+      max-width: 500px;
+      margin: 0 auto 48px;
+    }
+    .cover__meta {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: rgba(255,255,255,.25);
+      letter-spacing: .1em;
+    }
+    .cover__meta span { margin: 0 12px; }
+
+    /* Navigation */
+    .prop-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,249,247,.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .prop-nav__inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      overflow-x: auto;
+    }
+    .prop-nav a {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--text-dim);
+      white-space: nowrap;
+      transition: color .2s;
+    }
+    .prop-nav a:hover { color: var(--steel-blue); }
+
+    /* Sections */
+    .prop-section {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .prop-section + .prop-section { border-top: 1px solid var(--border-light); }
+    .prop-section__label {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--steel-blue);
+      margin-bottom: 16px;
+    }
+    .prop-section__title {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      margin-bottom: 24px;
+      line-height: 1.2;
+    }
+    .prop-section p {
+      color: var(--text-mid);
+      font-size: .95rem;
+      max-width: 700px;
+      margin-bottom: 16px;
+    }
+    .prop-section p:last-child { margin-bottom: 0; }
+
+    /* Deliverables grid */
+    .deliverables {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 40px;
+    }
+    .deliverable {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      padding: 32px;
+    }
+    .deliverable__status {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
+    .deliverable__status--done { background: rgba(45,122,79,.1); color: var(--green); }
+    .deliverable__status--active { background: rgba(74,127,165,.1); color: var(--steel-blue); }
+    .deliverable__status--planned { background: rgba(184,134,11,.1); color: var(--amber); }
+    .deliverable h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .deliverable p {
+      font-size: .85rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+    }
+
+    /* Pricing table */
+    .pricing {
+      margin-top: 48px;
+    }
+    .pricing-tier {
+      background: var(--surface);
+      border: 1px solid var(--border-light);
+      padding: 48px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .pricing-tier--recommended {
+      border-color: var(--steel-blue);
+      border-width: 2px;
+    }
+    .pricing-tier--recommended::before {
+      content: 'RECOMMENDED';
+      position: absolute;
+      top: -11px;
+      left: 48px;
+      background: var(--steel-blue);
+      color: #fff;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .15em;
+      padding: 4px 14px;
+    }
+    .pricing-tier__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .pricing-tier__name {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+    }
+    .pricing-tier__price {
+      text-align: right;
+    }
+    .pricing-tier__amount {
+      font-family: var(--serif);
+      font-size: 2rem;
+      color: var(--steel-blue);
+    }
+    .pricing-tier__period {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-dim);
+      letter-spacing: .08em;
+    }
+    .pricing-tier__desc {
+      color: var(--text-mid);
+      font-size: .9rem;
+      margin-bottom: 24px;
+      max-width: 600px;
+    }
+    .pricing-tier__includes {
+      list-style: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .pricing-tier__includes li {
+      font-size: .85rem;
+      color: var(--text-mid);
+      padding-left: 24px;
+      position: relative;
+    }
+    .pricing-tier__includes li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--steel-blue);
+      font-weight: 700;
+    }
+
+    /* Value callout */
+    .value-box {
+      background: var(--charcoal);
+      color: #fff;
+      padding: 48px;
+      margin-top: 48px;
+    }
+    .value-box h3 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+    .value-box p {
+      color: rgba(255,255,255,.5);
+      font-size: .9rem;
+      max-width: 600px;
+    }
+    .value-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-top: 32px;
+    }
+    .value-stat {
+      text-align: center;
+    }
+    .value-stat__num {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      color: var(--steel-blue-light);
+    }
+    .value-stat__label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+      margin-top: 4px;
+    }
+
+    /* Timeline */
+    .timeline {
+      margin-top: 40px;
+    }
+    .timeline__item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 24px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .timeline__item:last-child { border-bottom: none; }
+    .timeline__phase {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--steel-blue);
+      padding-top: 4px;
+    }
+    .timeline__content h4 {
+      font-size: .95rem;
+      margin-bottom: 6px;
+    }
+    .timeline__content p {
+      font-size: .85rem;
+      color: var(--text-dim);
+    }
+
+    /* Terms */
+    .terms-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 40px;
+    }
+    .term-block h4 {
+      font-size: .85rem;
+      margin-bottom: 8px;
+    }
+    .term-block p {
+      font-size: .85rem;
+      color: var(--text-dim);
+    }
+
+    /* CTA */
+    .prop-cta {
+      background: var(--charcoal);
+      padding: 80px 24px;
+      text-align: center;
+    }
+    .prop-cta h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      color: #fff;
+      margin-bottom: 16px;
+    }
+    .prop-cta p {
+      color: rgba(255,255,255,.45);
+      font-size: .95rem;
+      margin-bottom: 32px;
+    }
+    .prop-cta__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 40px;
+      background: var(--steel-blue);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: .9rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: .03em;
+      transition: background .2s;
+    }
+    .prop-cta__btn:hover { background: var(--steel-blue-dark); }
+
+    /* Signature section */
+    .sig-section {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 80px 24px;
+    }
+    .sig-section__title {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+    .sig-section__sub {
+      color: var(--text-dim);
+      font-size: .9rem;
+      margin-bottom: 48px;
+    }
+    .sig-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    .sig-block {
+      border-top: 2px solid var(--border);
+      padding-top: 24px;
+    }
+    .sig-block__label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+    .sig-block__name {
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: 2px;
+    }
+    .sig-block__title {
+      font-size: .85rem;
+      color: var(--text-mid);
+      margin-bottom: 20px;
+    }
+    .sig-canvas-wrap {
+      position: relative;
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      background: rgba(74,127,165,.02);
+      margin-bottom: 12px;
+    }
+    .sig-canvas-wrap.signed {
+      border-style: solid;
+      border-color: var(--steel-blue);
+      background: #fff;
+    }
+    .sig-canvas {
+      display: block;
+      width: 100%;
+      height: 100px;
+      cursor: crosshair;
+      touch-action: none;
+    }
+    .sig-canvas-wrap.signed .sig-canvas { cursor: default; }
+    .sig-placeholder {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: .8rem;
+      color: var(--text-dim);
+      pointer-events: none;
+    }
+    .sig-canvas-wrap.has-ink .sig-placeholder { display: none; }
+    .sig-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .sig-btn {
+      font-family: var(--sans);
+      font-size: .75rem;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .sig-btn--clear {
+      background: var(--border-light);
+      color: var(--text-mid);
+    }
+    .sig-btn--clear:hover { background: var(--border); }
+    .sig-btn--sign {
+      background: var(--steel-blue);
+      color: #fff;
+    }
+    .sig-btn--sign:hover { background: var(--steel-blue-dark); }
+    .sig-btn:disabled { opacity: .4; cursor: default; }
+    .sig-date {
+      font-size: .8rem;
+      color: var(--text-mid);
+    }
+    .sig-date input {
+      font-family: var(--sans);
+      font-size: .8rem;
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      padding: 4px 8px;
+      color: var(--text);
+      background: var(--surface);
+      width: 130px;
+    }
+    .sig-locked-msg {
+      display: none;
+      font-size: .75rem;
+      color: var(--green);
+      font-weight: 500;
+    }
+    .sig-canvas-wrap.signed ~ .sig-actions .sig-btn--sign { display: none; }
+    .sig-canvas-wrap.signed ~ .sig-actions .sig-locked-msg { display: inline; }
+
+    @media (max-width: 768px) {
+      .sig-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+
+    .prop-footer {
+      padding: 32px 24px;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .1em;
+      color: var(--text-dim);
+    }
+
+    @media (max-width: 768px) {
+      .deliverables { grid-template-columns: 1fr; }
+      .pricing-tier__includes { grid-template-columns: 1fr; }
+      .pricing-tier__header { flex-direction: column; }
+      .pricing-tier__price { text-align: left; }
+      .value-grid { grid-template-columns: 1fr; gap: 24px; }
+      .terms-grid { grid-template-columns: 1fr; }
+      .timeline__item { grid-template-columns: 1fr; gap: 8px; }
+    }
+
+    /* Editable highlights — only in edit mode */
+    body.editing [contenteditable="false"]:hover {
+      outline: 1px dashed rgba(74,127,165,.3);
+      outline-offset: 4px;
+    }
+    body.editing [contenteditable="false"]:focus {
+      outline: 2px solid var(--steel-blue);
+      outline-offset: 4px;
+      background: rgba(74,127,165,.04);
+    }
+
+    /* Edit toggle button */
+    .edit-toggle {
+      position: fixed;
+      bottom: 24px;
+      left: 24px;
+      z-index: 201;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background: var(--charcoal);
+      color: rgba(255,255,255,.6);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(0,0,0,.25);
+      transition: background .2s, color .2s, transform .2s;
+    }
+    .edit-toggle:hover { background: var(--steel-blue); color: #fff; transform: scale(1.08); }
+    body.editing .edit-toggle { background: var(--steel-blue); color: #fff; }
+
+    /* Edit toolbar — hidden until edit mode */
+    .edit-bar {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 200;
+      display: none;
+      gap: 8px;
+      align-items: center;
+      background: var(--charcoal);
+      padding: 10px 16px;
+      border-radius: 8px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.3);
+    }
+    body.editing .edit-bar { display: flex; }
+    .edit-bar__label {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-right: 4px;
+    }
+    .edit-bar__btn {
+      background: rgba(255,255,255,.1);
+      border: none;
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .edit-bar__btn:hover { background: rgba(255,255,255,.2); }
+    .edit-bar__btn--primary { background: var(--steel-blue); }
+    .edit-bar__btn--primary:hover { background: var(--steel-blue-dark); }
+    .edit-bar__toast {
+      position: fixed;
+      bottom: 80px;
+      right: 24px;
+      background: var(--green);
+      color: #fff;
+      font-family: var(--sans);
+      font-size: 13px;
+      padding: 10px 20px;
+      border-radius: 6px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: all .3s;
+      pointer-events: none;
+      z-index: 201;
+    }
+    .edit-bar__toast.show { opacity: 1; transform: translateY(0); }
+
+    @media print {
+      @page {
+        size: letter;
+        margin: 0.6in 0.75in;
+      }
+      @page :first { margin: 0; }
+
+      *, *::before, *::after {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      /* Hide UI chrome */
+      .prop-nav, .edit-toggle, .edit-bar, .edit-bar__toast, #quick-nav { display: none !important; }
+      [contenteditable] { outline: none !important; background: none !important; }
+
+      body { background: #fff; font-size: 10pt; line-height: 1.55; }
+
+      /* Cover — full bleed first page */
+      .cover {
+        min-height: 0;
+        height: 100vh;
+        padding: 0;
+        page-break-after: always;
+        break-after: page;
+        margin: -0.6in -0.75in 0;
+        width: calc(100% + 1.5in);
+      }
+      @page :first { margin: 0; }
+      .cover__title { font-size: 32pt; }
+      .cover__sub { font-size: 11pt; }
+      .cover__label { font-size: 9pt; }
+      .cover__meta { font-size: 8pt; }
+
+      /* Sections */
+      .prop-section {
+        padding: 36pt 0 24pt;
+        max-width: 100%;
+        page-break-inside: avoid;
+      }
+      .prop-section + .prop-section { border-top: 0.5pt solid #ddd; }
+      .prop-section__label { font-size: 8pt; margin-bottom: 10pt; }
+      .prop-section__title { font-size: 18pt; margin-bottom: 14pt; }
+      .prop-section p { font-size: 10pt; max-width: 100%; }
+
+      /* Force page breaks before key sections */
+      #pricing { page-break-before: always; break-before: page; }
+      #timeline { page-break-before: always; break-before: page; }
+
+      /* Deliverables grid */
+      .deliverables {
+        grid-template-columns: 1fr 1fr;
+        gap: 12pt;
+        margin-top: 24pt;
+      }
+      .deliverable {
+        padding: 16pt;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        border: 0.5pt solid #ddd;
+      }
+      .deliverable__status { font-size: 7pt; padding: 2pt 8pt; margin-bottom: 10pt; }
+      .deliverable h4 { font-size: 10pt; margin-bottom: 4pt; }
+      .deliverable p { font-size: 8.5pt; line-height: 1.5; }
+
+      /* Pricing tiers */
+      .pricing { margin-top: 24pt; }
+      .pricing-tier {
+        padding: 24pt;
+        margin-bottom: 16pt;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        border: 0.5pt solid #ddd;
+      }
+      .pricing-tier[style*="border-color"] {
+        border: 1.5pt solid var(--steel-blue) !important;
+      }
+      .pricing-tier__name { font-size: 14pt; }
+      .pricing-tier__amount { font-size: 18pt; }
+      .pricing-tier__period { font-size: 8pt; }
+      .pricing-tier__desc { font-size: 9pt; margin-bottom: 14pt; }
+      .pricing-tier__includes {
+        grid-template-columns: 1fr 1fr;
+        gap: 6pt;
+      }
+      .pricing-tier__includes li { font-size: 8.5pt; padding-left: 14pt; }
+      .pricing-tier__includes li::before { font-size: 10pt; }
+      .pricing-tier__header { margin-bottom: 14pt; }
+
+      /* Value box */
+      .value-box {
+        padding: 24pt;
+        margin-top: 24pt;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      .value-box h3 { font-size: 14pt; margin-bottom: 8pt; }
+      .value-box p { font-size: 9pt; }
+      .value-grid { gap: 16pt; margin-top: 16pt; grid-template-columns: repeat(3, 1fr); }
+      .value-stat__num { font-size: 20pt; }
+      .value-stat__label { font-size: 7pt; }
+
+      /* Timeline */
+      .timeline { margin-top: 24pt; }
+      .timeline__item {
+        grid-template-columns: 80pt 1fr;
+        gap: 16pt;
+        padding: 14pt 0;
+        page-break-inside: avoid;
+        break-inside: avoid;
+      }
+      .timeline__phase { font-size: 8pt; }
+      .timeline__content h4 { font-size: 10pt; margin-bottom: 3pt; }
+      .timeline__content p { font-size: 8.5pt; }
+
+      /* Terms */
+      .terms-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 20pt;
+        margin-top: 24pt;
+      }
+      .term-block { page-break-inside: avoid; break-inside: avoid; }
+      .term-block h4 { font-size: 9pt; margin-bottom: 4pt; }
+      .term-block p { font-size: 8.5pt; }
+
+      /* CTA */
+      .prop-cta {
+        padding: 48pt 24pt;
+        page-break-before: avoid;
+        margin-top: 24pt;
+      }
+      .prop-cta h2 { font-size: 20pt; }
+      .prop-cta p { font-size: 10pt; margin-bottom: 16pt; }
+      .prop-cta__btn {
+        padding: 10pt 28pt;
+        font-size: 10pt;
+      }
+
+      /* Signature */
+      .sig-section { padding: 40pt 0; page-break-before: always; }
+      .sig-section__title { font-size: 16pt; }
+      .sig-section__sub { font-size: 9pt; margin-bottom: 32pt; }
+      .sig-canvas-wrap { border: 1px solid #ccc; height: 70pt; }
+      .sig-placeholder { display: none; }
+      .sig-btn, .sig-locked-msg { display: none !important; }
+      .sig-canvas { height: 70pt; }
+      .sig-date { font-size: 8pt; }
+
+      /* Footer */
+      .prop-footer { font-size: 7pt; padding: 16pt 0; }
+
+      /* Prevent widows/orphans */
+      p, li { orphans: 3; widows: 3; }
+      h2, h3, h4 { page-break-after: avoid; break-after: avoid; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Cover -->
+  <section class="cover">
+    <div class="cover__inner">
+      <div class="cover__label" contenteditable="false">Proposal</div>
+      <h1 class="cover__title" contenteditable="false">Digital Growth <em>&amp; Marketing</em><br>Operations Partner</h1>
+      <p class="cover__sub" contenteditable="false">A fractional CMO engagement to build, launch, and run Pacific Toll Processing's digital presence, sales pipeline, and growth infrastructure.</p>
+      <div class="cover__meta" contenteditable="false">
+        <span>Prepared October 2026</span>
+        <span>·</span>
+        <span>Confidential</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nav -->
+  <nav class="prop-nav">
+    <div class="prop-nav__inner">
+      <a href="#situation">Situation</a>
+      <a href="#deliverables">Deliverables</a>
+      <a href="#pricing">Investment</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#terms">Terms</a>
+    </div>
+  </nav>
+
+  <!-- Situation -->
+  <section class="prop-section" id="situation">
+    <div class="prop-section__label" contenteditable="false">01 — The Situation</div>
+    <h2 class="prop-section__title" contenteditable="false">PTP Has the Steel. It Needs the Story.</h2>
+    <p contenteditable="false">Pacific Toll Processing has 35+ years of operational excellence, a 100,000+ sq ft solar-powered facility, and the capacity to serve the entire West Coast. What it doesn't have is a modern digital presence that matches the quality of its work.</p>
+    <p contenteditable="false">The current website is outdated. There's no CRM. No lead pipeline. No competitive intelligence system. No content strategy. No SEO presence strong enough for AI-driven search to surface PTP when buyers ask "who can slit my coils in Southern California?"</p>
+    <p contenteditable="false">This proposal covers a full digital build-out and ongoing fractional CMO engagement to fix that — not with a one-time project that gets handed off and ignored, but with an ongoing partnership that keeps the engine running.</p>
+  </section>
+
+  <!-- What's Been Built -->
+  <section class="prop-section" id="deliverables">
+    <div class="prop-section__label" contenteditable="false">02 — Deliverables</div>
+    <h2 class="prop-section__title" contenteditable="false">What You're Getting</h2>
+    <p contenteditable="false">This isn't a pitch deck. Everything listed below has already been built or is actively being developed. You can see it, click through it, and use it today.</p>
+
+    <div class="deliverables">
+      <div class="deliverable">
+        <span class="deliverable__status deliverable__status--done" contenteditable="false">Complete</span>
+        <h4 contenteditable="false">Customer-Facing Website</h4>
+        <p contenteditable="false">10-page website with dedicated pages for services, steel sales, equipment, about, and contact. Mobile-responsive, SEO-optimized with structured data, 4-step quote wizard, 40 rotating taglines, cookie consent, full legal pages.</p>
+      </div>
+      <div class="deliverable">
+        <span class="deliverable__status deliverable__status--done" contenteditable="false">Complete</span>
+        <h4 contenteditable="false">SEO & AI Discoverability</h4>
+        <p contenteditable="false">JSON-LD structured data for LocalBusiness, Services, and Products. Sitemap, robots.txt, meta keywords, canonical URLs. Built so AI search engines return PTP as THE source for West Coast steel processing.</p>
+      </div>
+      <div class="deliverable">
+        <span class="deliverable__status deliverable__status--done" contenteditable="false">Complete</span>
+        <h4 contenteditable="false">Growth Strategy Deck</h4>
+        <p contenteditable="false">Interactive presentation suite: CMO Operations dashboard, competitive landscape analysis, industry presence mapping, and digital roadmap. Used for internal alignment and executive presentations.</p>
+      </div>
+      <div class="deliverable">
+        <span class="deliverable__status deliverable__status--active" contenteditable="false">In Progress</span>
+        <h4 contenteditable="false">Admin & CRM Dashboard</h4>
+        <p contenteditable="false">Next.js admin panel with contact management, sales pipeline, target account tracking, campaign management, competitive intelligence, invoicing, calendar, and internal communications.</p>
+      </div>
+      <div class="deliverable">
+        <span class="deliverable__status deliverable__status--done" contenteditable="false">Complete</span>
+        <h4 contenteditable="false">Lead Capture System</h4>
+        <p contenteditable="false">Multi-step quote wizard that qualifies leads by collecting service type, material specs, quantity, timeline, and contact info — all feeding to a central admin inbox via Formspree.</p>
+      </div>
+      <div class="deliverable">
+        <span class="deliverable__status deliverable__status--planned" contenteditable="false">Ongoing</span>
+        <h4 contenteditable="false">Content & SEO Strategy</h4>
+        <p contenteditable="false">Monthly content planning, keyword targeting for steel processing terms, blog/resource pages, Google Business optimization, and industry directory listings to dominate local and AI search.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="prop-section" id="pricing">
+    <div class="prop-section__label" contenteditable="false">03 — Investment</div>
+    <h2 class="prop-section__title" contenteditable="false">What This Costs</h2>
+    <p contenteditable="false">This engagement starts with a one-time setup, then moves to an ongoing fractional CMO retainer. When the foundation is running, Phase 2 activates the outbound engine — included in the retainer, no additional build fee. You're hiring a strategic partner, not a contractor who disappears after launch.</p>
+
+    <div class="pricing">
+
+      <!-- Phase 1 - Setup -->
+      <div class="pricing-tier">
+        <div class="pricing-tier__header">
+          <div>
+            <h3 class="pricing-tier__name" contenteditable="false">Phase 1 — Setup</h3>
+          </div>
+          <div class="pricing-tier__price">
+            <div class="pricing-tier__amount" contenteditable="false">$8,500</div>
+            <div class="pricing-tier__period" contenteditable="false">one-time</div>
+          </div>
+        </div>
+        <p class="pricing-tier__desc" contenteditable="false">Research, social presence, and a complete customer-facing website — the foundation everything else builds on. Includes web administration, media setup, and performance tracking infrastructure.</p>
+        <ul class="pricing-tier__includes" contenteditable="false">
+          <li>Market research & competitive analysis</li>
+          <li>Social media account setup & branding</li>
+          <li>10-page customer website, deployed</li>
+          <li>SEO structured data, sitemap & indexing</li>
+          <li>4-step quote wizard with lead capture</li>
+          <li>Growth strategy presentation suite</li>
+          <li>Google Business Profile optimization</li>
+          <li>Legal pages (Terms, Privacy, DMCA, Copyright)</li>
+          <li>Web administration & hosting setup</li>
+          <li>Analytics & performance tracking setup</li>
+        </ul>
+      </div>
+
+      <!-- Monthly Retainer -->
+      <div class="pricing-tier">
+        <div class="pricing-tier__header">
+          <div>
+            <h3 class="pricing-tier__name" contenteditable="false">Monthly Retainer — Fractional CMO</h3>
+          </div>
+          <div class="pricing-tier__price">
+            <div class="pricing-tier__amount" contenteditable="false">$4,400</div>
+            <div class="pricing-tier__period" contenteditable="false">per month</div>
+          </div>
+        </div>
+        <p class="pricing-tier__desc" contenteditable="false">Once the Phase 1 deliverables are in hand, we shift to ongoing operations. Strategic marketing leadership, content creation, platform management, and growth execution. This is where the compounding value happens — the digital engine that keeps running and improving.</p>
+        <ul class="pricing-tier__includes" contenteditable="false">
+          <li>Monthly content strategy & creation</li>
+          <li>Website updates & feature development</li>
+          <li>SEO monitoring & optimization</li>
+          <li>CRM/pipeline management & reporting</li>
+          <li>Competitive intelligence updates</li>
+          <li>Campaign planning & execution</li>
+          <li>Monthly performance reporting</li>
+          <li>Direct access — Slack, email, call</li>
+          <li>Lead follow-up system management</li>
+          <li>Social media content & management</li>
+        </ul>
+        <p class="pricing-tier__desc" style="margin-top:20px;font-size:.82rem;color:var(--text-dim);" contenteditable="false">Travel expenses and ancillary media costs (ad spend, directory listing fees, print placements, event registration) are billed separately at cost.</p>
+      </div>
+
+      <!-- Phase 2 - Activate (under retainer) -->
+      <div class="pricing-tier" style="border-color:var(--steel-blue);border-width:2px;">
+        <div class="pricing-tier__header">
+          <div>
+            <h3 class="pricing-tier__name" contenteditable="false">Phase 2 — Activate & Scale</h3>
+          </div>
+          <div class="pricing-tier__price">
+            <div class="pricing-tier__amount" contenteditable="false" style="font-size:1.2rem;color:var(--text-mid);">Included in retainer</div>
+            <div class="pricing-tier__period" contenteditable="false">when ready</div>
+          </div>
+        </div>
+        <p class="pricing-tier__desc" contenteditable="false">When the foundation is solid, we flip the switch on outbound. No additional fee — this is the natural evolution of the retainer engagement. Constant Contact email marketing, CRM optimization, direct outreach to all 205 target accounts, and directory presence across every platform where buyers search for steel processing.</p>
+        <ul class="pricing-tier__includes" contenteditable="false">
+          <li>Constant Contact setup, templates & automation</li>
+          <li>Email drip sequences for each pipeline stage</li>
+          <li>CRM optimization — lead scoring & workflows</li>
+          <li>Direct outreach campaigns to 205 target accounts</li>
+          <li>LinkedIn Sales Navigator outbound strategy</li>
+          <li>Industry directory submissions (Thomas Register, MacRAE's, SteelOrbis, Metal Center News, 5+ more)</li>
+          <li>Contact database build — key buyers by sector</li>
+          <li>Trade show & event outreach (FABTECH, etc.)</li>
+          <li>Referral program design & launch</li>
+          <li>Automated follow-up sequences & touch-point cadence</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Value Comparison -->
+    <div class="value-box">
+      <h3 contenteditable="false">For Context</h3>
+      <p contenteditable="false">A full-time CMO costs $180K-$280K/year plus benefits. A mid-tier marketing agency charges $8K-$15K/month with no strategic ownership. This engagement delivers executive-level marketing leadership, custom-built technology, and hands-on execution at a fraction of either.</p>
+      <div class="value-grid">
+        <div class="value-stat">
+          <div class="value-stat__num" contenteditable="false">~$53K</div>
+          <div class="value-stat__label" contenteditable="false">Year 1 Total (Setup + 10mo retainer)</div>
+        </div>
+        <div class="value-stat">
+          <div class="value-stat__num" contenteditable="false">$200K+</div>
+          <div class="value-stat__label" contenteditable="false">Full-Time CMO Annual Cost</div>
+        </div>
+        <div class="value-stat">
+          <div class="value-stat__num" contenteditable="false">$96K+</div>
+          <div class="value-stat__label" contenteditable="false">Agency Annual Cost</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="prop-section" id="timeline">
+    <div class="prop-section__label" contenteditable="false">04 — Timeline</div>
+    <h2 class="prop-section__title" contenteditable="false">How This Rolls Out</h2>
+    <p contenteditable="false">The build is mostly done. What remains is deployment, refinement, and the switch to ongoing operations.</p>
+
+    <div class="timeline">
+      <div class="timeline__item">
+        <div class="timeline__phase" contenteditable="false">Week 1-2</div>
+        <div class="timeline__content">
+          <h4 contenteditable="false">Deploy & Go Live</h4>
+          <p contenteditable="false">Domain setup, hosting configuration, website deployment, Google Business Profile, analytics integration. Site is live and indexed.</p>
+        </div>
+      </div>
+      <div class="timeline__item">
+        <div class="timeline__phase" contenteditable="false">Week 3-4</div>
+        <div class="timeline__content">
+          <h4 contenteditable="false">Admin & Pipeline Setup</h4>
+          <p contenteditable="false">Configure admin dashboard with PTP's real contacts, set up pipeline stages, import target accounts, connect lead capture to admin.</p>
+        </div>
+      </div>
+      <div class="timeline__item">
+        <div class="timeline__phase" contenteditable="false">Month 2</div>
+        <div class="timeline__content">
+          <h4 contenteditable="false">Content & SEO Push</h4>
+          <p contenteditable="false">First round of SEO-optimized content, industry directory submissions, Google Business posts, initial keyword rankings baseline.</p>
+        </div>
+      </div>
+      <div class="timeline__item">
+        <div class="timeline__phase" contenteditable="false">Month 3+</div>
+        <div class="timeline__content">
+          <h4 contenteditable="false">Ongoing Growth Operations</h4>
+          <p contenteditable="false">Monthly content cadence, pipeline management, competitive updates, campaign execution, performance reporting, and continuous platform improvement.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Terms -->
+  <section class="prop-section" id="terms">
+    <div class="prop-section__label" contenteditable="false">05 — Terms</div>
+    <h2 class="prop-section__title" contenteditable="false">How This Could Work (W2 or 1099)</h2>
+
+    <div class="terms-grid">
+      <div class="term-block">
+        <h4 contenteditable="false">Getting Started</h4>
+        <p contenteditable="false">Phase 1 setup fee ($8,500) due 50% at signing, 50% at launch. Travel and media expenses billed separately at cost.</p>
+      </div>
+      <div class="term-block">
+        <h4 contenteditable="false">Monthly Retainer</h4>
+        <p contenteditable="false">Billed on the 1st of each month, beginning the month after launch. 3-month minimum commitment, then month-to-month with 30 days' written notice to cancel.</p>
+      </div>
+      <div class="term-block">
+        <h4 contenteditable="false">Ownership</h4>
+        <p contenteditable="false">PTP owns all code, content, designs, and data produced under this engagement. Full source code access via GitHub from day one.</p>
+      </div>
+      <div class="term-block">
+        <h4 contenteditable="false">Communication</h4>
+        <p contenteditable="false">Direct access via Slack or similar, email, and scheduled calls. Minimum of 2 days in the office per month to deliver updates on actions and analytics and capture media.</p>
+      </div>
+      <div class="term-block">
+        <h4 contenteditable="false">Reporting</h4>
+        <p contenteditable="false">Monthly written report covering: website traffic & SEO rankings, lead volume & quality, pipeline status, content performance, and next month's priorities.</p>
+      </div>
+      <div class="term-block">
+        <h4 contenteditable="false">Scope Changes</h4>
+        <p contenteditable="false">I expect new ideas and opportunities to emerge, and we will stay nimble to adapt and seize them as they arise. We will adjust schedules and media budgets accordingly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="prop-cta">
+    <h2 contenteditable="false">Ready to Start?</h2>
+    <p contenteditable="false">Let's get PTP the digital presence it deserves.</p>
+    <a href="#signature" class="prop-cta__btn">GO →</a>
+  </section>
+
+  <!-- Signature Section -->
+  <section class="sig-section" id="signature">
+    <h2 class="sig-section__title" contenteditable="false">Agreement & Authorization</h2>
+    <p class="sig-section__sub" contenteditable="false">By signing below, both parties agree to the terms, scope, and pricing outlined in this proposal.</p>
+
+    <div class="sig-grid">
+      <!-- Client signature -->
+      <div class="sig-block">
+        <div class="sig-block__label">Client — Pacific Toll Processing</div>
+        <div class="sig-block__name" contenteditable="false">Mark Proner</div>
+        <div class="sig-block__title" contenteditable="false">President</div>
+        <div class="sig-canvas-wrap" id="sig-client-wrap">
+          <canvas class="sig-canvas" id="sig-client"></canvas>
+          <span class="sig-placeholder">Sign here</span>
+        </div>
+        <div class="sig-actions">
+          <button class="sig-btn sig-btn--clear" onclick="clearSig('client')">Clear</button>
+          <button class="sig-btn sig-btn--sign" id="sig-client-lock" onclick="lockSig('client')" disabled>Confirm Signature</button>
+          <span class="sig-locked-msg">Signed</span>
+          <span class="sig-date" style="margin-left:auto;">Date: <input type="date" id="sig-client-date"></span>
+        </div>
+      </div>
+
+      <!-- Provider signature -->
+      <div class="sig-block">
+        <div class="sig-block__label">Provider — St. Jack Digital</div>
+        <div class="sig-block__name" contenteditable="false">Jeff St. Jack</div>
+        <div class="sig-block__title" contenteditable="false">Fractional CMO / Principal</div>
+        <div class="sig-canvas-wrap" id="sig-provider-wrap">
+          <canvas class="sig-canvas" id="sig-provider"></canvas>
+          <span class="sig-placeholder">Sign here</span>
+        </div>
+        <div class="sig-actions">
+          <button class="sig-btn sig-btn--clear" onclick="clearSig('provider')">Clear</button>
+          <button class="sig-btn sig-btn--sign" id="sig-provider-lock" onclick="lockSig('provider')" disabled>Confirm Signature</button>
+          <span class="sig-locked-msg">Signed</span>
+          <span class="sig-date" style="margin-left:auto;">Date: <input type="date" id="sig-provider-date"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="prop-footer" contenteditable="false">
+    Prepared by Jeff St. Jack · Confidential · October 2026
+  </footer>
+
+  <!-- Edit toggle -->
+  <button class="edit-toggle" onclick="toggleEdit()" title="Toggle edit mode" aria-label="Toggle edit mode">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+  </button>
+
+  <!-- Edit toolbar -->
+  <div class="edit-bar">
+    <span class="edit-bar__label">Edit Mode</span>
+    <button class="edit-bar__btn edit-bar__btn--primary" onclick="saveToServer()">Save (Ctrl+S)</button>
+    <button class="edit-bar__btn" onclick="window.print()">Print / PDF</button>
+    <button class="edit-bar__btn" onclick="downloadHTML()">Download Clean</button>
+  </div>
+  <div class="edit-bar__toast" id="toast"></div>
+
+  <script>
+    function toggleEdit() {
+      var editing = document.body.classList.toggle('editing');
+      document.querySelectorAll('[contenteditable]').forEach(function(el) {
+        el.setAttribute('contenteditable', editing ? 'true' : 'false');
+      });
+    }
+
+    function toast(msg, isError) {
+      var t = document.getElementById('toast');
+      t.textContent = msg;
+      t.style.background = isError ? '#c0392b' : 'var(--green)';
+      t.classList.add('show');
+      setTimeout(function() { t.classList.remove('show'); }, 2600);
+    }
+
+    function getEditableHTML() {
+      var clone = document.documentElement.cloneNode(true);
+      // Remove edit toolbar and toast
+      var bar = clone.querySelector('.edit-bar');
+      if (bar) bar.remove();
+      var toastEl = clone.querySelector('.edit-bar__toast');
+      if (toastEl) toastEl.remove();
+      // Remove scripts
+      clone.querySelectorAll('script').forEach(function(s) { s.remove(); });
+      // Keep contenteditable for the source file so it stays editable
+      return '<!DOCTYPE html>\n' + clone.outerHTML;
+    }
+
+    function getCleanHTML() {
+      var clone = document.documentElement.cloneNode(true);
+      var bar = clone.querySelector('.edit-bar');
+      if (bar) bar.remove();
+      var toastEl = clone.querySelector('.edit-bar__toast');
+      if (toastEl) toastEl.remove();
+      clone.querySelectorAll('script').forEach(function(s) { s.remove(); });
+      clone.querySelectorAll('[contenteditable]').forEach(function(el) {
+        el.removeAttribute('contenteditable');
+      });
+      return '<!DOCTYPE html>\n' + clone.outerHTML;
+    }
+
+    function saveToServer() {
+      var html = document.querySelector('html').outerHTML;
+      fetch('/save-proposal', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ html: '<!DOCTYPE html>\n' + html })
+      })
+      .then(function(r) {
+        if (r.ok) {
+          toast('Saved to repo + admin');
+        } else {
+          throw new Error('Server error');
+        }
+      })
+      .catch(function() {
+        toast('Save failed — is save-server running?', true);
+      });
+    }
+
+    function downloadHTML() {
+      var html = getCleanHTML();
+      var blob = new Blob([html], { type: 'text/html' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'ptp-proposal.html';
+      a.click();
+      URL.revokeObjectURL(a.href);
+      toast('Downloaded ptp-proposal.html');
+    }
+
+    // Ctrl+S / Cmd+S saves to server
+    document.addEventListener('keydown', function(e) {
+      if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+        e.preventDefault();
+        saveToServer();
+      }
+    });
+
+    // Signature pads
+    (function() {
+      var pads = {};
+
+      function initPad(id) {
+        var canvas = document.getElementById('sig-' + id);
+        var wrap = document.getElementById('sig-' + id + '-wrap');
+        var lockBtn = document.getElementById('sig-' + id + '-lock');
+        var dateInput = document.getElementById('sig-' + id + '-date');
+        var ctx = canvas.getContext('2d');
+        var drawing = false;
+        var hasInk = false;
+
+        function resize() {
+          var rect = canvas.parentElement.getBoundingClientRect();
+          canvas.width = rect.width;
+          canvas.height = 100;
+        }
+        resize();
+        window.addEventListener('resize', function() {
+          if (!wrap.classList.contains('signed')) { resize(); clearSigPad(id); }
+        });
+
+        dateInput.value = new Date().toISOString().split('T')[0];
+
+        function getPos(e) {
+          var r = canvas.getBoundingClientRect();
+          var t = e.touches ? e.touches[0] : e;
+          return { x: t.clientX - r.left, y: t.clientY - r.top };
+        }
+
+        function startDraw(e) {
+          if (wrap.classList.contains('signed')) return;
+          drawing = true;
+          var p = getPos(e);
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          e.preventDefault();
+        }
+
+        function draw(e) {
+          if (!drawing) return;
+          var p = getPos(e);
+          ctx.lineWidth = 2;
+          ctx.lineCap = 'round';
+          ctx.lineJoin = 'round';
+          ctx.strokeStyle = '#1a1f25';
+          ctx.lineTo(p.x, p.y);
+          ctx.stroke();
+          if (!hasInk) {
+            hasInk = true;
+            wrap.classList.add('has-ink');
+            lockBtn.disabled = false;
+          }
+          e.preventDefault();
+        }
+
+        function stopDraw() { drawing = false; }
+
+        canvas.addEventListener('mousedown', startDraw);
+        canvas.addEventListener('mousemove', draw);
+        canvas.addEventListener('mouseup', stopDraw);
+        canvas.addEventListener('mouseleave', stopDraw);
+        canvas.addEventListener('touchstart', startDraw, { passive: false });
+        canvas.addEventListener('touchmove', draw, { passive: false });
+        canvas.addEventListener('touchend', stopDraw);
+
+        pads[id] = { canvas: canvas, ctx: ctx, wrap: wrap, lockBtn: lockBtn, hasInk: function() { return hasInk; }, setInk: function(v) { hasInk = v; } };
+      }
+
+      window.clearSig = function(id) {
+        var pad = pads[id];
+        if (!pad || pad.wrap.classList.contains('signed')) return;
+        pad.ctx.clearRect(0, 0, pad.canvas.width, pad.canvas.height);
+        pad.wrap.classList.remove('has-ink');
+        pad.lockBtn.disabled = true;
+        pad.setInk(false);
+      };
+
+      window.lockSig = function(id) {
+        var pad = pads[id];
+        if (!pad || !pad.hasInk()) return;
+        pad.wrap.classList.add('signed');
+        toast(id === 'client' ? 'Client signature confirmed' : 'Provider signature confirmed');
+      };
+
+      initPad('client');
+      initPad('provider');
+    })();
+  </script>
+
+<!-- Quick Nav -->
+<div id="quick-nav" style="position:fixed;bottom:24px;right:24px;z-index:9000;font-family:Inter,system-ui,sans-serif;">
+  <div id="quick-nav-menu" style="position:absolute;bottom:56px;right:0;background:#1a1a1a;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:8px 0;min-width:180px;box-shadow:0 8px 32px rgba(0,0,0,.4);opacity:0;transform:translateY(8px) scale(.95);pointer-events:none;transition:opacity .2s,transform .2s;">
+    <a href="/deck/index.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;color:rgba(255,255,255,.75);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.02em;transition:background .15s,color .15s;" onmouseover="this.style.background='rgba(255,255,255,.06)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,.75)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.6;flex-shrink:0"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+      Intro Deck
+    </a>
+    <a href="/site/index.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;color:rgba(255,255,255,.75);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.02em;transition:background .15s,color .15s;" onmouseover="this.style.background='rgba(255,255,255,.06)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,.75)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.6;flex-shrink:0"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1m-2 0h2"/></svg>
+      Website
+    </a>
+    <div style="height:1px;background:rgba(255,255,255,.08);margin:4px 12px;"></div>
+    <a href="/dashboard" style="display:flex;align-items:center;gap:10px;padding:10px 18px;color:rgba(255,255,255,.75);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.02em;transition:background .15s,color .15s;" onmouseover="this.style.background='rgba(255,255,255,.06)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,.75)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.6;flex-shrink:0"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>
+      Admin
+    </a>
+    <a href="/proposal.html" style="display:flex;align-items:center;gap:10px;padding:10px 18px;color:rgba(255,255,255,.75);text-decoration:none;font-size:.82rem;font-weight:500;letter-spacing:.02em;transition:background .15s,color .15s;" onmouseover="this.style.background='rgba(255,255,255,.06)';this.style.color='#fff'" onmouseout="this.style.background='';this.style.color='rgba(255,255,255,.75)'">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:.6;flex-shrink:0"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+      Proposal
+    </a>
+  </div>
+  <button onclick="var m=document.getElementById('quick-nav-menu');var n=document.getElementById('quick-nav');n.classList.toggle('qn-open');if(n.classList.contains('qn-open')){m.style.opacity='1';m.style.transform='translateY(0) scale(1)';m.style.pointerEvents='auto';this.querySelector('svg').style.transform='rotate(45deg)'}else{m.style.opacity='0';m.style.transform='translateY(8px) scale(.95)';m.style.pointerEvents='none';this.querySelector('svg').style.transform=''}" style="width:44px;height:44px;border-radius:50%;background:#4A7FA5;color:#fff;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:transform .2s,background .2s;" onmouseover="this.style.transform='scale(1.08)'" onmouseout="this.style.transform=''" aria-label="Quick navigation">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;transition:transform .3s"><path d="M12 5v14M5 12h14"/></svg>
+  </button>
+</div>
+<script>document.addEventListener('click',function(e){var n=document.getElementById('quick-nav');if(n&&!n.contains(e.target)){n.classList.remove('qn-open');var m=document.getElementById('quick-nav-menu');if(m){m.style.opacity='0';m.style.transform='translateY(8px) scale(.95)';m.style.pointerEvents='none'}var b=n.querySelector('button svg');if(b)b.style.transform=''}});</script>
+</body>
+</html>

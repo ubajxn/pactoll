@@ -1,10 +1,16 @@
 import { type NextRequest, NextResponse } from "next/server";
 
 export function proxy(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  if (pathname === "/") {
+    return NextResponse.rewrite(new URL("/suite.html", request.url));
+  }
+
   const headers = new Headers(request.headers);
   headers.set(
     "x-crm-return-to",
-    request.nextUrl.pathname + request.nextUrl.search,
+    pathname + request.nextUrl.search,
   );
   return NextResponse.next({ request: { headers } });
 }

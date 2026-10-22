@@ -38,6 +38,7 @@ export function createAuth(
     baseURL,
     secret: options.secret ?? authSecret(),
     trustedOrigins: [baseURL],
+    emailAndPassword: { enabled: true },
     onAPIError: {
       onError(error) {
         const constraint =
