@@ -7,6 +7,10 @@ export function proxy(request: NextRequest) {
     return NextResponse.rewrite(new URL("/suite.html", request.url));
   }
 
+  if (pathname === "/site" || pathname === "/site/") {
+    return NextResponse.rewrite(new URL("/site/index.html", request.url));
+  }
+
   const headers = new Headers(request.headers);
   headers.set(
     "x-crm-return-to",
