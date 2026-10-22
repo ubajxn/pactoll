@@ -8,15 +8,16 @@ export default function Page() {
   return (
     <main className="flex min-h-svh items-center justify-center bg-[#f0f4f7] px-4">
       <div className="w-full max-w-sm">
-        <div className="mb-6 flex justify-center">
-          <Image
-            src="/images/ptp-logo-white.png"
-            alt="Pacific Toll Processing"
-            width={64}
-            height={64}
-            className="object-contain"
-            style={{ filter: "invert(1)" }}
-          />
+        <div className="mb-8 flex justify-center">
+          <div className="flex size-32 items-center justify-center rounded-full bg-[#157070] p-5 -mt-4 shadow-lg shadow-[#157070]/20">
+            <Image
+              src="/images/ptp-logo-white.png"
+              alt="Pacific Toll Processing"
+              width={120}
+              height={120}
+              className="object-contain"
+            />
+          </div>
         </div>
 
         <div className="rounded-xl border bg-white p-8 shadow-sm">
