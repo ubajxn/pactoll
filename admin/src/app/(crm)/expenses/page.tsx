@@ -376,6 +376,6 @@ export default function ExpensesPage() {
           </>
         )}
       </AnimatePresence>
-    </>
+    </PermissionGate>
   );
 }

@@ -294,7 +294,7 @@ export default function InvoicesPage() {
   const paid = items.filter((i) => i.status === "paid").reduce((s, i) => s + (Number(i.total_amount) || 0), 0);
 
   return (
-    <>
+    <PermissionGate module="invoices">
       <PageHeader title="Invoices" description="Customer billing, AR tracking, and payment status" />
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard label="Outstanding" value={outstanding > 0 ? outstanding.toLocaleString() : "0"} icon={Clock} color="#d97706" delay={0} prefix="$" />
@@ -387,6 +387,6 @@ export default function InvoicesPage() {
           </>
         )}
       </AnimatePresence>
-    </>
+    </PermissionGate>
   );
 }

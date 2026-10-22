@@ -1410,6 +1410,6 @@ export default function TerritoriesPage() {
           </>
         )}
       </AnimatePresence>
-    </>
+    </PermissionGate>
   );
 }

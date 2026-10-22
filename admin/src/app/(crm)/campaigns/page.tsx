@@ -340,7 +340,7 @@ export default function CampaignsPage() {
   const totalLeads = items.reduce((s, c) => s + Number(c.leads_generated || 0), 0);
 
   return (
-    <>
+    <PermissionGate module="campaigns">
       <PageHeader title="Campaigns" description="Marketing campaigns, performance tracking, and ROI analysis" />
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard label="Total Campaigns" value={items.length} icon={Megaphone} color="#157070" delay={0} />
@@ -469,6 +469,6 @@ export default function CampaignsPage() {
           </>
         )}
       </AnimatePresence>
-    </>
+    </PermissionGate>
   );
 }

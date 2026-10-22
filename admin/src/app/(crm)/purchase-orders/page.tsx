@@ -286,7 +286,7 @@ export default function PurchaseOrdersPage() {
   const received = items.filter((p) => ["received", "invoiced", "closed"].includes(p.status)).length;
 
   return (
-    <>
+    <PermissionGate module="purchase-orders">
       <PageHeader title="Purchase Orders" description="Procurement, vendor ordering, and receiving" />
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard label="Open POs" value={open} icon={Clock} color="#2563eb" delay={0} />
@@ -379,6 +379,6 @@ export default function PurchaseOrdersPage() {
           </>
         )}
       </AnimatePresence>
-    </>
+    </PermissionGate>
   );
 }

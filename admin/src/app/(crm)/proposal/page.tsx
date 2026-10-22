@@ -501,6 +501,6 @@ export default function ProposalPage() {
           </>
         )}
       </AnimatePresence>
-    </>
+    </PermissionGate>
   );
 }

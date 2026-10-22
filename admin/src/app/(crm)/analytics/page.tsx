@@ -510,6 +510,6 @@ export default function AnalyticsPage() {
           )}
         </>
       )}
-    </>
+    </PermissionGate>
   );
 }

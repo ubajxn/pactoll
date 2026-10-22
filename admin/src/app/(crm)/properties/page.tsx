@@ -324,7 +324,7 @@ export default function PropertiesPage() {
   const monthlyCosts = items.reduce((s, p) => s + (Number(p.monthly_cost) || 0), 0);
 
   return (
-    <>
+    <PermissionGate module="properties">
       <PageHeader title="Properties" description="Facilities, storage yards, and real estate" />
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard label="Total Properties" value={total} icon={Building2} color="#157070" delay={0} />
@@ -413,6 +413,6 @@ export default function PropertiesPage() {
           </>
         )}
       </AnimatePresence>
-    </>
+    </PermissionGate>
   );
 }

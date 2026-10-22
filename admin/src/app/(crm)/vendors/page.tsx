@@ -410,6 +410,6 @@ export default function VendorsPage() {
           </>
         )}
       </AnimatePresence>
-    </>
+    </PermissionGate>
   );
 }

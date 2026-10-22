@@ -301,7 +301,7 @@ export default function InsurancePage() {
   const annualPremiums = items.filter((p) => p.status === "active").reduce((s, p) => s + (Number(p.premium_annual) || 0), 0);
 
   return (
-    <>
+    <PermissionGate module="insurance">
       <PageHeader title="Insurance" description="Policies, coverage, claims, and COI tracking" />
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard label="Active Policies" value={active} icon={CheckCircle2} color="#059669" delay={0} />
@@ -394,6 +394,6 @@ export default function InsurancePage() {
           </>
         )}
       </AnimatePresence>
-    </>
+    </PermissionGate>
   );
 }
