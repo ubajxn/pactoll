@@ -3239,5 +3239,71 @@ initCampFilters();
 renderCampaigns();
 </script>
 
+<!-- ═══════════════ FLOATING WIDGET ═══════════════ -->
+<style>
+.fab-widget {
+  position: fixed; bottom: 24px; right: 24px; z-index: 200;
+  font-family: var(--sans);
+}
+.fab-btn {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: var(--accent); color: #fff; border: none;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 16px rgba(200,90,26,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  font-size: 24px;
+}
+.fab-btn:hover { transform: scale(1.08); box-shadow: 0 6px 24px rgba(200,90,26,0.45); }
+.fab-btn.open { transform: rotate(45deg); }
+.fab-menu {
+  position: absolute; bottom: 68px; right: 0;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 12px; padding: 8px 0; min-width: 220px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  opacity: 0; pointer-events: none; transform: translateY(8px) scale(0.96);
+  transition: opacity 0.2s, transform 0.2s;
+}
+.fab-menu.open { opacity: 1; pointer-events: auto; transform: translateY(0) scale(1); }
+.fab-menu-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 16px; color: var(--text); text-decoration: none;
+  font-size: 13px; font-weight: 500; transition: background 0.15s;
+}
+.fab-menu-item:hover { background: var(--accent-dim); }
+.fab-menu-item .fab-icon { font-size: 16px; width: 22px; text-align: center; flex-shrink: 0; }
+.fab-menu-label { color: var(--text-dim); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; padding: 6px 16px 4px; }
+.fab-menu-divider { height: 1px; background: var(--border-light); margin: 4px 0; }
+</style>
+
+<div class="fab-widget">
+  <div class="fab-menu" id="fab-menu">
+    <div class="fab-menu-label">Pacific Toll Processing</div>
+    <a href="https://pacifictoll.com" target="_blank" class="fab-menu-item"><span class="fab-icon">🌐</span> Public Website</a>
+    <a href="/login" class="fab-menu-item"><span class="fab-icon">⚙</span> Admin CRM</a>
+    <div class="fab-menu-divider"></div>
+    <a href="/holiday-card.html" class="fab-menu-item"><span class="fab-icon">🎄</span> Holiday Card</a>
+    <a href="/proposal.html" class="fab-menu-item"><span class="fab-icon">📄</span> Proposal</a>
+    <a href="/landscape.html" class="fab-menu-item"><span class="fab-icon">📊</span> Landscape</a>
+    <a href="/roadmap.html" class="fab-menu-item"><span class="fab-icon">🗺</span> Roadmap</a>
+    <a href="/presence.html" class="fab-menu-item"><span class="fab-icon">📍</span> Presence</a>
+  </div>
+  <button class="fab-btn" id="fab-btn" onclick="toggleFab()" title="Quick Links">&#x2b;</button>
+</div>
+
+<script>
+function toggleFab() {
+  var btn = document.getElementById('fab-btn');
+  var menu = document.getElementById('fab-menu');
+  var open = menu.classList.toggle('open');
+  btn.classList.toggle('open', open);
+}
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('.fab-widget')) {
+    document.getElementById('fab-menu').classList.remove('open');
+    document.getElementById('fab-btn').classList.remove('open');
+  }
+});
+</script>
+
 </body>
 </html>
