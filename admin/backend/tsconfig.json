@@ -1,0 +1,6 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": { "types": ["bun"], "incremental": false, "plugins": [] },
+  "include": ["**/*.ts", "../src/lib/data/**/*.ts", "../tools/dev/**/*.ts"],
+  "exclude": ["../node_modules"]
+}
