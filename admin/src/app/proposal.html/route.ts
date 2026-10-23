@@ -22,7 +22,7 @@ export async function GET() {
     // DB not ready or table doesn't exist yet — fall through to static file
   }
 
-  const filePath = resolve(process.cwd(), "public", "proposal.html");
+  const filePath = resolve(process.cwd(), "public", "proposal-source.html");
   const html = await readFile(filePath, "utf-8");
   return new Response(html, {
     headers: { "Content-Type": "text/html; charset=utf-8" },

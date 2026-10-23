@@ -7,7 +7,7 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -422,84 +422,28 @@
       color: var(--text-mid);
       margin-bottom: 20px;
     }
-    .sig-canvas-wrap {
-      position: relative;
-      border: 1px dashed var(--border);
-      border-radius: 6px;
-      background: rgba(74,127,165,.02);
-      margin-bottom: 12px;
+    .sig-line {
+      margin-top: 24px;
+      margin-bottom: 8px;
     }
-    .sig-canvas-wrap.signed {
-      border-style: solid;
-      border-color: var(--steel-blue);
-      background: #fff;
+    .sig-ink {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      line-height: 1.2;
+      padding-bottom: 6px;
     }
-    .sig-canvas {
-      display: block;
-      width: 100%;
-      height: 100px;
-      cursor: crosshair;
-      touch-action: none;
-    }
-    .sig-canvas-wrap.signed .sig-canvas { cursor: default; }
-    .sig-placeholder {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: .8rem;
-      color: var(--text-dim);
-      pointer-events: none;
-    }
-    .sig-canvas-wrap.has-ink .sig-placeholder { display: none; }
-    .sig-actions {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-    .sig-btn {
-      font-family: var(--sans);
-      font-size: .75rem;
-      font-weight: 500;
-      padding: 6px 14px;
-      border-radius: 4px;
+    .sig-rule {
       border: none;
-      cursor: pointer;
-      transition: background .2s;
+      border-bottom: 1.5px solid var(--charcoal);
+      margin: 0;
     }
-    .sig-btn--clear {
-      background: var(--border-light);
-      color: var(--text-mid);
-    }
-    .sig-btn--clear:hover { background: var(--border); }
-    .sig-btn--sign {
-      background: var(--steel-blue);
-      color: #fff;
-    }
-    .sig-btn--sign:hover { background: var(--steel-blue-dark); }
-    .sig-btn:disabled { opacity: .4; cursor: default; }
     .sig-date {
       font-size: .8rem;
       color: var(--text-mid);
+      margin-top: 10px;
     }
-    .sig-date input {
-      font-family: var(--sans);
-      font-size: .8rem;
-      border: 1px solid var(--border-light);
-      border-radius: 4px;
-      padding: 4px 8px;
-      color: var(--text);
-      background: var(--surface);
-      width: 130px;
-    }
-    .sig-locked-msg {
-      display: none;
-      font-size: .75rem;
-      color: var(--green);
-      font-weight: 500;
-    }
-    .sig-canvas-wrap.signed ~ .sig-actions .sig-btn--sign { display: none; }
-    .sig-canvas-wrap.signed ~ .sig-actions .sig-locked-msg { display: inline; }
 
     @media (max-width: 768px) {
       .sig-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -756,10 +700,7 @@
       .sig-section { padding: 40pt 0; page-break-before: always; }
       .sig-section__title { font-size: 16pt; }
       .sig-section__sub { font-size: 9pt; margin-bottom: 32pt; }
-      .sig-canvas-wrap { border: 1px solid #ccc; height: 70pt; }
-      .sig-placeholder { display: none; }
-      .sig-btn, .sig-locked-msg { display: none !important; }
-      .sig-canvas { height: 70pt; }
+      .sig-ink { font-size: 18pt; }
       .sig-date { font-size: 8pt; }
 
       /* Footer */
@@ -1046,33 +987,22 @@
         <div class="sig-block__label">Client — Pacific Toll Processing</div>
         <div class="sig-block__name" contenteditable="false">Mark Proner</div>
         <div class="sig-block__title" contenteditable="false">President</div>
-        <div class="sig-canvas-wrap" id="sig-client-wrap">
-          <canvas class="sig-canvas" id="sig-client"></canvas>
-          <span class="sig-placeholder">Sign here</span>
+        <div class="sig-line">
+          <hr class="sig-rule">
         </div>
-        <div class="sig-actions">
-          <button class="sig-btn sig-btn--clear" onclick="clearSig('client')">Clear</button>
-          <button class="sig-btn sig-btn--sign" id="sig-client-lock" onclick="lockSig('client')" disabled>Confirm Signature</button>
-          <span class="sig-locked-msg">Signed</span>
-          <span class="sig-date" style="margin-left:auto;">Date: <input type="date" id="sig-client-date"></span>
-        </div>
+        <div class="sig-date">Date: _______________</div>
       </div>
 
       <!-- Provider signature -->
       <div class="sig-block">
         <div class="sig-block__label">Provider — Jeff Jack Productions</div>
-        <div class="sig-block__name" contenteditable="false">Jeff St. Jack</div>
+        <div class="sig-block__name" contenteditable="false">Jeff Jack</div>
         <div class="sig-block__title" contenteditable="false">Fractional CMO / Principal</div>
-        <div class="sig-canvas-wrap" id="sig-provider-wrap">
-          <canvas class="sig-canvas" id="sig-provider"></canvas>
-          <span class="sig-placeholder">Sign here</span>
+        <div class="sig-line">
+          <div class="sig-ink">Jeff Jack</div>
+          <hr class="sig-rule">
         </div>
-        <div class="sig-actions">
-          <button class="sig-btn sig-btn--clear" onclick="clearSig('provider')">Clear</button>
-          <button class="sig-btn sig-btn--sign" id="sig-provider-lock" onclick="lockSig('provider')" disabled>Confirm Signature</button>
-          <span class="sig-locked-msg">Signed</span>
-          <span class="sig-date" style="margin-left:auto;">Date: <input type="date" id="sig-provider-date"></span>
-        </div>
+        <div class="sig-date">October 2026</div>
       </div>
     </div>
   </section>
@@ -1177,95 +1107,6 @@
       }
     });
 
-    // Signature pads
-    (function() {
-      var pads = {};
-
-      function initPad(id) {
-        var canvas = document.getElementById('sig-' + id);
-        var wrap = document.getElementById('sig-' + id + '-wrap');
-        var lockBtn = document.getElementById('sig-' + id + '-lock');
-        var dateInput = document.getElementById('sig-' + id + '-date');
-        var ctx = canvas.getContext('2d');
-        var drawing = false;
-        var hasInk = false;
-
-        function resize() {
-          var rect = canvas.parentElement.getBoundingClientRect();
-          canvas.width = rect.width;
-          canvas.height = 100;
-        }
-        resize();
-        window.addEventListener('resize', function() {
-          if (!wrap.classList.contains('signed')) { resize(); clearSigPad(id); }
-        });
-
-        dateInput.value = new Date().toISOString().split('T')[0];
-
-        function getPos(e) {
-          var r = canvas.getBoundingClientRect();
-          var t = e.touches ? e.touches[0] : e;
-          return { x: t.clientX - r.left, y: t.clientY - r.top };
-        }
-
-        function startDraw(e) {
-          if (wrap.classList.contains('signed')) return;
-          drawing = true;
-          var p = getPos(e);
-          ctx.beginPath();
-          ctx.moveTo(p.x, p.y);
-          e.preventDefault();
-        }
-
-        function draw(e) {
-          if (!drawing) return;
-          var p = getPos(e);
-          ctx.lineWidth = 2;
-          ctx.lineCap = 'round';
-          ctx.lineJoin = 'round';
-          ctx.strokeStyle = '#1a1f25';
-          ctx.lineTo(p.x, p.y);
-          ctx.stroke();
-          if (!hasInk) {
-            hasInk = true;
-            wrap.classList.add('has-ink');
-            lockBtn.disabled = false;
-          }
-          e.preventDefault();
-        }
-
-        function stopDraw() { drawing = false; }
-
-        canvas.addEventListener('mousedown', startDraw);
-        canvas.addEventListener('mousemove', draw);
-        canvas.addEventListener('mouseup', stopDraw);
-        canvas.addEventListener('mouseleave', stopDraw);
-        canvas.addEventListener('touchstart', startDraw, { passive: false });
-        canvas.addEventListener('touchmove', draw, { passive: false });
-        canvas.addEventListener('touchend', stopDraw);
-
-        pads[id] = { canvas: canvas, ctx: ctx, wrap: wrap, lockBtn: lockBtn, hasInk: function() { return hasInk; }, setInk: function(v) { hasInk = v; } };
-      }
-
-      window.clearSig = function(id) {
-        var pad = pads[id];
-        if (!pad || pad.wrap.classList.contains('signed')) return;
-        pad.ctx.clearRect(0, 0, pad.canvas.width, pad.canvas.height);
-        pad.wrap.classList.remove('has-ink');
-        pad.lockBtn.disabled = true;
-        pad.setInk(false);
-      };
-
-      window.lockSig = function(id) {
-        var pad = pads[id];
-        if (!pad || !pad.hasInk()) return;
-        pad.wrap.classList.add('signed');
-        toast(id === 'client' ? 'Client signature confirmed' : 'Provider signature confirmed');
-      };
-
-      initPad('client');
-      initPad('provider');
-    })();
   </script>
 
 <!-- Quick Nav -->
