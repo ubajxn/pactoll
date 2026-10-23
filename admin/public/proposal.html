@@ -1139,20 +1139,22 @@
 
     function saveToServer() {
       var html = document.querySelector('html').outerHTML;
-      fetch('/save-proposal', {
+      fetch('/api/save-proposal', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ html: '<!DOCTYPE html>\n' + html })
       })
       .then(function(r) {
         if (r.ok) {
-          toast('Saved to repo + admin');
+          toast('Saved');
+        } else if (r.status === 403) {
+          toast('Saving is available in dev mode only. Use Download instead.', true);
         } else {
           throw new Error('Server error');
         }
       })
       .catch(function() {
-        toast('Save failed — is save-server running?', true);
+        toast('Save failed — run the dev server locally to save edits', true);
       });
     }
 
