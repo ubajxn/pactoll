@@ -1146,15 +1146,15 @@
       })
       .then(function(r) {
         if (r.ok) {
-          toast('Saved');
-        } else if (r.status === 403) {
-          toast('Saving is available in dev mode only. Use Download instead.', true);
+          toast('Saved — live now');
+        } else if (r.status === 401) {
+          toast('Sign in to the admin CRM first, then save again', true);
         } else {
-          throw new Error('Server error');
+          return r.json().then(function(d) { throw new Error(d.error || 'Server error'); });
         }
       })
-      .catch(function() {
-        toast('Save failed — run the dev server locally to save edits', true);
+      .catch(function(err) {
+        toast(err.message || 'Save failed', true);
       });
     }
 
