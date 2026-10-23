@@ -51,3 +51,6 @@ next-env.d.ts
 # Local backend state and database backups
 /backend/data/
 !.env.example
+
+.vercel
+.env*
