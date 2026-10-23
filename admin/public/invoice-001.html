@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice #001 — Jeff Jack Productions → Pacific Toll Processing</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Serif+Display&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #faf9f7;
+      --surface: #ffffff;
+      --charcoal: #1a1f25;
+      --steel-blue: #4A7FA5;
+      --steel-blue-light: #6196BA;
+      --text: #1a1f25;
+      --text-mid: #555d6a;
+      --text-dim: #8a919c;
+      --border: #ddd8d0;
+      --border-light: #e8e5df;
+      --green: #2d7a4f;
+      --sans: 'Inter', system-ui, sans-serif;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --mono: 'DM Mono', monospace;
+    }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .invoice {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--surface);
+      min-height: 100vh;
+    }
+
+    /* Header */
+    .inv-header {
+      background: var(--charcoal);
+      padding: 48px 56px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .inv-header__from h1 {
+      font-family: var(--serif);
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .inv-header__from p {
+      font-size: .82rem;
+      color: rgba(255,255,255,.4);
+      line-height: 1.7;
+    }
+    .inv-header__badge {
+      text-align: right;
+    }
+    .inv-header__badge h2 {
+      font-family: var(--serif);
+      font-size: 2.4rem;
+      color: #fff;
+      letter-spacing: .02em;
+    }
+    .inv-header__badge .inv-number {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .1em;
+      color: var(--steel-blue-light);
+      margin-top: 4px;
+    }
+
+    /* Meta row */
+    .inv-meta {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 32px;
+      padding: 40px 56px;
+      border-bottom: 1px solid var(--border-light);
+    }
+    .inv-meta__group label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+    .inv-meta__group p {
+      font-size: .9rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    .inv-meta__group p strong {
+      font-weight: 600;
+    }
+
+    /* Line items */
+    .inv-items {
+      padding: 40px 56px;
+    }
+    .inv-items__header {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 20px;
+    }
+    .inv-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .inv-table thead th {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      text-align: left;
+      padding: 12px 0;
+      border-bottom: 2px solid var(--charcoal);
+      font-weight: 500;
+    }
+    .inv-table thead th:last-child {
+      text-align: right;
+    }
+    .inv-table tbody td {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border-light);
+      vertical-align: top;
+    }
+    .inv-table tbody td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+    .inv-table .item-name {
+      font-weight: 600;
+      font-size: .95rem;
+      margin-bottom: 4px;
+    }
+    .inv-table .item-desc {
+      font-size: .82rem;
+      color: var(--text-dim);
+      max-width: 420px;
+      line-height: 1.5;
+    }
+    .inv-table .item-amount {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    /* Totals */
+    .inv-totals {
+      padding: 0 56px 48px;
+    }
+    .inv-totals__table {
+      width: 300px;
+      margin-left: auto;
+      border-collapse: collapse;
+    }
+    .inv-totals__table td {
+      padding: 10px 0;
+      font-size: .9rem;
+    }
+    .inv-totals__table td:first-child {
+      color: var(--text-mid);
+    }
+    .inv-totals__table td:last-child {
+      text-align: right;
+      font-variant-numeric: tabular-nums;
+    }
+    .inv-totals__table .total-row td {
+      border-top: 2px solid var(--charcoal);
+      padding-top: 14px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+    .inv-totals__table .total-row td:last-child {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      color: var(--steel-blue);
+    }
+
+    /* Status badge */
+    .inv-status {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+    .inv-status--due {
+      background: rgba(74,127,165,.1);
+      color: var(--steel-blue);
+    }
+    .inv-status--paid {
+      background: rgba(45,122,79,.1);
+      color: var(--green);
+    }
+
+    /* Notes & Payment */
+    .inv-footer {
+      padding: 40px 56px;
+      border-top: 1px solid var(--border-light);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+    .inv-footer__section h4 {
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 12px;
+    }
+    .inv-footer__section p {
+      font-size: .85rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* Bottom bar */
+    .inv-bottom {
+      padding: 24px 56px;
+      text-align: center;
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: .08em;
+      color: var(--text-dim);
+      border-top: 1px solid var(--border-light);
+    }
+
+    /* Print */
+    @media print {
+      @page { size: letter; margin: 0; }
+      body { background: #fff; }
+      .invoice { max-width: none; box-shadow: none; }
+      .inv-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .inv-status { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .print-btn { display: none !important; }
+    }
+
+    @media (max-width: 600px) {
+      .inv-header { flex-direction: column; gap: 24px; padding: 32px 24px; }
+      .inv-header__badge { text-align: left; }
+      .inv-meta { grid-template-columns: 1fr; gap: 20px; padding: 24px; }
+      .inv-items { padding: 24px; }
+      .inv-totals { padding: 0 24px 32px; }
+      .inv-totals__table { width: 100%; }
+      .inv-footer { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
+      .inv-bottom { padding: 20px 24px; }
+    }
+
+    .print-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 100;
+      background: var(--charcoal);
+      color: #fff;
+      border: none;
+      font-family: var(--sans);
+      font-size: .82rem;
+      font-weight: 500;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(0,0,0,.25);
+      transition: background .2s, transform .2s;
+    }
+    .print-btn:hover { background: var(--steel-blue); transform: scale(1.04); }
+  </style>
+</head>
+<body>
+  <div class="invoice">
+
+    <!-- Header -->
+    <div class="inv-header">
+      <div class="inv-header__from">
+        <h1>Jeff Jack Productions</h1>
+        <p>
+          Jeff Jack<br>
+          Inglewood, CA<br>
+          jeff@stjack.com
+        </p>
+      </div>
+      <div class="inv-header__badge">
+        <h2>Invoice</h2>
+        <div class="inv-number">#JJP-2026-001</div>
+      </div>
+    </div>
+
+    <!-- Meta -->
+    <div class="inv-meta">
+      <div class="inv-meta__group">
+        <label>Bill To</label>
+        <p>
+          <strong>Pacific Toll Processing</strong><br>
+          Attn: Mark Proner<br>
+          24724 Wilmington Ave<br>
+          Carson, CA 90745
+        </p>
+      </div>
+      <div class="inv-meta__group">
+        <label>Invoice Date</label>
+        <p><strong>October 23, 2026</strong></p>
+        <label style="margin-top:16px;">Due Date</label>
+        <p><strong>November 6, 2026</strong></p>
+      </div>
+      <div class="inv-meta__group">
+        <label>Status</label>
+        <p><span class="inv-status inv-status--due">Due on Receipt</span></p>
+        <label style="margin-top:16px;">Reference</label>
+        <p>Phase 1 — Setup<br>Digital Growth Proposal</p>
+      </div>
+    </div>
+
+    <!-- Line Items -->
+    <div class="inv-items">
+      <table class="inv-table">
+        <thead>
+          <tr>
+            <th>Description</th>
+            <th>Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div class="item-name">Market Research & Competitive Analysis</div>
+              <div class="item-desc">Industry landscape, competitor profiling, keyword research, and positioning strategy for West Coast steel processing market</div>
+            </td>
+            <td class="item-amount">$1,200</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">Customer-Facing Website — Design & Development</div>
+              <div class="item-desc">10-page responsive website: services, steel sales, equipment, about, contact. SEO-optimized with structured data, 4-step quote wizard, cookie consent, legal pages</div>
+            </td>
+            <td class="item-amount">$3,500</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">SEO & AI Discoverability Infrastructure</div>
+              <div class="item-desc">JSON-LD structured data (LocalBusiness, Services, Products), sitemap, robots.txt, canonical URLs, Google Business Profile optimization</div>
+            </td>
+            <td class="item-amount">$800</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">Growth Strategy Presentation Suite</div>
+              <div class="item-desc">Interactive deck: CMO Operations dashboard, competitive landscape, industry presence mapping, digital roadmap</div>
+            </td>
+            <td class="item-amount">$1,000</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">Web Administration & Hosting Setup</div>
+              <div class="item-desc">Domain configuration, Vercel deployment, SSL, analytics integration, email infrastructure</div>
+            </td>
+            <td class="item-amount">$700</td>
+          </tr>
+          <tr>
+            <td>
+              <div class="item-name">Social Media Account Setup & Branding</div>
+              <div class="item-desc">Platform account creation, profile branding, initial content framework</div>
+            </td>
+            <td class="item-amount">$800</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Totals -->
+    <div class="inv-totals">
+      <table class="inv-totals__table">
+        <tr>
+          <td>Subtotal</td>
+          <td>$8,000.00</td>
+        </tr>
+        <tr>
+          <td>Tax</td>
+          <td>—</td>
+        </tr>
+        <tr class="total-row">
+          <td>Total Due</td>
+          <td>$8,000.00</td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Footer -->
+    <div class="inv-footer">
+      <div class="inv-footer__section">
+        <h4>Payment</h4>
+        <p>
+          Please make payment via check, Zelle, or bank transfer.<br>
+          Zelle: jeff@stjack.com<br>
+          Net 14 terms.
+        </p>
+      </div>
+      <div class="inv-footer__section">
+        <h4>Notes</h4>
+        <p>
+          Phase 1 setup per the Digital Growth & Marketing Operations Partner proposal dated October 2026. This invoice covers the complete setup deliverables. Monthly retainer billing begins upon launch.
+        </p>
+      </div>
+    </div>
+
+    <div class="inv-bottom">
+      Jeff Jack Productions · jeff@stjack.com · Inglewood, CA
+    </div>
+
+  </div>
+
+  <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+</body>
+</html>
