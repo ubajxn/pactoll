@@ -53,23 +53,35 @@ export function createSignInEmail(to: string, url: string): Email {
 }
 
 export function createEmailSender() {
-  const production = process.env.NODE_ENV === "production";
-  if (production && (!process.env.SMTP_HOST || !process.env.EMAIL_FROM))
-    throw new Error("SMTP_HOST and EMAIL_FROM are required in production");
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST || "127.0.0.1",
-    port: Number(
-      process.env.SMTP_PORT || process.env.MAILPIT_SMTP_PORT || 1025,
-    ),
-    secure: process.env.SMTP_SECURE === "true",
-    auth: process.env.SMTP_USER
-      ? { user: process.env.SMTP_USER, pass: process.env.SMTP_PASSWORD || "" }
-      : undefined,
-    connectionTimeout: 10000,
-    socketTimeout: 10000,
-  });
+  let transporter: ReturnType<typeof nodemailer.createTransport> | null = null;
+
+  function getTransporter() {
+    if (transporter) return transporter;
+    const production = process.env.NODE_ENV === "production";
+    if (production && (!process.env.SMTP_HOST || !process.env.EMAIL_FROM))
+      throw new Error(
+        "SMTP_HOST and EMAIL_FROM are required to send email in production",
+      );
+    transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST || "127.0.0.1",
+      port: Number(
+        process.env.SMTP_PORT || process.env.MAILPIT_SMTP_PORT || 1025,
+      ),
+      secure: process.env.SMTP_SECURE === "true",
+      auth: process.env.SMTP_USER
+        ? {
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASSWORD || "",
+          }
+        : undefined,
+      connectionTimeout: 10000,
+      socketTimeout: 10000,
+    });
+    return transporter;
+  }
+
   return async (message: Email) => {
-    await transporter.sendMail({
+    await getTransporter().sendMail({
       from: process.env.EMAIL_FROM || "PTP Operations Suite <login@crm.local>",
       ...message,
     });

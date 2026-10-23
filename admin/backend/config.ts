@@ -15,7 +15,9 @@ export function databaseUrl() {
 export function authBaseUrl() {
   const value =
     process.env.BETTER_AUTH_URL ||
-    `http://localhost:${process.env.PORT || 3000}`;
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : `http://localhost:${process.env.PORT || 3000}`);
   const url = new URL(value);
   if (url.origin !== value || !["http:", "https:"].includes(url.protocol))
     throw new Error("BETTER_AUTH_URL must be an exact HTTP(S) origin");

@@ -33,17 +33,17 @@ export default async function Page({
         <div className="mx-auto w-full max-w-sm">
           <div className="mb-10">
             <div className="mb-8 flex justify-center lg:justify-start">
-              <div className="flex size-32 items-center justify-center rounded-full bg-[#157070] p-5 -mt-8 shadow-lg shadow-[#157070]/20">
+              <div className="flex size-48 items-center justify-center rounded-full bg-[#157070] p-6 -mt-8 shadow-xl shadow-[#157070]/25">
                 <Image
                   src="/images/ptp-logo-white.png"
                   alt="Pacific Toll Processing"
-                  width={120}
-                  height={120}
+                  width={180}
+                  height={180}
                   className="object-contain"
                 />
               </div>
             </div>
-            <h1 className="font-[family-name:var(--font-serif)] text-3xl tracking-tight text-[#1a2a33]">
+            <h1 className="font-[family-name:var(--font-serif)] text-4xl tracking-tight text-[#1a2a33]">
               {signupAllowed ? "Set up your company" : "Welcome back"}
             </h1>
             <p className="mt-2 text-[13px] leading-relaxed tracking-wide text-[#888] uppercase">

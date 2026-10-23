@@ -37,7 +37,12 @@ export function createAuth(
     database: pool,
     baseURL,
     secret: options.secret ?? authSecret(),
-    trustedOrigins: [baseURL],
+    trustedOrigins: [
+      baseURL,
+      ...(process.env.VERCEL_PROJECT_PRODUCTION_URL
+        ? [`https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`]
+        : []),
+    ],
     emailAndPassword: { enabled: true },
     socialProviders: {
       google: {
