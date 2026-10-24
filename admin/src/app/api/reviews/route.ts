@@ -87,3 +87,26 @@ export async function PATCH(request: Request) {
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }
+
+export async function DELETE(request: Request) {
+  try {
+    const url = new URL(request.url);
+    const id = url.searchParams.get("id");
+
+    const pool = getPool();
+
+    if (id) {
+      const { rowCount } = await pool.query(
+        `DELETE FROM site_reviews WHERE id = $1`,
+        [id],
+      );
+      return NextResponse.json({ deleted: rowCount });
+    }
+
+    const { rowCount } = await pool.query(`DELETE FROM site_reviews`);
+    return NextResponse.json({ deleted: rowCount });
+  } catch (e) {
+    const message = e instanceof Error ? e.message : "Failed to delete";
+    return NextResponse.json({ error: message }, { status: 500 });
+  }
+}
