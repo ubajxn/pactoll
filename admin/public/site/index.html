@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pacific Toll Processing | Steel Toll Processing & Sales | Carson, CA</title>
-  <meta name="description" content="Pacific Toll Processing — 35+ years of steel toll processing and sales in Carson, CA. Slitting, blanking, leveling, cut-to-length and flat-rolled steel sales.">
+  <meta name="description" content="Pacific Toll Processing — 27+ years of steel toll processing and sales in Carson, CA. Slitting, blanking, leveling, cut-to-length and flat-rolled steel sales.">
   <meta name="keywords" content="steel toll processing, steel sales, slitting, blanking, leveling, cut-to-length, flat-rolled steel, Carson CA, Pacific Toll Processing, PTP, West Coast steel, solar-powered steel facility">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <link rel="canonical" href="https://pacifictoll.com/">
@@ -16,7 +16,7 @@
     "@id": "https://pacifictoll.com/#organization",
     "name": "Pacific Toll Processing",
     "alternateName": "PTP",
-    "description": "Pacific Toll Processing is a full-service steel toll processing and flat-rolled steel sales company in Carson, CA. Services include steel slitting, multi-blanking, precision leveling, and cut-to-length processing. Over 35 years of experience, 100,000+ sq ft solar-powered facility, serving the West Coast and Southwest.",
+    "description": "Pacific Toll Processing is a full-service steel toll processing and flat-rolled steel sales company in Carson, CA. Services include steel slitting, multi-blanking, precision leveling, and cut-to-length processing. Over 27 years of experience, 100,000+ sq ft solar-powered facility, serving the West Coast and Southwest.",
     "url": "https://pacifictoll.com",
     "logo": "https://pacifictoll.com/images/ptp-logo-white.png",
     "image": "https://pacifictoll.com/images/build-banner.jpg",
@@ -107,8 +107,8 @@
       </a>
       <ul class="nav__links">
         <li><a href="/site/index.html">Home</a></li>
-        <li><a href="/site/services.html">Services</a></li>
         <li><a href="/site/steel-sales.html">Steel Sales</a></li>
+        <li><a href="/site/services.html">Services</a></li>
         <li><a href="/site/equipment.html">Equipment</a></li>
         <li><a href="/site/about.html">About</a></li>
         <li><a href="/site/contact.html">Contact</a></li>
@@ -174,7 +174,7 @@
     <div class="container--wide">
       <div class="stats">
         <div class="stat">
-          <div class="stat__number">35+</div>
+          <div class="stat__number">27+</div>
           <div class="stat__label">Years in Business</div>
         </div>
         <div class="stat">
@@ -267,7 +267,7 @@
       <div class="label" style="color:var(--forge-orange-light);margin-bottom:20px;">Featured</div>
       <h2>Watch Our Story</h2>
       <p>See our facility, equipment, and team in action &mdash; from raw coil to finished product.</p>
-      <a href="https://vimeo.com/1239026236/02e19ac6b9" target="_blank" rel="noopener" class="btn btn--primary">Watch Full Video <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none"/></svg></a>
+      <button class="btn btn--primary" onclick="document.getElementById('video-theater').style.display='flex';document.body.style.overflow='hidden';">Watch Full Video <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none"/></svg></button>
     </div>
   </section>
 
@@ -311,7 +311,7 @@
       <div class="footer__top">
         <div class="footer__brand">
           <img src="../images/ptp-logo-white.png" alt="Pacific Toll Processing">
-          <p>Full-service steel toll processing and sales from our solar-powered facility in Carson, CA. Serving the West Coast and Southwest for over 35 years.</p>
+          <p>Full-service steel toll processing and sales from our solar-powered facility in Carson, CA. Serving the West Coast and Southwest for over 27 years.</p>
         </div>
         <div>
           <h4>Services</h4>
@@ -325,9 +325,9 @@
         <div>
           <h4>Company</h4>
           <ul>
+            <li><a href="/site/steel-sales.html">Steel Sales</a></li>
             <li><a href="/site/about.html">About Us</a></li>
             <li><a href="/site/equipment.html">Equipment</a></li>
-            <li><a href="/site/steel-sales.html">Steel Sales</a></li>
             <li><a href="/site/contact.html">Contact</a></li>
           </ul>
         </div>
@@ -550,6 +550,14 @@
         <button class="cookie-bar__btn cookie-bar__btn--decline">Decline</button>
         <button class="cookie-bar__btn cookie-bar__btn--accept">Accept</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Video Theater -->
+  <div id="video-theater" style="display:none;position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.92);backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:40px;">
+    <button onclick="this.parentElement.style.display='none';document.body.style.overflow='';this.parentElement.querySelector('iframe').src=this.parentElement.querySelector('iframe').src;" style="position:absolute;top:20px;right:24px;background:none;border:none;color:rgba(255,255,255,.6);cursor:pointer;font-size:2rem;line-height:1;z-index:2;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">&times;</button>
+    <div style="width:100%;max-width:1200px;aspect-ratio:16/9;">
+      <iframe src="https://player.vimeo.com/video/1239026236?title=0&byline=0&portrait=0&dnt=1" style="width:100%;height:100%;border:0;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Pacific Toll Processing"></iframe>
     </div>
   </div>
 
