@@ -111,6 +111,7 @@
         <li><a href="/site/services.html">Services</a></li>
         <li><a href="/site/equipment.html">Equipment</a></li>
         <li><a href="/site/about.html">About</a></li>
+        <li><a href="/site/videos.html">Videos</a></li>
         <li><a href="/site/contact.html">Contact</a></li>
       </ul>
       <div class="nav__cta">
@@ -130,12 +131,14 @@
     <div class="hero__overlay"></div>
     <div class="container">
       <div class="hero__content">
-        <div class="label">Since 1989 &mdash; Carson, California</div>
-        <h1>Steel Processing <em>&amp; Sales</em> Under One Roof</h1>
-        <p class="hero__desc">From toll processing to direct sales, Pacific Toll Processing delivers precision steel solutions from our 100,000+ sq ft solar-powered facility.</p>
-        <div class="hero__actions">
-          <a href="/site/contact.html" class="btn btn--primary">Request a Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-          <a href="/site/steel-sales.html" class="btn btn--outline-light">Explore Sales</a>
+        <div class="hero__content-box">
+          <div class="label">Since 1989 &mdash; Carson, California</div>
+          <h1>Steel Processing <em>&amp; Sales</em> Under One Roof</h1>
+          <p class="hero__desc">From toll processing to direct sales, Pacific Toll Processing delivers precision steel solutions from our 100,000+ sq ft solar-powered facility.</p>
+          <div class="hero__actions">
+            <a href="/site/contact.html" class="btn btn--primary">Request a Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+            <a href="/site/steel-sales.html" class="btn btn--outline-light">Explore Sales</a>
+          </div>
         </div>
       </div>
     </div>
@@ -328,6 +331,7 @@
             <li><a href="/site/steel-sales.html">Steel Sales</a></li>
             <li><a href="/site/about.html">About Us</a></li>
             <li><a href="/site/equipment.html">Equipment</a></li>
+            <li><a href="/site/videos.html">Videos</a></li>
             <li><a href="/site/contact.html">Contact</a></li>
           </ul>
         </div>
@@ -620,6 +624,7 @@
       if (!iframe || typeof Vimeo === 'undefined') return;
       heroPlayer = new Vimeo.Player(iframe);
       heroPlayer.setVolume(0.5);
+      heroPlayer.setMuted(true);
     }
     function toggleHeroAudio() {
       if (!heroPlayer) initHeroPlayer();
