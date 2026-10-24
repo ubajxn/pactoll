@@ -52,6 +52,7 @@ h1, h2, h3, h4, h5 {
   font-weight: 400;
   line-height: 1.1;
   color: var(--text);
+  text-wrap: balance;
 }
 
 h1 { font-family: var(--serif); font-size: clamp(3rem, 7vw, 5.5rem); line-height: .95; letter-spacing: -.02em; }
@@ -68,7 +69,7 @@ h3 { font-size: clamp(1.3rem, 2.5vw, 1.75rem); }
   color: var(--accent);
 }
 
-p { color: var(--text-mid); max-width: 60ch; }
+p { color: var(--text-mid); max-width: 60ch; text-wrap: pretty; }
 a { color: var(--accent); text-decoration: none; transition: color var(--transition); }
 a:hover { color: var(--accent-light); }
 img { max-width: 100%; height: auto; display: block; }
@@ -137,7 +138,7 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 16px 36px;
   background: var(--accent);
   color: var(--white);
-  border-radius: 0;
+  border-radius: 4px;
 }
 .btn--primary:hover {
   background: var(--accent-light);
@@ -150,7 +151,7 @@ img { max-width: 100%; height: auto; display: block; }
   padding: 16px 20px;
   background: var(--accent);
   color: var(--white);
-  border-radius: 0;
+  border-radius: 4px;
 }
 .btn--arrow:hover { background: var(--accent-dark); color: var(--white); }
 

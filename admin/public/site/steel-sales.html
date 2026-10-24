@@ -8,6 +8,7 @@
   <meta name="keywords" content="steel sales, hot-rolled coil, cold-rolled coil, galvanized coil, steel plate, flat sheets, slit coil, flat-rolled steel sales, buy steel West Coast">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <link rel="canonical" href="https://pacifictoll.com/steel-sales.html">
+  <link rel="stylesheet" href="/site/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -633,7 +634,7 @@
       <div class="footer__top">
         <div class="footer__brand">
           <img src="../images/ptp-logo-white.png" alt="Pacific Toll Processing">
-          <p>Full-service steel toll processing and sales from our solar-powered facility in Carson, CA.</p>
+          <p>Full-service steel toll processing and sales from our solar-powered facility in Carson, CA. Serving the West Coast and Southwest for over 27 years.</p>
         </div>
         <div>
           <h4>Services</h4>
@@ -650,6 +651,7 @@
             <li><a href="/site/steel-sales.html">Steel Sales</a></li>
             <li><a href="/site/about.html">About Us</a></li>
             <li><a href="/site/equipment.html">Equipment</a></li>
+            <li><a href="/site/videos.html">Videos</a></li>
             <li><a href="/site/contact.html">Contact</a></li>
           </ul>
         </div>
@@ -663,19 +665,135 @@
         </div>
       </div>
       <div class="footer__bottom">
-        <span>&copy; 2026 Pacific Toll Processing. All rights reserved.</span>
-        <span><a href="/site/terms.html">Terms</a> &middot; <a href="/site/privacy.html">Privacy</a> &middot; <a href="/site/dmca.html">DMCA</a></span>
+        <span>&copy; <span class="copyright-year">2026</span> Pacific Toll Processing. All rights reserved.</span>
+        <span><a href="/site/terms.html" style="color:inherit;">Terms</a> &middot; <a href="/site/privacy.html" style="color:inherit;">Privacy</a> &middot; <a href="/site/dmca.html" style="color:inherit;">DMCA</a></span>
       </div>
     </div>
   </footer>
 
-  <script>
-    // Nav scroll
-    window.addEventListener('scroll', function() {
-      document.querySelector('.nav').classList.toggle('scrolled', window.scrollY > 60);
-    });
+  <!-- Quote Wizard Modal -->
+  <div class="modal-overlay" id="quote-modal">
+    <div class="modal modal--wizard">
+      <button class="modal__close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
+      <div class="modal__header">
+        <h2>Request a Quote</h2>
+        <p class="modal__tagline">Let's forge something great together.</p>
+        <div class="wizard__progress">
+          <div class="wizard__progress-bar"></div>
+        </div>
+        <div class="wizard__steps-label">Step <span class="wizard__current">1</span> of 4</div>
+      </div>
+      <div class="modal__body">
+        <form id="quote-form" action="https://formspree.io/f/xoevpyja" method="POST">
+          <div class="wizard__step active" data-step="1">
+            <p class="wizard__step-title">What can we help with?</p>
+            <p class="wizard__selection-count">Select all that apply</p>
+            <div class="wizard__cards">
+              <label class="wizard__card">
+                <input type="checkbox" name="service" value="slitting">
+                <span class="wizard__card-inner">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
+                  <strong>Steel Slitting</strong>
+                  <span>Coil to narrow strips</span>
+                </span>
+              </label>
+              <label class="wizard__card">
+                <input type="checkbox" name="service" value="blanking">
+                <span class="wizard__card-inner">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/></svg>
+                  <strong>Multi-Blanking</strong>
+                  <span>Flat blanks for stamping</span>
+                </span>
+              </label>
+              <label class="wizard__card">
+                <input type="checkbox" name="service" value="leveling">
+                <span class="wizard__card-inner">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12h20M6 8h12M4 16h16"/></svg>
+                  <strong>Precision Leveling</strong>
+                  <span>Dead-flat material</span>
+                </span>
+              </label>
+              <label class="wizard__card">
+                <input type="checkbox" name="service" value="ctl">
+                <span class="wizard__card-inner">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M18 14l4 4-4 4"/></svg>
+                  <strong>Cut-to-Length</strong>
+                  <span>Coil to flat sheets</span>
+                </span>
+              </label>
+              <label class="wizard__card">
+                <input type="checkbox" name="service" value="steel-sales">
+                <span class="wizard__card-inner">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  <strong>Steel Sales</strong>
+                  <span>Buy direct from us</span>
+                </span>
+              </label>
+            </div>
+          </div>
+          <div class="wizard__step" data-step="2">
+            <p class="wizard__step-title">Tell us about your material</p>
+            <div class="form-grid">
+              <div class="form-group"><label>Material Type</label><select name="material"><option value="">Select material</option><option>Hot Rolled</option><option>Cold Rolled</option><option>Galvanized</option><option>Galvanneal</option><option>Aluminized</option><option>Stainless</option><option>Other</option></select></div>
+              <div class="form-group"><label>Gauge / Thickness</label><input type="text" name="gauge" placeholder='e.g. 0.060"'></div>
+              <div class="form-group"><label>Width</label><input type="text" name="width" placeholder='e.g. 48"'></div>
+              <div class="form-group"><label>Quantity (lbs or pieces)</label><input type="text" name="quantity" placeholder="e.g. 40,000 lbs"></div>
+            </div>
+            <div class="form-group" style="margin-top:16px;"><label>Additional Details</label><textarea name="details" rows="3" placeholder="Tolerances, delivery timeline, special requirements..."></textarea></div>
+          </div>
+          <div class="wizard__step" data-step="3">
+            <p class="wizard__step-title">How can we reach you?</p>
+            <div class="form-grid">
+              <div class="form-group"><label>Your Name</label><input type="text" name="name" required placeholder="Full name"></div>
+              <div class="form-group"><label>Company</label><input type="text" name="company" placeholder="Company name"></div>
+              <div class="form-group"><label>Email</label><input type="email" name="email" required placeholder="you@company.com"></div>
+              <div class="form-group"><label>Phone</label><input type="tel" name="phone" placeholder="(555) 555-5555"></div>
+            </div>
+          </div>
+          <div class="wizard__step" data-step="4">
+            <div class="wizard__review">
+              <p class="wizard__step-title">Review &amp; Submit</p>
+              <div class="wizard__review-grid" id="review-summary"></div>
+            </div>
+          </div>
+          <div class="wizard__nav">
+            <button type="button" class="btn btn--outline wizard__prev" style="display:none;">Back</button>
+            <button type="button" class="btn btn--primary wizard__next">Continue <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+            <button type="submit" class="btn btn--primary wizard__submit" style="display:none;">Submit Quote Request <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
 
-    // Reveal on scroll
+  <!-- Quick Nav -->
+  <button class="quick-nav__toggle" aria-label="Quick navigation">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+  </button>
+  <div class="quick-nav__menu">
+    <a href="/site/index.html" class="quick-nav__item">Home</a>
+    <a href="/site/steel-sales.html" class="quick-nav__item">Steel Sales</a>
+    <a href="/site/services.html" class="quick-nav__item">Services</a>
+    <a href="/site/equipment.html" class="quick-nav__item">Equipment</a>
+    <a href="/site/about.html" class="quick-nav__item">About</a>
+    <a href="/site/videos.html" class="quick-nav__item">Videos</a>
+    <a href="/site/contact.html" class="quick-nav__item">Contact</a>
+    <button class="quick-nav__item quick-nav__item--cta" data-open-quote>Get a Quote</button>
+  </div>
+
+  <!-- Cookie Consent -->
+  <div class="cookie-bar" id="cookie-bar">
+    <div class="cookie-bar__inner">
+      <p class="cookie-bar__text">We use cookies to improve your experience. By continuing to use this site, you agree to our <a href="/site/privacy.html">Privacy &amp; Cookie Policy</a>.</p>
+      <div class="cookie-bar__actions">
+        <button class="cookie-bar__btn cookie-bar__btn--decline">Decline</button>
+        <button class="cookie-bar__btn cookie-bar__btn--accept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Reveal on scroll (steel-sales specific animation class)
     var reveals = document.querySelectorAll('.reveal');
     var observer = new IntersectionObserver(function(entries) {
       entries.forEach(function(e) {
@@ -686,16 +804,8 @@
       });
     }, { threshold: 0.15 });
     reveals.forEach(function(el) { observer.observe(el); });
-
-    // Mobile nav
-    var hamburger = document.querySelector('.nav__hamburger');
-    var navLinks = document.querySelector('.nav__links');
-    if (hamburger) {
-      hamburger.addEventListener('click', function() {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-      });
-    }
   </script>
+  <script src="/site/js/main.js"></script>
   <script src="/site/js/review.js"></script>
 </body>
 </html>
