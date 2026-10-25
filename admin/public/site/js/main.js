@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ===================== QUOTE WIZARD MODAL =====================
   var overlay = document.getElementById('quote-modal');
-  if (!overlay) return;
+  if (overlay) {
 
   var modal = overlay.querySelector('.modal');
   var form = document.getElementById('quote-form');
@@ -395,6 +395,7 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+  } // end if (overlay)
 
   // ===================== QUICK NAV =====================
   var quickNav = document.getElementById('quick-nav');
