@@ -8,7 +8,6 @@
   <meta name="keywords" content="steel sales, hot-rolled coil, cold-rolled coil, galvanized coil, steel plate, flat sheets, slit coil, flat-rolled steel sales, buy steel West Coast">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <link rel="canonical" href="https://pacifictoll.com/steel-sales.html">
-  <link rel="stylesheet" href="/site/css/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -395,6 +394,14 @@
       .section { padding: 80px 24px; }
       .nav { padding: 16px 24px; }
       .nav__links, .nav__cta { display: none; }
+      .nav__links.open {
+        display: flex; position: fixed; top: 80px; left: 0; right: 0;
+        background: rgba(13,15,17,.97); backdrop-filter: blur(12px);
+        flex-direction: column; padding: 24px 40px; gap: 0;
+        border-top: 1px solid var(--border);
+      }
+      .nav__links.open li { width: 100%; border-bottom: 1px solid var(--border); }
+      .nav__links.open a { display: block; padding: 16px 0; font-size: .95rem; }
       .nav__hamburger { display: block; }
       .spread__content { padding: 48px 24px; }
       .specs { grid-template-columns: 1fr; }
@@ -405,7 +412,160 @@
       .footer { padding: 48px 24px 24px; }
       .footer__top { grid-template-columns: 1fr; gap: 32px; }
       .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .cookie-bar__inner { flex-direction: column; text-align: center; padding: 0 24px; }
+      .cookie-bar__actions { width: 100%; justify-content: center; }
+      .wizard__cards { grid-template-columns: 1fr 1fr; }
+      .wizard__card-inner { padding: 16px 12px; }
+      .wizard__nav { padding: 0 28px 24px; }
+      .modal__header { padding: 32px 28px 0; }
+      .modal__body { padding: 24px 28px 16px; }
     }
+    @media (max-width: 420px) {
+      .wizard__cards { grid-template-columns: 1fr; }
+    }
+
+    /* ── FORMS ── */
+    .form-group { margin-bottom: 24px; }
+    .form-group label {
+      display: block; font-family: var(--mono); font-size: 9px; font-weight: 500;
+      color: var(--text-dim); text-transform: uppercase; letter-spacing: .12em; margin-bottom: 8px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 14px 0; border: none; border-bottom: 1px solid var(--border);
+      font-size: .95rem; font-family: inherit; background: transparent; color: var(--text);
+      transition: border-color .2s;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-dim); }
+    .form-group select { color: var(--text-mid); }
+    .form-group select option { background: var(--bg-card); color: var(--text); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-bottom-color: var(--accent);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    /* ── QUOTE MODAL ── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,.7);
+      backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s ease; padding: 24px;
+    }
+    .modal-overlay.open { opacity: 1; visibility: visible; }
+    .modal {
+      background: var(--bg-card); width: 100%; max-width: 620px; max-height: 90vh;
+      overflow-y: auto; position: relative; transform: translateY(20px) scale(.97);
+      transition: transform .3s ease; border: 1px solid var(--border);
+    }
+    .modal-overlay.open .modal { transform: translateY(0) scale(1); }
+    .modal__header { padding: 40px 48px 0; }
+    .modal__header h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 8px; }
+    .modal__header p, .modal__tagline {
+      color: var(--text-mid); font-size: .95rem; line-height: 1.6; font-style: italic;
+    }
+    .modal__close {
+      position: absolute; top: 20px; right: 20px; width: 40px; height: 40px;
+      border: none; background: transparent; cursor: pointer; display: flex;
+      align-items: center; justify-content: center; color: var(--text-dim); transition: color .2s;
+    }
+    .modal__close:hover { color: var(--text); }
+    .modal__close svg { width: 20px; height: 20px; }
+    .modal__body { padding: 32px 48px 24px; }
+    .modal__body .form-group { margin-bottom: 20px; }
+    .modal__body .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .modal__success { display: none; text-align: center; padding: 48px; }
+    .modal__success.show { display: block; }
+    .modal__success h3 { color: var(--accent); margin-bottom: 12px; }
+    .modal__success p { color: var(--text-mid); line-height: 1.7; }
+
+    /* Wizard */
+    .wizard__progress { margin-top: 24px; height: 3px; background: var(--border); position: relative; }
+    .wizard__progress-bar {
+      position: absolute; top: 0; left: 0; height: 100%; width: 25%;
+      background: var(--accent); transition: width .4s var(--ease);
+    }
+    .wizard__steps-label {
+      font-family: var(--mono); font-size: 9px; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--text-dim); margin-top: 12px;
+    }
+    .wizard__current { color: var(--accent); }
+    .wizard__step { display: none; animation: wizardFadeIn .3s ease; }
+    .wizard__step.active { display: block; }
+    @keyframes wizardFadeIn { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: translateX(0); } }
+    .wizard__step-title { font-family: var(--serif); font-size: 1.2rem; color: var(--text); margin-bottom: 24px; }
+    .wizard__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .wizard__card { cursor: pointer; }
+    .wizard__card input { display: none; }
+    .wizard__card-inner {
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      padding: 24px 16px; border: 1px solid var(--border); transition: all .2s ease; gap: 8px;
+    }
+    .wizard__card-inner svg { width: 28px; height: 28px; color: var(--text-dim); transition: color .2s ease; }
+    .wizard__card-inner strong { font-size: .85rem; color: var(--text); }
+    .wizard__card-inner span { font-size: .75rem; color: var(--text-dim); }
+    .wizard__card:hover .wizard__card-inner { border-color: var(--accent); background: var(--accent-glow); }
+    .wizard__card input:checked + .wizard__card-inner { border-color: var(--accent); background: var(--accent-glow); position: relative; }
+    .wizard__card input:checked + .wizard__card-inner::after {
+      content: '✓'; position: absolute; top: 8px; right: 10px; width: 20px; height: 20px;
+      background: var(--accent); color: #fff; border-radius: 50%; font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; line-height: 1;
+    }
+    .wizard__card input:checked + .wizard__card-inner svg { color: var(--accent); }
+    .wizard__selection-count { font-size: .8rem; color: var(--text-dim); text-align: center; margin-bottom: 8px; }
+    .wizard__review { border: 1px solid var(--border); }
+    .wizard__review-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 1px solid var(--border); }
+    .wizard__review-row:last-child { border-bottom: none; }
+    .wizard__review-row span { font-family: var(--mono); font-size: 9px; font-weight: 500; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); }
+    .wizard__review-row strong { font-size: .9rem; color: var(--text); text-align: right; }
+    .wizard__nav { display: flex; justify-content: space-between; align-items: center; padding: 0 48px 32px; }
+
+    /* ── COOKIE CONSENT ── */
+    .cookie-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 3000;
+      background: var(--bg-card); border-top: 1px solid var(--border);
+      padding: 20px 0; transform: translateY(100%); transition: transform .4s var(--ease);
+    }
+    .cookie-bar.show { transform: translateY(0); }
+    .cookie-bar__inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between; gap: 32px;
+    }
+    .cookie-bar__text { color: var(--text-mid); font-size: .85rem; line-height: 1.6; flex: 1; }
+    .cookie-bar__text a { color: var(--accent-light); text-decoration: underline; }
+    .cookie-bar__actions { display: flex; gap: 12px; flex-shrink: 0; }
+    .cookie-bar__btn {
+      padding: 10px 24px; font-size: .8rem; font-weight: 600; font-family: inherit;
+      border: none; cursor: pointer; letter-spacing: .03em; transition: all .2s;
+    }
+    .cookie-bar__btn--accept { background: var(--accent); color: #fff; }
+    .cookie-bar__btn--accept:hover { background: var(--accent-light); }
+    .cookie-bar__btn--decline { background: transparent; color: var(--text-mid); border: 1px solid var(--border); }
+    .cookie-bar__btn--decline:hover { color: var(--text); border-color: var(--border-hover); }
+
+    /* ── QUICK NAV ── */
+    .quick-nav { position: fixed; bottom: 24px; right: 24px; z-index: 9000; }
+    .quick-nav__toggle {
+      width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff;
+      border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,.3); transition: transform .2s, background .2s;
+    }
+    .quick-nav__toggle:hover { background: var(--accent-light); transform: scale(1.08); }
+    .quick-nav__toggle svg { width: 20px; height: 20px; transition: transform .3s; }
+    .quick-nav.open .quick-nav__toggle svg { transform: rotate(45deg); }
+    .quick-nav__menu {
+      position: absolute; bottom: 56px; right: 0; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 12px; padding: 8px 0; min-width: 180px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.4); opacity: 0; transform: translateY(8px) scale(.95);
+      pointer-events: none; transition: opacity .2s, transform .2s;
+    }
+    .quick-nav.open .quick-nav__menu { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+    .quick-nav__menu a, .quick-nav__menu button {
+      display: flex; align-items: center; gap: 10px; padding: 10px 18px; width: 100%;
+      color: var(--text-mid); text-decoration: none; font-size: .82rem; font-weight: 500;
+      letter-spacing: .02em; transition: background .15s, color .15s;
+      background: none; border: none; cursor: pointer; font-family: inherit; text-align: left;
+    }
+    .quick-nav__menu a:hover, .quick-nav__menu button:hover { background: rgba(255,255,255,.04); color: var(--text); }
+    .quick-nav__item--cta { color: var(--accent) !important; font-weight: 600 !important; }
   </style>
 </head>
 <body>
@@ -767,18 +927,20 @@
   </div>
 
   <!-- Quick Nav -->
-  <button class="quick-nav__toggle" aria-label="Quick navigation">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-  </button>
-  <div class="quick-nav__menu">
-    <a href="/site/index.html" class="quick-nav__item">Home</a>
-    <a href="/site/steel-sales.html" class="quick-nav__item">Steel Sales</a>
-    <a href="/site/services.html" class="quick-nav__item">Services</a>
-    <a href="/site/equipment.html" class="quick-nav__item">Equipment</a>
-    <a href="/site/about.html" class="quick-nav__item">About</a>
-    <a href="/site/videos.html" class="quick-nav__item">Videos</a>
-    <a href="/site/contact.html" class="quick-nav__item">Contact</a>
-    <button class="quick-nav__item quick-nav__item--cta" data-open-quote>Get a Quote</button>
+  <div class="quick-nav" id="quick-nav">
+    <div class="quick-nav__menu">
+      <a href="/site/index.html">Home</a>
+      <a href="/site/steel-sales.html">Steel Sales</a>
+      <a href="/site/services.html">Services</a>
+      <a href="/site/equipment.html">Equipment</a>
+      <a href="/site/about.html">About</a>
+      <a href="/site/videos.html">Videos</a>
+      <a href="/site/contact.html">Contact</a>
+      <button class="quick-nav__item--cta" data-open-quote>Get a Quote</button>
+    </div>
+    <button class="quick-nav__toggle" aria-label="Quick navigation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
   </div>
 
   <!-- Cookie Consent -->
