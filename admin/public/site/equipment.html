@@ -4,10 +4,429 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Equipment &amp; Facility | Pacific Toll Processing</title>
-  <meta name="description" content="100,000+ sq ft solar-powered steel processing facility in Carson, CA. Braner blanking, slitting lines, levelers, overhead cranes, and rail access.">
-  <meta name="keywords" content="steel processing equipment, Braner blanking line, slitting lines, precision levelers, 100000 sq ft facility, overhead cranes, rail access">
+  <meta name="description" content="The only fully integrated, mill-qualified Automotive Steel processor in the Western US. Braner Automotive Class-1 slitting, multi-blanking, inline inspection, 100,000 sq ft facility, BNSF rail spur, and dedicated fleet.">
+  <meta name="keywords" content="Braner slitter, automotive steel processing, multi-blanking line, coil slitting, precision leveling, strip inspection, coil mapping, steel warehousing, rail spur, BNSF, Carson CA, Toyota steel processor">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
-  <link rel="stylesheet" href="/site/css/style.css">
+  <link rel="canonical" href="https://pactoll.stjack.com/site/equipment.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Pacific Toll Processing",
+    "description": "The only fully integrated, mill-qualified Automotive Steel processor in the Western United States, serving Toyota Motors Manufacturing Plants. Braner Automotive Class-1 slitting, multi-blanking, inline inspection, corrective processing, 100,000 sq ft warehousing, BNSF rail spur, and dedicated fleet.",
+    "url": "https://pactoll.stjack.com/site/equipment.html",
+    "telephone": "+1-310-952-4992",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "24724 Wilmington Ave",
+      "addressLocality": "Carson",
+      "addressRegion": "CA",
+      "postalCode": "90745"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #0d0f11;
+      --bg-raised: #141618;
+      --bg-card: #181b1f;
+      --accent: #4A7FA5;
+      --accent-glow: rgba(74,127,165,.12);
+      --text: #e8e6e3;
+      --text-mid: #9a9590;
+      --text-dim: #5c5651;
+      --border: rgba(255,255,255,.06);
+      --sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --serif: 'DM Serif Display', 'Georgia', serif;
+      --mono: 'DM Mono', 'SF Mono', monospace;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5 { font-weight: 400; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ---- NAV ---- */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 48px; height: 72px;
+      display: flex; align-items: center;
+      background: rgba(13,15,17,.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: background .3s;
+    }
+    .nav__inner {
+      width: 100%; max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav__logo img { height: 28px; }
+    .nav__links {
+      list-style: none; display: flex; gap: 32px;
+      position: absolute; left: 50%; transform: translateX(-50%);
+    }
+    .nav__links a {
+      font-size: .8rem; letter-spacing: .04em; color: var(--text-mid);
+      transition: color .2s;
+    }
+    .nav__links a:hover { color: var(--text); }
+    .nav__cta .btn { font-size: .8rem; }
+    .nav__hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav__hamburger span {
+      display: block; width: 20px; height: 1.5px; background: var(--text);
+      margin: 5px 0; transition: .3s;
+    }
+
+    /* ---- BUTTONS ---- */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 6px;
+      font-family: var(--sans); font-size: .85rem; font-weight: 500;
+      letter-spacing: .02em; cursor: pointer; transition: all .25s;
+      border: none;
+    }
+    .btn--primary {
+      background: var(--accent); color: #fff;
+    }
+    .btn--primary:hover { background: #5a8fb5; transform: translateY(-1px); }
+    .btn--outline-light {
+      background: transparent; color: var(--text);
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .btn--outline-light:hover { border-color: rgba(255,255,255,.3); }
+
+    /* ---- HERO ---- */
+    .hero {
+      position: relative;
+      min-height: 100vh; display: flex; align-items: flex-end;
+      padding: 0 64px 80px;
+      overflow: hidden;
+    }
+    .hero__bg {
+      position: absolute; inset: 0;
+      background: url('../images/leveler.jpg') center/cover no-repeat;
+    }
+    .hero__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(13,15,17,.5) 0%,
+        rgba(13,15,17,.7) 50%,
+        rgba(13,15,17,.95) 100%
+      );
+    }
+    .hero__content {
+      position: relative; z-index: 2;
+      max-width: 1200px; width: 100%;
+    }
+    .hero__label {
+      font-family: var(--mono); font-size: 10px; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 20px;
+    }
+    .hero__title {
+      font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 4.2rem);
+      line-height: 1.1; margin-bottom: 24px; max-width: 700px;
+    }
+    .hero__sub {
+      font-size: 1.05rem; color: var(--text-mid); max-width: 560px;
+      margin-bottom: 48px; line-height: 1.8;
+    }
+    .hero__stats {
+      display: flex; gap: 56px; padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .hero__stat-value {
+      font-family: var(--serif); font-size: 1.6rem; color: var(--text);
+      margin-bottom: 4px;
+    }
+    .hero__stat-label {
+      font-family: var(--mono); font-size: 9px; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim);
+    }
+
+    /* ---- INTRO ---- */
+    .intro {
+      padding: 100px 64px; max-width: 1200px; margin: 0 auto;
+    }
+    .intro__text {
+      font-size: 1.15rem; color: var(--text-mid); line-height: 2;
+      max-width: 800px;
+    }
+    .intro__text strong {
+      color: var(--text); font-weight: 400;
+    }
+
+    /* ---- SECTION DIVIDER ---- */
+    .section-divider {
+      max-width: 1200px; margin: 0 auto;
+      padding: 0 64px;
+    }
+    .section-divider__inner {
+      display: flex; align-items: center; gap: 20px;
+      padding: 48px 0;
+      border-top: 1px solid var(--border);
+    }
+    .section-divider__label {
+      font-family: var(--mono); font-size: 9px; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase; color: var(--accent);
+      white-space: nowrap;
+    }
+    .section-divider__line {
+      flex: 1; height: 1px; background: var(--border);
+    }
+
+    /* ---- SPREADS ---- */
+    .spread {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 80vh;
+    }
+    .spread:nth-child(even) .spread__media { order: 2; }
+    .spread:nth-child(even) .spread__content { order: 1; }
+    .spread__media {
+      position: relative; overflow: hidden;
+      background: var(--bg-card);
+    }
+    .spread__media img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+    }
+    .spread__media-label {
+      position: absolute; bottom: 24px; left: 24px;
+      font-family: var(--mono); font-size: 9px; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      background: rgba(0,0,0,.5); padding: 6px 12px;
+      backdrop-filter: blur(8px);
+    }
+    .spread__content {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 64px 56px;
+      background: var(--bg-raised);
+    }
+    .spread__number {
+      font-family: var(--serif); font-size: 4rem;
+      color: rgba(74,127,165,.12); line-height: 1; margin-bottom: -8px;
+    }
+    .spread__content h2 {
+      font-family: var(--serif); font-size: clamp(1.6rem, 2.5vw, 2rem);
+      margin-bottom: 20px; line-height: 1.2;
+    }
+    .spread__content p {
+      font-size: .92rem; color: var(--text-mid); line-height: 1.8;
+      max-width: 520px; margin-bottom: 24px;
+    }
+
+    .spread__features {
+      margin-bottom: 32px; padding: 20px 24px;
+      background: rgba(74,127,165,.06);
+      border-left: 2px solid var(--accent);
+    }
+    .spread__features-label {
+      font-family: var(--mono); font-size: 9px; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .spread__features p {
+      font-size: .85rem; color: var(--text-mid); line-height: 1.7;
+      margin-bottom: 0; max-width: none;
+    }
+
+    .specs {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border);
+      margin-bottom: 32px;
+    }
+    .spec {
+      padding: 16px 20px; background: var(--bg-raised);
+    }
+    .spec__label {
+      font-family: var(--mono); font-size: 9px; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 6px;
+    }
+    .spec__value {
+      font-family: var(--sans); font-size: .85rem;
+      color: var(--text); font-weight: 400;
+    }
+
+    /* ---- SOLAR SECTION ---- */
+    .solar {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 60vh;
+    }
+    .solar__media {
+      position: relative; overflow: hidden;
+    }
+    .solar__media img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .solar__content {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 64px 56px;
+      background: var(--bg-card);
+    }
+    .solar__label {
+      font-family: var(--mono); font-size: 10px; font-weight: 500;
+      letter-spacing: .14em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+    }
+    .solar__content h2 {
+      font-family: var(--serif); font-size: clamp(1.6rem, 2.5vw, 2rem);
+      margin-bottom: 20px; line-height: 1.2;
+    }
+    .solar__content p {
+      font-size: .92rem; color: var(--text-mid); line-height: 1.8;
+      max-width: 480px; margin-bottom: 28px;
+    }
+    .solar__list {
+      list-style: none; display: flex; flex-direction: column; gap: 12px;
+    }
+    .solar__list li {
+      display: flex; align-items: center; gap: 12px;
+      font-size: .85rem; color: var(--text-mid);
+    }
+    .solar__list svg {
+      width: 18px; height: 18px; flex-shrink: 0;
+      color: var(--accent);
+    }
+
+    /* ---- VIDEO SECTION ---- */
+    .video-section {
+      position: relative; min-height: 60vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    .video-section__content {
+      position: relative; z-index: 3;
+      text-align: center; padding: 80px 32px;
+    }
+    .video-section__content h2 {
+      font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin-bottom: 16px;
+    }
+    .video-section__content p {
+      font-size: .95rem; color: var(--text-mid);
+      margin-bottom: 32px; max-width: 440px; margin-left: auto; margin-right: auto;
+    }
+
+    /* ---- CTA BANNER ---- */
+    .cta-banner {
+      padding: 80px 64px;
+      background: var(--bg-raised);
+      border-top: 1px solid var(--border);
+    }
+    .cta-banner__inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 40px;
+    }
+    .cta-banner__inner h2 {
+      font-family: var(--serif); font-size: 1.6rem; margin-bottom: 8px;
+    }
+    .cta-banner__inner p {
+      color: var(--text-mid); font-size: .92rem;
+    }
+    .cta-banner__actions {
+      display: flex; gap: 16px; flex-shrink: 0;
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      padding: 64px 64px 32px; background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+    .footer .container { max-width: 1200px; margin: 0 auto; }
+    .footer__top {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px;
+    }
+    .footer__brand img { height: 24px; margin-bottom: 16px; }
+    .footer__brand p { font-size: .82rem; color: var(--text-dim); line-height: 1.7; }
+    .footer h4 {
+      font-family: var(--mono); font-size: 10px; font-weight: 500;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--text-mid); margin-bottom: 16px;
+    }
+    .footer ul { list-style: none; }
+    .footer li { margin-bottom: 10px; }
+    .footer li a {
+      font-size: .82rem; color: var(--text-dim); transition: color .2s;
+    }
+    .footer li a:hover { color: var(--text); }
+    .footer__bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 32px; border-top: 1px solid var(--border);
+      font-size: .75rem; color: var(--text-dim);
+    }
+    .footer__bottom a { transition: color .2s; }
+    .footer__bottom a:hover { color: var(--text-mid); }
+
+    /* ---- REVEAL ANIMATION ---- */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible {
+      opacity: 1; transform: translateY(0);
+    }
+
+    /* ---- MOBILE ---- */
+    @media (max-width: 900px) {
+      .nav { padding: 0 20px; }
+      .nav__links, .nav__cta { display: none; }
+      .nav__hamburger { display: block; }
+
+      .hero { padding: 0 24px 48px; min-height: 85vh; }
+      .hero__title { font-size: 2rem; }
+      .hero__stats { flex-wrap: wrap; gap: 24px 40px; }
+
+      .intro { padding: 60px 24px; }
+
+      .section-divider { padding: 0 24px; }
+
+      .spread { grid-template-columns: 1fr; min-height: auto; }
+      .spread:nth-child(even) .spread__media { order: 0; }
+      .spread:nth-child(even) .spread__content { order: 0; }
+      .spread__media { aspect-ratio: 16/10; }
+      .spread__content { padding: 40px 24px; }
+      .spread__number { font-size: 3rem; }
+
+      .solar { grid-template-columns: 1fr; }
+      .solar__media { aspect-ratio: 16/10; }
+      .solar__content { padding: 40px 24px; }
+
+      .cta-banner { padding: 48px 24px; }
+      .cta-banner__inner { flex-direction: column; text-align: center; }
+      .cta-banner__actions { flex-direction: column; width: 100%; }
+      .cta-banner__actions .btn { justify-content: center; }
+
+      .footer { padding: 48px 24px 24px; }
+      .footer__top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .hero__stats { gap: 20px 32px; }
+      .hero__stat-value { font-size: 1.3rem; }
+      .specs { grid-template-columns: 1fr; }
+      .footer__top { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -34,114 +453,202 @@
     </div>
   </nav>
 
-  <section class="page-hero">
-    <img src="../images/leveler.jpg" alt="PTP equipment" class="page-hero__bg">
-    <div class="page-hero__overlay"></div>
-    <div class="container">
-      <div class="page-hero__content">
-        <div class="label">Equipment &amp; Facility</div>
-        <h1>Built for Production</h1>
-        <p>Over 100,000 square feet of solar-powered processing capacity with dedicated lines for slitting, blanking, leveling, and cut-to-length.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Equipment Showcase -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header fade-up">
-        <div class="label">Processing Lines</div>
-        <h2>Our Equipment</h2>
-        <p>Purpose-built lines from industry-leading manufacturers, maintained for precision and reliability.</p>
-      </div>
-
-      <div class="equipment-showcase fade-up">
-        <div class="equipment-item">
-          <div class="equipment-item__img">
-            <img src="../images/blanking-line.jpg" alt="Braner multi-blanking line">
-          </div>
-          <div class="equipment-item__content">
-            <h3>Braner Multi-Blanking Line</h3>
-            <p>High-speed blanking line producing flat, accurate blanks for stamping and fabrication operations.</p>
-            <div class="equipment-item__specs">
-              <div><strong>Type</strong><span>Multi-Blanking</span></div>
-              <div><strong>Gauge Range</strong><span>0.015&Prime; &ndash; 0.135&Prime;</span></div>
-              <div><strong>Max Width</strong><span>72&Prime;</span></div>
-              <div><strong>Speed</strong><span>Up to 200 fpm</span></div>
-            </div>
-          </div>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <div class="hero__label">Equipment &amp; Facility</div>
+      <h1 class="hero__title">Built for Automotive-Grade Production</h1>
+      <p class="hero__sub">The only fully integrated, mill-qualified Automotive Steel processor in the Western United States, serving the region's Toyota Motors Manufacturing Plants.</p>
+      <div class="hero__stats">
+        <div>
+          <div class="hero__stat-value">100,000+</div>
+          <div class="hero__stat-label">Square Feet</div>
         </div>
-
-        <div class="equipment-item">
-          <div class="equipment-item__img">
-            <img src="../images/slitter.jpg" alt="Stamco slitting line">
-          </div>
-          <div class="equipment-item__content">
-            <h3>Slitting Lines</h3>
-            <p>Precision coil slitting with tight width tolerances and clean, burr-free edges on every strip.</p>
-            <div class="equipment-item__specs">
-              <div><strong>Type</strong><span>Coil Slitting</span></div>
-              <div><strong>Gauge Range</strong><span>0.010&Prime; &ndash; 0.250&Prime;</span></div>
-              <div><strong>Max Width</strong><span>72&Prime;</span></div>
-              <div><strong>Max Weight</strong><span>60,000 lbs</span></div>
-            </div>
-          </div>
+        <div>
+          <div class="hero__stat-value">8</div>
+          <div class="hero__stat-label">Overhead Cranes</div>
         </div>
-
-        <div class="equipment-item">
-          <div class="equipment-item__img">
-            <img src="../images/leveler.jpg" alt="Precision leveler">
-          </div>
-          <div class="equipment-item__content">
-            <h3>Precision Levelers</h3>
-            <p>Remove coil set, crossbow, edge wave, and center buckle for dead-flat material output.</p>
-            <div class="equipment-item__specs">
-              <div><strong>Type</strong><span>Roller Leveling</span></div>
-              <div><strong>Gauge Range</strong><span>0.015&Prime; &ndash; 0.250&Prime;</span></div>
-              <div><strong>Max Width</strong><span>72&Prime;</span></div>
-              <div><strong>Flatness</strong><span>&frac14;&Prime; in 12 ft</span></div>
-            </div>
-          </div>
+        <div>
+          <div class="hero__stat-value">72&Prime;</div>
+          <div class="hero__stat-label">Max Width</div>
+        </div>
+        <div>
+          <div class="hero__stat-value">1,000</div>
+          <div class="hero__stat-label">FPM Line Speed</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Facility Features -->
-  <section class="section section--dark">
-    <div class="container">
-      <div class="section-header fade-up">
-        <div class="label">Facility</div>
-        <h2>Carson, CA Campus</h2>
-        <p>Our facility is designed for efficient material flow and high-volume throughput.</p>
-      </div>
-      <div class="values-grid fade-up">
-        <div class="value-col">
-          <h4>100,000+ Sq Ft</h4>
-          <p>Ample floor space for coil storage, processing, and finished goods staging. Room to grow with your needs.</p>
-        </div>
-        <div class="value-col">
-          <h4>Overhead Cranes</h4>
-          <p>Multiple overhead cranes for safe, efficient coil handling throughout the facility. Up to 40-ton capacity.</p>
-        </div>
-        <div class="value-col">
-          <h4>Rail Access</h4>
-          <p>On-site rail siding for receiving inbound coils directly from the mill. Reduces freight costs and transit time.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- ===== INTRO ===== -->
+  <div class="intro">
+    <p class="intro__text">Utilizing the <strong>Braner Automotive Class 1 Exposed Quality Slitter</strong> with an Inline Strobe Light Inspection Stand, PTP's mill-trained operators and inspectors produce flat roll products of the highest quality. Combined with an on-site Rail Spur and 60,000-pound-plus payoff and crane capacity, our facility separates PTP from its competitors.</p>
+  </div>
 
-  <!-- Solar -->
-  <div class="split fade-up">
-    <div class="split__media">
-      <img src="../images/solar.jpg" alt="Solar panels at PTP facility">
+  <!-- ===== PROCESSING CAPABILITIES ===== -->
+  <div class="section-divider">
+    <div class="section-divider__inner">
+      <span class="section-divider__label">Processing Lines</span>
+      <span class="section-divider__line"></span>
     </div>
-    <div class="split__content split__content--dark">
-      <div class="label">Sustainability</div>
+  </div>
+
+  <!-- Spread 01: Precision Coil Slitting -->
+  <div class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/cut-coil-slitter.png" alt="Braner Automotive Class-1 coil slitting line">
+      <div class="spread__media-label">Line 01</div>
+    </div>
+    <div class="spread__content">
+      <div class="spread__number">01</div>
+      <h2>Precision Coil Slitting</h2>
+      <p>Our Braner Slitter Line is a 70,000-pound x 72&Prime; x 1,000 FPM Automotive Class-1 Double-loop Coated Coil with Inline Surface Inspection Stand, ranging in gauges from 0.013&Prime; to 0.250&Prime;, with Turret Head Design. This is Braner's most technologically current line, improving upon those used by the nation's finest automotive industry steel service centers. It is specially designed for surface-critical coated materials.</p>
+      <div class="spread__features">
+        <div class="spread__features-label">Key Capabilities</div>
+        <p>Hi Pass line with large 88&Prime; entry O.D. and 72&Prime; width capability. One of the most universal and modern lines currently available on the West Coast.</p>
+      </div>
+      <div class="specs">
+        <div class="spec">
+          <div class="spec__label">Capacity</div>
+          <div class="spec__value">70,000 lbs</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Line Speed</div>
+          <div class="spec__value">1,000 FPM</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Gauge Range</div>
+          <div class="spec__value">0.013&Prime; &ndash; 0.250&Prime;</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Max Width</div>
+          <div class="spec__value">72&Prime;</div>
+        </div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary" data-service="slitting">Get a Quote &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Spread 02: Multi-Blanking -->
+  <div class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/blanking-line.jpg" alt="Braner Multi-Blanking line with cassette leveler">
+      <div class="spread__media-label">Line 02</div>
+    </div>
+    <div class="spread__content">
+      <div class="spread__number">02</div>
+      <h2>Precision Leveling &amp; Multi-Blanking</h2>
+      <p>Our Braner Multi-Blanking Line is a 60,000-pound x 72&Prime; x 250 FPM Automotive Class-1 precision line which blanks in thickness from 0.015&Prime; to 0.135&Prime;. This is a high-speed close-tolerance line capable of converting bare and coated carbon flat rolled products into panel-flat sheets and precision blanks at a rate of up to 100 cycles per minute.</p>
+      <div class="spread__features">
+        <div class="spread__features-label">Key Capabilities</div>
+        <p>9 Flight x 5 Hi Cassette Leveler with inline Slitting Turret Head. Hi-Cyclical rate Electronic AC Servo Feed system combined with programmable air stacker for the flattest, most scratch-free precision tolerance blanks in the region.</p>
+      </div>
+      <div class="specs">
+        <div class="spec">
+          <div class="spec__label">Capacity</div>
+          <div class="spec__value">60,000 lbs</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Line Speed</div>
+          <div class="spec__value">250 FPM</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Gauge Range</div>
+          <div class="spec__value">0.015&Prime; &ndash; 0.135&Prime;</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Cycle Rate</div>
+          <div class="spec__value">100 Cycles / Min</div>
+        </div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary" data-service="blanking">Get a Quote &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Spread 03: Strip Inspection -->
+  <div class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/slitter.jpg" alt="Inline inspection stand with strobe lights on slitter line">
+      <div class="spread__media-label">Quality 03</div>
+    </div>
+    <div class="spread__content">
+      <div class="spread__number">03</div>
+      <h2>Two-Side Strip Inspection &amp; Mapping</h2>
+      <p>Our processing facility's slitter is the only one in the region to incorporate a mill-grade inline inspection stand with strobe lights. This allows for full strip surface inspection and coil mapping, ensuring that we will be able to detect and remove all surface defects&mdash;sliver, lamination, inclusion, and more&mdash;per the customer's requirements.</p>
+      <div class="spread__features">
+        <div class="spread__features-label">Key Capabilities</div>
+        <p>Full two-side strip surface inspection with coil mapping. Mill-grade strobe light inspection stand integrated directly into the slitting line for real-time defect detection and quality assurance.</p>
+      </div>
+      <div class="specs">
+        <div class="spec">
+          <div class="spec__label">Type</div>
+          <div class="spec__value">Mill-Grade Inline</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Illumination</div>
+          <div class="spec__value">Strobe Lights</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Coverage</div>
+          <div class="spec__value">Both Sides</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Output</div>
+          <div class="spec__value">Coil Mapping</div>
+        </div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary">Get a Quote &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Spread 04: Corrective Processing -->
+  <div class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/coils-inventory.jpg" alt="Steel coils in inventory awaiting corrective processing">
+      <div class="spread__media-label">Service 04</div>
+    </div>
+    <div class="spread__content">
+      <div class="spread__number">04</div>
+      <h2>Corrective Processing &amp; Coil Salvaging</h2>
+      <p>What happens when steel enters our facility and is not in user-friendly condition? This is an expensive item to generate scrap because of damage from handling and transportation. With our equipment and coil processing experience, we have the ability to correct defects in order to minimize lost product, ultimately saving our customers money.</p>
+      <div class="spread__features">
+        <div class="spread__features-label">Key Capabilities</div>
+        <p>Defect correction for damaged coils from handling and transportation. Minimizes scrap, maximizes yield, and reduces replacement costs for our customers.</p>
+      </div>
+      <div class="specs">
+        <div class="spec">
+          <div class="spec__label">Goal</div>
+          <div class="spec__value">Minimize Scrap</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Scope</div>
+          <div class="spec__value">Handling &amp; Transit</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Benefit</div>
+          <div class="spec__value">Cost Reduction</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Approach</div>
+          <div class="spec__value">Defect Correction</div>
+        </div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary">Get a Quote &rarr;</a>
+    </div>
+  </div>
+
+  <!-- ===== SOLAR ===== -->
+  <div class="solar reveal">
+    <div class="solar__media">
+      <img src="../images/solar.jpg" alt="Rooftop solar array at PTP facility">
+    </div>
+    <div class="solar__content">
+      <div class="solar__label">Sustainability</div>
       <h2>Solar-Powered Operations</h2>
       <p>Our rooftop solar array offsets a significant portion of our energy consumption. It's better for the environment and it's better for our customers' bottom line.</p>
-      <ul class="check-list">
+      <ul class="solar__list">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Large-scale rooftop solar installation</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Reduced carbon footprint</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Lower operating costs passed to customers</li>
@@ -149,34 +656,222 @@
     </div>
   </div>
 
-  <!-- Video Section -->
+  <!-- ===== FACILITY & LOGISTICS ===== -->
+  <div class="section-divider">
+    <div class="section-divider__inner">
+      <span class="section-divider__label">Facility &amp; Logistics</span>
+      <span class="section-divider__line"></span>
+    </div>
+  </div>
+
+  <!-- Spread 05: Warehousing -->
+  <div class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/coils-warehouse.jpg" alt="Indoor coil warehousing with overhead bridge cranes">
+      <div class="spread__media-label">Facility 05</div>
+    </div>
+    <div class="spread__content">
+      <div class="spread__number">05</div>
+      <h2>Warehousing</h2>
+      <p>With our eight overhead bridge cranes fully serving the 100,000 square foot indoor facility, we are able to store and move master coils of up to 40 tons. The cranes also serve above our Indoor and Outdoor Rail Bays for coil car unloading.</p>
+      <div class="spread__features">
+        <div class="spread__features-label">Key Capabilities</div>
+        <p>Full indoor storage and material handling for master coils. Dedicated crane coverage over both indoor and outdoor rail bays enables rapid unloading and staging.</p>
+      </div>
+      <div class="specs">
+        <div class="spec">
+          <div class="spec__label">Floor Space</div>
+          <div class="spec__value">100,000 sq ft</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Cranes</div>
+          <div class="spec__value">8 Overhead Bridge</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Crane Capacity</div>
+          <div class="spec__value">Up to 40 Tons</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Rail Bays</div>
+          <div class="spec__value">Indoor &amp; Outdoor</div>
+        </div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary">Schedule a Tour &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Spread 06: Custom Packaging -->
+  <div class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/flat-sheets.jpg" alt="Packaged flat sheets ready for shipment">
+      <div class="spread__media-label">Service 06</div>
+    </div>
+    <div class="spread__content">
+      <div class="spread__number">06</div>
+      <h2>Custom Packaging</h2>
+      <p>PTP can produce custom shape and specification skids for both coil and sheet per your requirements. Stretch wrapping, paper wrapping, and VCI bagging are some of the methods used to package material and prevent damage and claims.</p>
+      <div class="spread__features">
+        <div class="spread__features-label">Packaging Methods</div>
+        <p>Stretch wrapping, paper wrapping, VCI bagging, and custom-built skids designed to your specifications. Every package is built to prevent transit damage and eliminate claims.</p>
+      </div>
+      <div class="specs">
+        <div class="spec">
+          <div class="spec__label">Skids</div>
+          <div class="spec__value">Custom Shape &amp; Spec</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Wrapping</div>
+          <div class="spec__value">Stretch &amp; Paper</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Protection</div>
+          <div class="spec__value">VCI Bagging</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Formats</div>
+          <div class="spec__value">Coil &amp; Sheet</div>
+        </div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary">Get a Quote &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Spread 07: Rail Spur -->
+  <div class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/rail-mobile.jpg" alt="BNSF rail spur at PTP facility">
+      <div class="spread__media-label">Logistics 07</div>
+    </div>
+    <div class="spread__content">
+      <div class="spread__number">07</div>
+      <h2>Rail Spur</h2>
+      <p>In order to maximize efficiency for your logistical and receiving needs, our facility is strategically located on a High Flow Burlington Northern Santa Fe rail spur (Track Number 1153 at Watson Station). With our rail car spotting vehicle and multiple switches, PTP is capable of both indoor and outdoor rail car unloading of up to several hundred cars per month.</p>
+      <div class="spread__features">
+        <div class="spread__features-label">Key Capabilities</div>
+        <p>On-site BNSF rail spur with dedicated spotting vehicle and multiple switches. Indoor and outdoor unloading bays handle high-volume inbound rail shipments directly from the mill.</p>
+      </div>
+      <div class="specs">
+        <div class="spec">
+          <div class="spec__label">Rail Line</div>
+          <div class="spec__value">BNSF</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Track</div>
+          <div class="spec__value">#1153 Watson Stn</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Capacity</div>
+          <div class="spec__value">Hundreds / Month</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Unloading</div>
+          <div class="spec__value">Indoor &amp; Outdoor</div>
+        </div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary">Get a Quote &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Spread 08: Trucking -->
+  <div class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/ptp-truck.jpg" alt="PTP tractor-trailer with air-ride suspension">
+      <div class="spread__media-label">Fleet 08</div>
+    </div>
+    <div class="spread__content">
+      <div class="spread__number">08</div>
+      <h2>Trucking</h2>
+      <p>PTP only utilizes the highest quality transportation equipment in delivering steel to our customers. All of our tractor-trailers and Bobtail trucks are the latest models, specifically equipped with air-ride suspensions in order to ensure safe, damage-free delivery of coil and sheet to any destination.</p>
+      <div class="spread__features">
+        <div class="spread__features-label">Key Capabilities</div>
+        <p>Our well-established working relationships with many common carrier services allow our customers to have their steel delivered anywhere in the Continental United States with quality and efficiency.</p>
+      </div>
+      <div class="specs">
+        <div class="spec">
+          <div class="spec__label">Fleet</div>
+          <div class="spec__value">Latest Models</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Suspension</div>
+          <div class="spec__value">Air-Ride</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Types</div>
+          <div class="spec__value">Tractor &amp; Bobtail</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Range</div>
+          <div class="spec__value">Continental US</div>
+        </div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary">Get a Quote &rarr;</a>
+    </div>
+  </div>
+
+  <!-- Spread 09: Transport Protection -->
+  <div class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/new-truck.jpg" alt="PTP trailer with flexible weather coverage">
+      <div class="spread__media-label">Protection 09</div>
+    </div>
+    <div class="spread__content">
+      <div class="spread__number">09</div>
+      <h2>Transport Protection</h2>
+      <p>We get weather and sometimes that exposure can damage your inventory. We protect your tight tolerances by being the West Coast's first steel provider to use state of the art flexible coverage on our trailers. It's just another way that we're looking out for you.</p>
+      <div class="spread__features">
+        <div class="spread__features-label">Key Capabilities</div>
+        <p>State-of-the-art flexible trailer coverage protects coil and sheet from weather exposure during transit. PTP was the first steel provider on the West Coast to adopt this technology.</p>
+      </div>
+      <div class="specs">
+        <div class="spec">
+          <div class="spec__label">Coverage</div>
+          <div class="spec__value">Flexible Trailer</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Protection</div>
+          <div class="spec__value">Weather &amp; Exposure</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Pioneer</div>
+          <div class="spec__value">West Coast First</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Standard</div>
+          <div class="spec__value">State of the Art</div>
+        </div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary">Get a Quote &rarr;</a>
+    </div>
+  </div>
+
+  <!-- ===== VIDEO SECTION ===== -->
   <section class="video-section">
-    <div style="position:absolute;inset:0;background:var(--charcoal);"></div>
+    <div style="position:absolute;inset:0;background:var(--bg-card);"></div>
     <iframe src="https://player.vimeo.com/video/329404405?background=1&autoplay=1&loop=1&muted=1&dnt=1" style="position:absolute;top:50%;left:50%;width:177.78vh;height:100vh;min-width:100%;min-height:56.25vw;transform:translate(-50%,-50%);border:0;opacity:.65;" allow="autoplay" title="PTP facility footage"></iframe>
-    <div class="video-section__overlay" style="background:rgba(13,15,17,.45);"></div>
+    <div style="position:absolute;inset:0;background:rgba(13,15,17,.45);z-index:2;"></div>
     <div class="video-section__content">
-      <div class="label" style="color:var(--forge-orange-light);margin-bottom:20px;">See It In Action</div>
+      <div style="font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;">See It In Action</div>
       <h2>Facility Fly-Through</h2>
       <p>Take a virtual tour of our Carson facility and see our equipment in operation.</p>
       <button class="btn btn--primary" onclick="document.getElementById('video-theater').style.display='flex';document.body.style.overflow='hidden';">Watch Video <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none"/></svg></button>
     </div>
   </section>
 
+  <!-- ===== CTA ===== -->
   <section class="cta-banner">
-    <div class="container">
-      <div class="cta-banner__inner">
-        <div>
-          <h2>Want to See More?</h2>
-          <p>Schedule a facility tour or send us your processing requirements.</p>
-        </div>
-        <div class="cta-banner__actions">
-          <a href="/site/contact.html" class="btn btn--primary">Contact Us</a>
-          <a href="tel:3109524992" class="btn btn--outline-light">Call (310) 952-4992</a>
-        </div>
+    <div class="cta-banner__inner">
+      <div>
+        <h2>Want to See More?</h2>
+        <p>Schedule a facility tour or send us your processing requirements.</p>
+      </div>
+      <div class="cta-banner__actions">
+        <a href="/site/contact.html" class="btn btn--primary">Contact Us</a>
+        <a href="tel:3109524992" class="btn btn--outline-light">Call (310) 952-4992</a>
       </div>
     </div>
   </section>
 
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container">
       <div class="footer__top">
@@ -219,168 +914,62 @@
     </div>
   </footer>
 
-  <!-- Quote Wizard Modal -->
+  <!-- ===== QUOTE WIZARD ===== -->
   <div class="modal-overlay" id="quote-modal">
     <div class="modal modal--wizard">
       <button class="modal__close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
       <div class="modal__header">
         <h2>Request a Quote</h2>
         <p class="modal__tagline">Let's forge something great together.</p>
-        <div class="wizard__progress">
-          <div class="wizard__progress-bar"></div>
-        </div>
+        <div class="wizard__progress"><div class="wizard__progress-bar"></div></div>
         <div class="wizard__steps-label">Step <span class="wizard__current">1</span> of 4</div>
       </div>
       <div class="modal__body">
         <form id="quote-form" action="https://formspree.io/f/xoevpyja" method="POST">
-          <!-- Step 1: Service Selection -->
           <div class="wizard__step active" data-step="1">
             <p class="wizard__step-title">What can we help with?</p>
             <p class="wizard__selection-count">Select all that apply</p>
             <div class="wizard__cards">
-              <label class="wizard__card">
-                <input type="checkbox" name="service" value="slitting">
-                <span class="wizard__card-inner">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
-                  <strong>Steel Slitting</strong>
-                  <span>Coil to narrow strips</span>
-                </span>
-              </label>
-              <label class="wizard__card">
-                <input type="checkbox" name="service" value="blanking">
-                <span class="wizard__card-inner">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/></svg>
-                  <strong>Multi-Blanking</strong>
-                  <span>Flat blanks for stamping</span>
-                </span>
-              </label>
-              <label class="wizard__card">
-                <input type="checkbox" name="service" value="leveling">
-                <span class="wizard__card-inner">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12h20M6 8h12M4 16h16"/></svg>
-                  <strong>Precision Leveling</strong>
-                  <span>Dead-flat material</span>
-                </span>
-              </label>
-              <label class="wizard__card">
-                <input type="checkbox" name="service" value="ctl">
-                <span class="wizard__card-inner">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M18 14l4 4-4 4"/></svg>
-                  <strong>Cut-to-Length</strong>
-                  <span>Coil to flat sheets</span>
-                </span>
-              </label>
-              <label class="wizard__card">
-                <input type="checkbox" name="service" value="steel-sales">
-                <span class="wizard__card-inner">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                  <strong>Steel Sales</strong>
-                  <span>Buy flat-rolled steel</span>
-                </span>
-              </label>
-              <label class="wizard__card">
-                <input type="checkbox" name="service" value="other">
-                <span class="wizard__card-inner">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9 9a3 3 0 115.12 2.12c-.58.59-1.62 1.13-2.12 1.88v1M12 17h.01"/></svg>
-                  <strong>Something Else</strong>
-                  <span>Custom request</span>
-                </span>
-              </label>
+              <label class="wizard__card"><input type="checkbox" name="service" value="slitting"><span class="wizard__card-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg><strong>Steel Slitting</strong><span>Coil to narrow strips</span></span></label>
+              <label class="wizard__card"><input type="checkbox" name="service" value="blanking"><span class="wizard__card-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/></svg><strong>Multi-Blanking</strong><span>Flat blanks for stamping</span></span></label>
+              <label class="wizard__card"><input type="checkbox" name="service" value="leveling"><span class="wizard__card-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12h20M6 8h12M4 16h16"/></svg><strong>Precision Leveling</strong><span>Dead-flat material</span></span></label>
+              <label class="wizard__card"><input type="checkbox" name="service" value="ctl"><span class="wizard__card-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M18 14l4 4-4 4"/></svg><strong>Cut-to-Length</strong><span>Coil to flat sheets</span></span></label>
+              <label class="wizard__card"><input type="checkbox" name="service" value="steel-sales"><span class="wizard__card-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg><strong>Steel Sales</strong><span>Buy flat-rolled steel</span></span></label>
+              <label class="wizard__card"><input type="checkbox" name="service" value="other"><span class="wizard__card-inner"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9 9a3 3 0 115.12 2.12c-.58.59-1.62 1.13-2.12 1.88v1M12 17h.01"/></svg><strong>Something Else</strong><span>Custom request</span></span></label>
             </div>
           </div>
-          <!-- Step 2: Material Details -->
           <div class="wizard__step" data-step="2">
             <p class="wizard__step-title">Tell us about your material</p>
-            <div class="form-group">
-              <label for="q-material">Material Type</label>
-              <select id="q-material" name="material">
-                <option value="">Select material...</option>
-                <option value="hot-rolled">Hot-Rolled Steel</option>
-                <option value="cold-rolled">Cold-Rolled Steel</option>
-                <option value="galvanized">Galvanized Steel</option>
-                <option value="galvanneal">Galvanneal</option>
-                <option value="stainless">Stainless Steel</option>
-                <option value="other">Other / Not Sure</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="q-gauge">Gauge / Thickness</label>
-                <input type="text" id="q-gauge" name="gauge" placeholder='e.g. 0.060"'>
-              </div>
-              <div class="form-group">
-                <label for="q-width">Width</label>
-                <input type="text" id="q-width" name="width" placeholder='e.g. 48"'>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="q-quantity">Quantity</label>
-                <input type="text" id="q-quantity" name="quantity" placeholder="e.g. 20,000 lbs">
-              </div>
-              <div class="form-group">
-                <label for="q-timeline">Timeline</label>
-                <select id="q-timeline" name="timeline">
-                  <option value="">When do you need it?</option>
-                  <option value="asap">ASAP / Rush</option>
-                  <option value="1-2weeks">1-2 Weeks</option>
-                  <option value="2-4weeks">2-4 Weeks</option>
-                  <option value="flexible">Flexible</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="q-message">Additional Details</label>
-              <textarea id="q-message" name="message" rows="3" placeholder="Special requirements, tolerances, delivery notes..."></textarea>
-            </div>
+            <div class="form-group"><label for="q-material">Material Type</label><select id="q-material" name="material"><option value="">Select material...</option><option value="hot-rolled">Hot-Rolled Steel</option><option value="cold-rolled">Cold-Rolled Steel</option><option value="galvanized">Galvanized Steel</option><option value="galvanneal">Galvanneal</option><option value="stainless">Stainless Steel</option><option value="other">Other / Not Sure</option></select></div>
+            <div class="form-row"><div class="form-group"><label for="q-gauge">Gauge / Thickness</label><input type="text" id="q-gauge" name="gauge" placeholder='e.g. 0.060"'></div><div class="form-group"><label for="q-width">Width</label><input type="text" id="q-width" name="width" placeholder='e.g. 48"'></div></div>
+            <div class="form-row"><div class="form-group"><label for="q-quantity">Quantity</label><input type="text" id="q-quantity" name="quantity" placeholder="e.g. 20,000 lbs"></div><div class="form-group"><label for="q-timeline">Timeline</label><select id="q-timeline" name="timeline"><option value="">When do you need it?</option><option value="asap">ASAP / Rush</option><option value="1-2weeks">1-2 Weeks</option><option value="2-4weeks">2-4 Weeks</option><option value="flexible">Flexible</option></select></div></div>
+            <div class="form-group"><label for="q-message">Additional Details</label><textarea id="q-message" name="message" rows="3" placeholder="Special requirements, tolerances, delivery notes..."></textarea></div>
           </div>
-          <!-- Step 3: Contact Info -->
           <div class="wizard__step" data-step="3">
             <p class="wizard__step-title">How can we reach you?</p>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="q-name">Name *</label>
-                <input type="text" id="q-name" name="name" required placeholder="Your name">
-              </div>
-              <div class="form-group">
-                <label for="q-company">Company</label>
-                <input type="text" id="q-company" name="company" placeholder="Company name">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="q-email">Email *</label>
-                <input type="email" id="q-email" name="email" required placeholder="your@email.com">
-              </div>
-              <div class="form-group">
-                <label for="q-phone">Phone</label>
-                <input type="tel" id="q-phone" name="phone" placeholder="(555) 555-5555">
-              </div>
-            </div>
+            <div class="form-row"><div class="form-group"><label for="q-name">Name *</label><input type="text" id="q-name" name="name" required placeholder="Your name"></div><div class="form-group"><label for="q-company">Company</label><input type="text" id="q-company" name="company" placeholder="Company name"></div></div>
+            <div class="form-row"><div class="form-group"><label for="q-email">Email *</label><input type="email" id="q-email" name="email" required placeholder="your@email.com"></div><div class="form-group"><label for="q-phone">Phone</label><input type="tel" id="q-phone" name="phone" placeholder="(555) 555-5555"></div></div>
           </div>
-          <!-- Step 4: Review & Submit -->
           <div class="wizard__step" data-step="4">
             <p class="wizard__step-title">Review your request</p>
             <div class="wizard__review">
-              <div class="wizard__review-row"><span>Service</span><strong id="review-service">—</strong></div>
-              <div class="wizard__review-row"><span>Material</span><strong id="review-material">—</strong></div>
-              <div class="wizard__review-row"><span>Gauge</span><strong id="review-gauge">—</strong></div>
-              <div class="wizard__review-row"><span>Width</span><strong id="review-width">—</strong></div>
-              <div class="wizard__review-row"><span>Quantity</span><strong id="review-quantity">—</strong></div>
-              <div class="wizard__review-row"><span>Timeline</span><strong id="review-timeline">—</strong></div>
-              <div class="wizard__review-row"><span>Name</span><strong id="review-name">—</strong></div>
-              <div class="wizard__review-row"><span>Email</span><strong id="review-email">—</strong></div>
+              <div class="wizard__review-row"><span>Service</span><strong id="review-service">&mdash;</strong></div>
+              <div class="wizard__review-row"><span>Material</span><strong id="review-material">&mdash;</strong></div>
+              <div class="wizard__review-row"><span>Gauge</span><strong id="review-gauge">&mdash;</strong></div>
+              <div class="wizard__review-row"><span>Width</span><strong id="review-width">&mdash;</strong></div>
+              <div class="wizard__review-row"><span>Quantity</span><strong id="review-quantity">&mdash;</strong></div>
+              <div class="wizard__review-row"><span>Timeline</span><strong id="review-timeline">&mdash;</strong></div>
+              <div class="wizard__review-row"><span>Name</span><strong id="review-name">&mdash;</strong></div>
+              <div class="wizard__review-row"><span>Email</span><strong id="review-email">&mdash;</strong></div>
             </div>
             <button type="submit" class="btn btn--primary" style="width:100%;margin-top:24px;">Submit Request <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
           </div>
         </form>
-        <!-- Success -->
         <div class="modal__success">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:48px;height:48px;color:var(--success);margin-bottom:16px;"><path d="M20 6L9 17l-5-5"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:48px;height:48px;color:var(--accent);margin-bottom:16px;"><path d="M20 6L9 17l-5-5"/></svg>
           <h3>Quote Request Received!</h3>
           <p>Thank you! We'll review your requirements and get back to you within one business day.</p>
         </div>
-        <!-- Wizard Navigation -->
         <div class="wizard__nav">
           <button type="button" class="wizard__btn wizard__btn--back">Back</button>
           <button type="button" class="wizard__btn wizard__btn--next btn btn--primary">Next <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
@@ -388,6 +977,7 @@
       </div>
     </div>
   </div>
+
   <!-- Quick Nav -->
   <div class="quick-nav" id="quick-nav">
     <div class="quick-nav__menu">
@@ -424,7 +1014,104 @@
     </div>
   </div>
 
-  <script src="/site/js/main.js"></script>
-  <script src="/site/js/review.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Reveal animation
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+      // Nav scroll
+      const nav = document.querySelector('.nav');
+      window.addEventListener('scroll', () => {
+        nav.style.background = window.scrollY > 60 ? 'rgba(13,15,17,.95)' : 'rgba(13,15,17,.85)';
+      });
+
+      // Hamburger
+      const hamburger = document.querySelector('.nav__hamburger');
+      const links = document.querySelector('.nav__links');
+      if (hamburger && links) {
+        hamburger.addEventListener('click', () => {
+          const open = links.style.display === 'flex';
+          links.style.display = open ? 'none' : 'flex';
+          links.style.flexDirection = 'column';
+          links.style.position = 'absolute';
+          links.style.top = '72px';
+          links.style.left = '0';
+          links.style.right = '0';
+          links.style.background = 'rgba(13,15,17,.98)';
+          links.style.padding = '24px';
+          links.style.gap = '20px';
+          links.style.transform = 'none';
+        });
+      }
+
+      // Quick nav
+      const toggle = document.querySelector('.quick-nav__toggle');
+      const menu = document.querySelector('.quick-nav__menu');
+      if (toggle && menu) {
+        toggle.addEventListener('click', () => {
+          menu.classList.toggle('open');
+          toggle.classList.toggle('open');
+        });
+      }
+
+      // Cookie bar
+      const bar = document.getElementById('cookie-bar');
+      if (bar && !localStorage.getItem('ptp-cookies')) {
+        bar.style.display = 'block';
+        bar.querySelector('.cookie-bar__btn--accept')?.addEventListener('click', () => {
+          localStorage.setItem('ptp-cookies', 'accepted');
+          bar.style.display = 'none';
+        });
+        bar.querySelector('.cookie-bar__btn--decline')?.addEventListener('click', () => {
+          localStorage.setItem('ptp-cookies', 'declined');
+          bar.style.display = 'none';
+        });
+      }
+
+      // Quote wizard
+      const modal = document.getElementById('quote-modal');
+      document.querySelectorAll('[data-open-quote], [data-service]').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          if (btn.hasAttribute('data-service')) {
+            e.preventDefault();
+          }
+          modal.style.display = 'flex';
+          document.body.style.overflow = 'hidden';
+        });
+      });
+      modal?.querySelector('.modal__close')?.addEventListener('click', () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+      });
+      modal?.addEventListener('click', (e) => {
+        if (e.target === modal) { modal.style.display = 'none'; document.body.style.overflow = ''; }
+      });
+
+      // Wizard navigation
+      let step = 1;
+      const steps = modal?.querySelectorAll('.wizard__step');
+      const bar2 = modal?.querySelector('.wizard__progress-bar');
+      const curr = modal?.querySelector('.wizard__current');
+      const nextBtn = modal?.querySelector('.wizard__btn--next');
+      const backBtn = modal?.querySelector('.wizard__btn--back');
+
+      function goTo(n) {
+        step = n;
+        steps?.forEach((s, i) => s.classList.toggle('active', i === n - 1));
+        if (bar2) bar2.style.width = (n / 4 * 100) + '%';
+        if (curr) curr.textContent = n;
+        if (backBtn) backBtn.style.visibility = n === 1 ? 'hidden' : 'visible';
+        if (nextBtn) nextBtn.style.display = n === 4 ? 'none' : '';
+      }
+      nextBtn?.addEventListener('click', () => { if (step < 4) goTo(step + 1); });
+      backBtn?.addEventListener('click', () => { if (step > 1) goTo(step - 1); });
+
+      // Copyright year
+      document.querySelectorAll('.copyright-year').forEach(el => el.textContent = new Date().getFullYear());
+    });
+  </script>
 </body>
 </html>
