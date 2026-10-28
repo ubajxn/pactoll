@@ -12,11 +12,9 @@ import {
   Loader2,
   Pencil,
   Plus,
-  Send,
-  Trash2,
-  X,
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
+import { useRouter } from "next/navigation";
 import { PageHeader } from "@/components/crm/page-header";
 import { PermissionGate } from "@/components/crm/permission-gate";
 
@@ -57,42 +55,11 @@ const STATUS_CONFIG: Record<string, { label: string; color: string; bg: string }
   cancelled: { label: "Cancelled", color: "#71717a", bg: "#f4f4f5" },
 };
 
-type FormData = {
-  invoice_number: string;
-  client_name: string;
-  description: string;
-  amount: string;
-  status: string;
-  issue_date: string;
-  due_date: string;
-  paid_date: string;
-  notes: string;
-  public_url: string;
-  line_items: { description: string; amount: number }[];
-};
-
-const emptyForm: FormData = {
-  invoice_number: "",
-  client_name: "Pacific Toll Processing",
-  description: "",
-  amount: "",
-  status: "draft",
-  issue_date: "",
-  due_date: "",
-  paid_date: "",
-  notes: "",
-  public_url: "",
-  line_items: [],
-};
-
 export default function MyInvoicesPage() {
+  const router = useRouter();
   const [invoices, setInvoices] = useState<Invoice[]>([]);
   const [retainers, setRetainers] = useState<Retainer[]>([]);
   const [loading, setLoading] = useState(true);
-  const [editing, setEditing] = useState<Invoice | null>(null);
-  const [creating, setCreating] = useState(false);
-  const [form, setForm] = useState<FormData>(emptyForm);
-  const [saving, setSaving] = useState(false);
   const [expandedInvoice, setExpandedInvoice] = useState<string | null>(null);
   const [tab, setTab] = useState<"invoices" | "retainer">("invoices");
 
@@ -117,72 +84,6 @@ export default function MyInvoicesPage() {
   const totalBilled = invoices.reduce((s, i) => s + Number(i.amount), 0);
   const totalPaid = invoices.filter(i => i.status === "paid").reduce((s, i) => s + Number(i.amount), 0);
   const totalOutstanding = invoices.filter(i => i.status === "sent" || i.status === "overdue").reduce((s, i) => s + Number(i.amount), 0);
-
-  const openCreate = () => {
-    setForm(emptyForm);
-    setCreating(true);
-    setEditing(null);
-  };
-
-  const openEdit = (inv: Invoice) => {
-    setForm({
-      invoice_number: inv.invoice_number,
-      client_name: inv.client_name,
-      description: inv.description || "",
-      amount: String(inv.amount),
-      status: inv.status,
-      issue_date: inv.issue_date?.slice(0, 10) || "",
-      due_date: inv.due_date?.slice(0, 10) || "",
-      paid_date: inv.paid_date?.slice(0, 10) || "",
-      notes: inv.notes || "",
-      public_url: inv.public_url || "",
-      line_items: inv.line_items || [],
-    });
-    setEditing(inv);
-    setCreating(false);
-  };
-
-  const closePanel = () => { setEditing(null); setCreating(false); };
-
-  const save = async () => {
-    setSaving(true);
-    try {
-      const payload = {
-        table: "erp_consultant_invoices",
-        org_id: ORG_ID,
-        invoice_number: form.invoice_number,
-        client_name: form.client_name,
-        description: form.description || null,
-        amount: Number(form.amount) || 0,
-        status: form.status,
-        issue_date: form.issue_date || null,
-        due_date: form.due_date || null,
-        paid_date: form.paid_date || null,
-        notes: form.notes || null,
-        public_url: form.public_url || null,
-        line_items: JSON.stringify(form.line_items),
-        ...(editing ? { id: editing.id } : {}),
-      };
-      await fetch("/api/erp", {
-        method: editing ? "PUT" : "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      await fetchData();
-      closePanel();
-    } catch {
-    } finally {
-      setSaving(false);
-    }
-  };
-
-  const deleteInvoice = async (id: string) => {
-    await fetch(`/api/erp?table=erp_consultant_invoices&id=${id}&org=${ORG_ID}`, { method: "DELETE" });
-    await fetchData();
-    closePanel();
-  };
-
-  const panelOpen = creating || !!editing;
 
   return (
     <PermissionGate module="my-invoices">
@@ -229,7 +130,7 @@ export default function MyInvoicesPage() {
           ))}
           {tab === "invoices" && (
             <button
-              onClick={openCreate}
+              onClick={() => router.push("/my-invoices/new")}
               style={{
                 marginLeft: "auto",
                 display: "flex",
@@ -317,7 +218,7 @@ export default function MyInvoicesPage() {
                           )}
                           <div style={{ display: "flex", gap: 8, marginTop: 16, flexWrap: "wrap" }}>
                             <button
-                              onClick={(e) => { e.stopPropagation(); openEdit(inv); }}
+                              onClick={(e) => { e.stopPropagation(); router.push(`/my-invoices/${inv.id}`); }}
                               style={{ display: "flex", alignItems: "center", gap: 4, padding: "6px 12px", borderRadius: 6, border: "1px solid #e5e7eb", background: "#fff", fontSize: 13, cursor: "pointer" }}
                             >
                               <Pencil size={14} /> Edit
@@ -388,161 +289,6 @@ export default function MyInvoicesPage() {
             ))}
           </div>
         )}
-
-        {/* Editor Panel */}
-        <AnimatePresence>
-          {panelOpen && (
-            <>
-              <motion.div
-                initial={{ opacity: 0 }} animate={{ opacity: 0.3 }} exit={{ opacity: 0 }}
-                onClick={closePanel}
-                style={{ position: "fixed", inset: 0, background: "#000", zIndex: 40, cursor: "pointer" }}
-              />
-              <motion.div
-                initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
-                transition={{ type: "spring", damping: 25, stiffness: 250 }}
-                style={{ position: "fixed", right: 0, top: 0, bottom: 0, width: 480, maxWidth: "100vw", background: "#fff", zIndex: 50, display: "flex", flexDirection: "column", boxShadow: "-4px 0 24px rgba(0,0,0,0.08)" }}
-              >
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 20px", borderBottom: "1px solid #e5e7eb" }}>
-                  <h2 style={{ fontSize: 16, fontWeight: 700 }}>{editing ? "Edit Invoice" : "New Invoice"}</h2>
-                  <button onClick={closePanel} style={{ background: "none", border: "none", cursor: "pointer", padding: 4 }}>
-                    <X size={20} />
-                  </button>
-                </div>
-                <div style={{ flex: 1, overflow: "auto", padding: 20, display: "flex", flexDirection: "column", gap: 16 }}>
-                  {[
-                    { label: "Invoice Number", key: "invoice_number" as const, placeholder: "JJP-2026-002" },
-                    { label: "Client", key: "client_name" as const },
-                    { label: "Description", key: "description" as const },
-                    { label: "Issue Date", key: "issue_date" as const, type: "date" },
-                    { label: "Due Date", key: "due_date" as const, type: "date" },
-                    { label: "Paid Date", key: "paid_date" as const, type: "date" },
-                  ].map(f => (
-                    <div key={f.key}>
-                      <label style={{ fontSize: 12, fontWeight: 600, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 4, display: "block" }}>{f.label}</label>
-                      <input
-                        type={f.type || "text"}
-                        value={form[f.key] as string}
-                        onChange={e => setForm(p => ({ ...p, [f.key]: e.target.value }))}
-                        placeholder={f.placeholder}
-                        style={{ width: "100%", padding: "8px 12px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14 }}
-                      />
-                    </div>
-                  ))}
-                  <div>
-                    <label style={{ fontSize: 12, fontWeight: 600, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 4, display: "block" }}>Status</label>
-                    <select
-                      value={form.status}
-                      onChange={e => setForm(p => ({ ...p, status: e.target.value }))}
-                      style={{ width: "100%", padding: "8px 12px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14 }}
-                    >
-                      {Object.entries(STATUS_CONFIG).map(([k, v]) => (
-                        <option key={k} value={k}>{v.label}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* Line Items */}
-                  <div>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-                      <label style={{ fontSize: 12, fontWeight: 600, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.05em" }}>Line Items</label>
-                      <button
-                        type="button"
-                        onClick={() => setForm(p => ({ ...p, line_items: [...p.line_items, { description: "", amount: 0 }] }))}
-                        style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 10px", borderRadius: 6, border: "1px solid #e5e7eb", background: "#fff", fontSize: 12, cursor: "pointer", color: "#2563eb", fontWeight: 600 }}
-                      >
-                        <Plus size={12} /> Add
-                      </button>
-                    </div>
-                    {form.line_items.map((li, i) => (
-                      <div key={i} style={{ display: "flex", gap: 8, marginBottom: 8, alignItems: "flex-start" }}>
-                        <input
-                          type="text"
-                          value={li.description}
-                          onChange={e => {
-                            const items = [...form.line_items];
-                            items[i] = { ...items[i], description: e.target.value };
-                            const total = items.reduce((s, x) => s + Number(x.amount), 0);
-                            setForm(p => ({ ...p, line_items: items, amount: String(total) }));
-                          }}
-                          placeholder="Description"
-                          style={{ flex: 1, padding: "8px 12px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 13 }}
-                        />
-                        <input
-                          type="number"
-                          value={li.amount || ""}
-                          onChange={e => {
-                            const items = [...form.line_items];
-                            items[i] = { ...items[i], amount: Number(e.target.value) || 0 };
-                            const total = items.reduce((s, x) => s + Number(x.amount), 0);
-                            setForm(p => ({ ...p, line_items: items, amount: String(total) }));
-                          }}
-                          placeholder="$"
-                          style={{ width: 90, padding: "8px 12px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 13, fontVariantNumeric: "tabular-nums" }}
-                        />
-                        <button
-                          type="button"
-                          onClick={() => {
-                            const items = form.line_items.filter((_, j) => j !== i);
-                            const total = items.reduce((s, x) => s + Number(x.amount), 0);
-                            setForm(p => ({ ...p, line_items: items, amount: String(total) }));
-                          }}
-                          style={{ padding: "8px", border: "none", background: "none", cursor: "pointer", color: "#dc2626", flexShrink: 0 }}
-                        >
-                          <X size={14} />
-                        </button>
-                      </div>
-                    ))}
-                    {form.line_items.length > 0 && (
-                      <div style={{ display: "flex", justifyContent: "flex-end", paddingRight: 30, fontSize: 14, fontWeight: 700, color: "#0f172a" }}>
-                        Total: ${form.line_items.reduce((s, x) => s + Number(x.amount), 0).toLocaleString()}
-                      </div>
-                    )}
-                  </div>
-
-                  <div>
-                    <label style={{ fontSize: 12, fontWeight: 600, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 4, display: "block" }}>Notes (Bill-To Address)</label>
-                    <textarea
-                      value={form.notes}
-                      onChange={e => setForm(p => ({ ...p, notes: e.target.value }))}
-                      rows={3}
-                      placeholder="Attn: Name&#10;123 Street&#10;City, ST ZIP"
-                      style={{ width: "100%", padding: "8px 12px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, resize: "vertical" }}
-                    />
-                  </div>
-
-                  {form.invoice_number && (
-                    <div style={{ fontSize: 12, color: "#71717a", padding: "8px 0", borderTop: "1px solid #f4f4f5" }}>
-                      Public URL: <a href={`/invoice/${form.invoice_number}`} target="_blank" rel="noopener noreferrer" style={{ color: "#2563eb" }}>/invoice/{form.invoice_number}</a>
-                    </div>
-                  )}
-                </div>
-                <div style={{ display: "flex", gap: 8, padding: "16px 20px", borderTop: "1px solid #e5e7eb" }}>
-                  {editing && (
-                    <button
-                      onClick={() => deleteInvoice(editing.id)}
-                      style={{ display: "flex", alignItems: "center", gap: 4, padding: "8px 16px", borderRadius: 8, border: "1px solid #fecaca", background: "#fef2f2", color: "#dc2626", fontSize: 14, cursor: "pointer" }}
-                    >
-                      <Trash2 size={14} /> Delete
-                    </button>
-                  )}
-                  <div style={{ flex: 1 }} />
-                  <button onClick={closePanel} style={{ padding: "8px 16px", borderRadius: 8, border: "1px solid #e5e7eb", background: "#fff", fontSize: 14, cursor: "pointer" }}>
-                    Cancel
-                  </button>
-                  <button
-                    onClick={save}
-                    disabled={saving}
-                    style={{ display: "flex", alignItems: "center", gap: 4, padding: "8px 16px", borderRadius: 8, border: "none", background: "#2563eb", color: "#fff", fontWeight: 600, fontSize: 14, cursor: "pointer", opacity: saving ? 0.6 : 1 }}
-                  >
-                    {saving ? <Loader2 size={14} style={{ animation: "spin 1s linear infinite" }} /> : <Check size={14} />}
-                    {editing ? "Update" : "Create"}
-                  </button>
-                </div>
-              </motion.div>
-            </>
-          )}
-        </AnimatePresence>
       </div>
       <style>{`@keyframes spin { to { transform: rotate(360deg) } }`}</style>
     </PermissionGate>
