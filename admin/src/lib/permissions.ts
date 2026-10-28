@@ -24,6 +24,9 @@ export type Module =
   | "campaigns"
   | "competitors"
   | "proposal"
+  | "digital-presence"
+  | "my-invoices"
+  | "my-deliverables"
   | "settings"
   | "lists";
 
@@ -34,6 +37,8 @@ const OWNER_ONLY: readonly Module[] = [
   "insurance",
   "analytics",
   "proposal",
+  "my-invoices",
+  "my-deliverables",
 ];
 
 const ADMIN_AND_ABOVE: readonly Module[] = [
@@ -42,6 +47,7 @@ const ADMIN_AND_ABOVE: readonly Module[] = [
   "vendors",
   "territories",
   "campaigns",
+  "digital-presence",
 ];
 
 const ROLE_HIERARCHY: Record<Role, number> = {
@@ -97,6 +103,9 @@ function hrefToModule(href: string): Module | null {
     campaigns: "campaigns",
     competitors: "competitors",
     proposal: "proposal",
+    "digital-presence": "digital-presence",
+    "my-invoices": "my-invoices",
+    "my-deliverables": "my-deliverables",
     settings: "settings",
     lists: "lists",
     chat: "chat",
@@ -155,6 +164,10 @@ const TABLE_MODULE_MAP: Record<string, Module> = {
   erp_budgets: "expenses",
   erp_utility_accounts: "properties",
   erp_utility_bills: "properties",
+  erp_digital_presence: "digital-presence",
+  erp_consultant_invoices: "my-invoices",
+  erp_consultant_deliverables: "my-deliverables",
+  erp_consultant_retainer: "my-invoices",
 };
 
 export function canAccessTable(role: string, table: string): boolean {

@@ -55,6 +55,10 @@ const ALLOWED_TABLES = [
   "erp_utility_bills",
   "erp_competitors",
   "erp_deliverables",
+  "erp_digital_presence",
+  "erp_consultant_invoices",
+  "erp_consultant_deliverables",
+  "erp_consultant_retainer",
 ];
 
 const SYSTEM_COLUMNS = ["id", "org_id", "created_at"];

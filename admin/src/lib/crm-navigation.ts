@@ -1,5 +1,6 @@
 import {
   BarChart3,
+  Briefcase,
   Building2,
   CircleDollarSign,
   ClipboardList,
@@ -8,6 +9,7 @@ import {
   CreditCard,
   Factory,
   FileText,
+  Globe,
   Handshake,
   HardHat,
   ListTodo,
@@ -166,6 +168,13 @@ export const crmNavigation = [
     description: "Manage marketing campaigns across all channels.",
   },
   {
+    title: "Digital Presence",
+    group: "marketing",
+    href: "/digital-presence",
+    icon: Globe,
+    description: "Profiles, listings, and social channels across the web.",
+  },
+  {
     title: "Competitors",
     group: "marketing",
     href: "/competitors",
@@ -178,6 +187,20 @@ export const crmNavigation = [
     href: "/proposal",
     icon: FileText,
     description: "Marketing services proposal and scope of work.",
+  },
+  {
+    title: "My Invoices",
+    group: "business",
+    href: "/my-invoices",
+    icon: CircleDollarSign,
+    description: "Track consulting invoices, payments, and retainer scope.",
+  },
+  {
+    title: "My Deliverables",
+    group: "business",
+    href: "/my-deliverables",
+    icon: Briefcase,
+    description: "Log of everything delivered and planned for this engagement.",
   },
   {
     title: "New chat",
