@@ -16,7 +16,7 @@ import { PermissionGate } from "@/components/crm/permission-gate";
 
 const ORG_ID = "da62326b-707d-41bd-bc2d-a61a81926dae";
 
-type LineItem = { description: string; amount: number };
+type LineItem = { description: string; note?: string; amount: number };
 
 type FormData = {
   invoice_number: string;
@@ -124,7 +124,7 @@ export default function InvoiceEditPage() {
   };
 
   const addLineItem = () => {
-    setForm(p => ({ ...p, line_items: [...p.line_items, { description: "", amount: 0 }] }));
+    setForm(p => ({ ...p, line_items: [...p.line_items, { description: "", note: "", amount: 0 }] }));
   };
 
   const removeLineItem = (i: number) => {
@@ -324,39 +324,45 @@ export default function InvoiceEditPage() {
                 </button>
               </div>
 
-              {/* Table Header */}
-              {form.line_items.length > 0 && (
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 120px 36px", gap: 8, marginBottom: 8, padding: "0 0 8px", borderBottom: "1px solid #f1f5f9" }}>
-                  <div style={{ fontSize: 10, fontWeight: 600, color: "#94a3b8", textTransform: "uppercase", letterSpacing: "0.1em" }}>Description</div>
-                  <div style={{ fontSize: 10, fontWeight: 600, color: "#94a3b8", textTransform: "uppercase", letterSpacing: "0.1em", textAlign: "right" }}>Amount</div>
-                  <div />
-                </div>
-              )}
-
               {form.line_items.map((li, i) => (
-                <div key={i} style={{ display: "grid", gridTemplateColumns: "1fr 120px 36px", gap: 8, marginBottom: 8, alignItems: "center" }}>
-                  <input
-                    type="text"
-                    value={li.description}
-                    onChange={e => updateLineItem(i, "description", e.target.value)}
-                    placeholder="Service description"
-                    style={{ ...inputStyle, padding: "8px 12px", fontSize: 13 }}
-                  />
-                  <input
-                    type="number"
-                    value={li.amount || ""}
-                    onChange={e => updateLineItem(i, "amount", e.target.value)}
-                    placeholder="0"
-                    style={{ ...inputStyle, padding: "8px 12px", fontSize: 13, textAlign: "right", fontVariantNumeric: "tabular-nums" }}
-                  />
-                  <button
-                    onClick={() => removeLineItem(i)}
-                    style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, border: "none", background: "none", cursor: "pointer", color: "#dc2626", borderRadius: 6, opacity: 0.5, transition: "opacity 0.15s" }}
-                    onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
-                    onMouseLeave={e => (e.currentTarget.style.opacity = "0.5")}
-                  >
-                    <X size={14} />
-                  </button>
+                <div key={i} style={{ padding: "16px", marginBottom: 8, border: "1px solid #e2e8f0", borderRadius: 10, background: "#fafbfc" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 120px 36px", gap: 8, alignItems: "center" }}>
+                    <input
+                      type="text"
+                      value={li.description}
+                      onChange={e => updateLineItem(i, "description", e.target.value)}
+                      placeholder="Service title"
+                      style={{ ...inputStyle, padding: "8px 12px", fontSize: 14, fontWeight: 600, background: "#fff" }}
+                    />
+                    <input
+                      type="number"
+                      value={li.amount || ""}
+                      onChange={e => updateLineItem(i, "amount", e.target.value)}
+                      placeholder="0"
+                      style={{ ...inputStyle, padding: "8px 12px", fontSize: 14, textAlign: "right", fontVariantNumeric: "tabular-nums", fontWeight: 600, background: "#fff" }}
+                    />
+                    <button
+                      onClick={() => removeLineItem(i)}
+                      style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, border: "none", background: "none", cursor: "pointer", color: "#dc2626", borderRadius: 6, opacity: 0.4, transition: "opacity 0.15s" }}
+                      onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+                      onMouseLeave={e => (e.currentTarget.style.opacity = "0.4")}
+                    >
+                      <X size={14} />
+                    </button>
+                  </div>
+                  <div style={{ marginTop: 8, paddingRight: 44 }}>
+                    <input
+                      type="text"
+                      value={li.note || ""}
+                      onChange={e => {
+                        const items = [...form.line_items];
+                        items[i] = { ...items[i], note: e.target.value };
+                        setForm(p => ({ ...p, line_items: items }));
+                      }}
+                      placeholder="Detail — scope, deliverables, notes..."
+                      style={{ ...inputStyle, padding: "6px 12px", fontSize: 12, color: "#64748b", background: "#fff" }}
+                    />
+                  </div>
                 </div>
               ))}
 

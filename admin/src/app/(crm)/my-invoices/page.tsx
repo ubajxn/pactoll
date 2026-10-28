@@ -30,7 +30,7 @@ type Invoice = {
   issue_date: string | null;
   due_date: string | null;
   paid_date: string | null;
-  line_items: { description: string; amount: number }[];
+  line_items: { description: string; note?: string; amount: number }[];
   notes: string | null;
   public_url: string | null;
   created_at: string;
@@ -209,9 +209,12 @@ export default function MyInvoicesPage() {
                             <div style={{ marginTop: 12 }}>
                               <div style={{ fontSize: 12, fontWeight: 600, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>Line Items</div>
                               {inv.line_items.map((li, i) => (
-                                <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "6px 0", borderBottom: "1px solid #f9fafb", fontSize: 13 }}>
-                                  <span>{li.description}</span>
-                                  <span style={{ fontWeight: 600 }}>${li.amount.toLocaleString()}</span>
+                                <div key={i} style={{ display: "flex", justifyContent: "space-between", padding: "6px 0", borderBottom: "1px solid #f9fafb", fontSize: 13, gap: 16 }}>
+                                  <div style={{ flex: 1 }}>
+                                    <span>{li.description}</span>
+                                    {li.note && <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 1 }}>{li.note}</div>}
+                                  </div>
+                                  <span style={{ fontWeight: 600, flexShrink: 0 }}>${li.amount.toLocaleString()}</span>
                                 </div>
                               ))}
                             </div>

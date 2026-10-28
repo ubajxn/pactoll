@@ -21,7 +21,7 @@ export async function GET(
   }
 
   const inv = rows[0];
-  const lineItems: { description: string; amount: number }[] =
+  const lineItems: { description: string; note?: string; amount: number }[] =
     typeof inv.line_items === "string"
       ? JSON.parse(inv.line_items)
       : inv.line_items || [];
@@ -55,7 +55,7 @@ export async function GET(
     .map(
       (li) => `
           <tr>
-            <td><div class="item-title">${esc(li.description)}</div></td>
+            <td><div class="item-title">${esc(li.description)}</div>${li.note ? `<div class="item-note">${esc(li.note)}</div>` : ""}</td>
             <td>$${li.amount.toLocaleString()}</td>
           </tr>`,
     )
@@ -206,6 +206,12 @@ export async function GET(
       padding-left: 16px;
     }
     .item-title { font-weight: 500; }
+    .item-note {
+      font-size: 11.5px;
+      color: var(--mid);
+      margin-top: 2px;
+      max-width: 400px;
+    }
     .totals {
       display: flex;
       justify-content: flex-end;
