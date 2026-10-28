@@ -1,6 +1,7 @@
 import { getPool } from "@/lib/api/singleton";
 
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 const ORG_ID = "da62326b-707d-41bd-bc2d-a61a81926dae";
 
@@ -394,7 +395,7 @@ export async function GET(
   return new Response(html, {
     headers: {
       "Content-Type": "text/html; charset=utf-8",
-      "Cache-Control": "no-cache",
+      "Cache-Control": "no-store, no-cache, must-revalidate",
     },
   });
 }
