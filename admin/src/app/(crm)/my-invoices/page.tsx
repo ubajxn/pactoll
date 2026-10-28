@@ -414,11 +414,9 @@ export default function MyInvoicesPage() {
                     { label: "Invoice Number", key: "invoice_number" as const, placeholder: "JJP-2026-002" },
                     { label: "Client", key: "client_name" as const },
                     { label: "Description", key: "description" as const },
-                    { label: "Amount", key: "amount" as const, type: "number" },
                     { label: "Issue Date", key: "issue_date" as const, type: "date" },
                     { label: "Due Date", key: "due_date" as const, type: "date" },
                     { label: "Paid Date", key: "paid_date" as const, type: "date" },
-                    { label: "Public URL", key: "public_url" as const, placeholder: "https://pactoll.stjack.com/invoice-002.html" },
                   ].map(f => (
                     <div key={f.key}>
                       <label style={{ fontSize: 12, fontWeight: 600, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 4, display: "block" }}>{f.label}</label>
@@ -443,15 +441,81 @@ export default function MyInvoicesPage() {
                       ))}
                     </select>
                   </div>
+
+                  {/* Line Items */}
                   <div>
-                    <label style={{ fontSize: 12, fontWeight: 600, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 4, display: "block" }}>Notes</label>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+                      <label style={{ fontSize: 12, fontWeight: 600, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.05em" }}>Line Items</label>
+                      <button
+                        type="button"
+                        onClick={() => setForm(p => ({ ...p, line_items: [...p.line_items, { description: "", amount: 0 }] }))}
+                        style={{ display: "flex", alignItems: "center", gap: 4, padding: "4px 10px", borderRadius: 6, border: "1px solid #e5e7eb", background: "#fff", fontSize: 12, cursor: "pointer", color: "#2563eb", fontWeight: 600 }}
+                      >
+                        <Plus size={12} /> Add
+                      </button>
+                    </div>
+                    {form.line_items.map((li, i) => (
+                      <div key={i} style={{ display: "flex", gap: 8, marginBottom: 8, alignItems: "flex-start" }}>
+                        <input
+                          type="text"
+                          value={li.description}
+                          onChange={e => {
+                            const items = [...form.line_items];
+                            items[i] = { ...items[i], description: e.target.value };
+                            const total = items.reduce((s, x) => s + Number(x.amount), 0);
+                            setForm(p => ({ ...p, line_items: items, amount: String(total) }));
+                          }}
+                          placeholder="Description"
+                          style={{ flex: 1, padding: "8px 12px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 13 }}
+                        />
+                        <input
+                          type="number"
+                          value={li.amount || ""}
+                          onChange={e => {
+                            const items = [...form.line_items];
+                            items[i] = { ...items[i], amount: Number(e.target.value) || 0 };
+                            const total = items.reduce((s, x) => s + Number(x.amount), 0);
+                            setForm(p => ({ ...p, line_items: items, amount: String(total) }));
+                          }}
+                          placeholder="$"
+                          style={{ width: 90, padding: "8px 12px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 13, fontVariantNumeric: "tabular-nums" }}
+                        />
+                        <button
+                          type="button"
+                          onClick={() => {
+                            const items = form.line_items.filter((_, j) => j !== i);
+                            const total = items.reduce((s, x) => s + Number(x.amount), 0);
+                            setForm(p => ({ ...p, line_items: items, amount: String(total) }));
+                          }}
+                          style={{ padding: "8px", border: "none", background: "none", cursor: "pointer", color: "#dc2626", flexShrink: 0 }}
+                        >
+                          <X size={14} />
+                        </button>
+                      </div>
+                    ))}
+                    {form.line_items.length > 0 && (
+                      <div style={{ display: "flex", justifyContent: "flex-end", paddingRight: 30, fontSize: 14, fontWeight: 700, color: "#0f172a" }}>
+                        Total: ${form.line_items.reduce((s, x) => s + Number(x.amount), 0).toLocaleString()}
+                      </div>
+                    )}
+                  </div>
+
+                  <div>
+                    <label style={{ fontSize: 12, fontWeight: 600, color: "#71717a", textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 4, display: "block" }}>Notes (Bill-To Address)</label>
                     <textarea
                       value={form.notes}
                       onChange={e => setForm(p => ({ ...p, notes: e.target.value }))}
                       rows={3}
+                      placeholder="Attn: Name&#10;123 Street&#10;City, ST ZIP"
                       style={{ width: "100%", padding: "8px 12px", border: "1px solid #e5e7eb", borderRadius: 8, fontSize: 14, resize: "vertical" }}
                     />
                   </div>
+
+                  {form.invoice_number && (
+                    <div style={{ fontSize: 12, color: "#71717a", padding: "8px 0", borderTop: "1px solid #f4f4f5" }}>
+                      Public URL: <a href={`/invoice/${form.invoice_number}`} target="_blank" rel="noopener noreferrer" style={{ color: "#2563eb" }}>/invoice/{form.invoice_number}</a>
+                    </div>
+                  )}
                 </div>
                 <div style={{ display: "flex", gap: 8, padding: "16px 20px", borderTop: "1px solid #e5e7eb" }}>
                   {editing && (
