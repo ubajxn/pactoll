@@ -6,7 +6,6 @@ import {
   ArrowLeft,
   Check,
   ExternalLink,
-  GripVertical,
   Loader2,
   Plus,
   Trash2,
@@ -312,73 +311,122 @@ export default function InvoiceEditPage() {
               </div>
             </div>
 
-            {/* Line Items Card */}
-            <div style={{ background: "#fff", border: "1px solid #e2e8f0", borderRadius: 12, padding: 24 }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16 }}>
-                <div style={{ fontSize: 13, fontWeight: 700, color: "#0f172a" }}>Line Items</div>
+            {/* Line Items */}
+            <div style={{ background: "#fff", border: "1px solid #e2e8f0", borderRadius: 12, overflow: "hidden" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 24px", borderBottom: "1px solid #f1f5f9", background: "#f8fafc" }}>
+                <div style={{ fontSize: 13, fontWeight: 700, color: "#0f172a" }}>
+                  Line Items
+                  {form.line_items.length > 0 && <span style={{ fontWeight: 400, color: "#94a3b8", marginLeft: 8 }}>({form.line_items.length})</span>}
+                </div>
                 <button
                   onClick={addLineItem}
-                  style={{ display: "flex", alignItems: "center", gap: 4, padding: "6px 12px", borderRadius: 6, border: "1px solid #e2e8f0", background: "#fff", fontSize: 12, cursor: "pointer", color: "#2563eb", fontWeight: 600 }}
+                  style={{ display: "flex", alignItems: "center", gap: 5, padding: "7px 14px", borderRadius: 7, border: "none", background: "#2563eb", color: "#fff", fontSize: 12, cursor: "pointer", fontWeight: 600 }}
                 >
-                  <Plus size={12} /> Add Item
+                  <Plus size={13} /> Add Item
                 </button>
               </div>
 
-              {form.line_items.map((li, i) => (
-                <div key={i} style={{ padding: "16px", marginBottom: 8, border: "1px solid #e2e8f0", borderRadius: 10, background: "#fafbfc" }}>
-                  <div style={{ display: "grid", gridTemplateColumns: "1fr 120px 36px", gap: 8, alignItems: "center" }}>
-                    <input
-                      type="text"
-                      value={li.description}
-                      onChange={e => updateLineItem(i, "description", e.target.value)}
-                      placeholder="Service title"
-                      style={{ ...inputStyle, padding: "8px 12px", fontSize: 14, fontWeight: 600, background: "#fff" }}
-                    />
-                    <input
-                      type="number"
-                      value={li.amount || ""}
-                      onChange={e => updateLineItem(i, "amount", e.target.value)}
-                      placeholder="0"
-                      style={{ ...inputStyle, padding: "8px 12px", fontSize: 14, textAlign: "right", fontVariantNumeric: "tabular-nums", fontWeight: 600, background: "#fff" }}
-                    />
-                    <button
-                      onClick={() => removeLineItem(i)}
-                      style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, border: "none", background: "none", cursor: "pointer", color: "#dc2626", borderRadius: 6, opacity: 0.4, transition: "opacity 0.15s" }}
-                      onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
-                      onMouseLeave={e => (e.currentTarget.style.opacity = "0.4")}
-                    >
-                      <X size={14} />
-                    </button>
-                  </div>
-                  <div style={{ marginTop: 8, paddingRight: 44 }}>
-                    <input
-                      type="text"
-                      value={li.note || ""}
-                      onChange={e => {
-                        const items = [...form.line_items];
-                        items[i] = { ...items[i], note: e.target.value };
-                        setForm(p => ({ ...p, line_items: items }));
+              {form.line_items.length === 0 ? (
+                <div style={{ textAlign: "center", padding: "48px 24px", color: "#94a3b8" }}>
+                  <div style={{ fontSize: 14, marginBottom: 8 }}>No line items yet</div>
+                  <button
+                    onClick={addLineItem}
+                    style={{ display: "inline-flex", alignItems: "center", gap: 5, padding: "8px 16px", borderRadius: 7, border: "1px dashed #cbd5e1", background: "#fff", fontSize: 13, cursor: "pointer", color: "#64748b" }}
+                  >
+                    <Plus size={14} /> Add your first item
+                  </button>
+                </div>
+              ) : (
+                <div>
+                  {form.line_items.map((li, i) => (
+                    <div
+                      key={i}
+                      style={{
+                        padding: "20px 24px",
+                        borderBottom: i < form.line_items.length - 1 ? "1px solid #f1f5f9" : "none",
+                        transition: "background 0.1s",
                       }}
-                      placeholder="Detail — scope, deliverables, notes..."
-                      style={{ ...inputStyle, padding: "6px 12px", fontSize: 12, color: "#64748b", background: "#fff" }}
-                    />
-                  </div>
-                </div>
-              ))}
+                    >
+                      {/* Row number + title + amount */}
+                      <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+                        <div style={{
+                          width: 28, height: 28, borderRadius: 7, background: "#f1f5f9",
+                          display: "flex", alignItems: "center", justifyContent: "center",
+                          fontSize: 12, fontWeight: 700, color: "#94a3b8", flexShrink: 0, marginTop: 6,
+                        }}>
+                          {i + 1}
+                        </div>
+                        <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: 8 }}>
+                          <input
+                            type="text"
+                            value={li.description}
+                            onChange={e => updateLineItem(i, "description", e.target.value)}
+                            placeholder="Service or deliverable title"
+                            style={{
+                              width: "100%", padding: "10px 14px", border: "1px solid #e2e8f0", borderRadius: 8,
+                              fontSize: 15, fontWeight: 600, background: "#fff", outline: "none",
+                            }}
+                          />
+                          <textarea
+                            value={li.note || ""}
+                            onChange={e => {
+                              const items = [...form.line_items];
+                              items[i] = { ...items[i], note: e.target.value };
+                              setForm(p => ({ ...p, line_items: items }));
+                            }}
+                            placeholder="Scope details, deliverables, notes..."
+                            rows={2}
+                            style={{
+                              width: "100%", padding: "8px 14px", border: "1px solid #e2e8f0", borderRadius: 8,
+                              fontSize: 13, color: "#64748b", background: "#fafbfc", outline: "none",
+                              resize: "vertical", lineHeight: 1.5,
+                            }}
+                          />
+                        </div>
+                        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4, flexShrink: 0, marginTop: 2 }}>
+                          <div style={{ position: "relative" }}>
+                            <span style={{ position: "absolute", left: 12, top: "50%", transform: "translateY(-50%)", fontSize: 15, fontWeight: 600, color: "#94a3b8", pointerEvents: "none" }}>$</span>
+                            <input
+                              type="number"
+                              value={li.amount || ""}
+                              onChange={e => updateLineItem(i, "amount", e.target.value)}
+                              placeholder="0"
+                              style={{
+                                width: 130, padding: "10px 14px 10px 26px", border: "1px solid #e2e8f0", borderRadius: 8,
+                                fontSize: 15, fontWeight: 700, textAlign: "right", fontVariantNumeric: "tabular-nums",
+                                background: "#fff", outline: "none",
+                              }}
+                            />
+                          </div>
+                          <button
+                            onClick={() => removeLineItem(i)}
+                            style={{
+                              display: "flex", alignItems: "center", gap: 3, padding: "4px 8px", border: "none",
+                              background: "none", cursor: "pointer", color: "#dc2626", borderRadius: 4,
+                              fontSize: 11, fontWeight: 500, opacity: 0.4, transition: "opacity 0.15s",
+                            }}
+                            onMouseEnter={e => (e.currentTarget.style.opacity = "1")}
+                            onMouseLeave={e => (e.currentTarget.style.opacity = "0.4")}
+                          >
+                            <Trash2 size={11} /> Remove
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
 
-              {form.line_items.length === 0 && (
-                <div style={{ textAlign: "center", padding: "32px 0", color: "#94a3b8", fontSize: 13 }}>
-                  No line items yet — click "Add Item" to start
-                </div>
-              )}
-
-              {form.line_items.length > 0 && (
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 120px 36px", gap: 8, marginTop: 12, paddingTop: 12, borderTop: "2px solid #0f172a" }}>
-                  <div style={{ fontSize: 14, fontWeight: 700, color: "#0f172a", textAlign: "right" }}>Total</div>
-                  <div style={{ fontSize: 16, fontWeight: 700, color: "#0f172a", textAlign: "right", fontVariantNumeric: "tabular-nums" }}>
-                    ${total.toLocaleString()}
+                  {/* Total Bar */}
+                  <div style={{
+                    display: "flex", justifyContent: "space-between", alignItems: "center",
+                    padding: "16px 24px", background: "#f8fafc", borderTop: "2px solid #0f172a",
+                  }}>
+                    <div style={{ fontSize: 14, fontWeight: 600, color: "#64748b" }}>
+                      {form.line_items.length} item{form.line_items.length !== 1 ? "s" : ""}
+                    </div>
+                    <div style={{ fontSize: 20, fontWeight: 700, color: "#0f172a", fontVariantNumeric: "tabular-nums" }}>
+                      ${total.toLocaleString()}
+                    </div>
                   </div>
-                  <div />
                 </div>
               )}
             </div>
