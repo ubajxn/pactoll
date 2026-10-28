@@ -322,17 +322,15 @@ export default function MyInvoicesPage() {
                             >
                               <Pencil size={14} /> Edit
                             </button>
-                            {inv.public_url && (
-                              <a
-                                href={inv.public_url}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                onClick={e => e.stopPropagation()}
-                                style={{ display: "flex", alignItems: "center", gap: 4, padding: "6px 12px", borderRadius: 6, border: "1px solid #e5e7eb", background: "#fff", fontSize: 13, textDecoration: "none", color: "inherit", cursor: "pointer" }}
-                              >
-                                <ExternalLink size={14} /> View Public
-                              </a>
-                            )}
+                            <a
+                              href={`/invoice/${inv.invoice_number}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              onClick={e => e.stopPropagation()}
+                              style={{ display: "flex", alignItems: "center", gap: 4, padding: "6px 12px", borderRadius: 6, border: "1px solid #e5e7eb", background: "#fff", fontSize: 13, textDecoration: "none", color: "inherit", cursor: "pointer" }}
+                            >
+                              <ExternalLink size={14} /> View Public
+                            </a>
                             {inv.due_date && (
                               <div style={{ marginLeft: "auto", fontSize: 12, color: "#71717a", display: "flex", alignItems: "center", gap: 4 }}>
                                 <Clock size={14} />
