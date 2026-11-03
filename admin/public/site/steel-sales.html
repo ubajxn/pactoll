@@ -4,166 +4,899 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Steel Sales | Pacific Toll Processing</title>
-  <meta name="description" content="Flat-rolled steel sales: hot-rolled, cold-rolled, galvanized coils, sheet, plate, and slit coil. West Coast and Southwest delivery.">
-  <meta name="keywords" content="steel sales, hot-rolled coil, cold-rolled coil, galvanized coil, steel plate, flat sheets, slit coil, flat-rolled steel sales, buy steel West Coast">
+  <meta name="description" content="Flat-rolled steel sales: cold-rolled ASTM A-1008, hot-dip galvanized ASTM A-653, GalXC, electro-galvanized ASTM A-591, hot-rolled ASTM A-1011, galvanneal. West Coast and Southwest delivery from Carson, CA.">
+  <meta name="keywords" content="steel sales, cold-rolled coil, ASTM A-1008, galvanized coil, ASTM A-653, GalXC, electro-galvanized, ASTM A-591, hot-rolled coil, ASTM A-1011, galvanneal, jet coat, flat-rolled steel, buy steel West Coast, Carson CA">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <link rel="canonical" href="https://pacifictoll.com/steel-sales.html">
-  <link rel="stylesheet" href="/site/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Product",
     "name": "Flat-Rolled Steel Products",
-    "description": "Direct steel sales: hot-rolled coil, cold-rolled coil, galvanized coil, steel plate, flat sheets, and slit coil. Processing and material from one source. West Coast delivery.",
+    "description": "Direct steel sales: cold-rolled (ASTM A-1008), hot-dip galvanized (ASTM A-653), GalXC, electro-galvanized (ASTM A-591), hot-rolled (ASTM A-1011), and galvanneal. Processing and material from one source. West Coast delivery.",
     "brand": {"@type": "Brand", "name": "Pacific Toll Processing"},
     "manufacturer": {"@id": "https://pacifictoll.com/#organization"},
     "url": "https://pacifictoll.com/steel-sales.html",
     "category": "Flat-Rolled Steel"
   }
   </script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --bg: #0d0f11;
+      --bg-raised: #141618;
+      --bg-card: #181b1f;
+      --surface: #1e2228;
+      --border: rgba(255,255,255,.06);
+      --border-hover: rgba(255,255,255,.12);
+      --accent: #4A7FA5;
+      --accent-light: #6196BA;
+      --accent-glow: rgba(74,127,165,.15);
+      --text: #e8e6e3;
+      --text-mid: rgba(255,255,255,.55);
+      --text-dim: rgba(255,255,255,.3);
+      --text-label: rgba(255,255,255,.2);
+      --sans: 'Inter', -apple-system, system-ui, sans-serif;
+      --serif: 'DM Serif Display', Georgia, serif;
+      --mono: 'DM Mono', monospace;
+      --ease: cubic-bezier(.25,.46,.45,.94);
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5 { font-weight: 400; }
+
+    /* ── NAV ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 20px 40px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background .3s;
+    }
+    .nav.scrolled { background: rgba(13,15,17,.95); backdrop-filter: blur(12px); }
+    .nav__logo img { height: 84px; }
+    .nav__links { list-style: none; display: flex; gap: 32px; }
+    .nav__links a {
+      color: var(--text-mid); text-decoration: none; font-size: 13px;
+      font-weight: 500; letter-spacing: .02em; transition: color .2s;
+    }
+    .nav__links a:hover { color: var(--text); }
+    .nav__cta .btn { font-size: 13px; padding: 10px 20px; }
+    .nav__hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 28px; height: 20px; position: relative;
+    }
+    .nav__hamburger span {
+      position: absolute; left: 0; width: 100%; height: 2px;
+      background: var(--text); transition: .3s;
+    }
+    .nav__hamburger span:nth-child(1) { top: 0; }
+    .nav__hamburger span:nth-child(2) { top: 9px; }
+    .nav__hamburger span:nth-child(3) { top: 18px; }
+
+    /* ── BUTTONS ── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 4px; font-weight: 600;
+      font-size: 14px; text-decoration: none; cursor: pointer;
+      transition: all .25s var(--ease); border: none; font-family: var(--sans);
+    }
+    .btn--primary {
+      background: var(--accent); color: #fff;
+    }
+    .btn--primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+    .btn--outline {
+      background: none; border: 1px solid var(--border-hover); color: var(--text);
+    }
+    .btn--outline:hover { border-color: var(--accent); color: var(--accent); }
+    .btn--ghost {
+      background: none; border: none; color: var(--accent); padding: 0;
+      font-weight: 600; font-size: 14px;
+    }
+    .btn--ghost:hover { color: var(--accent-light); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: flex-end;
+      padding: 0 40px 80px; overflow: hidden;
+    }
+    .hero__media {
+      position: absolute; inset: 0;
+    }
+    .hero__media img {
+      width: 100%; height: 100%; object-fit: cover;
+      opacity: .35;
+    }
+    .hero__gradient {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(13,15,17,.4) 0%, rgba(13,15,17,.2) 40%, rgba(13,15,17,.85) 80%, var(--bg) 100%);
+    }
+    .hero__content {
+      position: relative; z-index: 1; max-width: 720px;
+    }
+    .hero__label {
+      font-family: var(--mono); font-size: 11px; font-weight: 500;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--serif); font-size: clamp(3rem, 7vw, 5.5rem);
+      color: var(--text); line-height: .95; letter-spacing: -.02em;
+      margin-bottom: 24px;
+    }
+    .hero h1 em {
+      font-style: italic; color: var(--accent-light);
+    }
+    .hero__desc {
+      font-size: 1.1rem; color: var(--text-mid); max-width: 520px;
+      line-height: 1.7; margin-bottom: 40px;
+    }
+    .hero__stats {
+      display: flex; gap: 48px; margin-top: 48px;
+      padding-top: 32px; border-top: 1px solid var(--border);
+    }
+    .hero__stat-value {
+      font-family: var(--serif); font-size: 2.5rem; color: var(--text);
+      line-height: 1;
+    }
+    .hero__stat-label {
+      font-family: var(--mono); font-size: 9px; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--text-dim); margin-top: 8px;
+    }
+
+    /* ── SECTION SPACING ── */
+    .section { padding: 120px 40px; }
+    .section--compact { padding: 80px 40px; }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .container--narrow { max-width: 800px; margin: 0 auto; }
+
+    /* ── INTRO STATEMENT ── */
+    .intro {
+      text-align: center; max-width: 680px; margin: 0 auto;
+    }
+    .intro__label {
+      font-family: var(--mono); font-size: 10px; font-weight: 500;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 20px;
+    }
+    .intro h2 {
+      font-family: var(--serif); font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--text); margin-bottom: 20px; line-height: 1.1;
+    }
+    .intro p {
+      font-size: 1.05rem; color: var(--text-mid); line-height: 1.8;
+    }
+
+    /* ── PRODUCT SPREADS (the editorial core) ── */
+    .spread {
+      display: grid; grid-template-columns: 1fr 1fr;
+      min-height: 80vh; border-top: 1px solid var(--border);
+    }
+    .spread:nth-child(even) .spread__media { order: 2; }
+    .spread:nth-child(even) .spread__content { order: 1; }
+
+    .spread__media {
+      position: relative; overflow: hidden;
+    }
+    .spread__media img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .6s var(--ease);
+    }
+    .spread:hover .spread__media img {
+      transform: scale(1.03);
+    }
+    .spread__media-label {
+      position: absolute; top: 32px; left: 32px;
+      font-family: var(--mono); font-size: 9px; font-weight: 500;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      background: rgba(0,0,0,.5); backdrop-filter: blur(8px);
+      padding: 6px 14px; border-radius: 2px;
+    }
+
+    .spread__content {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 64px 56px; background: var(--bg-raised);
+    }
+    .spread__number {
+      font-family: var(--mono); font-size: 11px; font-weight: 500;
+      letter-spacing: .15em; color: var(--text-dim); margin-bottom: 16px;
+    }
+    .spread__content h2 {
+      font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.8rem);
+      color: var(--text); margin-bottom: 16px; line-height: 1.1;
+    }
+    .spread__content p {
+      font-size: .95rem; color: var(--text-mid); line-height: 1.7;
+      margin-bottom: 24px; max-width: 520px;
+    }
+    .spread__applications {
+      margin-bottom: 32px; padding: 20px 24px;
+      background: rgba(74,127,165,.06); border-left: 2px solid var(--accent);
+    }
+    .spread__applications-label {
+      font-family: var(--mono); font-size: 9px; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .spread__applications p {
+      font-size: .85rem; color: var(--text-mid); line-height: 1.7;
+      margin-bottom: 0; max-width: none;
+    }
+
+    /* Spec grid inside each spread */
+    .specs {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border); margin-bottom: 40px;
+      border: 1px solid var(--border);
+    }
+    .spec {
+      padding: 20px; background: var(--bg-raised);
+    }
+    .spec__label {
+      font-family: var(--mono); font-size: 9px; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 6px;
+    }
+    .spec__value {
+      font-size: 1.1rem; font-weight: 400; color: var(--text);
+      font-variant-numeric: tabular-nums;
+    }
+    .spec__value--accent { color: var(--accent-light); }
+
+    /* ── FULL-WIDTH PRODUCT STRIP ── */
+    .strip {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .strip__item {
+      position: relative; background: var(--bg-card);
+      padding: 48px 40px; overflow: hidden;
+      transition: background .3s;
+    }
+    .strip__item:hover { background: var(--surface); }
+    .strip__item-number {
+      font-family: var(--mono); font-size: 64px; font-weight: 500;
+      color: rgba(255,255,255,.03); position: absolute;
+      top: -8px; right: 16px; line-height: 1;
+    }
+    .strip__item h3 {
+      font-family: var(--serif); font-size: 1.5rem; color: var(--text);
+      margin-bottom: 12px;
+    }
+    .strip__item p {
+      font-size: .85rem; color: var(--text-mid); line-height: 1.6;
+      margin-bottom: 20px;
+    }
+    .strip__item .spec-line {
+      font-family: var(--mono); font-size: 10px; letter-spacing: .08em;
+      color: var(--text-dim); line-height: 2;
+    }
+    .strip__item .btn--ghost { margin-top: 20px; font-size: 13px; }
+
+    /* ── DELIVERY SECTION ── */
+    .delivery {
+      display: grid; grid-template-columns: 1.2fr 1fr;
+      min-height: 60vh;
+    }
+    .delivery__media {
+      position: relative; overflow: hidden;
+    }
+    .delivery__media img {
+      width: 100%; height: 100%; object-fit: cover;
+    }
+    .delivery__content {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 80px 72px; background: var(--bg-raised);
+      border-top: 1px solid var(--border);
+    }
+    .delivery__label {
+      font-family: var(--mono); font-size: 10px; font-weight: 500;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 20px;
+    }
+    .delivery__content h2 {
+      font-family: var(--serif); font-size: clamp(2rem, 3vw, 2.8rem);
+      color: var(--text); margin-bottom: 20px; line-height: 1.1;
+    }
+    .delivery__content p {
+      font-size: .95rem; color: var(--text-mid); line-height: 1.7;
+      margin-bottom: 32px; max-width: 440px;
+    }
+    .delivery__list {
+      list-style: none; margin-bottom: 32px;
+    }
+    .delivery__list li {
+      display: flex; align-items: center; gap: 12px;
+      padding: 10px 0; font-size: .9rem; color: var(--text-mid);
+      border-bottom: 1px solid var(--border);
+    }
+    .delivery__list li:last-child { border-bottom: none; }
+    .delivery__list svg {
+      width: 16px; height: 16px; flex-shrink: 0;
+      color: var(--accent);
+    }
+
+    /* ── CTA BANNER ── */
+    .cta-section {
+      padding: 120px 40px; text-align: center;
+      background: var(--bg-raised);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .cta-section h2 {
+      font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--text); margin-bottom: 16px; line-height: 1;
+    }
+    .cta-section p {
+      font-size: 1.05rem; color: var(--text-mid); margin-bottom: 40px;
+      max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7;
+    }
+    .cta-section__actions {
+      display: flex; gap: 16px; justify-content: center;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      padding: 72px 40px 32px; background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+    .footer__top {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px; margin-bottom: 48px;
+    }
+    .footer__brand img { height: 40px; margin-bottom: 16px; }
+    .footer__brand p { font-size: .85rem; color: var(--text-dim); line-height: 1.7; }
+    .footer h4 {
+      font-family: var(--mono); font-size: 9px; font-weight: 500;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 16px;
+    }
+    .footer ul { list-style: none; }
+    .footer ul li { margin-bottom: 10px; }
+    .footer ul a {
+      color: var(--text-mid); text-decoration: none; font-size: .85rem;
+      transition: color .2s;
+    }
+    .footer ul a:hover { color: var(--text); }
+    .footer__bottom {
+      display: flex; justify-content: space-between; align-items: center;
+      padding-top: 32px; border-top: 1px solid var(--border);
+      font-size: .8rem; color: var(--text-dim);
+    }
+    .footer__bottom a { color: var(--text-dim); text-decoration: none; }
+    .footer__bottom a:hover { color: var(--text-mid); }
+
+    /* ── ANIMATIONS ── */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity .8s var(--ease), transform .8s var(--ease);
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      .spread { grid-template-columns: 1fr; min-height: auto; }
+      .spread__media { min-height: 50vh; }
+      .spread:nth-child(even) .spread__media { order: 0; }
+      .spread:nth-child(even) .spread__content { order: 0; }
+      .spread__content { padding: 56px 32px; }
+      .strip { grid-template-columns: 1fr; }
+      .delivery { grid-template-columns: 1fr; }
+      .delivery__media { min-height: 40vh; }
+      .delivery__content { padding: 56px 32px; }
+      .footer__top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .hero { padding: 0 24px 60px; min-height: 90vh; }
+      .hero h1 { font-size: 2.6rem; }
+      .hero__stats { flex-direction: column; gap: 24px; }
+      .section { padding: 80px 24px; }
+      .nav { padding: 16px 24px; }
+      .nav__links, .nav__cta { display: none; }
+      .nav__links.open {
+        display: flex; position: fixed; top: 80px; left: 0; right: 0;
+        background: rgba(13,15,17,.97); backdrop-filter: blur(12px);
+        flex-direction: column; padding: 24px 40px; gap: 0;
+        border-top: 1px solid var(--border);
+      }
+      .nav__links.open li { width: 100%; border-bottom: 1px solid var(--border); }
+      .nav__links.open a { display: block; padding: 16px 0; font-size: .95rem; }
+      .nav__hamburger { display: block; }
+      .spread__content { padding: 48px 24px; }
+      .specs { grid-template-columns: 1fr; }
+      .strip__item { padding: 40px 24px; }
+      .delivery__content { padding: 48px 24px; }
+      .cta-section { padding: 80px 24px; }
+      .cta-section__actions { flex-direction: column; align-items: center; }
+      .footer { padding: 48px 24px 24px; }
+      .footer__top { grid-template-columns: 1fr; gap: 32px; }
+      .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .cookie-bar__inner { flex-direction: column; text-align: center; padding: 0 24px; }
+      .cookie-bar__actions { width: 100%; justify-content: center; }
+      .wizard__cards { grid-template-columns: 1fr 1fr; }
+      .wizard__card-inner { padding: 16px 12px; }
+      .wizard__nav { padding: 0 28px 24px; }
+      .modal__header { padding: 32px 28px 0; }
+      .modal__body { padding: 24px 28px 16px; }
+    }
+    @media (max-width: 420px) {
+      .wizard__cards { grid-template-columns: 1fr; }
+    }
+
+    /* ── FORMS ── */
+    .form-group { margin-bottom: 24px; }
+    .form-group label {
+      display: block; font-family: var(--mono); font-size: 9px; font-weight: 500;
+      color: var(--text-dim); text-transform: uppercase; letter-spacing: .12em; margin-bottom: 8px;
+    }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 14px 0; border: none; border-bottom: 1px solid var(--border);
+      font-size: .95rem; font-family: inherit; background: transparent; color: var(--text);
+      transition: border-color .2s;
+    }
+    .form-group input::placeholder, .form-group textarea::placeholder { color: var(--text-dim); }
+    .form-group select { color: var(--text-mid); }
+    .form-group select option { background: var(--bg-card); color: var(--text); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-bottom-color: var(--accent);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+    /* ── QUOTE MODAL ── */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 2000; background: rgba(0,0,0,.7);
+      backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center;
+      opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s ease; padding: 24px;
+    }
+    .modal-overlay.open { opacity: 1; visibility: visible; }
+    .modal {
+      background: var(--bg-card); width: 100%; max-width: 620px; max-height: 90vh;
+      overflow-y: auto; position: relative; transform: translateY(20px) scale(.97);
+      transition: transform .3s ease; border: 1px solid var(--border);
+    }
+    .modal-overlay.open .modal { transform: translateY(0) scale(1); }
+    .modal__header { padding: 40px 48px 0; }
+    .modal__header h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 8px; }
+    .modal__header p, .modal__tagline {
+      color: var(--text-mid); font-size: .95rem; line-height: 1.6; font-style: italic;
+    }
+    .modal__close {
+      position: absolute; top: 20px; right: 20px; width: 40px; height: 40px;
+      border: none; background: transparent; cursor: pointer; display: flex;
+      align-items: center; justify-content: center; color: var(--text-dim); transition: color .2s;
+    }
+    .modal__close:hover { color: var(--text); }
+    .modal__close svg { width: 20px; height: 20px; }
+    .modal__body { padding: 32px 48px 24px; }
+    .modal__body .form-group { margin-bottom: 20px; }
+    .modal__body .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .modal__success { display: none; text-align: center; padding: 48px; }
+    .modal__success.show { display: block; }
+    .modal__success h3 { color: var(--accent); margin-bottom: 12px; }
+    .modal__success p { color: var(--text-mid); line-height: 1.7; }
+
+    /* Wizard */
+    .wizard__progress { margin-top: 24px; height: 3px; background: var(--border); position: relative; }
+    .wizard__progress-bar {
+      position: absolute; top: 0; left: 0; height: 100%; width: 25%;
+      background: var(--accent); transition: width .4s var(--ease);
+    }
+    .wizard__steps-label {
+      font-family: var(--mono); font-size: 9px; font-weight: 500;
+      letter-spacing: .12em; text-transform: uppercase; color: var(--text-dim); margin-top: 12px;
+    }
+    .wizard__current { color: var(--accent); }
+    .wizard__step { display: none; animation: wizardFadeIn .3s ease; }
+    .wizard__step.active { display: block; }
+    @keyframes wizardFadeIn { from { opacity: 0; transform: translateX(12px); } to { opacity: 1; transform: translateX(0); } }
+    .wizard__step-title { font-family: var(--serif); font-size: 1.2rem; color: var(--text); margin-bottom: 24px; }
+    .wizard__cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .wizard__card { cursor: pointer; }
+    .wizard__card input { display: none; }
+    .wizard__card-inner {
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      padding: 24px 16px; border: 1px solid var(--border); transition: all .2s ease; gap: 8px;
+    }
+    .wizard__card-inner svg { width: 28px; height: 28px; color: var(--text-dim); transition: color .2s ease; }
+    .wizard__card-inner strong { font-size: .85rem; color: var(--text); }
+    .wizard__card-inner span { font-size: .75rem; color: var(--text-dim); }
+    .wizard__card:hover .wizard__card-inner { border-color: var(--accent); background: var(--accent-glow); }
+    .wizard__card input:checked + .wizard__card-inner { border-color: var(--accent); background: var(--accent-glow); position: relative; }
+    .wizard__card input:checked + .wizard__card-inner::after {
+      content: '✓'; position: absolute; top: 8px; right: 10px; width: 20px; height: 20px;
+      background: var(--accent); color: #fff; border-radius: 50%; font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; line-height: 1;
+    }
+    .wizard__card input:checked + .wizard__card-inner svg { color: var(--accent); }
+    .wizard__selection-count { font-size: .8rem; color: var(--text-dim); text-align: center; margin-bottom: 8px; }
+    .wizard__review { border: 1px solid var(--border); }
+    .wizard__review-row { display: flex; justify-content: space-between; align-items: center; padding: 14px 20px; border-bottom: 1px solid var(--border); }
+    .wizard__review-row:last-child { border-bottom: none; }
+    .wizard__review-row span { font-family: var(--mono); font-size: 9px; font-weight: 500; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); }
+    .wizard__review-row strong { font-size: .9rem; color: var(--text); text-align: right; }
+    .wizard__nav { display: flex; justify-content: space-between; align-items: center; padding: 0 48px 32px; }
+
+    /* ── COOKIE CONSENT ── */
+    .cookie-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 3000;
+      background: var(--bg-card); border-top: 1px solid var(--border);
+      padding: 20px 0; transform: translateY(100%); transition: transform .4s var(--ease);
+    }
+    .cookie-bar.show { transform: translateY(0); }
+    .cookie-bar__inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 40px;
+      display: flex; align-items: center; justify-content: space-between; gap: 32px;
+    }
+    .cookie-bar__text { color: var(--text-mid); font-size: .85rem; line-height: 1.6; flex: 1; }
+    .cookie-bar__text a { color: var(--accent-light); text-decoration: underline; }
+    .cookie-bar__actions { display: flex; gap: 12px; flex-shrink: 0; }
+    .cookie-bar__btn {
+      padding: 10px 24px; font-size: .8rem; font-weight: 600; font-family: inherit;
+      border: none; cursor: pointer; letter-spacing: .03em; transition: all .2s;
+    }
+    .cookie-bar__btn--accept { background: var(--accent); color: #fff; }
+    .cookie-bar__btn--accept:hover { background: var(--accent-light); }
+    .cookie-bar__btn--decline { background: transparent; color: var(--text-mid); border: 1px solid var(--border); }
+    .cookie-bar__btn--decline:hover { color: var(--text); border-color: var(--border-hover); }
+
+    /* ── QUICK NAV ── */
+    .quick-nav { position: fixed; bottom: 24px; right: 24px; z-index: 9000; }
+    .quick-nav__toggle {
+      width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff;
+      border: none; cursor: pointer; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,.3); transition: transform .2s, background .2s;
+    }
+    .quick-nav__toggle:hover { background: var(--accent-light); transform: scale(1.08); }
+    .quick-nav__toggle svg { width: 20px; height: 20px; transition: transform .3s; }
+    .quick-nav.open .quick-nav__toggle svg { transform: rotate(45deg); }
+    .quick-nav__menu {
+      position: absolute; bottom: 56px; right: 0; background: var(--bg-card);
+      border: 1px solid var(--border); border-radius: 12px; padding: 8px 0; min-width: 180px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.4); opacity: 0; transform: translateY(8px) scale(.95);
+      pointer-events: none; transition: opacity .2s, transform .2s;
+    }
+    .quick-nav.open .quick-nav__menu { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+    .quick-nav__menu a, .quick-nav__menu button {
+      display: flex; align-items: center; gap: 10px; padding: 10px 18px; width: 100%;
+      color: var(--text-mid); text-decoration: none; font-size: .82rem; font-weight: 500;
+      letter-spacing: .02em; transition: background .15s, color .15s;
+      background: none; border: none; cursor: pointer; font-family: inherit; text-align: left;
+    }
+    .quick-nav__menu a:hover, .quick-nav__menu button:hover { background: rgba(255,255,255,.04); color: var(--text); }
+    .quick-nav__item--cta { color: var(--accent) !important; font-weight: 600 !important; }
+  </style>
 </head>
 <body>
 
+  <!-- Nav -->
   <nav class="nav">
-    <div class="nav__inner">
-      <a href="/site/index.html" class="nav__logo">
-        <img src="../images/ptp-logo-white.png" alt="Pacific Toll Processing">
-      </a>
-      <ul class="nav__links">
-        <li><a href="/site/index.html">Home</a></li>
-        <li><a href="/site/services.html">Services</a></li>
-        <li><a href="/site/steel-sales.html">Steel Sales</a></li>
-        <li><a href="/site/equipment.html">Equipment</a></li>
-        <li><a href="/site/about.html">About</a></li>
-        <li><a href="/site/contact.html">Contact</a></li>
-      </ul>
-      <div class="nav__cta">
-        <a href="/site/contact.html" class="btn btn--primary">Get a Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-      <button class="nav__hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+    <a href="/site/index.html" class="nav__logo">
+      <img src="../images/ptp-logo-white.png" alt="Pacific Toll Processing">
+    </a>
+    <ul class="nav__links">
+      <li><a href="/site/index.html">Home</a></li>
+      <li><a href="/site/steel-sales.html" style="color:var(--text);">Steel Sales</a></li>
+      <li><a href="/site/services.html">Services</a></li>
+      <li><a href="/site/equipment.html">Equipment</a></li>
+      <li><a href="/site/about.html">About</a></li>
+      <li><a href="/site/videos.html">Videos</a></li>
+      <li><a href="/site/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__cta">
+      <a href="/site/contact.html" class="btn btn--primary">Get a Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
+    <button class="nav__hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <section class="page-hero">
-    <img src="../images/blanking-line.jpg" alt="Steel products" class="page-hero__bg">
-    <div class="page-hero__overlay"></div>
-    <div class="container">
-      <div class="page-hero__content">
-        <div class="label">Steel Sales</div>
-        <h1>Flat-Rolled Steel Products</h1>
-        <p>Quality steel, ready to ship. We stock a range of flat-rolled products and can process to your specs from the same facility.</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__media">
+      <img src="../images/coils-warehouse.jpg" alt="Steel coil inventory at PTP facility">
+    </div>
+    <div class="hero__gradient"></div>
+    <div class="hero__content">
+      <div class="hero__label">Steel Sales</div>
+      <h1>Flat-Rolled<br>Steel <em>Products</em></h1>
+      <p class="hero__desc">Material and processing from one source. One purchase order, one point of contact, one facility.</p>
+      <div class="hero__stats">
+        <div>
+          <div class="hero__stat-value">6</div>
+          <div class="hero__stat-label">Product Lines</div>
+        </div>
+        <div>
+          <div class="hero__stat-value">72&Prime;</div>
+          <div class="hero__stat-label">Max Width</div>
+        </div>
+        <div>
+          <div class="hero__stat-value">27+</div>
+          <div class="hero__stat-label">Years Experience</div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Intro -->
   <section class="section">
-    <div class="container">
-      <div class="section-header fade-up">
-        <div class="label">Why Buy From Us</div>
-        <h2>Material &amp; Processing, One Source</h2>
-        <p>When you buy steel from PTP, you get the advantage of in-house processing. One purchase order, one point of contact, one facility handling everything.</p>
-      </div>
+    <div class="intro reveal">
+      <div class="intro__label">Why Buy From PTP</div>
+      <h2>Material &amp; Processing,<br>One Source</h2>
+      <p>When you buy steel from PTP, you get in-house processing on the same floor. That means tighter tolerances, faster turnaround, and one less vendor to manage.</p>
     </div>
   </section>
 
-  <!-- Product Cards (Liz-style dark overlays) -->
-  <section class="section" style="padding-top:0;">
-    <div class="container--wide">
-      <div class="product-grid fade-up">
-        <div class="product-card">
-          <img src="../images/build-banner.jpg" alt="Hot-rolled steel coil">
-          <div class="product-card__overlay">
-            <h3>Hot-Rolled Coil</h3>
-            <p>ASTM A1011 commercial quality through structural grades. Pickled &amp; oiled or dry. Gauges from 0.060&Prime; to 0.250&Prime;, widths to 72&Prime;.</p>
-            <a href="/site/contact.html" class="btn btn--outline-light btn--sm" data-service="steel-sales">Get Pricing</a>
-          </div>
+  <!-- Product Spreads -->
+
+  <!-- 01 · Cold Rolled -->
+  <div class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/cold-rolled-coil.jpg" alt="Cold-rolled steel coil">
+      <div class="spread__media-label">Product 01</div>
+    </div>
+    <div class="spread__content">
+      <div class="spread__number">01</div>
+      <h2>Cold Rolled</h2>
+      <p>Low carbon, commercial quality (CQ) steel. Low carbon cold roll sheet and strip are ideally suited for high volume production of consumer products used in low-stress applications. Tighter tolerances than Hot Roll Pickle &amp; Oil, and used when surface texture, ductility, and flatness affects quality of the end product. It readily responds to stamping, spinning, bending, light drawing, resistance spot welding, and surface treatments such as painting and electroplating.</p>
+      <div class="spread__applications">
+        <div class="spread__applications-label">Typical End Usages</div>
+        <p>Home Appliances, Metal Furniture, Filing Cabinets, Lighting Fixtures, Computer Cabinets, Truck Bodies, Tubing, and many other low-carbon flat roll applications.</p>
+      </div>
+      <div class="specs">
+        <div class="spec">
+          <div class="spec__label">Standard</div>
+          <div class="spec__value">ASTM A-1008</div>
         </div>
-        <div class="product-card">
-          <img src="../images/leveler.jpg" alt="Cold-rolled steel coil">
-          <div class="product-card__overlay">
-            <h3>Cold-Rolled Coil</h3>
-            <p>ASTM A1008 in CQ, DQ, and DDQ. Tight gauge tolerances. Gauges from 0.015&Prime; to 0.125&Prime;, widths to 60&Prime;.</p>
-            <a href="/site/contact.html" class="btn btn--outline-light btn--sm" data-service="steel-sales">Get Pricing</a>
-          </div>
+        <div class="spec">
+          <div class="spec__label">Grades</div>
+          <div class="spec__value">CQ / DQ / DDQ</div>
         </div>
-        <div class="product-card">
-          <img src="../images/build-banner-2.jpg" alt="Galvanized steel coil">
-          <div class="product-card__overlay">
-            <h3>Galvanized Coil</h3>
-            <p>ASTM A653 hot-dip galvanized and galvanneal. Multiple coating weights. Gauges from 0.015&Prime; to 0.100&Prime;, widths to 60&Prime;.</p>
-            <a href="/site/contact.html" class="btn btn--outline-light btn--sm" data-service="steel-sales">Get Pricing</a>
-          </div>
+        <div class="spec">
+          <div class="spec__label">Gauge Range</div>
+          <div class="spec__value spec__value--accent">0.015&Prime; — 0.125&Prime;</div>
         </div>
-        <div class="product-card">
-          <img src="../images/blanking-line.jpg" alt="Steel plate">
-          <div class="product-card__overlay">
-            <h3>Steel Plate</h3>
-            <p>ASTM A36 and A572 structural plate. Thicknesses from &frac14;&Prime; to 1&Prime;. Cut-to-size available.</p>
-            <a href="/site/contact.html" class="btn btn--outline-light btn--sm" data-service="steel-sales">Get Pricing</a>
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="../images/solar.jpg" alt="Flat sheets">
-          <div class="product-card__overlay">
-            <h3>Flat Sheets</h3>
-            <p>Cut-to-length sheets from coil stock in HR, CR, and galvanized. Standard and custom sizes. Leveled for flatness.</p>
-            <a href="/site/contact.html" class="btn btn--outline-light btn--sm" data-service="steel-sales">Get Pricing</a>
-          </div>
-        </div>
-        <div class="product-card">
-          <img src="../images/build-banner.jpg" alt="Slit coil">
-          <div class="product-card__overlay">
-            <h3>Slit Coil</h3>
-            <p>Pre-slit coil to your width specs. All substrates available. Oscillate or ribbon wound to your requirements.</p>
-            <a href="/site/contact.html" class="btn btn--outline-light btn--sm" data-service="steel-sales">Get Pricing</a>
-          </div>
+        <div class="spec">
+          <div class="spec__label">Max Width</div>
+          <div class="spec__value spec__value--accent">60&Prime;</div>
         </div>
       </div>
+      <a href="/site/contact.html" class="btn btn--primary">Get Pricing <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
-  </section>
+  </div>
+
+  <!-- 02 · Galvanized (Hot Dipped) -->
+  <div class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/galvanized-coil.jpg" alt="Hot-dip galvanized steel coil">
+      <div class="spread__media-label">Product 02</div>
+    </div>
+    <div class="spread__content">
+      <div class="spread__number">02</div>
+      <h2>Galvanized (Hot Dipped)</h2>
+      <p>Hot Dipped Galvanized (HDGA) Sheet and Strip are continuously hot-dip coated in a molten zinc solution for a durable protective zinc surface coating. The majority of the substrate is Cold Roll base material (Hot Roll Substrate on limited gauges available on request). HDGA is one of the most economical corrosion-resistant sheet materials available, and can be formed without flaking or peeling. RoHS Compliant available.</p>
+      <div class="spread__applications">
+        <div class="spread__applications-label">Typical End Usages</div>
+        <p>Air Conditioning Equipment, HVAC Ductwork, Home Appliances, Electronic Equipment, Lighting Fixtures, Culvert, Rain Gutters, Flashing, Roofing, Computer Cabinets, Construction Framing Studs, Corner Bead, and many other corrosion-resistant applications.</p>
+      </div>
+      <div class="specs">
+        <div class="spec">
+          <div class="spec__label">Standard</div>
+          <div class="spec__value">ASTM A-653</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Coating Weights</div>
+          <div class="spec__value">G-30 / G-60 / G-90</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Spangle Types</div>
+          <div class="spec__value">Regular / Min / Zero</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Surface</div>
+          <div class="spec__value spec__value--accent">Extra Smooth / RoHS</div>
+        </div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary">Get Pricing <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+
+  <!-- 03 · GalXC -->
+  <div class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/galxc.jpg" alt="GalXC galvanized steel coil">
+      <div class="spread__media-label">Product 03</div>
+    </div>
+    <div class="spread__content">
+      <div class="spread__number">03</div>
+      <h2>Galvanized (GalXC)</h2>
+      <p>A hot-dipped galvanized product (trademark product by USS Posco, Inc.) that is similar to, and often substitutes Electro-Galvanized (ASTM A-591). It is temper-passed to provide an ultra smooth surface with a uniform "attractive" surface finish. Considered to have higher corrosion resistance when compared to ASTM A-591 Electro-Galvanized steel. RoHS Compliant available.</p>
+      <div class="spread__applications">
+        <div class="spread__applications-label">Typical End Usages</div>
+        <p>Computer Cabinets, Vending Machines, Slot Machine Parts, Display Cases, Outdoor Signs, and other high-tech electronics and gaming machine industry applications. GalXC exhibits superior conductivity ratings and can be drawn, bent, and embossed without flaking.</p>
+      </div>
+      <div class="specs">
+        <div class="spec">
+          <div class="spec__label">Standard</div>
+          <div class="spec__value">ASTM A-653</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Coating</div>
+          <div class="spec__value">G-30 Extra Smooth</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Surface</div>
+          <div class="spec__value">Ultra Smooth / FPR</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Compliance</div>
+          <div class="spec__value spec__value--accent">RoHS Compliant</div>
+        </div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary">Get Pricing <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+
+  <!-- 04 · Electro-Galvanized -->
+  <div class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/galvanized.jpg" alt="Electro-galvanized steel sheets">
+      <div class="spread__media-label">Product 04</div>
+    </div>
+    <div class="spread__content">
+      <div class="spread__number">04</div>
+      <h2>Electro-Galvanized</h2>
+      <p>Electro-Galvanized (E.G.) sheets are cold-rolled steel sheets zinc coated through a process of electrolytic disposition (electro-plating process). Coating is very smooth with no spangle, and usually matt grey in color. E.G. is ready for processing (painting, lacquering, etc), and primarily used for indoor applications unless painted. Available in both Phosphate and Chromate coating, with or without Finger Print Resistant (FPR) coating. RoHS Compliant available.</p>
+      <div class="spread__applications">
+        <div class="spread__applications-label">Typical End Usages</div>
+        <p>Electronics and Computer cabinetry, Copy Machines, Fax Machines, Light Fixtures, Signs, and other applications where ultra smooth and uniform surface finishes are required.</p>
+      </div>
+      <div class="specs">
+        <div class="spec">
+          <div class="spec__label">Standard</div>
+          <div class="spec__value">ASTM A-591</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Substrate</div>
+          <div class="spec__value">Cold Roll Base</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Coating Types</div>
+          <div class="spec__value">Phosphate / Chromate</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Options</div>
+          <div class="spec__value spec__value--accent">FPR / AFP / RoHS</div>
+        </div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary">Get Pricing <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+
+  <!-- 05 · Hot Rolled (Skin Pass) -->
+  <div class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/hot-rolled-coil.jpg" alt="Hot-rolled skin pass steel coil">
+      <div class="spread__media-label">Product 05</div>
+    </div>
+    <div class="spread__content">
+      <div class="spread__number">05</div>
+      <h2>Hot Rolled (Skin Pass)</h2>
+      <p>Low carbon, commercial steel brought to finished size by rolling at high temperatures. For a better surface condition and tighter tolerances versus Hot Roll Band, PTP inventories a temper-passed product. Thicker in gauge versus cold roll, Hot Roll is a relatively low-cost steel sheet, soft enough to bend flat on itself in any direction without cracking and ductile enough for shallow drawing.</p>
+      <div class="spread__applications">
+        <div class="spread__applications-label">Typical End Usages</div>
+        <p>Home Safes, Storage Tanks, Trash Bins, Structural Supports, Tubing, and other applications where surface finish is not as critical as a Cold Roll product.</p>
+      </div>
+      <div class="specs">
+        <div class="spec">
+          <div class="spec__label">Standard</div>
+          <div class="spec__value">ASTM A-1011</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Grade</div>
+          <div class="spec__value">Commercial Steel</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Gauge Range</div>
+          <div class="spec__value spec__value--accent">0.060&Prime; — 0.250&Prime;</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Max Width</div>
+          <div class="spec__value spec__value--accent">72&Prime;</div>
+        </div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary">Get Pricing <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+
+  <!-- 06 · Galvanneal -->
+  <div class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/galvaneal-coal.jpg" alt="Galvanneal steel coil">
+      <div class="spread__media-label">Product 06</div>
+    </div>
+    <div class="spread__content">
+      <div class="spread__number">06</div>
+      <h2>Galvanneal (Jet Coat)</h2>
+      <p>Galvannealed Sheets are heat treated after coating (alloy surface zinc with iron-base metal) producing a zinc-iron alloy surface layer eliminating the spangle. Also referred to as Jet Coat and White Galvanized, the surface can be easily painted with minimum surface preparation. It can be subject to simple bending and forming without peeling, and is easier to surface weld compared to a Hot Dipped product. Available oiled or dry.</p>
+      <div class="spread__applications">
+        <div class="spread__applications-label">Typical End Usages</div>
+        <p>Automotive Body Panels, Truck &amp; Trailer Bodies, Metal Doors, Appliances, Sign Boards, and other applications where welding, painting, and forming along with corrosion resistance are required.</p>
+      </div>
+      <div class="specs">
+        <div class="spec">
+          <div class="spec__label">Standard</div>
+          <div class="spec__value">ASTM A-653</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Coating Weights</div>
+          <div class="spec__value">A40 / A60</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Surface</div>
+          <div class="spec__value">Matte / Paintable</div>
+        </div>
+        <div class="spec">
+          <div class="spec__label">Finish</div>
+          <div class="spec__value spec__value--accent">Oiled or Dry</div>
+        </div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary">Get Pricing <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
 
   <!-- Delivery -->
-  <div class="split fade-up">
-    <div class="split__media">
-      <img src="../images/build-banner-2.jpg" alt="Steel delivery">
+  <div class="delivery reveal">
+    <div class="delivery__media">
+      <img src="../images/ptp-truck.jpg" alt="PTP branded delivery truck">
     </div>
-    <div class="split__content split__content--dark">
-      <div class="label">Delivery</div>
+    <div class="delivery__content">
+      <div class="delivery__label">Delivery</div>
       <h2>West Coast &amp; Southwest Coverage</h2>
-      <p>Located in Carson, CA, we're positioned for fast delivery across Southern California and the greater West Coast and Southwest regions.</p>
-      <ul class="check-list">
+      <p>Located in Carson, CA — positioned for fast delivery across Southern California and the greater West Coast and Southwest regions.</p>
+      <ul class="delivery__list">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Flatbed and coil truck delivery</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Customer pickup available</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Common carrier and LTL options</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Rush orders accommodated</li>
       </ul>
-      <a href="/site/contact.html" class="btn btn--ghost">Request a Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/site/contact.html" class="btn btn--outline">Request a Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
   </div>
 
-  <section class="cta-banner">
-    <div class="container">
-      <div class="cta-banner__inner">
-        <div>
-          <h2>Need Steel?</h2>
-          <p>Tell us what you need and we'll get you competitive pricing fast.</p>
-        </div>
-        <div class="cta-banner__actions">
-          <a href="/site/contact.html" class="btn btn--primary">Request a Quote</a>
-          <a href="tel:3109524992" class="btn btn--outline-light">Call (310) 952-4992</a>
-        </div>
-      </div>
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Need Steel?</h2>
+    <p>Tell us what you need. We'll get you competitive pricing — usually within 24 hours.</p>
+    <div class="cta-section__actions">
+      <a href="/site/contact.html" class="btn btn--primary">Request a Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="tel:3109524992" class="btn btn--outline">Call (310) 952-4992</a>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
       <div class="footer__top">
         <div class="footer__brand">
           <img src="../images/ptp-logo-white.png" alt="Pacific Toll Processing">
-          <p>Full-service steel toll processing and sales from our solar-powered facility in Carson, CA.</p>
+          <p>Full-service steel toll processing and sales from our solar-powered facility in Carson, CA. Serving the West Coast and Southwest for over 27 years.</p>
         </div>
         <div>
           <h4>Services</h4>
@@ -177,9 +910,10 @@
         <div>
           <h4>Company</h4>
           <ul>
+            <li><a href="/site/steel-sales.html">Steel Sales</a></li>
             <li><a href="/site/about.html">About Us</a></li>
             <li><a href="/site/equipment.html">Equipment</a></li>
-            <li><a href="/site/steel-sales.html">Steel Sales</a></li>
+            <li><a href="/site/videos.html">Videos</a></li>
             <li><a href="/site/contact.html">Contact</a></li>
           </ul>
         </div>
@@ -199,198 +933,20 @@
     </div>
   </footer>
 
-  <!-- Quote Wizard Modal -->
-  <div class="modal-overlay" id="quote-modal">
-    <div class="modal modal--wizard">
-      <button class="modal__close" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-      <div class="modal__header">
-        <h2>Request a Quote</h2>
-        <p class="modal__tagline">Let's forge something great together.</p>
-        <div class="wizard__progress">
-          <div class="wizard__progress-bar"></div>
-        </div>
-        <div class="wizard__steps-label">Step <span class="wizard__current">1</span> of 4</div>
-      </div>
-      <div class="modal__body">
-        <form id="quote-form" action="https://formspree.io/f/xoevpyja" method="POST">
-          <!-- Step 1: Service Selection -->
-          <div class="wizard__step active" data-step="1">
-            <p class="wizard__step-title">What can we help with?</p>
-            <p class="wizard__selection-count">Select all that apply</p>
-            <div class="wizard__cards">
-              <label class="wizard__card">
-                <input type="checkbox" name="service" value="slitting">
-                <span class="wizard__card-inner">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg>
-                  <strong>Steel Slitting</strong>
-                  <span>Coil to narrow strips</span>
-                </span>
-              </label>
-              <label class="wizard__card">
-                <input type="checkbox" name="service" value="blanking">
-                <span class="wizard__card-inner">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18"/></svg>
-                  <strong>Multi-Blanking</strong>
-                  <span>Flat blanks for stamping</span>
-                </span>
-              </label>
-              <label class="wizard__card">
-                <input type="checkbox" name="service" value="leveling">
-                <span class="wizard__card-inner">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12h20M6 8h12M4 16h16"/></svg>
-                  <strong>Precision Leveling</strong>
-                  <span>Dead-flat material</span>
-                </span>
-              </label>
-              <label class="wizard__card">
-                <input type="checkbox" name="service" value="ctl">
-                <span class="wizard__card-inner">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6h16M4 12h16M4 18h10"/><path d="M18 14l4 4-4 4"/></svg>
-                  <strong>Cut-to-Length</strong>
-                  <span>Coil to flat sheets</span>
-                </span>
-              </label>
-              <label class="wizard__card">
-                <input type="checkbox" name="service" value="steel-sales">
-                <span class="wizard__card-inner">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                  <strong>Steel Sales</strong>
-                  <span>Buy flat-rolled steel</span>
-                </span>
-              </label>
-              <label class="wizard__card">
-                <input type="checkbox" name="service" value="other">
-                <span class="wizard__card-inner">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9 9a3 3 0 115.12 2.12c-.58.59-1.62 1.13-2.12 1.88v1M12 17h.01"/></svg>
-                  <strong>Something Else</strong>
-                  <span>Custom request</span>
-                </span>
-              </label>
-            </div>
-          </div>
-          <!-- Step 2: Material Details -->
-          <div class="wizard__step" data-step="2">
-            <p class="wizard__step-title">Tell us about your material</p>
-            <div class="form-group">
-              <label for="q-material">Material Type</label>
-              <select id="q-material" name="material">
-                <option value="">Select material...</option>
-                <option value="hot-rolled">Hot-Rolled Steel</option>
-                <option value="cold-rolled">Cold-Rolled Steel</option>
-                <option value="galvanized">Galvanized Steel</option>
-                <option value="galvanneal">Galvanneal</option>
-                <option value="stainless">Stainless Steel</option>
-                <option value="other">Other / Not Sure</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="q-gauge">Gauge / Thickness</label>
-                <input type="text" id="q-gauge" name="gauge" placeholder='e.g. 0.060"'>
-              </div>
-              <div class="form-group">
-                <label for="q-width">Width</label>
-                <input type="text" id="q-width" name="width" placeholder='e.g. 48"'>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="q-quantity">Quantity</label>
-                <input type="text" id="q-quantity" name="quantity" placeholder="e.g. 20,000 lbs">
-              </div>
-              <div class="form-group">
-                <label for="q-timeline">Timeline</label>
-                <select id="q-timeline" name="timeline">
-                  <option value="">When do you need it?</option>
-                  <option value="asap">ASAP / Rush</option>
-                  <option value="1-2weeks">1-2 Weeks</option>
-                  <option value="2-4weeks">2-4 Weeks</option>
-                  <option value="flexible">Flexible</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="q-message">Additional Details</label>
-              <textarea id="q-message" name="message" rows="3" placeholder="Special requirements, tolerances, delivery notes..."></textarea>
-            </div>
-          </div>
-          <!-- Step 3: Contact Info -->
-          <div class="wizard__step" data-step="3">
-            <p class="wizard__step-title">How can we reach you?</p>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="q-name">Name *</label>
-                <input type="text" id="q-name" name="name" required placeholder="Your name">
-              </div>
-              <div class="form-group">
-                <label for="q-company">Company</label>
-                <input type="text" id="q-company" name="company" placeholder="Company name">
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="q-email">Email *</label>
-                <input type="email" id="q-email" name="email" required placeholder="your@email.com">
-              </div>
-              <div class="form-group">
-                <label for="q-phone">Phone</label>
-                <input type="tel" id="q-phone" name="phone" placeholder="(555) 555-5555">
-              </div>
-            </div>
-          </div>
-          <!-- Step 4: Review & Submit -->
-          <div class="wizard__step" data-step="4">
-            <p class="wizard__step-title">Review your request</p>
-            <div class="wizard__review">
-              <div class="wizard__review-row"><span>Service</span><strong id="review-service">—</strong></div>
-              <div class="wizard__review-row"><span>Material</span><strong id="review-material">—</strong></div>
-              <div class="wizard__review-row"><span>Gauge</span><strong id="review-gauge">—</strong></div>
-              <div class="wizard__review-row"><span>Width</span><strong id="review-width">—</strong></div>
-              <div class="wizard__review-row"><span>Quantity</span><strong id="review-quantity">—</strong></div>
-              <div class="wizard__review-row"><span>Timeline</span><strong id="review-timeline">—</strong></div>
-              <div class="wizard__review-row"><span>Name</span><strong id="review-name">—</strong></div>
-              <div class="wizard__review-row"><span>Email</span><strong id="review-email">—</strong></div>
-            </div>
-            <button type="submit" class="btn btn--primary" style="width:100%;margin-top:24px;">Submit Request <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-          </div>
-        </form>
-        <!-- Success -->
-        <div class="modal__success">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:48px;height:48px;color:var(--success);margin-bottom:16px;"><path d="M20 6L9 17l-5-5"/></svg>
-          <h3>Quote Request Received!</h3>
-          <p>Thank you! We'll review your requirements and get back to you within one business day.</p>
-        </div>
-        <!-- Wizard Navigation -->
-        <div class="wizard__nav">
-          <button type="button" class="wizard__btn wizard__btn--back">Back</button>
-          <button type="button" class="wizard__btn wizard__btn--next btn btn--primary">Next <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
-        </div>
-      </div>
-    </div>
-  </div>
   <!-- Quick Nav -->
   <div class="quick-nav" id="quick-nav">
     <div class="quick-nav__menu">
-      <a href="/deck/index.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        Intro Deck
-      </a>
-      <a href="/site/index.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1m-2 0h2"/></svg>
-        Website
-      </a>
-      <div class="quick-nav__divider"></div>
-      <a href="/dashboard">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>
-        Admin
-      </a>
-      <a href="/proposal.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-        Proposal
-      </a>
+      <a href="/site/index.html">Home</a>
+      <a href="/site/steel-sales.html">Steel Sales</a>
+      <a href="/site/services.html">Services</a>
+      <a href="/site/equipment.html">Equipment</a>
+      <a href="/site/about.html">About</a>
+      <a href="/site/videos.html">Videos</a>
+      <a href="/site/contact.html">Contact</a>
+      <a href="/site/contact.html" class="quick-nav__item--cta">Get a Quote</a>
     </div>
     <button class="quick-nav__toggle" aria-label="Quick navigation">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
     </button>
   </div>
 
@@ -405,6 +961,20 @@
     </div>
   </div>
 
+  <script>
+    // Reveal on scroll (steel-sales specific animation class)
+    var reveals = document.querySelectorAll('.reveal');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    reveals.forEach(function(el) { observer.observe(el); });
+  </script>
   <script src="/site/js/main.js"></script>
+  <script src="/site/js/review.js"></script>
 </body>
 </html>

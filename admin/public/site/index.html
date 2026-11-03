@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pacific Toll Processing | Steel Toll Processing & Sales | Carson, CA</title>
-  <meta name="description" content="Pacific Toll Processing — 35+ years of steel toll processing and sales in Carson, CA. Slitting, blanking, leveling, cut-to-length and flat-rolled steel sales.">
+  <meta name="description" content="Pacific Toll Processing — 27+ years of steel toll processing and sales in Carson, CA. Slitting, blanking, leveling, cut-to-length and flat-rolled steel sales.">
   <meta name="keywords" content="steel toll processing, steel sales, slitting, blanking, leveling, cut-to-length, flat-rolled steel, Carson CA, Pacific Toll Processing, PTP, West Coast steel, solar-powered steel facility">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <link rel="canonical" href="https://pacifictoll.com/">
@@ -16,7 +16,7 @@
     "@id": "https://pacifictoll.com/#organization",
     "name": "Pacific Toll Processing",
     "alternateName": "PTP",
-    "description": "Pacific Toll Processing is a full-service steel toll processing and flat-rolled steel sales company in Carson, CA. Services include steel slitting, multi-blanking, precision leveling, and cut-to-length processing. Over 35 years of experience, 100,000+ sq ft solar-powered facility, serving the West Coast and Southwest.",
+    "description": "Pacific Toll Processing is a full-service steel toll processing and flat-rolled steel sales company in Carson, CA. Services include steel slitting, multi-blanking, precision leveling, and cut-to-length processing. Over 27 years of experience, 100,000+ sq ft solar-powered facility, serving the West Coast and Southwest.",
     "url": "https://pacifictoll.com",
     "logo": "https://pacifictoll.com/images/ptp-logo-white.png",
     "image": "https://pacifictoll.com/images/build-banner.jpg",
@@ -107,10 +107,11 @@
       </a>
       <ul class="nav__links">
         <li><a href="/site/index.html">Home</a></li>
-        <li><a href="/site/services.html">Services</a></li>
         <li><a href="/site/steel-sales.html">Steel Sales</a></li>
+        <li><a href="/site/services.html">Services</a></li>
         <li><a href="/site/equipment.html">Equipment</a></li>
         <li><a href="/site/about.html">About</a></li>
+        <li><a href="/site/videos.html">Videos</a></li>
         <li><a href="/site/contact.html">Contact</a></li>
       </ul>
       <div class="nav__cta">
@@ -125,7 +126,7 @@
   <!-- Hero with Video Background -->
   <section class="hero">
     <div class="hero__media">
-      <iframe src="https://player.vimeo.com/video/329404405?background=1&autoplay=1&loop=1&muted=1&dnt=1" style="position:absolute;top:50%;left:50%;width:177.78vh;height:100vh;min-width:100%;min-height:56.25vw;transform:translate(-50%,-50%);border:0;opacity:.4;" allow="autoplay" title="PTP facility footage"></iframe>
+      <iframe id="hero-video" src="https://player.vimeo.com/video/329404405?h=b7056b1cbf&autoplay=1&loop=1&muted=1&controls=0&dnt=1" style="position:absolute;top:50%;left:50%;width:177.78vh;height:100vh;min-width:100%;min-height:56.25vw;transform:translate(-50%,-50%);border:0;opacity:.7;" allow="autoplay" title="PTP facility footage"></iframe>
     </div>
     <div class="hero__overlay"></div>
     <div class="container">
@@ -174,7 +175,7 @@
     <div class="container--wide">
       <div class="stats">
         <div class="stat">
-          <div class="stat__number">35+</div>
+          <div class="stat__number">27+</div>
           <div class="stat__label">Years in Business</div>
         </div>
         <div class="stat">
@@ -205,7 +206,7 @@
     <div class="container--wide">
       <div class="service-grid fade-up">
         <a href="/site/services.html#slitting" class="service-tile">
-          <img src="../images/build-banner-2.jpg" alt="Steel slitting">
+          <img src="../images/slitter.jpg" alt="Steel slitting">
           <div class="service-tile__overlay">
             <div class="service-tile__arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg></div>
             <h3>Steel Slitting</h3>
@@ -261,20 +262,20 @@
   <!-- Video Section: Journey of Steel -->
   <section class="video-section">
     <div style="position:absolute;inset:0;background:var(--charcoal);"></div>
-    <iframe src="https://player.vimeo.com/video/301666140?background=1&autoplay=1&loop=1&muted=1&dnt=1" style="position:absolute;top:50%;left:50%;width:177.78vh;height:100vh;min-width:100%;min-height:56.25vw;transform:translate(-50%,-50%);border:0;opacity:.5;" allow="autoplay" title="The Journey of Steel"></iframe>
-    <div class="video-section__overlay"></div>
+    <iframe src="https://player.vimeo.com/video/329404405?h=b7056b1cbf&background=1&autoplay=1&loop=1&muted=1&dnt=1" style="position:absolute;top:50%;left:50%;width:177.78vh;height:100vh;min-width:100%;min-height:56.25vw;transform:translate(-50%,-50%);border:0;opacity:.65;" allow="autoplay" title="Featured — Pacific Toll Processing"></iframe>
+    <div class="video-section__overlay" style="background:rgba(13,15,17,.45);"></div>
     <div class="video-section__content">
-      <div class="label" style="color:var(--forge-orange-light);margin-bottom:20px;">The Journey of Steel</div>
-      <h2>Watch Our Fly-Through</h2>
+      <div class="label" style="color:var(--forge-orange-light);margin-bottom:20px;">Featured</div>
+      <h2>Watch Our Story</h2>
       <p>See our facility, equipment, and team in action &mdash; from raw coil to finished product.</p>
-      <a href="https://vimeo.com/301666140" target="_blank" rel="noopener" class="btn btn--primary">Watch Full Video <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none"/></svg></a>
+      <button class="btn btn--primary" onclick="document.getElementById('video-theater').style.display='flex';document.body.style.overflow='hidden';">Watch Full Video <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3" fill="currentColor" stroke="none"/></svg></button>
     </div>
   </section>
 
   <!-- Split: Steel Sales -->
   <div class="split split--reverse fade-up">
     <div class="split__media">
-      <img src="../images/blanking-line.jpg" alt="PTP blanking line">
+      <img src="../images/coils-inventory.jpg" alt="PTP steel inventory">
     </div>
     <div class="split__content">
       <div class="label">Steel Sales</div>
@@ -311,7 +312,7 @@
       <div class="footer__top">
         <div class="footer__brand">
           <img src="../images/ptp-logo-white.png" alt="Pacific Toll Processing">
-          <p>Full-service steel toll processing and sales from our solar-powered facility in Carson, CA. Serving the West Coast and Southwest for over 35 years.</p>
+          <p>Full-service steel toll processing and sales from our solar-powered facility in Carson, CA. Serving the West Coast and Southwest for over 27 years.</p>
         </div>
         <div>
           <h4>Services</h4>
@@ -325,9 +326,10 @@
         <div>
           <h4>Company</h4>
           <ul>
+            <li><a href="/site/steel-sales.html">Steel Sales</a></li>
             <li><a href="/site/about.html">About Us</a></li>
             <li><a href="/site/equipment.html">Equipment</a></li>
-            <li><a href="/site/steel-sales.html">Steel Sales</a></li>
+            <li><a href="/site/videos.html">Videos</a></li>
             <li><a href="/site/contact.html">Contact</a></li>
           </ul>
         </div>
@@ -346,6 +348,117 @@
       </div>
     </div>
   </footer>
+
+  <!-- Quick Nav -->
+  <div class="quick-nav" id="quick-nav">
+    <div class="quick-nav__menu">
+      <a href="/site/index.html" class="quick-nav__item">Home</a>
+      <a href="/site/steel-sales.html" class="quick-nav__item">Steel Sales</a>
+      <a href="/site/services.html" class="quick-nav__item">Services</a>
+      <a href="/site/equipment.html" class="quick-nav__item">Equipment</a>
+      <a href="/site/about.html" class="quick-nav__item">About</a>
+      <a href="/site/videos.html" class="quick-nav__item">Videos</a>
+      <a href="/site/contact.html" class="quick-nav__item">Contact</a>
+      <a href="/site/contact.html" class="quick-nav__item quick-nav__item--cta">Get a Quote</a>
+    </div>
+    <button class="quick-nav__toggle" aria-label="Quick navigation">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+    </button>
+  </div>
+
+  <!-- Cookie Consent -->
+  <div class="cookie-bar" id="cookie-bar">
+    <div class="cookie-bar__inner">
+      <p class="cookie-bar__text">We use cookies to improve your experience. By continuing to use this site, you agree to our <a href="/site/privacy.html">Privacy &amp; Cookie Policy</a>.</p>
+      <div class="cookie-bar__actions">
+        <button class="cookie-bar__btn cookie-bar__btn--decline">Decline</button>
+        <button class="cookie-bar__btn cookie-bar__btn--accept">Accept</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Video Theater -->
+  <div id="video-theater" style="display:none;position:fixed;inset:0;z-index:5000;background:rgba(0,0,0,.92);backdrop-filter:blur(12px);align-items:center;justify-content:center;padding:40px;">
+    <button onclick="this.parentElement.style.display='none';document.body.style.overflow='';this.parentElement.querySelector('iframe').src=this.parentElement.querySelector('iframe').src;" style="position:absolute;top:20px;right:24px;background:none;border:none;color:rgba(255,255,255,.6);cursor:pointer;font-size:2rem;line-height:1;z-index:2;transition:color .2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,.6)'">&times;</button>
+    <div style="width:100%;max-width:1200px;aspect-ratio:16/9;">
+      <iframe src="https://player.vimeo.com/video/1239026236?title=0&byline=0&portrait=0&dnt=1" style="width:100%;height:100%;border:0;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Pacific Toll Processing"></iframe>
+    </div>
+  </div>
+
+  <!-- Persistent Audio Toggle -->
+  <button id="unmute-btn" onclick="toggleHeroAudio()" aria-label="Unmute video">
+    <svg id="unmute-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none"/>
+      <line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>
+    </svg>
+    <svg id="mute-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;">
+      <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" fill="currentColor" stroke="none"/>
+      <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+    </svg>
+  </button>
+
+  <style>
+    #unmute-btn {
+      position: fixed;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 900;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px 0 0 8px;
+      border: 1px solid rgba(255,255,255,.12);
+      border-right: none;
+      background: rgba(0,0,0,.4);
+      backdrop-filter: blur(8px);
+      color: rgba(255,255,255,.45);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .3s ease;
+      padding: 0;
+    }
+    #unmute-btn:hover {
+      width: 42px;
+      background: rgba(0,0,0,.6);
+      color: rgba(255,255,255,.8);
+      border-color: rgba(255,255,255,.25);
+    }
+    #unmute-btn.is-playing {
+      color: var(--accent);
+      border-color: rgba(74,127,165,.3);
+      background: rgba(74,127,165,.12);
+    }
+    #unmute-btn.is-playing:hover {
+      background: rgba(74,127,165,.2);
+      color: var(--accent);
+    }
+  </style>
+
+  <script src="https://player.vimeo.com/api/player.js"></script>
+  <script>
+    var heroPlayer, heroMuted = true;
+    function initHeroPlayer() {
+      var iframe = document.getElementById('hero-video');
+      if (!iframe || typeof Vimeo === 'undefined') return;
+      heroPlayer = new Vimeo.Player(iframe);
+      heroPlayer.setVolume(0.5);
+      heroPlayer.setMuted(true);
+    }
+    function toggleHeroAudio() {
+      if (!heroPlayer) initHeroPlayer();
+      if (!heroPlayer) return;
+      heroMuted = !heroMuted;
+      heroPlayer.setMuted(heroMuted);
+      var btn = document.getElementById('unmute-btn');
+      document.getElementById('unmute-icon').style.display = heroMuted ? '' : 'none';
+      document.getElementById('mute-icon').style.display = heroMuted ? 'none' : '';
+      btn.classList.toggle('is-playing', !heroMuted);
+      btn.setAttribute('aria-label', heroMuted ? 'Unmute video' : 'Mute video');
+    }
+    document.addEventListener('DOMContentLoaded', initHeroPlayer);
+  </script>
 
   <!-- Quote Wizard Modal -->
   <div class="modal-overlay" id="quote-modal">
@@ -516,43 +629,8 @@
       </div>
     </div>
   </div>
-  <!-- Quick Nav -->
-  <div class="quick-nav" id="quick-nav">
-    <div class="quick-nav__menu">
-      <a href="/deck/index.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
-        Intro Deck
-      </a>
-      <a href="/site/index.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-4 0a1 1 0 01-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1m-2 0h2"/></svg>
-        Website
-      </a>
-      <div class="quick-nav__divider"></div>
-      <a href="/dashboard">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.066 2.573c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.573 1.066c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.066-2.573c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3"/></svg>
-        Admin
-      </a>
-      <a href="/proposal.html">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-        Proposal
-      </a>
-    </div>
-    <button class="quick-nav__toggle" aria-label="Quick navigation">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-    </button>
-  </div>
-
-  <!-- Cookie Consent -->
-  <div class="cookie-bar" id="cookie-bar">
-    <div class="cookie-bar__inner">
-      <p class="cookie-bar__text">We use cookies to improve your experience. By continuing to use this site, you agree to our <a href="/site/privacy.html">Privacy &amp; Cookie Policy</a>.</p>
-      <div class="cookie-bar__actions">
-        <button class="cookie-bar__btn cookie-bar__btn--decline">Decline</button>
-        <button class="cookie-bar__btn cookie-bar__btn--accept">Accept</button>
-      </div>
-    </div>
-  </div>
 
   <script src="/site/js/main.js"></script>
+  <script src="/site/js/review.js"></script>
 </body>
 </html>
