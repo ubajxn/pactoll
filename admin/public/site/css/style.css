@@ -951,7 +951,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .footer__top {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   gap: 48px;
   padding-bottom: 64px;
   border-bottom: 1px solid var(--border);
@@ -1428,7 +1428,7 @@ img { max-width: 100%; height: auto; display: block; }
   .equipment-item { grid-template-columns: 1fr; }
   .equipment-item:nth-child(even) { direction: ltr; }
   .equipment-item__media { height: 300px; }
-  .footer__top { grid-template-columns: 1fr 1fr; }
+  .footer__top { grid-template-columns: 1fr 1fr 1fr; }
   .cta-banner__inner { flex-direction: column; text-align: center; }
   .cta-banner__actions { justify-content: center; }
   .product-grid { grid-template-columns: 1fr 1fr; }
