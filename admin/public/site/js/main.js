@@ -325,8 +325,8 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Intercept all quote/contact CTA links
-  document.querySelectorAll('a[href="contact.html"], a[data-modal="quote"], a[data-service]').forEach(function(link) {
-    if (link.closest('.nav__links') || link.closest('.footer')) return;
+  document.querySelectorAll('a[href="contact.html"], a[href="/site/contact.html"], a[data-modal="quote"], a[data-service]').forEach(function(link) {
+    if (link.closest('.footer')) return;
     link.addEventListener('click', function(e) {
       e.preventDefault();
       var service = this.getAttribute('data-service') || '';
