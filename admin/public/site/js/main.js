@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // ===================== QUOTE WIZARD MODAL =====================
   var overlay = document.getElementById('quote-modal');
-  if (overlay) {
+  if (!overlay) return;
 
   var modal = overlay.querySelector('.modal');
   var form = document.getElementById('quote-form');
@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   // Intercept all quote/contact CTA links
-  document.querySelectorAll('a[href="/site/contact.html"], a[href="contact.html"], a[data-modal="quote"], a[data-service]').forEach(function(link) {
+  document.querySelectorAll('a[href="contact.html"], a[data-modal="quote"], a[data-service]').forEach(function(link) {
     if (link.closest('.nav__links') || link.closest('.footer')) return;
     link.addEventListener('click', function(e) {
       e.preventDefault();
@@ -395,7 +395,6 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
-  } // end if (overlay)
 
   // ===================== QUICK NAV =====================
   var quickNav = document.getElementById('quick-nav');
