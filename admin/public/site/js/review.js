@@ -13,7 +13,7 @@
   // ── Inject Styles ──
   var style = document.createElement('style');
   style.textContent = [
-    '@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap");',
+    '@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");',
 
     '#rv-overlay * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Inter", system-ui, sans-serif; }',
 
@@ -32,8 +32,8 @@
     '  display: flex; align-items: center; justify-content: space-between; flex-shrink: 0;',
     '}',
     '#rv-panel-header h2 {',
-    '  font-family: "DM Mono", monospace; font-size: 10px; font-weight: 500;',
-    '  letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.4);',
+    '  font-family: "Inter", sans-serif; font-size: 10px; font-weight: 500;',
+    '  letter-spacing: .15em; ; color: rgba(255,255,255,.4);',
     '}',
     '#rv-page-label { font-size: 13px; font-weight: 500; color: #fff; margin-top: 4px; }',
 
@@ -77,13 +77,13 @@
     '  font-weight: 600; font-size: 13px; color: #fff;',
     '}',
     '.rv-comment-time {',
-    '  font-family: "DM Mono", monospace; font-size: 10px; color: rgba(255,255,255,.25);',
+    '  font-family: "Inter", sans-serif; font-size: 10px; color: rgba(255,255,255,.25);',
     '}',
     '.rv-comment-body { font-size: 13px; line-height: 1.6; color: rgba(255,255,255,.65); }',
     '.rv-comment-pin-badge {',
     '  display: inline-flex; align-items: center; gap: 4px; margin-top: 8px;',
-    '  font-family: "DM Mono", monospace; font-size: 9px; letter-spacing: .1em;',
-    '  text-transform: uppercase; color: #4A7FA5; opacity: .7;',
+    '  font-family: "Inter", sans-serif; font-size: 9px; letter-spacing: .1em;',
+    '  ; color: #4A7FA5; opacity: .7;',
     '}',
     '.rv-comment.resolved { opacity: .4; }',
     '.rv-comment.resolved .rv-comment-body { text-decoration: line-through; }',
@@ -108,7 +108,7 @@
     '#rv-form textarea::placeholder { color: rgba(255,255,255,.2); }',
     '#rv-form-actions { display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }',
     '#rv-pin-indicator {',
-    '  font-family: "DM Mono", monospace; font-size: 10px; color: #4A7FA5;',
+    '  font-family: "Inter", sans-serif; font-size: 10px; color: #4A7FA5;',
     '  letter-spacing: .05em;',
     '}',
 
@@ -118,7 +118,7 @@
     '  background: #4A7FA5; border: 2px solid #fff; border-radius: 50%;',
     '  box-shadow: 0 2px 12px rgba(0,0,0,.4); cursor: pointer;',
     '  display: flex; align-items: center; justify-content: center;',
-    '  font-family: "DM Mono", monospace; font-size: 10px; font-weight: 600; color: #fff;',
+    '  font-family: "Inter", sans-serif; font-size: 10px; font-weight: 600; color: #fff;',
     '  transform: translate(-50%, -50%); transition: transform .15s, box-shadow .15s;',
     '  pointer-events: auto;',
     '}',
@@ -158,8 +158,8 @@
     '  box-shadow: 0 24px 80px rgba(0,0,0,.6);',
     '}',
     '#rv-name-card h3 {',
-    '  font-family: "DM Mono", monospace; font-size: 10px; font-weight: 500;',
-    '  letter-spacing: .2em; text-transform: uppercase; color: rgba(255,255,255,.3);',
+    '  font-family: "Inter", sans-serif; font-size: 10px; font-weight: 500;',
+    '  letter-spacing: .2em; ; color: rgba(255,255,255,.3);',
     '  margin-bottom: 16px;',
     '}',
     '#rv-name-card p {',
@@ -192,7 +192,7 @@
     '  background: #4A7FA5; color: #fff; font-size: 10px; font-weight: 700;',
     '  min-width: 18px; height: 18px; border-radius: 9px; display: inline-flex;',
     '  align-items: center; justify-content: center; padding: 0 5px;',
-    '  font-family: "DM Mono", monospace;',
+    '  font-family: "Inter", sans-serif;',
     '}',
 
     /* Page body shift */
@@ -383,7 +383,7 @@
     });
 
     if (resolved.length > 0) {
-      html += '<div style="font-family:DM Mono,monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.2);padding:16px 0 8px;">Resolved (' + resolved.length + ')</div>';
+      html += '<div style="font-family:Inter,sans-serif;font-size:11px;font-weight:600;letter-spacing:.04em;color:rgba(255,255,255,.35);padding:16px 0 8px;">Resolved (' + resolved.length + ')</div>';
       resolved.forEach(function(c) {
         html += '<div class="rv-comment resolved" data-id="' + c.id + '">';
         html += '<div class="rv-comment-header">';
