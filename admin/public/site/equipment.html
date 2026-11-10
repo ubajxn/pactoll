@@ -62,33 +62,30 @@
     /* ---- NAV ---- */
     .nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      padding: 0 48px; height: 72px;
-      display: flex; align-items: center;
-      background: rgba(13,15,17,.85);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border);
+      padding: 20px 40px;
+      display: flex; align-items: center; justify-content: space-between;
       transition: background .3s;
     }
-    .nav__inner {
-      width: 100%; max-width: 1400px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .nav__logo img { height: 28px; }
-    .nav__links {
-      list-style: none; display: flex; gap: 32px;
-      position: absolute; left: 50%; transform: translateX(-50%);
-    }
+    .nav.scrolled { background: rgba(13,15,17,.95); backdrop-filter: blur(12px); }
+    .nav__logo img { height: 84px; }
+    .nav__links { list-style: none; display: flex; gap: 32px; }
     .nav__links a {
-      font-size: .8rem; letter-spacing: .04em; color: var(--text-mid);
-      transition: color .2s;
+      color: var(--text-mid); font-size: 13px; font-weight: 500;
+      letter-spacing: .02em; transition: color .2s;
     }
     .nav__links a:hover { color: var(--text); }
-    .nav__cta .btn { font-size: .8rem; }
-    .nav__hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-    .nav__hamburger span {
-      display: block; width: 20px; height: 1.5px; background: var(--text);
-      margin: 5px 0; transition: .3s;
+    .nav__cta .btn { font-size: 13px; padding: 10px 20px; }
+    .nav__hamburger {
+      display: none; background: none; border: none; cursor: pointer;
+      width: 28px; height: 20px; position: relative;
     }
+    .nav__hamburger span {
+      position: absolute; left: 0; width: 100%; height: 2px;
+      background: var(--text); transition: .3s;
+    }
+    .nav__hamburger span:nth-child(1) { top: 0; }
+    .nav__hamburger span:nth-child(2) { top: 9px; }
+    .nav__hamburger span:nth-child(3) { top: 18px; }
 
     /* ---- BUTTONS ---- */
     .btn {
@@ -415,9 +412,9 @@
 
     /* ---- MOBILE ---- */
     @media (max-width: 900px) {
-      .nav { padding: 0 20px; }
+      .nav { padding: 16px 24px; }
       .nav__links, .nav__cta { display: none; }
-      .nav__hamburger { display: block; }
+      .nav__hamburger { display: flex; }
 
       .hero { padding: 0 24px 48px; min-height: 85vh; }
       .hero__title { font-size: 2rem; }
@@ -463,26 +460,24 @@
 <body>
 
   <nav class="nav">
-    <div class="nav__inner">
-      <a href="/site/index.html" class="nav__logo">
-        <img src="../images/ptp-logo-white.png" alt="Pacific Toll Processing">
-      </a>
-      <ul class="nav__links">
-        <li><a href="/site/index.html">Home</a></li>
-        <li><a href="/site/steel-sales.html">Steel Sales</a></li>
-        <li><a href="/site/services.html">Services</a></li>
-        <li><a href="/site/equipment.html">Equipment</a></li>
-        <li><a href="/site/about.html">About</a></li>
-        <li><a href="/site/videos.html">Videos</a></li>
-        <li><a href="/site/contact.html">Contact</a></li>
-      </ul>
-      <div class="nav__cta">
-        <a href="/site/contact.html" class="btn btn--primary">Get a Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-      <button class="nav__hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+    <a href="/site/index.html" class="nav__logo">
+      <img src="../images/ptp-logo-white.png" alt="Pacific Toll Processing">
+    </a>
+    <ul class="nav__links">
+      <li><a href="/site/index.html">Home</a></li>
+      <li><a href="/site/steel-sales.html">Steel Sales</a></li>
+      <li><a href="/site/services.html">Services</a></li>
+      <li><a href="/site/equipment.html">Equipment</a></li>
+      <li><a href="/site/about.html">About</a></li>
+      <li><a href="/site/videos.html">Videos</a></li>
+      <li><a href="/site/contact.html">Contact</a></li>
+    </ul>
+    <div class="nav__cta">
+      <a href="/site/contact.html" class="btn btn--primary">Get a Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
     </div>
+    <button class="nav__hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- ===== HERO ===== -->
@@ -977,9 +972,12 @@
 
       // Nav scroll
       const nav = document.querySelector('.nav');
-      window.addEventListener('scroll', () => {
-        nav.style.background = window.scrollY > 60 ? 'rgba(13,15,17,.95)' : 'rgba(13,15,17,.85)';
-      });
+      function checkScroll() {
+        if (window.scrollY > 40) { nav.classList.add('scrolled'); }
+        else { nav.classList.remove('scrolled'); }
+      }
+      window.addEventListener('scroll', checkScroll);
+      checkScroll();
 
       // Hamburger
       const hamburger = document.querySelector('.nav__hamburger');
@@ -990,7 +988,7 @@
           links.style.display = open ? 'none' : 'flex';
           links.style.flexDirection = 'column';
           links.style.position = 'absolute';
-          links.style.top = '72px';
+          links.style.top = '100px';
           links.style.left = '0';
           links.style.right = '0';
           links.style.background = 'rgba(13,15,17,.98)';
