@@ -1328,7 +1328,7 @@ img { max-width: 100%; height: auto; display: block; }
 /* ═══════════════════ QUICK NAV ═══════════════════ */
 .quick-nav {
   position: fixed;
-  bottom: 24px; right: 24px;
+  bottom: 80px; right: 24px;
   z-index: 9000;
 }
 
@@ -1357,7 +1357,9 @@ img { max-width: 100%; height: auto; display: block; }
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 8px 0;
-  min-width: 180px;
+  min-width: 220px;
+  max-height: 70vh;
+  overflow-y: auto;
   box-shadow: 0 8px 32px rgba(0,0,0,.4);
   opacity: 0;
   transform: translateY(8px) scale(.95);
@@ -1371,22 +1373,48 @@ img { max-width: 100%; height: auto; display: block; }
   pointer-events: auto;
 }
 
+.quick-nav__label {
+  font-family: var(--sans);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 10px 18px 4px;
+}
+
 .quick-nav__menu a {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 10px 18px;
+  padding: 8px 18px;
   color: var(--text-mid);
   text-decoration: none;
-  font-size: .82rem;
-  font-weight: 500;
+  font-size: .8rem;
+  font-weight: 400;
   letter-spacing: .02em;
   transition: background .15s, color .15s;
 }
 
 .quick-nav__menu a:hover { background: rgba(255,255,255,.04); color: var(--text); }
-.quick-nav__menu a svg { width: 16px; height: 16px; opacity: .6; flex-shrink: 0; }
-.quick-nav__divider { height: 1px; background: var(--border); margin: 4px 12px; }
+.quick-nav__menu a svg { width: 14px; height: 14px; opacity: .5; flex-shrink: 0; }
+.quick-nav__menu a:hover svg { opacity: .8; }
+.quick-nav__divider { height: 1px; background: var(--border); margin: 6px 14px; }
+.quick-nav__cta {
+  display: block;
+  margin: 8px 14px;
+  padding: 10px 18px;
+  background: var(--accent);
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  border-radius: 6px;
+  transition: background .2s, transform .2s;
+}
+.quick-nav__cta:hover { background: #5a8fb5; color: #fff; transform: translateY(-1px); }
 
 /* ═══════════════════ RESPONSIVE ═══════════════════ */
 @media (max-width: 1024px) {

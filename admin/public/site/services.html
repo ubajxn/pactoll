@@ -186,16 +186,21 @@
     .reveal { opacity: 0; transform: translateY(32px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
 
-    .quick-nav { position: fixed; bottom: 24px; right: 24px; z-index: 1000; }
-    .quick-nav__toggle { width: 48px; height: 48px; border-radius: 50%; background: var(--accent); color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,.3); transition: all .25s; }
+    .quick-nav { position: fixed; bottom: 80px; right: 24px; z-index: 1000; }
+    .quick-nav__toggle { width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,.3); transition: all .25s; }
     .quick-nav__toggle:hover { background: #5a8fb5; transform: scale(1.08); }
     .quick-nav__toggle svg { width: 20px; height: 20px; transition: transform .3s; }
     .quick-nav.open .quick-nav__toggle svg { transform: rotate(45deg); }
-    .quick-nav__menu { position: absolute; bottom: 60px; right: 0; background: var(--bg-card); border: 1px solid var(--border); min-width: 180px; padding: 8px; opacity: 0; visibility: hidden; transform: translateY(8px) scale(.95); transition: all .2s; box-shadow: 0 8px 32px rgba(0,0,0,.4); }
+    .quick-nav__menu { position: absolute; bottom: 56px; right: 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; min-width: 220px; max-height: 70vh; overflow-y: auto; padding: 8px 0; opacity: 0; visibility: hidden; transform: translateY(8px) scale(.95); transition: all .2s; box-shadow: 0 8px 32px rgba(0,0,0,.4); }
     .quick-nav.open .quick-nav__menu { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
-    .quick-nav__item { display: block; padding: 10px 16px; font-size: .82rem; color: var(--text-mid); transition: all .15s; border: none; background: none; width: 100%; text-align: left; cursor: pointer; font-family: var(--sans); }
-    .quick-nav__item:hover { background: rgba(255,255,255,.04); color: var(--text); }
-    .quick-nav__item--cta { color: var(--accent); font-weight: 500; border-top: 1px solid var(--border); margin-top: 4px; padding-top: 12px; }
+    .quick-nav__label { font-family: var(--sans); font-size: 9px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); padding: 10px 18px 4px; }
+    .quick-nav__menu a { display: flex; align-items: center; gap: 10px; padding: 8px 18px; font-size: .8rem; color: var(--text-mid); text-decoration: none; font-weight: 400; transition: background .15s, color .15s; }
+    .quick-nav__menu a:hover { background: rgba(255,255,255,.04); color: var(--text); }
+    .quick-nav__menu a svg { width: 14px; height: 14px; opacity: .5; flex-shrink: 0; }
+    .quick-nav__menu a:hover svg { opacity: .8; }
+    .quick-nav__divider { height: 1px; background: var(--border); margin: 6px 14px; }
+    .quick-nav__cta { display: block; margin: 8px 14px; padding: 10px 18px; background: var(--accent); color: #fff !important; text-align: center; text-decoration: none; font-size: .8rem; font-weight: 600; letter-spacing: .02em; border-radius: 6px; transition: background .2s, transform .2s; }
+    .quick-nav__cta:hover { background: #5a8fb5; color: #fff !important; transform: translateY(-1px); }
 
     .cookie-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 900; background: var(--bg-card); border-top: 1px solid var(--border); padding: 16px 48px; display: none; transform: translateY(100%); transition: transform .4s; }
     .cookie-bar.show { transform: translateY(0); }
@@ -510,14 +515,24 @@
 
   <div class="quick-nav" id="quick-nav">
     <div class="quick-nav__menu">
-      <a href="/site/index.html" class="quick-nav__item">Home</a>
-      <a href="/site/steel-sales.html" class="quick-nav__item">Steel Sales</a>
-      <a href="/site/services.html" class="quick-nav__item">Services</a>
-      <a href="/site/equipment.html" class="quick-nav__item">Equipment</a>
-      <a href="/site/about.html" class="quick-nav__item">About</a>
-      <a href="/site/videos.html" class="quick-nav__item">Videos</a>
-      <a href="/site/contact.html" class="quick-nav__item">Contact</a>
-      <a href="/site/contact.html" class="quick-nav__item quick-nav__item--cta">Get a Quote</a>
+      <div class="quick-nav__label">Steel Sales</div>
+      <a href="/site/steel-sales.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/></svg> All Products</a>
+      <a href="/site/steel-sales.html#hot-rolled"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Hot-Rolled</a>
+      <a href="/site/steel-sales.html#cold-rolled"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Cold-Rolled</a>
+      <a href="/site/steel-sales.html#galvanized"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg> Galvanized</a>
+      <div class="quick-nav__divider"></div>
+      <div class="quick-nav__label">Processing</div>
+      <a href="/site/services.html#slitting"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Slitting</a>
+      <a href="/site/services.html#blanking"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Multi-Blanking</a>
+      <a href="/site/services.html#leveling"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Leveling</a>
+      <a href="/site/services.html#ctl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg> Cut-to-Length</a>
+      <div class="quick-nav__divider"></div>
+      <div class="quick-nav__label">Company</div>
+      <a href="/site/equipment.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg> Equipment</a>
+      <a href="/site/about.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> About Us</a>
+      <a href="/site/videos.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="5 3 19 12 5 21 5 3"/></svg> Videos</a>
+      <a href="/site/contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Contact</a>
+      <a href="/site/contact.html" class="quick-nav__cta">Get a Quote &rarr;</a>
     </div>
     <button class="quick-nav__toggle" aria-label="Quick navigation">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
