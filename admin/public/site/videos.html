@@ -8,6 +8,113 @@
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://pacifictoll.com/videos.html">
   <link rel="stylesheet" href="/site/css/style.css">
+
+  <style>
+    /* ---- Videos Page Premium ---- */
+    .vid-featured {
+      padding: 120px 0;
+    }
+    .vid-featured__inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+      display: grid; grid-template-columns: 1fr 380px; gap: 64px;
+      align-items: start;
+    }
+    .vid-featured__player {
+      aspect-ratio: 16/9;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .vid-featured__player iframe {
+      width: 100%; height: 100%; border: 0;
+    }
+    .vid-featured__meta .label { margin-bottom: 20px; }
+    .vid-featured__meta h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 20px;
+    }
+    .vid-featured__meta p {
+      font-size: 1rem; line-height: 1.8; color: var(--text-mid);
+      margin-bottom: 28px; max-width: none;
+    }
+    .vid-featured__details {
+      border-left: 3px solid var(--accent);
+      padding-left: 24px;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+    .vid-detail__label {
+      font-family: var(--sans); font-size: 9px; font-weight: 600;
+      letter-spacing: .08em; text-transform: uppercase;
+      color: var(--text-dim); margin-bottom: 4px;
+    }
+    .vid-detail__value {
+      font-family: var(--sans); font-size: .9rem;
+      color: var(--text); font-weight: 400;
+    }
+
+    .vid-second {
+      padding: 120px 0;
+      background: var(--bg-raised);
+    }
+    .vid-second__inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+      display: grid; grid-template-columns: 380px 1fr; gap: 64px;
+      align-items: start;
+    }
+    .vid-second__meta .label { margin-bottom: 20px; }
+    .vid-second__meta h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 20px;
+    }
+    .vid-second__meta p {
+      font-size: 1rem; line-height: 1.8; color: var(--text-mid);
+      margin-bottom: 28px; max-width: none;
+    }
+    .vid-second__player {
+      aspect-ratio: 16/9;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .vid-second__player iframe {
+      width: 100%; height: 100%; border: 0;
+    }
+
+    .vid-ribbon {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .vid-ribbon__inner {
+      max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .vid-ribbon__stat {
+      padding: 40px 36px;
+      border-right: 1px solid var(--border);
+    }
+    .vid-ribbon__stat:last-child { border-right: none; }
+    .vid-ribbon__value {
+      font-family: var(--serif);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--text); line-height: 1; margin-bottom: 6px;
+    }
+    .vid-ribbon__label {
+      font-family: var(--sans); font-size: 10px; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    @media (max-width: 900px) {
+      .vid-featured__inner { grid-template-columns: 1fr; gap: 40px; }
+      .vid-second__inner { grid-template-columns: 1fr; gap: 40px; }
+      .vid-second__meta { order: 2; }
+      .vid-second__player { order: 1; }
+      .vid-ribbon__inner { grid-template-columns: 1fr 1fr; }
+      .vid-ribbon__stat { border-bottom: 1px solid var(--border); }
+    }
+    @media (max-width: 480px) {
+      .vid-ribbon__inner { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -43,35 +150,85 @@
       <div class="page-hero__content">
         <div class="label">See It In Action</div>
         <h1>Videos</h1>
-        <p>Watch our facility, equipment, and team — from raw coil to finished product.</p>
+        <p>Watch our facility, equipment, and team &mdash; from raw coil to finished product.</p>
       </div>
     </div>
   </section>
+
+  <!-- Stats Ribbon -->
+  <div class="vid-ribbon">
+    <div class="vid-ribbon__inner">
+      <div class="vid-ribbon__stat">
+        <div class="vid-ribbon__value">100K+</div>
+        <div class="vid-ribbon__label">Square Feet</div>
+      </div>
+      <div class="vid-ribbon__stat">
+        <div class="vid-ribbon__value">3</div>
+        <div class="vid-ribbon__label">Processing Lines</div>
+      </div>
+      <div class="vid-ribbon__stat">
+        <div class="vid-ribbon__value">72&Prime;</div>
+        <div class="vid-ribbon__label">Max Width</div>
+      </div>
+      <div class="vid-ribbon__stat">
+        <div class="vid-ribbon__value">Solar</div>
+        <div class="vid-ribbon__label">Powered Operations</div>
+      </div>
+    </div>
+  </div>
 
   <!-- Featured Video -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
+  <section class="vid-featured">
+    <div class="vid-featured__inner">
+      <div class="vid-featured__player">
+        <iframe src="https://player.vimeo.com/video/1239026236?title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Braner Multi-Blanking Line"></iframe>
+      </div>
+      <div class="vid-featured__meta">
         <div class="label">Featured</div>
         <h2>Braner Multi-Blanking Line</h2>
-        <p>Our Braner multi-blanking line in full operation — precision cutting at production speed. See how we turn master coils into finished blanks ready for stamping.</p>
-      </div>
-      <div style="width:100%;max-width:1100px;margin:0 auto;aspect-ratio:16/9;background:var(--bg-card);border-radius:4px;overflow:hidden;border:1px solid var(--border);">
-        <iframe src="https://player.vimeo.com/video/1239026236?title=0&byline=0&portrait=0&dnt=1" style="width:100%;height:100%;border:0;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Braner Multi-Blanking Line"></iframe>
+        <p>Our Braner multi-blanking line in full operation &mdash; precision cutting at production speed. See how we turn master coils into finished blanks ready for stamping.</p>
+        <div class="vid-featured__details">
+          <div>
+            <div class="vid-detail__label">Equipment</div>
+            <div class="vid-detail__value">Braner Automotive Class-1</div>
+          </div>
+          <div>
+            <div class="vid-detail__label">Capability</div>
+            <div class="vid-detail__value">60,000 lbs &times; 72&Prime; &times; 250 FPM</div>
+          </div>
+          <div>
+            <div class="vid-detail__label">Output</div>
+            <div class="vid-detail__value">100 cycles per minute</div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Facility Video -->
-  <section class="section section--dark">
-    <div class="container">
-      <div class="section-header">
+  <!-- Facility Tour -->
+  <section class="vid-second">
+    <div class="vid-second__inner">
+      <div class="vid-second__meta">
         <div class="label">Facility Tour</div>
         <h2>Inside Pacific Toll Processing</h2>
-        <p>An aerial and ground-level tour of our 100,000+ square foot solar-powered facility in Carson, California. Three dedicated processing lines, 27+ years of experience.</p>
+        <p>An aerial and ground-level tour of our 100,000+ square foot solar-powered facility in Carson, California. Three dedicated processing lines, 35+ years of experience.</p>
+        <div class="vid-featured__details">
+          <div>
+            <div class="vid-detail__label">Location</div>
+            <div class="vid-detail__value">Carson, CA &mdash; 10.6 acres</div>
+          </div>
+          <div>
+            <div class="vid-detail__label">Infrastructure</div>
+            <div class="vid-detail__value">8 overhead cranes, BNSF rail spur</div>
+          </div>
+          <div>
+            <div class="vid-detail__label">Sustainability</div>
+            <div class="vid-detail__value">144 rooftop solar panels</div>
+          </div>
+        </div>
       </div>
-      <div style="width:100%;max-width:1100px;margin:0 auto;aspect-ratio:16/9;background:var(--bg-card);border-radius:4px;overflow:hidden;border:1px solid var(--border);">
-        <iframe src="https://player.vimeo.com/video/329404405?h=b7056b1cbf&title=0&byline=0&portrait=0&dnt=1" style="width:100%;height:100%;border:0;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Pacific Toll Processing Facility Tour"></iframe>
+      <div class="vid-second__player">
+        <iframe src="https://player.vimeo.com/video/329404405?h=b7056b1cbf&title=0&byline=0&portrait=0&dnt=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Pacific Toll Processing Facility Tour"></iframe>
       </div>
     </div>
   </section>
@@ -98,7 +255,7 @@
       <div class="footer__top">
         <div class="footer__brand">
           <img src="../images/ptp-logo-white.png" alt="Pacific Toll Processing">
-          <p>Steel sales and full-service toll processing from our solar-powered facility in Carson, CA. Serving the West Coast and Southwest for over 27 years.</p>
+          <p>Steel sales and full-service toll processing from our solar-powered facility in Carson, CA. Serving the West Coast and Southwest for over 35 years.</p>
         </div>
         <div>
           <h4>Services</h4>
@@ -116,7 +273,7 @@
             <li><a href="/site/steel-sales.html#hot-rolled">Hot-Rolled</a></li>
             <li><a href="/site/steel-sales.html#cold-rolled">Cold-Rolled</a></li>
             <li><a href="/site/steel-sales.html#galvanized">Galvanized</a></li>
-            <li><a href="/site/contact.html" data-modal="quote" data-service="steel-sales" style="color:var(--forge-orange-light);">Get a Sales Quote</a></li>
+            <li><a href="/site/contact.html" data-modal="quote" data-service="steel-sales" style="color:#6196BA;">Get a Sales Quote</a></li>
           </ul>
         </div>
         <div>
@@ -132,7 +289,9 @@
           <h4>Contact</h4>
           <ul>
             <li><a href="tel:3109524992">(310) 952-4992</a></li>
-            <li><a href="mailto:Rose@pacifictoll.com">Rose@pacifictoll.com</a></li>
+            <li><a href="mailto:mproner@pacifictoll.com">Mark Proner &mdash; Sales</a></li>
+            <li><a href="mailto:relizondo@pacifictoll.com">Rose Elizondo &mdash; Sales</a></li>
+            <li><a href="mailto:cfields@pacifictoll.com">Conni Fields &mdash; Processing</a></li>
             <li><a href="https://maps.google.com/?q=24724+Wilmington+Ave+Carson+CA+90745" target="_blank" rel="noopener">24724 Wilmington Ave<br>Carson, CA 90745</a></li>
           </ul>
         </div>

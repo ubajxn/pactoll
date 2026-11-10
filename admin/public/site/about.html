@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us | Pacific Toll Processing</title>
-  <meta name="description" content="27+ years of steel processing excellence in Carson, CA. Family-owned, solar-powered, and committed to quality.">
-  <meta name="keywords" content="about Pacific Toll Processing, green steel, solar-powered steel, diverse workforce, Carson CA steel company, family-owned steel processor">
+  <meta name="description" content="35+ years of steel processing excellence in Carson, CA. Family-owned, solar-powered, and committed to quality. 100,000+ sq ft facility on 10.6 acres with onsite rail spur.">
+  <meta name="keywords" content="about Pacific Toll Processing, green steel, solar-powered steel, diverse workforce, Carson CA steel company, family-owned steel processor, automotive steel, Toyota qualified">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <link rel="canonical" href="https://pacifictoll.com/about.html">
   <link rel="stylesheet" href="/site/css/style.css">
@@ -15,10 +15,228 @@
     "@type": "AboutPage",
     "mainEntity": {"@id": "https://pacifictoll.com/#organization"},
     "name": "About Pacific Toll Processing",
-    "description": "27+ years of steel processing excellence. Family-owned, solar-powered, diverse workforce. Green steel leader with 144 solar panels. Carson, CA.",
+    "description": "35+ years of steel processing excellence. Family-owned, solar-powered, diverse workforce. Green steel leader with 144 solar panels. Carson, CA.",
     "url": "https://pacifictoll.com/about.html"
   }
   </script>
+
+  <style>
+    /* ---- About Page Premium Overrides ---- */
+    .about-ribbon {
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 0;
+    }
+    .about-ribbon__inner {
+      max-width: 1280px; margin: 0 auto;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .about-ribbon__stat {
+      padding: 48px 40px;
+      border-right: 1px solid var(--border);
+    }
+    .about-ribbon__stat:last-child { border-right: none; }
+    .about-ribbon__value {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--text);
+      line-height: 1; margin-bottom: 8px;
+    }
+    .about-ribbon__label {
+      font-family: var(--sans); font-size: 10px; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--text-dim);
+    }
+
+    .about-story {
+      padding: 120px 0;
+    }
+    .about-story__grid {
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: start;
+    }
+    .about-story__text {
+      max-width: 560px;
+    }
+    .about-story__text .label { margin-bottom: 24px; }
+    .about-story__text h2 { margin-bottom: 28px; }
+    .about-story__text p {
+      font-size: 1.05rem; line-height: 1.8; color: var(--text-mid);
+      margin-bottom: 24px; max-width: none;
+    }
+    .about-story__sidebar {
+      border-left: 3px solid var(--accent);
+      padding-left: 32px;
+      display: flex; flex-direction: column; gap: 36px;
+      margin-top: 60px;
+    }
+    .about-story__fact-label {
+      font-family: var(--sans); font-size: 10px; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 8px;
+    }
+    .about-story__fact-value {
+      font-family: var(--serif); font-size: 1.6rem;
+      color: var(--text); line-height: 1.2;
+    }
+    .about-story__fact-note {
+      font-size: .85rem; color: var(--text-dim); margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    /* Values */
+    .about-values {
+      padding: 120px 0;
+      background: var(--bg-raised);
+    }
+    .about-values__grid {
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .about-values__col {
+      padding: 48px 40px;
+      border-right: 1px solid var(--border);
+      border-left: 3px solid transparent;
+      transition: border-color .3s;
+    }
+    .about-values__col:last-child { border-right: none; }
+    .about-values__col:hover { border-left-color: var(--accent); }
+    .about-values__num {
+      font-family: var(--serif); font-size: 2.4rem;
+      color: rgba(74,127,165,.12); line-height: 1; margin-bottom: 4px;
+    }
+    .about-values__col h4 {
+      font-family: var(--sans); font-size: 11px; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 20px;
+    }
+    .about-values__col p {
+      font-size: .95rem; color: var(--text-mid); line-height: 1.8; max-width: none;
+    }
+
+    /* Diversity */
+    .about-diversity {
+      padding: 120px 0;
+    }
+    .about-diversity__inner {
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+      align-items: center;
+    }
+    .about-diversity__text .label { margin-bottom: 24px; }
+    .about-diversity__text h2 { margin-bottom: 28px; }
+    .about-diversity__text p {
+      font-size: 1.05rem; line-height: 1.8; color: var(--text-mid);
+      margin-bottom: 20px; max-width: none;
+    }
+    .about-diversity__visual {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 56px 48px;
+      position: relative;
+    }
+    .about-diversity__visual::before {
+      content: '';
+      position: absolute; left: 0; top: 24px; bottom: 24px;
+      width: 3px; background: var(--accent);
+    }
+    .about-diversity__quote {
+      font-family: var(--serif);
+      font-size: 1.4rem; line-height: 1.5;
+      color: var(--text); margin-bottom: 24px;
+      font-style: italic;
+    }
+    .about-diversity__attr {
+      font-family: var(--sans); font-size: .82rem;
+      color: var(--text-dim); letter-spacing: .02em;
+    }
+
+    /* Timeline */
+    .about-timeline {
+      padding: 120px 0;
+      background: var(--bg-card);
+    }
+    .about-timeline__header {
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+      margin-bottom: 72px;
+    }
+    .about-timeline__header .label { margin-bottom: 24px; }
+    .about-timeline__grid {
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+    }
+    .about-timeline__item {
+      padding: 32px 28px;
+      border-top: 3px solid var(--border);
+      transition: border-color .3s;
+    }
+    .about-timeline__item:hover { border-top-color: var(--accent); }
+    .about-timeline__year {
+      font-family: var(--serif); font-size: 1.8rem;
+      color: var(--text); line-height: 1; margin-bottom: 16px;
+    }
+    .about-timeline__desc {
+      font-size: .85rem; color: var(--text-mid); line-height: 1.6;
+    }
+
+    /* Location */
+    .about-location {
+      padding: 120px 0;
+    }
+    .about-location__header {
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+      margin-bottom: 72px;
+    }
+    .about-location__header .label { margin-bottom: 24px; }
+    .about-location__header p {
+      font-size: 1.05rem; line-height: 1.8; color: var(--text-mid);
+      margin-top: 20px; max-width: 700px;
+    }
+    .about-location__grid {
+      max-width: 1280px; margin: 0 auto; padding: 0 40px;
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; background: var(--border);
+    }
+    .about-location__card {
+      padding: 48px 36px;
+      background: var(--bg-card);
+      border-left: 3px solid transparent;
+      transition: border-color .3s;
+    }
+    .about-location__card:hover { border-left-color: var(--accent); }
+    .about-location__card h4 {
+      font-family: var(--sans); font-size: 11px; font-weight: 600;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+    }
+    .about-location__card-value {
+      font-family: var(--serif); font-size: 1.4rem;
+      color: var(--text); line-height: 1.3; margin-bottom: 12px;
+    }
+    .about-location__card p {
+      font-size: .85rem; color: var(--text-dim); line-height: 1.6; max-width: none;
+    }
+
+    @media (max-width: 900px) {
+      .about-ribbon__inner { grid-template-columns: 1fr 1fr; }
+      .about-ribbon__stat { border-bottom: 1px solid var(--border); }
+      .about-story__grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-story__sidebar { margin-top: 0; }
+      .about-values__grid { grid-template-columns: 1fr; }
+      .about-values__col { border-right: none; border-bottom: 1px solid var(--border); }
+      .about-diversity__inner { grid-template-columns: 1fr; gap: 48px; }
+      .about-timeline__grid { grid-template-columns: 1fr 1fr; }
+      .about-location__grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .about-ribbon__inner { grid-template-columns: 1fr; }
+      .about-timeline__grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -57,50 +275,101 @@
     </div>
   </section>
 
-  <!-- Story -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header fade-up" style="max-width:800px;">
+  <!-- Credibility Ribbon -->
+  <div class="about-ribbon">
+    <div class="about-ribbon__inner">
+      <div class="about-ribbon__stat">
+        <div class="about-ribbon__value">1989</div>
+        <div class="about-ribbon__label">Year Founded</div>
+      </div>
+      <div class="about-ribbon__stat">
+        <div class="about-ribbon__value">100K+</div>
+        <div class="about-ribbon__label">Square Feet</div>
+      </div>
+      <div class="about-ribbon__stat">
+        <div class="about-ribbon__value">10.6</div>
+        <div class="about-ribbon__label">Acres</div>
+      </div>
+      <div class="about-ribbon__stat">
+        <div class="about-ribbon__value">Solar</div>
+        <div class="about-ribbon__label">Powered Operations</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Our Story -->
+  <section class="about-story">
+    <div class="about-story__grid">
+      <div class="about-story__text">
         <div class="label">Our Story</div>
-        <h2>27+ Years of Steel Processing</h2>
+        <h2>35+ Years of Steel Processing</h2>
         <p>Pacific Toll Processing started with a simple idea: give steel buyers and mills a reliable, high-quality toll processing partner on the West Coast. From our first slitting line to the full-service operation we run today, that mission hasn't changed.</p>
-        <p style="margin-top:1.2rem;">What has changed is our capacity. We now operate over 100,000 square feet of indoor, overhead-crane-serviced space on 10.6 acres of land. We've added blanking and leveling capabilities, installed rooftop solar, and expanded into direct steel sales. Through it all, we've stayed privately held, industry focused with a constant attention to the highest industry standards for compliance and safety.</p>
+        <p>What has changed is our capacity. We now operate over 100,000 square feet of indoor, overhead-crane-serviced space on 10.6 acres of land. We've added blanking and leveling capabilities, installed rooftop solar, and expanded into direct steel sales. Through it all, we've stayed privately held, industry focused with a constant attention to the highest industry standards for compliance and safety.</p>
+      </div>
+      <div class="about-story__sidebar">
+        <div>
+          <div class="about-story__fact-label">Facility</div>
+          <div class="about-story__fact-value">100,000+ sq ft</div>
+          <div class="about-story__fact-note">Indoor, overhead-crane-serviced space on 10.6 acres</div>
+        </div>
+        <div>
+          <div class="about-story__fact-label">Processing</div>
+          <div class="about-story__fact-value">3 Dedicated Lines</div>
+          <div class="about-story__fact-note">Slitting, multi-blanking, and precision leveling &amp; cut-to-length</div>
+        </div>
+        <div>
+          <div class="about-story__fact-label">Logistics</div>
+          <div class="about-story__fact-value">Onsite Rail Spur</div>
+          <div class="about-story__fact-note">BNSF rail spur with indoor/outdoor crane service for direct mill shipments</div>
+        </div>
+        <div>
+          <div class="about-story__fact-label">Ownership</div>
+          <div class="about-story__fact-value">Privately Held</div>
+          <div class="about-story__fact-note">Family-owned since 1989, industry focused</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Values (Liz Approach-style 3-column) -->
-  <section class="section section--dark">
+  <!-- Values -->
+  <section class="about-values">
     <div class="container">
       <div class="section-header fade-up">
         <div class="label">What Drives Us</div>
         <h2>Our Approach</h2>
       </div>
-      <div class="values-grid fade-up">
-        <div class="value-col">
-          <h4>Reliability</h4>
-          <p>We show up, every day, and deliver what we promised. Our customers count on us for consistent quality and on-time delivery, and we take that trust seriously.</p>
-        </div>
-        <div class="value-col">
-          <h4>Precision</h4>
-          <p>Tolerances matter in steel processing. We invest in our equipment, train our operators, and verify every order because close enough isn't good enough.</p>
-        </div>
-        <div class="value-col">
-          <h4>Partnership</h4>
-          <p>We're not a transactional processor. We work with our customers to solve problems, optimize specs, and keep their production lines running smoothly.</p>
-        </div>
+    </div>
+    <div class="about-values__grid fade-up">
+      <div class="about-values__col">
+        <div class="about-values__num">01</div>
+        <h4>Reliability</h4>
+        <p>We show up, every day, and deliver what we promised. Our customers count on us for consistent quality and on-time delivery, and we take that trust seriously.</p>
+      </div>
+      <div class="about-values__col">
+        <div class="about-values__num">02</div>
+        <h4>Precision</h4>
+        <p>Tolerances matter in steel processing. We invest in our equipment, train our operators, and verify every order because close enough isn't good enough.</p>
+      </div>
+      <div class="about-values__col">
+        <div class="about-values__num">03</div>
+        <h4>Partnership</h4>
+        <p>We're not a transactional processor. We work with our customers to solve problems, optimize specs, and keep their production lines running smoothly.</p>
       </div>
     </div>
   </section>
 
   <!-- Diversity -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header fade-up" style="max-width:800px;">
+  <section class="about-diversity">
+    <div class="about-diversity__inner">
+      <div class="about-diversity__text">
         <div class="label">Our People</div>
         <h2>Strength in Diversity</h2>
-        <p>Our team is our greatest asset. PTP's workforce comes from all walks of life and all corners of the world, bringing a richness of experience, perspective, and skill to everything we do. From the floor operators who've mastered every line to the sales and admin staff who keep everything moving, our people are what set us apart.</p>
-        <p style="margin-top:1.2rem;">We believe a diverse team builds a stronger company. Different backgrounds bring different problem-solving approaches, and that makes us better at what we do &mdash; for our customers and for each other.</p>
+        <p>Our team is our greatest asset. PTP's workforce comes from all walks of life and all corners of the world, bringing a richness of experience, perspective, and skill to everything we do.</p>
+        <p>From the floor operators who've mastered every line to the sales and admin staff who keep everything moving, our people are what set us apart. Different backgrounds bring different problem-solving approaches, and that makes us better &mdash; for our customers and for each other.</p>
+      </div>
+      <div class="about-diversity__visual">
+        <div class="about-diversity__quote">&ldquo;A diverse team builds a stronger company. We believe that, and we live it every day on the floor and in the office.&rdquo;</div>
+        <div class="about-diversity__attr">Pacific Toll Processing Leadership</div>
       </div>
     </div>
   </section>
@@ -123,45 +392,58 @@
     </div>
   </div>
 
-  <!-- Timeline Split -->
-  <div class="split fade-up">
-    <div class="split__media">
-      <img src="../images/build-banner.jpg" alt="PTP facility">
-    </div>
-    <div class="split__content split__content--dark">
+  <!-- Timeline -->
+  <section class="about-timeline">
+    <div class="about-timeline__header">
       <div class="label">Milestones</div>
       <h2>How We Got Here</h2>
-      <ul class="check-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> <strong>1989</strong> &mdash; Founded in Carson, CA with first slitting line</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> <strong>1990s</strong> &mdash; Expanded facility, added second slitting line</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> <strong>2000s</strong> &mdash; Installed Braner multi-blanking line</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> <strong>2010s</strong> &mdash; Added precision leveling, grew to 100K+ sqft</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> <strong>2020s</strong> &mdash; Installed rooftop solar, launched steel sales division</li>
-      </ul>
     </div>
-  </div>
-
-  <!-- Location Advantage -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header fade-up">
-        <div class="label">Location</div>
-        <h2>Strategically Located</h2>
-        <p>Carson, CA puts us near the ports of Long Beach and Los Angeles, major freeway corridors, and rail lines &mdash; ideal for receiving imported coils and shipping finished product across the West Coast and Southwest.</p>
+    <div class="about-timeline__grid">
+      <div class="about-timeline__item">
+        <div class="about-timeline__year">1989</div>
+        <div class="about-timeline__desc">Founded in Carson, CA with first slitting line. A single idea: be the best toll processor on the West Coast.</div>
       </div>
-      <div class="values-grid fade-up">
-        <div class="value-col">
-          <h4>Port Access</h4>
-          <p>Minutes from the Ports of Long Beach and Los Angeles. Direct access for imported steel coils.</p>
-        </div>
-        <div class="value-col">
-          <h4>Freeway Corridors</h4>
-          <p>Adjacent to I-405, I-110, and I-710. Fast trucking routes to all of Southern California and beyond.</p>
-        </div>
-        <div class="value-col">
-          <h4>Onsite Rail Spur</h4>
-          <p>Onsite rail spur with indoor/outdoor crane service for direct mill shipments. Reduces freight costs and handling.</p>
-        </div>
+      <div class="about-timeline__item">
+        <div class="about-timeline__year">1990s</div>
+        <div class="about-timeline__desc">Expanded facility footprint, added second slitting line. Built reputation as a reliable partner for mills and distributors.</div>
+      </div>
+      <div class="about-timeline__item">
+        <div class="about-timeline__year">2000s</div>
+        <div class="about-timeline__desc">Installed Braner multi-blanking line. Became the only mill-qualified automotive steel processor in the Western US.</div>
+      </div>
+      <div class="about-timeline__item">
+        <div class="about-timeline__year">2010s</div>
+        <div class="about-timeline__desc">Added precision leveling capabilities. Grew to 100,000+ sq ft on 10.6 acres with 8 overhead bridge cranes.</div>
+      </div>
+      <div class="about-timeline__item">
+        <div class="about-timeline__year">2020s</div>
+        <div class="about-timeline__desc">Installed rooftop solar array. Launched steel sales division. Serving the future of American manufacturing.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Location -->
+  <section class="about-location">
+    <div class="about-location__header">
+      <div class="label">Location</div>
+      <h2>Strategically Located</h2>
+      <p>Carson, CA puts us near the ports of Long Beach and Los Angeles, major freeway corridors, and rail lines &mdash; ideal for receiving imported coils and shipping finished product across the West Coast and Southwest.</p>
+    </div>
+    <div class="about-location__grid">
+      <div class="about-location__card">
+        <h4>Port Access</h4>
+        <div class="about-location__card-value">Ports of LA &amp; Long Beach</div>
+        <p>Minutes from both major ports. Direct access for imported steel coils from global mills.</p>
+      </div>
+      <div class="about-location__card">
+        <h4>Freeway Corridors</h4>
+        <div class="about-location__card-value">I-405, I-110, I-710</div>
+        <p>Adjacent to major highways. Fast trucking routes to all of Southern California and beyond.</p>
+      </div>
+      <div class="about-location__card">
+        <h4>Onsite Rail Spur</h4>
+        <div class="about-location__card-value">BNSF Track #1153</div>
+        <p>Watson Station. Indoor/outdoor crane service for direct mill shipments. Reduces freight costs and handling.</p>
       </div>
     </div>
   </section>
@@ -186,7 +468,7 @@
       <div class="footer__top">
         <div class="footer__brand">
           <img src="../images/ptp-logo-white.png" alt="Pacific Toll Processing">
-          <p>Steel sales and full-service toll processing from our solar-powered facility in Carson, CA. Serving the West Coast and Southwest for over 27 years.</p>
+          <p>Steel sales and full-service toll processing from our solar-powered facility in Carson, CA. Serving the West Coast and Southwest for over 35 years.</p>
         </div>
         <div>
           <h4>Services</h4>
@@ -204,7 +486,7 @@
             <li><a href="/site/steel-sales.html#hot-rolled">Hot-Rolled</a></li>
             <li><a href="/site/steel-sales.html#cold-rolled">Cold-Rolled</a></li>
             <li><a href="/site/steel-sales.html#galvanized">Galvanized</a></li>
-            <li><a href="/site/contact.html" data-modal="quote" data-service="steel-sales" style="color:var(--forge-orange-light);">Get a Sales Quote</a></li>
+            <li><a href="/site/contact.html" data-modal="quote" data-service="steel-sales" style="color:#6196BA;">Get a Sales Quote</a></li>
           </ul>
         </div>
         <div>
@@ -220,7 +502,9 @@
           <h4>Contact</h4>
           <ul>
             <li><a href="tel:3109524992">(310) 952-4992</a></li>
-            <li><a href="mailto:Rose@pacifictoll.com">Rose@pacifictoll.com</a></li>
+            <li><a href="mailto:mproner@pacifictoll.com">Mark Proner &mdash; Sales</a></li>
+            <li><a href="mailto:relizondo@pacifictoll.com">Rose Elizondo &mdash; Sales</a></li>
+            <li><a href="mailto:cfields@pacifictoll.com">Conni Fields &mdash; Processing</a></li>
             <li><a href="https://maps.google.com/?q=24724+Wilmington+Ave+Carson+CA+90745" target="_blank" rel="noopener">24724 Wilmington Ave<br>Carson, CA 90745</a></li>
           </ul>
         </div>

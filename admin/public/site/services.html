@@ -4,11 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Steel Processing Services | Pacific Toll Processing</title>
-  <meta name="description" content="Toll processing services: slitting, multi-blanking, precision leveling, and cut-to-length. Bring us your coils — we process to spec.">
+  <meta name="description" content="Toll processing services: slitting, multi-blanking, precision leveling, and cut-to-length. Bring us your coils — we process to spec. Carson, CA.">
   <meta name="keywords" content="toll processing services, steel slitting, multi-blanking, precision leveling, cut-to-length, coil processing, steel processing Carson CA">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
   <link rel="canonical" href="https://pacifictoll.com/services.html">
-  <link rel="stylesheet" href="/site/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -21,6 +24,226 @@
     "url": "https://pacifictoll.com/services.html"
   }
   </script>
+
+  <style>
+    :root {
+      --bg: #0d0f11;
+      --bg-raised: #141618;
+      --bg-card: #181b1f;
+      --surface: #1e2228;
+      --accent: #4A7FA5;
+      --accent-glow: rgba(74,127,165,.12);
+      --text: #e8e6e3;
+      --text-mid: #9a9590;
+      --text-dim: #5c5651;
+      --border: rgba(255,255,255,.06);
+      --border-hover: rgba(255,255,255,.12);
+      --sans: 'Inter', system-ui, -apple-system, sans-serif;
+      --serif: 'DM Serif Display', 'Georgia', serif;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-weight: 300;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4, h5 { font-weight: 400; }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 0 48px; height: 72px;
+      display: flex; align-items: center;
+      background: rgba(13,15,17,.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: background .3s;
+    }
+    .nav__inner {
+      width: 100%; max-width: 1400px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav__logo img { height: 28px; }
+    .nav__links {
+      list-style: none; display: flex; gap: 32px;
+      position: absolute; left: 50%; transform: translateX(-50%);
+    }
+    .nav__links a { font-size: .8rem; letter-spacing: .04em; color: var(--text-mid); transition: color .2s; }
+    .nav__links a:hover { color: var(--text); }
+    .nav__cta .btn { font-size: .8rem; }
+    .nav__hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav__hamburger span { display: block; width: 20px; height: 1.5px; background: var(--text); margin: 5px 0; transition: .3s; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 28px; border-radius: 6px;
+      font-family: var(--sans); font-size: .85rem; font-weight: 500;
+      letter-spacing: .02em; cursor: pointer; transition: all .25s; border: none;
+    }
+    .btn--primary { background: var(--accent); color: #fff; }
+    .btn--primary:hover { background: #5a8fb5; transform: translateY(-1px); }
+    .btn--outline-light { background: transparent; color: var(--text); border: 1px solid rgba(255,255,255,.15); }
+    .btn--outline-light:hover { border-color: rgba(255,255,255,.3); }
+
+    .hero {
+      position: relative; min-height: 100vh; display: flex; align-items: flex-end;
+      padding: 0 64px 80px; overflow: hidden;
+    }
+    .hero__bg { position: absolute; inset: 0; background: url('../images/slitter.jpg') center/cover no-repeat; }
+    .hero__overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(13,15,17,.5) 0%, rgba(13,15,17,.7) 50%, rgba(13,15,17,.95) 100%);
+    }
+    .hero__content { position: relative; z-index: 2; max-width: 1200px; width: 100%; }
+    .hero__label {
+      font-family: var(--sans); font-size: 11px; font-weight: 500;
+      letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+    }
+    .hero__title { font-family: var(--serif); font-size: clamp(2.8rem, 5vw, 4.2rem); line-height: 1.1; margin-bottom: 24px; max-width: 700px; }
+    .hero__sub { font-size: 1.05rem; color: var(--text-mid); max-width: 560px; margin-bottom: 48px; line-height: 1.8; }
+    .hero__stats { display: flex; gap: 56px; padding-top: 40px; border-top: 1px solid var(--border); }
+    .hero__stat-value { font-family: var(--serif); font-size: 1.6rem; color: var(--text); margin-bottom: 4px; }
+    .hero__stat-label { font-family: var(--sans); font-size: 9px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); }
+
+    .intro { padding: 100px 64px; max-width: 1200px; margin: 0 auto; }
+    .intro__text {
+      font-size: 1.15rem; color: var(--text-mid); line-height: 2; max-width: 800px;
+      border-left: 3px solid var(--accent); padding-left: 28px;
+    }
+    .intro__text strong { color: var(--text); font-weight: 400; }
+
+    .section-divider { max-width: 1200px; margin: 0 auto; padding: 0 64px; }
+    .section-divider__inner { display: flex; align-items: center; gap: 20px; padding: 48px 0; border-top: 1px solid var(--border); }
+    .section-divider__label { font-family: var(--sans); font-size: 9px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); white-space: nowrap; }
+    .section-divider__line { flex: 1; height: 1px; background: var(--border); }
+
+    .spread { display: grid; grid-template-columns: 1fr 1fr; min-height: 80vh; }
+    .spread:nth-child(even) .spread__media { order: 2; }
+    .spread:nth-child(even) .spread__content { order: 1; }
+    .spread__media { position: relative; overflow: hidden; background: var(--bg-card); }
+    .spread__media img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .spread__media-label {
+      position: absolute; bottom: 24px; left: 24px;
+      font-family: var(--sans); font-size: 9px; font-weight: 500;
+      letter-spacing: .04em; text-transform: uppercase; color: rgba(255,255,255,.4);
+      background: rgba(0,0,0,.5); padding: 6px 12px; backdrop-filter: blur(8px);
+    }
+    .spread__content { display: flex; flex-direction: column; justify-content: center; padding: 64px 56px; background: var(--bg-raised); }
+    .spread__number { font-family: var(--serif); font-size: 4rem; color: rgba(74,127,165,.18); line-height: 1; margin-bottom: -8px; }
+    .spread__content h2 { font-family: var(--serif); font-size: clamp(1.6rem, 2.5vw, 2rem); margin-bottom: 20px; line-height: 1.2; }
+    .spread__content p { font-size: .92rem; color: var(--text-mid); line-height: 1.8; max-width: 520px; margin-bottom: 24px; }
+
+    .spread__features { margin-bottom: 32px; padding: 20px 24px; background: rgba(74,127,165,.06); border-left: 2px solid var(--accent); }
+    .spread__features-label { font-family: var(--sans); font-size: 9px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+    .spread__features p { font-size: .85rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 0; max-width: none; }
+
+    .specs { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); margin-bottom: 32px; }
+    .spec { padding: 16px 20px; background: var(--bg-raised); }
+    .spec__label { font-family: var(--sans); font-size: 9px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 6px; }
+    .spec__value { font-family: var(--sans); font-size: .85rem; color: var(--text); font-weight: 400; }
+
+    .materials { padding: 100px 64px; background: var(--bg-card); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .materials__inner { max-width: 1200px; margin: 0 auto; }
+    .materials__header { margin-bottom: 56px; }
+    .materials__label { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .materials__header h2 { font-family: var(--serif); font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 12px; }
+    .materials__header p { font-size: .92rem; color: var(--text-mid); max-width: 520px; line-height: 1.8; }
+    .materials__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+    .material-card { padding: 40px 32px; background: var(--bg-card); }
+    .material-card h3 { font-family: var(--serif); font-size: 1.2rem; margin-bottom: 12px; line-height: 1.3; }
+    .material-card p { font-size: .85rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 20px; }
+    .material-card__specs { display: flex; flex-direction: column; gap: 8px; padding-top: 16px; border-top: 1px solid var(--border-hover); }
+    .material-card__spec { display: flex; justify-content: space-between; align-items: baseline; font-size: .8rem; }
+    .material-card__spec span:first-child { color: var(--text-dim); font-size: .75rem; letter-spacing: .04em; text-transform: uppercase; }
+    .material-card__spec span:last-child { color: var(--text); font-weight: 400; }
+
+    .cta-banner { padding: 80px 64px; background: var(--bg-raised); border-top: 1px solid var(--border); }
+    .cta-banner__inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+    .cta-banner__inner h2 { font-family: var(--serif); font-size: 1.6rem; margin-bottom: 8px; }
+    .cta-banner__inner p { color: var(--text-mid); font-size: .92rem; }
+    .cta-banner__actions { display: flex; gap: 16px; flex-shrink: 0; }
+
+    .footer { padding: 64px 64px 32px; background: var(--bg); border-top: 1px solid var(--border); }
+    .footer .container { max-width: 1200px; margin: 0 auto; }
+    .footer__top { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 48px; }
+    .footer__brand img { height: 24px; margin-bottom: 16px; }
+    .footer__brand p { font-size: .82rem; color: var(--text-dim); line-height: 1.7; }
+    .footer h4 { font-family: var(--sans); font-size: 10px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--text-mid); margin-bottom: 16px; }
+    .footer ul { list-style: none; }
+    .footer li { margin-bottom: 10px; }
+    .footer li a { font-size: .82rem; color: var(--text-dim); transition: color .2s; }
+    .footer li a:hover { color: var(--text); }
+    .footer__bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 32px; border-top: 1px solid var(--border); font-size: .75rem; color: var(--text-dim); }
+    .footer__bottom a { transition: color .2s; }
+    .footer__bottom a:hover { color: var(--text-mid); }
+
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    .quick-nav { position: fixed; bottom: 24px; right: 24px; z-index: 1000; }
+    .quick-nav__toggle { width: 48px; height: 48px; border-radius: 50%; background: var(--accent); color: #fff; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 16px rgba(0,0,0,.3); transition: all .25s; }
+    .quick-nav__toggle:hover { background: #5a8fb5; transform: scale(1.08); }
+    .quick-nav__toggle svg { width: 20px; height: 20px; transition: transform .3s; }
+    .quick-nav.open .quick-nav__toggle svg { transform: rotate(45deg); }
+    .quick-nav__menu { position: absolute; bottom: 60px; right: 0; background: var(--bg-card); border: 1px solid var(--border); min-width: 180px; padding: 8px; opacity: 0; visibility: hidden; transform: translateY(8px) scale(.95); transition: all .2s; box-shadow: 0 8px 32px rgba(0,0,0,.4); }
+    .quick-nav.open .quick-nav__menu { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+    .quick-nav__item { display: block; padding: 10px 16px; font-size: .82rem; color: var(--text-mid); transition: all .15s; border: none; background: none; width: 100%; text-align: left; cursor: pointer; font-family: var(--sans); }
+    .quick-nav__item:hover { background: rgba(255,255,255,.04); color: var(--text); }
+    .quick-nav__item--cta { color: var(--accent); font-weight: 500; border-top: 1px solid var(--border); margin-top: 4px; padding-top: 12px; }
+
+    .cookie-bar { position: fixed; bottom: 0; left: 0; right: 0; z-index: 900; background: var(--bg-card); border-top: 1px solid var(--border); padding: 16px 48px; display: none; transform: translateY(100%); transition: transform .4s; }
+    .cookie-bar.show { transform: translateY(0); }
+    .cookie-bar__inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 24px; }
+    .cookie-bar__text { color: var(--text-mid); font-size: .85rem; line-height: 1.6; flex: 1; }
+    .cookie-bar__text a { color: var(--accent); text-decoration: underline; }
+    .cookie-bar__actions { display: flex; gap: 12px; flex-shrink: 0; }
+    .cookie-bar__btn { padding: 8px 20px; font-size: .8rem; font-weight: 500; border: none; cursor: pointer; font-family: var(--sans); transition: all .2s; }
+    .cookie-bar__btn--accept { background: var(--accent); color: #fff; }
+    .cookie-bar__btn--accept:hover { background: #5a8fb5; }
+    .cookie-bar__btn--decline { background: transparent; color: var(--text-mid); border: 1px solid var(--border); }
+    .cookie-bar__btn--decline:hover { color: var(--text); border-color: rgba(255,255,255,.15); }
+
+    @media (max-width: 900px) {
+      .nav { padding: 0 20px; }
+      .nav__links, .nav__cta { display: none; }
+      .nav__hamburger { display: block; }
+      .hero { padding: 0 24px 48px; min-height: 85vh; }
+      .hero__title { font-size: 2rem; }
+      .hero__stats { flex-wrap: wrap; gap: 24px 40px; }
+      .intro { padding: 60px 24px; }
+      .section-divider { padding: 0 24px; }
+      .spread { grid-template-columns: 1fr; min-height: auto; }
+      .spread:nth-child(even) .spread__media { order: 0; }
+      .spread:nth-child(even) .spread__content { order: 0; }
+      .spread__media { aspect-ratio: 16/10; }
+      .spread__content { padding: 40px 24px; }
+      .spread__number { font-size: 3rem; }
+      .materials { padding: 60px 24px; }
+      .materials__grid { grid-template-columns: 1fr; }
+      .cta-banner { padding: 48px 24px; }
+      .cta-banner__inner { flex-direction: column; text-align: center; }
+      .cta-banner__actions { flex-direction: column; width: 100%; }
+      .cta-banner__actions .btn { justify-content: center; }
+      .footer { padding: 48px 24px 24px; }
+      .footer__top { grid-template-columns: 1fr 1fr; gap: 32px; }
+      .footer__bottom { flex-direction: column; gap: 8px; text-align: center; }
+      .cookie-bar { padding: 16px 20px; }
+      .cookie-bar__inner { flex-direction: column; text-align: center; }
+      .cookie-bar__actions { width: 100%; justify-content: center; }
+    }
+    @media (max-width: 480px) {
+      .hero__stats { gap: 20px 32px; }
+      .hero__stat-value { font-size: 1.3rem; }
+      .specs { grid-template-columns: 1fr; }
+      .footer__top { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -47,149 +270,187 @@
     </div>
   </nav>
 
-  <section class="page-hero">
-    <img src="../images/slitter.jpg" alt="Steel processing at PTP" class="page-hero__bg">
-    <div class="page-hero__overlay"></div>
-    <div class="container">
-      <div class="page-hero__content">
-        <div class="label">Toll Processing</div>
-        <h1>Processing Services</h1>
-        <p>Your material, processed to spec. Four dedicated lines handling slitting, blanking, leveling, and cut-to-length under one roof.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-header fade-up">
-        <div class="label">How It Works</div>
-        <h2>Toll Processing, Simplified</h2>
-        <p>Ship us your coils, we process them to your specs and ship them back. No inventory risk, no capital tied up in equipment &mdash; just precision processing when you need it.</p>
-      </div>
-      <div class="values-grid fade-up">
-        <div class="value-col">
-          <h4>01 &mdash; Receive</h4>
-          <p>Your coils arrive at our Carson facility. We inspect, weigh, and log everything before processing begins.</p>
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <div class="hero__label">Toll Processing</div>
+      <h1 class="hero__title">Your Material, Processed to Spec</h1>
+      <p class="hero__sub">Four dedicated processing lines handling slitting, blanking, leveling, and cut-to-length under one roof. Ship us your coils &mdash; we deliver finished product.</p>
+      <div class="hero__stats">
+        <div>
+          <div class="hero__stat-value">4</div>
+          <div class="hero__stat-label">Service Lines</div>
         </div>
-        <div class="value-col">
-          <h4>02 &mdash; Process</h4>
-          <p>Material runs through our Braner and Stamco lines to your exact width, length, and flatness specifications.</p>
+        <div>
+          <div class="hero__stat-value">72&Prime;</div>
+          <div class="hero__stat-label">Max Width</div>
         </div>
-        <div class="value-col">
-          <h4>03 &mdash; Deliver</h4>
-          <p>Finished product is banded, tagged, and ready for pickup or delivery. Certified weights and dims on every order.</p>
+        <div>
+          <div class="hero__stat-value">&plusmn;0.005&Prime;</div>
+          <div class="hero__stat-label">Width Tolerance</div>
+        </div>
+        <div>
+          <div class="hero__stat-value">60,000</div>
+          <div class="hero__stat-label">Lbs Max Coil</div>
         </div>
       </div>
     </div>
   </section>
 
-  <div id="slitting" class="split fade-up">
-    <div class="split__media">
-      <img src="../images/slitter.jpg" alt="Steel slitting line">
+  <!-- ===== INTRO ===== -->
+  <div class="intro">
+    <p class="intro__text">Ship us your coils, we process them to your specs and ship them back. <strong>No inventory risk, no capital tied up in equipment</strong> &mdash; just precision processing when you need it. Our Braner and Stamco lines are operated by mill-trained technicians who understand that tolerances aren't suggestions.</p>
+  </div>
+
+  <!-- ===== PROCESSING LINES ===== -->
+  <div class="section-divider">
+    <div class="section-divider__inner">
+      <span class="section-divider__label">Processing Lines</span>
+      <span class="section-divider__line"></span>
     </div>
-    <div class="split__content split__content--dark">
-      <div class="label">Service 01</div>
+  </div>
+
+  <div id="slitting" class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/slitter.jpg" alt="Precision steel slitting line">
+      <div class="spread__media-label">Service 01</div>
+    </div>
+    <div class="spread__content">
+      <div class="spread__number">01</div>
       <h2>Steel Slitting</h2>
       <p>Our slitting lines cut master coils into narrower strips at precise widths. Whether you need a few strips or dozens per pass, we deliver clean, burr-free edges every time.</p>
-      <ul class="check-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Width tolerance: &plusmn;0.005&Prime;</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Material gauge: 0.010&Prime; &ndash; 0.250&Prime;</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Max coil width: 72&Prime;</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Max coil weight: 60,000 lbs</li>
-      </ul>
-      <a href="/site/contact.html" class="btn btn--ghost">Get a Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <div class="spread__features">
+        <div class="spread__features-label">Key Capabilities</div>
+        <p>High-speed double-loop slitting with turret head design for rapid changeover. One of the most universal lines on the West Coast, handling surface-critical coated materials with zero compromise.</p>
+      </div>
+      <div class="specs">
+        <div class="spec"><div class="spec__label">Width Tolerance</div><div class="spec__value">&plusmn;0.005&Prime;</div></div>
+        <div class="spec"><div class="spec__label">Gauge Range</div><div class="spec__value">0.010&Prime; &ndash; 0.250&Prime;</div></div>
+        <div class="spec"><div class="spec__label">Max Width</div><div class="spec__value">72&Prime;</div></div>
+        <div class="spec"><div class="spec__label">Max Coil Weight</div><div class="spec__value">60,000 lbs</div></div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary">Get a Quote &rarr;</a>
     </div>
   </div>
 
-  <div id="blanking" class="split split--reverse fade-up">
-    <div class="split__media">
+  <div id="blanking" class="spread reveal">
+    <div class="spread__media">
       <img src="../images/blanking-line.jpg" alt="Braner multi-blanking line">
+      <div class="spread__media-label">Service 02</div>
     </div>
-    <div class="split__content">
-      <div class="label">Service 02</div>
+    <div class="spread__content">
+      <div class="spread__number">02</div>
       <h2>Multi-Blanking</h2>
-      <p>Our Braner multi-blanking line produces flat, accurate blanks ready for stamping, forming, or fabrication. High-speed operation keeps your production on schedule.</p>
-      <ul class="check-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Blank length tolerance: &plusmn;0.010&Prime;</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Material gauge: 0.015&Prime; &ndash; 0.135&Prime;</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Max coil width: 72&Prime;</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Speeds up to 200 fpm</li>
-      </ul>
-      <a href="/site/contact.html" class="btn btn--ghost">Get a Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <p>Our Braner multi-blanking line produces flat, accurate blanks ready for stamping, forming, or fabrication. High-speed operation with programmable stacking keeps your production on schedule.</p>
+      <div class="spread__features">
+        <div class="spread__features-label">Key Capabilities</div>
+        <p>Hi-Cyclical rate Electronic AC Servo Feed with programmable air stacker for the flattest, most scratch-free precision tolerance blanks in the region. Up to 100 cycles per minute.</p>
+      </div>
+      <div class="specs">
+        <div class="spec"><div class="spec__label">Length Tolerance</div><div class="spec__value">&plusmn;0.010&Prime;</div></div>
+        <div class="spec"><div class="spec__label">Gauge Range</div><div class="spec__value">0.015&Prime; &ndash; 0.135&Prime;</div></div>
+        <div class="spec"><div class="spec__label">Max Width</div><div class="spec__value">72&Prime;</div></div>
+        <div class="spec"><div class="spec__label">Line Speed</div><div class="spec__value">200 FPM</div></div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary">Get a Quote &rarr;</a>
     </div>
   </div>
 
-  <div id="leveling" class="split fade-up">
-    <div class="split__media">
+  <div id="leveling" class="spread reveal">
+    <div class="spread__media">
       <img src="../images/leveler.jpg" alt="Precision leveling equipment">
+      <div class="spread__media-label">Service 03</div>
     </div>
-    <div class="split__content split__content--dark">
-      <div class="label">Service 03</div>
+    <div class="spread__content">
+      <div class="spread__number">03</div>
       <h2>Precision Leveling</h2>
-      <p>Eliminate coil set, crossbow, edge wave, and center buckle. Our levelers produce dead-flat material for downstream processing.</p>
-      <ul class="check-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Flatness: &frac14;&Prime; in 12 ft or better</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Material gauge: 0.015&Prime; &ndash; 0.250&Prime;</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Max coil width: 72&Prime;</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Removes coil set and memory</li>
-      </ul>
-      <a href="/site/contact.html" class="btn btn--ghost">Get a Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <p>Eliminate coil set, crossbow, edge wave, and center buckle. Our levelers produce dead-flat material for downstream processing &mdash; no stress, no memory.</p>
+      <div class="spread__features">
+        <div class="spread__features-label">Key Capabilities</div>
+        <p>9 Flight x 5 Hi Cassette Leveler integrated into our blanking line. Corrects shape defects in a single pass while maintaining surface quality on coated materials.</p>
+      </div>
+      <div class="specs">
+        <div class="spec"><div class="spec__label">Flatness</div><div class="spec__value">&frac14;&Prime; in 12 ft</div></div>
+        <div class="spec"><div class="spec__label">Gauge Range</div><div class="spec__value">0.015&Prime; &ndash; 0.250&Prime;</div></div>
+        <div class="spec"><div class="spec__label">Max Width</div><div class="spec__value">72&Prime;</div></div>
+        <div class="spec"><div class="spec__label">Defect Correction</div><div class="spec__value">Set, Bow &amp; Wave</div></div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary">Get a Quote &rarr;</a>
     </div>
   </div>
 
-  <div id="ctl" class="split split--reverse fade-up">
-    <div class="split__media">
-      <img src="../images/flat-sheets.jpg" alt="Cut-to-length processing">
+  <div id="ctl" class="spread reveal">
+    <div class="spread__media">
+      <img src="../images/flat-sheets.jpg" alt="Cut-to-length flat sheets">
+      <div class="spread__media-label">Service 04</div>
     </div>
-    <div class="split__content">
-      <div class="label">Service 04</div>
+    <div class="spread__content">
+      <div class="spread__number">04</div>
       <h2>Cut-to-Length</h2>
       <p>Convert coil stock into flat sheets at the precise lengths your production requires. Combined with leveling for flat, stress-free sheets every time.</p>
-      <ul class="check-list">
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Length tolerance: &plusmn;0.030&Prime;</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Material gauge: 0.015&Prime; &ndash; 0.250&Prime;</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Sheet lengths: custom to your specs</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg> Integrated leveling &amp; stacking</li>
-      </ul>
-      <a href="/site/contact.html" class="btn btn--ghost">Get a Quote <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <div class="spread__features">
+        <div class="spread__features-label">Key Capabilities</div>
+        <p>Integrated leveling and cut-to-length in a single pass. Programmable stacking produces panel-flat sheets ready for forming, stamping, or direct fabrication.</p>
+      </div>
+      <div class="specs">
+        <div class="spec"><div class="spec__label">Length Tolerance</div><div class="spec__value">&plusmn;0.030&Prime;</div></div>
+        <div class="spec"><div class="spec__label">Gauge Range</div><div class="spec__value">0.015&Prime; &ndash; 0.250&Prime;</div></div>
+        <div class="spec"><div class="spec__label">Sheet Lengths</div><div class="spec__value">Custom to Spec</div></div>
+        <div class="spec"><div class="spec__label">Integration</div><div class="spec__value">Leveling &amp; Stacking</div></div>
+      </div>
+      <a href="/site/contact.html" class="btn btn--primary">Get a Quote &rarr;</a>
     </div>
   </div>
 
-  <section class="section section--dark">
-    <div class="container">
-      <div class="section-header fade-up">
-        <div class="label">Materials</div>
-        <h2>What We Process</h2>
-        <p>We handle a wide range of flat-rolled steel products. If you have a specialty material, give us a call.</p>
+  <!-- ===== MATERIALS ===== -->
+  <section class="materials reveal">
+    <div class="materials__inner">
+      <div class="materials__header">
+        <div class="materials__label">Materials We Process</div>
+        <h2>Flat-Rolled Steel, Any Grade</h2>
+        <p>We handle the full range of flat-rolled steel products. If you have a specialty material, call us &mdash; odds are we've run it before.</p>
       </div>
-      <div class="values-grid fade-up">
-        <div class="value-col">
-          <h4>Hot-Rolled Steel</h4>
+      <div class="materials__grid">
+        <div class="material-card">
+          <h3>Hot-Rolled Steel</h3>
           <p>HR coil and sheet, pickled &amp; oiled or dry. Commercial quality through structural grades.</p>
+          <div class="material-card__specs">
+            <div class="material-card__spec"><span>Grades</span><span>CQ &ndash; Structural</span></div>
+            <div class="material-card__spec"><span>Finish</span><span>P&amp;O or Dry</span></div>
+          </div>
         </div>
-        <div class="value-col">
-          <h4>Cold-Rolled Steel</h4>
-          <p>CRC in commercial, drawing, and deep-drawing qualities. Tight gauge tolerances maintained.</p>
+        <div class="material-card">
+          <h3>Cold-Rolled Steel</h3>
+          <p>CRC in commercial, drawing, and deep-drawing qualities. Tight gauge tolerances maintained throughout.</p>
+          <div class="material-card__specs">
+            <div class="material-card__spec"><span>Grades</span><span>CQ, DQ, DDQ</span></div>
+            <div class="material-card__spec"><span>Finish</span><span>Bright, Matte</span></div>
+          </div>
         </div>
-        <div class="value-col">
-          <h4>Galvanized Steel</h4>
-          <p>Hot-dip galvanized, galvanneal, and electro-galvanized coils. Coating weights per spec.</p>
+        <div class="material-card">
+          <h3>Galvanized &amp; Galvanneal</h3>
+          <p>Hot-dip galvanized, galvanneal, and electro-galvanized coils. Coating weights per spec, surface quality preserved.</p>
+          <div class="material-card__specs">
+            <div class="material-card__spec"><span>Types</span><span>HDG, GA, EG</span></div>
+            <div class="material-card__spec"><span>Coating</span><span>Per Customer Spec</span></div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- ===== CTA ===== -->
   <section class="cta-banner">
-    <div class="container">
-      <div class="cta-banner__inner">
-        <div>
-          <h2>Need Processing?</h2>
-          <p>Send us your specs and we'll have a quote back within 24 hours.</p>
-        </div>
-        <div class="cta-banner__actions">
-          <a href="/site/contact.html" class="btn btn--primary">Request a Quote</a>
-          <a href="tel:3109524992" class="btn btn--outline-light">Call (310) 952-4992</a>
-        </div>
+    <div class="cta-banner__inner">
+      <div>
+        <h2>Send Us Your Specs</h2>
+        <p>Material type, gauge, width, and quantity &mdash; we'll have a quote back within 24 hours.</p>
+      </div>
+      <div class="cta-banner__actions">
+        <a href="/site/contact.html" class="btn btn--primary">Request a Quote</a>
+        <a href="tel:3109524992" class="btn btn--outline-light">Call (310) 952-4992</a>
       </div>
     </div>
   </section>
@@ -199,7 +460,7 @@
       <div class="footer__top">
         <div class="footer__brand">
           <img src="../images/ptp-logo-white.png" alt="Pacific Toll Processing">
-          <p>Steel sales and full-service toll processing from our solar-powered facility in Carson, CA. Serving the West Coast and Southwest for over 27 years.</p>
+          <p>Steel sales and full-service toll processing from our solar-powered facility in Carson, CA. Serving the West Coast and Southwest for over 35 years.</p>
         </div>
         <div>
           <h4>Services</h4>
@@ -217,7 +478,7 @@
             <li><a href="/site/steel-sales.html#hot-rolled">Hot-Rolled</a></li>
             <li><a href="/site/steel-sales.html#cold-rolled">Cold-Rolled</a></li>
             <li><a href="/site/steel-sales.html#galvanized">Galvanized</a></li>
-            <li><a href="/site/contact.html" data-modal="quote" data-service="steel-sales" style="color:var(--forge-orange-light);">Get a Sales Quote</a></li>
+            <li><a href="/site/contact.html" data-modal="quote" data-service="steel-sales" style="color:#6196BA;">Get a Sales Quote</a></li>
           </ul>
         </div>
         <div>
@@ -233,7 +494,9 @@
           <h4>Contact</h4>
           <ul>
             <li><a href="tel:3109524992">(310) 952-4992</a></li>
-            <li><a href="mailto:Rose@pacifictoll.com">Rose@pacifictoll.com</a></li>
+            <li><a href="mailto:mproner@pacifictoll.com">Mark Proner &mdash; Sales</a></li>
+            <li><a href="mailto:relizondo@pacifictoll.com">Rose Elizondo &mdash; Sales</a></li>
+            <li><a href="mailto:cfields@pacifictoll.com">Conni Fields &mdash; Processing</a></li>
             <li><a href="https://maps.google.com/?q=24724+Wilmington+Ave+Carson+CA+90745" target="_blank" rel="noopener">24724 Wilmington Ave<br>Carson, CA 90745</a></li>
           </ul>
         </div>
@@ -245,7 +508,6 @@
     </div>
   </footer>
 
-  <!-- Quick Nav -->
   <div class="quick-nav" id="quick-nav">
     <div class="quick-nav__menu">
       <a href="/site/index.html" class="quick-nav__item">Home</a>
@@ -262,7 +524,6 @@
     </button>
   </div>
 
-  <!-- Cookie Consent -->
   <div class="cookie-bar" id="cookie-bar">
     <div class="cookie-bar__inner">
       <p class="cookie-bar__text">We use cookies to improve your experience. By continuing to use this site, you agree to our <a href="/site/privacy.html">Privacy &amp; Cookie Policy</a>.</p>
@@ -273,7 +534,46 @@
     </div>
   </div>
 
-  <script src="/site/js/main.js"></script>
-  <script src="/site/js/review.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+      }, { threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+      const nav = document.querySelector('.nav');
+      window.addEventListener('scroll', () => {
+        nav.style.background = window.scrollY > 60 ? 'rgba(13,15,17,.95)' : 'rgba(13,15,17,.85)';
+      });
+
+      const hamburger = document.querySelector('.nav__hamburger');
+      const links = document.querySelector('.nav__links');
+      if (hamburger && links) {
+        hamburger.addEventListener('click', () => {
+          const open = links.style.display === 'flex';
+          links.style.display = open ? 'none' : 'flex';
+          links.style.flexDirection = 'column';
+          links.style.position = 'absolute';
+          links.style.top = '72px'; links.style.left = '0'; links.style.right = '0';
+          links.style.background = 'rgba(13,15,17,.98)';
+          links.style.padding = '24px'; links.style.gap = '20px';
+          links.style.transform = 'none';
+        });
+      }
+
+      const toggle = document.querySelector('.quick-nav__toggle');
+      const qnav = document.getElementById('quick-nav');
+      if (toggle && qnav) toggle.addEventListener('click', () => qnav.classList.toggle('open'));
+
+      const bar = document.getElementById('cookie-bar');
+      if (bar && !localStorage.getItem('ptp-cookies')) {
+        bar.style.display = 'block';
+        bar.querySelector('.cookie-bar__btn--accept')?.addEventListener('click', () => { localStorage.setItem('ptp-cookies', 'accepted'); bar.style.display = 'none'; });
+        bar.querySelector('.cookie-bar__btn--decline')?.addEventListener('click', () => { localStorage.setItem('ptp-cookies', 'declined'); bar.style.display = 'none'; });
+      }
+
+      document.querySelectorAll('.copyright-year').forEach(el => el.textContent = new Date().getFullYear());
+    });
+  </script>
 </body>
 </html>
