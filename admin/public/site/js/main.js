@@ -397,18 +397,6 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   } // end if (overlay)
 
-  // ===================== QUICK NAV =====================
-  var quickNav = document.getElementById('quick-nav');
-  if (quickNav) {
-    var qnToggle = quickNav.querySelector('.quick-nav__toggle');
-    qnToggle.addEventListener('click', function() {
-      quickNav.classList.toggle('open');
-    });
-    document.addEventListener('click', function(e) {
-      if (!quickNav.contains(e.target)) quickNav.classList.remove('open');
-    });
-  }
-
   // ===================== COOKIE CONSENT =====================
   var cookieBar = document.getElementById('cookie-bar');
   if (cookieBar) {
