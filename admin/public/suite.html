@@ -629,7 +629,7 @@
       <button class="nav-tab" data-section="competitors">Intel</button>
     </div>
     <div class="nav-right">
-      <a href="/holiday-card.html" class="nav-link" title="Holiday Card" style="color:var(--text-dim);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.02em;padding:4px 8px;border-radius:6px;transition:color 0.2s,background 0.2s;" onmouseover="this.style.color='var(--accent)';this.style.background='var(--accent-dim)'" onmouseout="this.style.color='var(--text-dim)';this.style.background='none'">&#127876; Holiday Card</a>
+      <a href="/holiday-card.html" class="nav-link" title="Holiday Card" style="color:var(--text-dim);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:0.02em;padding:4px 8px;border-radius:6px;transition:color 0.2s,background 0.2s;" onmouseover="this.style.color='var(--accent)';this.style.background='var(--accent-dim)'" onmouseout="this.style.color='var(--text-dim)';this.style.background='none'"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-2px;margin-right:4px;"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"/></svg>Holiday Card</a>
       <a href="/login" class="nav-link" title="Admin CRM" style="color:var(--bg);background:var(--accent);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:0.02em;padding:5px 14px;border-radius:6px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.88'" onmouseout="this.style.opacity='1'">Admin</a>
       <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">&#9790;</button>
     </div>
@@ -3270,7 +3270,9 @@ renderCampaigns();
   font-size: 13px; font-weight: 500; transition: background 0.15s;
 }
 .fab-menu-item:hover { background: var(--accent-dim); }
-.fab-menu-item .fab-icon { font-size: 16px; width: 22px; text-align: center; flex-shrink: 0; }
+.fab-menu-item .fab-icon { width: 18px; height: 18px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: var(--text-dim); }
+.fab-menu-item:hover .fab-icon { color: var(--accent); }
+.fab-menu-item .fab-icon svg { width: 16px; height: 16px; }
 .fab-menu-label { color: var(--text-dim); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; padding: 6px 16px 4px; }
 .fab-menu-divider { height: 1px; background: var(--border-light); margin: 4px 0; }
 </style>
@@ -3278,15 +3280,15 @@ renderCampaigns();
 <div class="fab-widget">
   <div class="fab-menu" id="fab-menu">
     <div class="fab-menu-label">Pacific Toll Processing</div>
-    <a href="/site/" class="fab-menu-item"><span class="fab-icon">🌐</span> Public Website (Beta)</a>
-    <a href="https://pacifictoll.com" target="_blank" class="fab-menu-item"><span class="fab-icon">🔗</span> pacifictoll.com (Live)</a>
-    <a href="/login" class="fab-menu-item"><span class="fab-icon">⚙</span> Admin CRM</a>
+    <a href="/site/" class="fab-menu-item"><span class="fab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></span> Public Website (Beta)</a>
+    <a href="https://pacifictoll.com" target="_blank" class="fab-menu-item"><span class="fab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></span> pacifictoll.com (Live)</a>
+    <a href="/login" class="fab-menu-item"><span class="fab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></span> Admin CRM</a>
     <div class="fab-menu-divider"></div>
-    <a href="/holiday-card.html" class="fab-menu-item"><span class="fab-icon">🎄</span> Holiday Card</a>
-    <a href="/proposal.html" class="fab-menu-item"><span class="fab-icon">📄</span> Proposal</a>
-    <a href="/landscape.html" class="fab-menu-item"><span class="fab-icon">📊</span> Landscape</a>
-    <a href="/roadmap.html" class="fab-menu-item"><span class="fab-icon">🗺</span> Roadmap</a>
-    <a href="/presence.html" class="fab-menu-item"><span class="fab-icon">📍</span> Presence</a>
+    <a href="/holiday-card.html" class="fab-menu-item"><span class="fab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12V8H6a2 2 0 0 1-2-2c0-1.1.9-2 2-2h12v4"/><path d="M4 6v12c0 1.1.9 2 2 2h14v-4"/><path d="M18 12a2 2 0 0 0-2 2c0 1.1.9 2 2 2h4v-4h-4z"/></svg></span> Holiday Card</a>
+    <a href="/proposal.html" class="fab-menu-item"><span class="fab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></span> Proposal</a>
+    <a href="/landscape.html" class="fab-menu-item"><span class="fab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></span> Landscape</a>
+    <a href="/roadmap.html" class="fab-menu-item"><span class="fab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg></span> Roadmap</a>
+    <a href="/presence.html" class="fab-menu-item"><span class="fab-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span> Presence</a>
   </div>
   <button class="fab-btn" id="fab-btn" onclick="toggleFab()" title="Quick Links">&#x2b;</button>
 </div>
