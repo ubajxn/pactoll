@@ -56,33 +56,77 @@
           <p style="margin:20px 0 32px;color:var(--text-mid);font-size:1.05rem;line-height:1.7;max-width:440px;">Click below to open our quick quote form. Tell us what you need — material type, gauge, width, quantity — and we'll get back to you fast.</p>
           <a href="/site/contact.html" class="btn btn--primary" data-modal="quote">Request a Quote <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
-        <div class="contact-info-wrap">
-          <div class="contact-info-block">
-            <h4>Sales</h4>
-            <p style="color:var(--text-dim);font-size:.85rem;margin-bottom:8px;">(310) 952-4992</p>
-            <p><a href="mailto:Mark@pacifictoll.com" style="color:var(--text);font-size:1rem;">Mark Proner</a><br><a href="mailto:Mark@pacifictoll.com" style="color:var(--accent);font-size:.85rem;">click to contact</a></p>
-            <p style="margin-top:12px;"><a href="mailto:Rose@pacifictoll.com" style="color:var(--text);font-size:1rem;">Rose Elizondo</a><br><a href="mailto:Rose@pacifictoll.com" style="color:var(--accent);font-size:.85rem;">click to contact</a></p>
+        <div class="contact-info-wrap" style="padding:48px 48px;">
+          <!-- Department cards -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:32px;">
+            <!-- Sales -->
+            <div style="background:var(--bg-raised);border:1px solid var(--border);padding:24px;grid-column:span 2;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                <span style="font-family:var(--sans);font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.04em;">Sales</span>
+                <span style="color:var(--text-dim);font-size:.85rem;margin-left:auto;">(310) 952-4992</span>
+              </div>
+              <div style="display:flex;gap:24px;flex-wrap:wrap;">
+                <a href="mailto:Mark@pacifictoll.com" style="text-decoration:none;display:flex;align-items:center;gap:10px;padding:8px 16px;background:var(--accent-glow);border:1px solid rgba(74,127,165,.2);transition:all .2s;">
+                  <span style="color:var(--text);font-size:.95rem;font-weight:500;">Mark Proner</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </a>
+                <a href="mailto:Rose@pacifictoll.com" style="text-decoration:none;display:flex;align-items:center;gap:10px;padding:8px 16px;background:var(--accent-glow);border:1px solid rgba(74,127,165,.2);transition:all .2s;">
+                  <span style="color:var(--text);font-size:.95rem;font-weight:500;">Rose Elizondo</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </a>
+              </div>
+            </div>
+            <!-- Processing -->
+            <div style="background:var(--bg-raised);border:1px solid var(--border);padding:24px;grid-column:span 2;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+                <span style="font-family:var(--sans);font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.04em;">Processing &amp; Steel Services</span>
+                <span style="color:var(--text-dim);font-size:.85rem;margin-left:auto;">(310) 952-4992</span>
+              </div>
+              <div style="display:flex;gap:24px;flex-wrap:wrap;">
+                <a href="mailto:Conni@pacifictoll.com" style="text-decoration:none;display:flex;align-items:center;gap:10px;padding:8px 16px;background:var(--accent-glow);border:1px solid rgba(74,127,165,.2);transition:all .2s;">
+                  <span style="color:var(--text);font-size:.95rem;font-weight:500;">Conni Fields</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </a>
+                <a href="mailto:Mark@pacifictoll.com" style="text-decoration:none;display:flex;align-items:center;gap:10px;padding:8px 16px;background:var(--accent-glow);border:1px solid rgba(74,127,165,.2);transition:all .2s;">
+                  <span style="color:var(--text);font-size:.95rem;font-weight:500;">Mark Proner</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                </a>
+              </div>
+            </div>
+            <!-- HR -->
+            <div style="background:var(--bg-raised);border:1px solid var(--border);padding:24px;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                <span style="font-family:var(--sans);font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.04em;">Human Resources</span>
+              </div>
+              <a href="mailto:Heidi@pacifictoll.com" style="text-decoration:none;display:flex;align-items:center;gap:10px;padding:8px 16px;background:var(--accent-glow);border:1px solid rgba(74,127,165,.2);transition:all .2s;">
+                <span style="color:var(--text);font-size:.95rem;font-weight:500;">Heidi Quenga</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              </a>
+            </div>
+            <!-- Hours -->
+            <div style="background:var(--bg-raised);border:1px solid var(--border);padding:24px;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span style="font-family:var(--sans);font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.04em;">Hours</span>
+              </div>
+              <p style="color:var(--text);font-size:.9rem;line-height:1.8;">Office: 7am &ndash; 5pm<br>Shipping / Receiving: 6am &ndash; 3pm<br><span style="color:var(--text-dim);">Monday &ndash; Friday</span></p>
+            </div>
           </div>
-          <div class="contact-info-block">
-            <h4>Processing &amp; Steel Services</h4>
-            <p style="color:var(--text-dim);font-size:.85rem;margin-bottom:8px;">(310) 952-4992</p>
-            <p><a href="mailto:Conni@pacifictoll.com" style="color:var(--text);font-size:1rem;">Conni Fields</a><br><a href="mailto:Conni@pacifictoll.com" style="color:var(--accent);font-size:.85rem;">click to contact</a></p>
-            <p style="margin-top:12px;"><a href="mailto:Mark@pacifictoll.com" style="color:var(--text);font-size:1rem;">Mark Proner</a><br><a href="mailto:Mark@pacifictoll.com" style="color:var(--accent);font-size:.85rem;">click to contact</a></p>
+          <!-- Address + Map -->
+          <div style="display:flex;gap:24px;align-items:flex-start;">
+            <div style="flex-shrink:0;">
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                <span style="font-family:var(--sans);font-size:12px;font-weight:600;color:var(--accent);letter-spacing:.04em;">Location</span>
+              </div>
+              <a href="https://maps.google.com/?q=24724+Wilmington+Ave+Carson+CA+90745" target="_blank" rel="noopener" style="color:var(--text);font-size:1rem;text-decoration:none;line-height:1.6;display:block;">24724 Wilmington Ave<br>Carson, CA 90745</a>
+              <a href="tel:3109524992" style="color:var(--accent);font-size:.9rem;margin-top:8px;display:inline-block;">(310) 952-4992</a>
+            </div>
           </div>
-          <div class="contact-info-block">
-            <h4>Human Resources</h4>
-            <p style="color:var(--text-dim);font-size:.85rem;margin-bottom:8px;">(310) 952-4992</p>
-            <p><a href="mailto:Heidi@pacifictoll.com" style="color:var(--text);font-size:1rem;">Heidi Quenga</a><br><a href="mailto:Heidi@pacifictoll.com" style="color:var(--accent);font-size:.85rem;">click to contact</a></p>
-          </div>
-          <div class="contact-info-block">
-            <h4>Hours</h4>
-            <p>Office Hours: 7am &ndash; 5pm<br>Shipping / Receiving: 6am &ndash; 3pm<br>Monday &ndash; Friday</p>
-          </div>
-          <div class="contact-info-block">
-            <h4>Address</h4>
-            <a href="https://maps.google.com/?q=24724+Wilmington+Ave+Carson+CA+90745" target="_blank" rel="noopener">24724 Wilmington Ave<br>Carson, CA 90745</a>
-          </div>
-          <div class="map-container" style="margin-top:2rem;aspect-ratio:4/3;height:auto;">
+          <div class="map-container" style="margin-top:24px;aspect-ratio:16/7;height:auto;">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3316.8!2d-118.264!3d33.834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80dd35a3e5a0!2s24724+Wilmington+Ave%2C+Carson%2C+CA+90745!5e0!3m2!1sen!2sus!4v1" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="PTP location"></iframe>
           </div>
         </div>
