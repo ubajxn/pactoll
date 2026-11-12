@@ -334,11 +334,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  // Auto-open modal on contact page
-  var isContactPage = window.location.pathname.endsWith('contact.html');
-  if (isContactPage) {
-    setTimeout(function() { openModal(); }, 600);
-  }
 
   // Form submission — sends to Supabase API and Formspree
   form.addEventListener('submit', function(e) {
