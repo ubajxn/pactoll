@@ -464,6 +464,31 @@
       .specs { grid-template-columns: 1fr; }
       .footer__top { grid-template-columns: 1fr; }
     }
+
+    /* Pack slider */
+    .pack-slider { position: relative; }
+    .pack-slider__img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center;
+      opacity: 0;
+      transition: opacity 1.6s ease;
+    }
+    .pack-slider__img.active { opacity: 1; }
+    .pack-slider__dots {
+      position: absolute; bottom: 24px; right: 24px;
+      display: flex; gap: 8px; z-index: 2;
+    }
+    .pack-slider__dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(255,255,255,.3);
+      border: none; padding: 0; cursor: pointer;
+      transition: background .3s, transform .3s;
+    }
+    .pack-slider__dot.active {
+      background: rgba(255,255,255,.85);
+      transform: scale(1.25);
+    }
   </style>
 </head>
 <body>
@@ -738,8 +763,14 @@
 
   <!-- Spread 06: Custom Packaging -->
   <div class="spread reveal">
-    <div class="spread__media">
-      <img src="../images/flat-sheets.jpg" alt="Packaged flat sheets ready for shipment">
+    <div class="spread__media pack-slider" data-interval="5000">
+      <img class="pack-slider__img active" src="../images/custom-pack-01-go.JPEG" alt="Custom packaging — stretch wrapped coils">
+      <img class="pack-slider__img" src="../images/custom-pack-02-go.JPEG" alt="Custom packaging — paper wrapped sheets">
+      <img class="pack-slider__img" src="../images/custom-pack-03-go.JPEG" alt="Custom packaging — VCI bagged material">
+      <img class="pack-slider__img" src="../images/custom-pack-04-go.JPEG" alt="Custom packaging — custom skid builds">
+      <img class="pack-slider__img" src="../images/custom-pack-05-go.JPEG" alt="Custom packaging — finished pallets">
+      <img class="pack-slider__img" src="../images/custom-pack-06-go.JPEG" alt="Custom packaging — shipment ready">
+      <div class="pack-slider__dots"></div>
       <div class="spread__media-label">Service 06</div>
     </div>
     <div class="spread__content">
@@ -1023,6 +1054,38 @@
 
       // Copyright year
       document.querySelectorAll('.copyright-year').forEach(el => el.textContent = new Date().getFullYear());
+
+      // Pack slider
+      document.querySelectorAll('.pack-slider').forEach(slider => {
+        const imgs = slider.querySelectorAll('.pack-slider__img');
+        const dotsWrap = slider.querySelector('.pack-slider__dots');
+        const interval = parseInt(slider.dataset.interval) || 5000;
+        let cur = 0, timer;
+
+        imgs.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.className = 'pack-slider__dot' + (i === 0 ? ' active' : '');
+          dot.setAttribute('aria-label', 'Image ' + (i + 1));
+          dot.addEventListener('click', () => goTo(i));
+          dotsWrap.appendChild(dot);
+        });
+
+        const dots = dotsWrap.querySelectorAll('.pack-slider__dot');
+
+        function goTo(n) {
+          imgs[cur].classList.remove('active');
+          dots[cur].classList.remove('active');
+          cur = n;
+          imgs[cur].classList.add('active');
+          dots[cur].classList.add('active');
+          clearInterval(timer);
+          timer = setInterval(next, interval);
+        }
+
+        function next() { goTo((cur + 1) % imgs.length); }
+
+        timer = setInterval(next, interval);
+      });
     });
   </script>
 </body>
